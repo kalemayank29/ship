@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Id"
+        android:textSize="25dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#465362"
+        android:id="@+id/textId" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Family Head"
+        android:layout_marginLeft="25dp"
+        android:textSize="25dp"
+        android:textColor="#465362"
+        android:id="@+id/textHead" />
+</LinearLayout>

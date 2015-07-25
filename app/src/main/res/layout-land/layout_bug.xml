@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="20dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editName"
+            android:hint="Name                "
+            android:textSize="35sp"
+            android:layout_marginTop="0dp"
+            android:inputType="textCapWords" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editBug"
+            android:hint="Bug                "
+            android:textSize="35sp"
+            android:layout_marginTop="40dp"
+            android:inputType="textLongMessage|date" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:id="@+id/catSpin"
+            android:background="@drawable/abc_spinner_mtrl_am_alpha"
+            android:backgroundTint="@color/abc_primary_text_material_dark" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id="@+id/impSpin"
+            android:background="@drawable/abc_spinner_mtrl_am_alpha"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:text="Submit"
+            android:id="@+id/bugButton"
+            android:textSize="15dp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="30dp"/>
+
+    </LinearLayout>
+</LinearLayout>

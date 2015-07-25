@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="125dp"
+        android:id="@+id/imageView"
+        android:background="@drawable/search"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="800dp"
+        android:layout_height="400dp"
+        android:text="Never doubt that a small group of thoughtful, committed citizens can change the world; indeed, it's the only thing that ever has."
+        android:id="@+id/quote"
+        android:textSize="20dp"
+        android:textColor="#011936"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Margaret Mead"
+        android:id="@+id/person"
+        android:textSize="15dp"
+        android:textColor="#011936"
+        android:layout_marginTop="15dp"/>
+</LinearLayout>

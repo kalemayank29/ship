@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">Blink</string>
+
+    <string name="title_section1">Home</string>
+    <string name="title_section2">Members</string>
+    <string name="title_section3">Patients</string>
+    <string name="title_section4">House</string>
+    <string name="title_section5">Forms</string>
+    <string name="title_section6">Transfer Forms</string>
+    <string name="title_section7">Medicine Inventory</string>
+    <string name="title_section8">Drug Information</string>
+    <string name="title_section9">Submit Bug</string>
+
+    <string name="head"><u> Family Head </u> </string>
+    <string name ="members"> Members </string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_member_list_view">Member List</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_member_form">Member Form</string>
+
+    <string-array name="marriage_array">
+        <item> ---- </item>
+        <item>Married</item>
+        <item>Unmarried</item>
+        <item>Widower</item>
+        <item>Widow</item>
+        <item>Divorcee</item>
+    </string-array>
+
+    <string-array name="family_array">
+        <item> ---- </item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="education_array">
+        <item> ---- </item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="literacy_array">
+        <item> ---- </item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="category">
+        <item>Please Select a Category</item>
+        <item>Android Application</item>
+        <item>Connecting to Server</item>
+        <item>Sending Data to Server</item>
+        <item>Bug Reporting System</item>
+    </string-array>
+
+    <string-array name="importance">
+        <item>Please Select an Importance</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+</resources>
