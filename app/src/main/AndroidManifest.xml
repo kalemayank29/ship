@@ -2,6 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kylehirschfelder.ship" >
 
+    <uses-feature android:name="android.hardware.wifi" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.CHANGE_WIFI_STATE"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,7 +38,43 @@
         <activity
             android:name=".MemberForm"
             android:label="@string/title_activity_member_form"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".ViewMemberProfile"
+            android:label="@string/title_activity_view_member_profile" >
+        </activity>
+        <activity
+            android:name=".MemberFamilyFromHeadListView"
+            android:label="@string/title_activity_member_family_from_head_list_view" >
+        </activity>
+        <activity
+            android:name=".TransferMemberListView"
+            android:label="@string/title_activity_transfer_member_list_view" >
+        </activity>
+        <activity
+            android:name=".WifiDirectActivity"
+            android:label="@string/title_activity_wifi_direct" >
+        </activity>
+        <activity
+            android:name=".MoreDrugInfo"
+            android:label="@string/title_activity_more_drug_info" >
+        </activity>
+        <activity
+            android:name=".MoreDrugInfo_DrugInfo"
+            android:label="@string/title_activity_more_drug_info__drug_info" >
+        </activity>
+        <activity
+            android:name=".MoreDrugInfo_SideEffects"
+            android:label="@string/title_activity_drug_info__side_effects" >
+        </activity>
+        <activity
+            android:name=".MoreDrugInfo_Uses"
+            android:label="@string/title_activity_more_drug_info__uses" >
+        </activity>
+        <activity
+            android:name=".MoreDrugInfo_Precautions"
+            android:label="@string/title_activity_more_drug_info__precautions" >
         </activity>
     </application>
 

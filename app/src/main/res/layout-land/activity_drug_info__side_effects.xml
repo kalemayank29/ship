@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.kylehirschfelder.druginformation.drug_info"
+    android:orientation="vertical"
+    android:layout_marginTop="40dp"
+    android:layout_marginLeft="40dp">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Common Side Effects (Contact your doctor if these symptoms persist or worsen): "
+        android:layout_marginTop="0dp"
+        android:textSize="30dp"
+        android:id="@+id/textView" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Upset stomach, heartburn, drowsiness, or mild headache."
+        android:layout_marginTop="20dp"
+        android:textSize="23dp"
+        android:id="@+id/textView2" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="20dp"
+        android:text="Serious Side Effects (Contact your doctor immediately): "
+        android:textSize="30dp"
+        android:id="@+id/textView3" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Ringing in your ears, confusion, hallucinations, rapid breathing, seizure (convulsions); severe nausea, vomiting, or stomach pain; bloody or tarry stools, coughing up blood or vomit that looks like coffee grounds; fever lasting longer than 3 days."
+        android:textSize="23dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView4" />
+
+</LinearLayout>

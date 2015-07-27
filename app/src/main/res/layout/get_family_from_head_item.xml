@@ -2,24 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Id"
-        android:layout_marginLeft="30dp"
-        android:id="@+id/textId"
-        android:textSize="27dp"
-        android:textColor="#465362"/>
+        android:id="@+id/textId" />
 
     <TextView
         android:layout_width="wrap_content"
+        android:layout_marginLeft="15dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="85dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Name"
-        android:id="@+id/textName"
-        android:textSize="27dp"
-        android:textColor="#465362"/>
-
+        android:id="@+id/textHead" />
 </LinearLayout>

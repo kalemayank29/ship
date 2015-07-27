@@ -68,4 +68,34 @@
         <item>5</item>
     </string-array>
 
+    <string-array name="drug_list">
+        <item>Aspirin</item>
+        <item>Androgel</item>
+        <item>Acetoaminophen</item>
+        <item>Cadeut</item>
+        <item>Caffeine</item>
+        <item>Calcitrol</item>
+        <item>Cantil</item>
+        <item>Ibuproffen</item>
+        <item>Aspirin</item>
+        <item>Androgel</item>
+        <item>Acetoaminophen</item>
+        <item>Cadeut</item>
+        <item>Caffeine</item>
+        <item>Calcitrol</item>
+        <item>Cantil</item>
+        <item>Ibuproffen</item>
+    </string-array>
+
+    <string name="title_activity_view_member_profile">Member Profile</string>
+    <string name="title_activity_member_family_from_head_list_view">MemberFamilyFromHeadListView
+    </string>
+    <string name="title_activity_transfer_member_list_view">TransferMemberListView</string>
+    <string name="title_activity_wifi_direct">WifiDirectActivity</string>
+    <string name="title_activity_more_drug_info">MoreDrugInfo</string>
+    <string name="title_activity_more_drug_info__drug_info">MoreDrugInfo_DrugInfo</string>
+    <string name="title_activity_drug_info__side_effects">DrugInfo_SideEffects</string>
+    <string name="title_activity_more_drug_info__uses">MoreDrugInfo_Uses</string>
+    <string name="title_activity_more_drug_info__precautions">MoreDrugInfo_Precautions</string>
+
 </resources>

@@ -1,25 +1,25 @@
 package com.example.kylehirschfelder.ship;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class MemberListView extends AppCompatActivity {
+public class TransferMemberListView extends AppCompatActivity {
 
     private static final int VIEW = 0;
     List<Member> memberList = new ArrayList<Member>();
@@ -27,18 +27,55 @@ public class MemberListView extends AppCompatActivity {
     MemberDataInterface interfaceMember;
     ArrayAdapter<Member> memberAdapter;
     int longClickItemIndex;
+    Button pushAll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_member_list_view);
+        setContentView(R.layout.activity_transfer_member_list_view);
 
-        lv = (ListView) findViewById(R.id.memberAllListView);
+        pushAll = (Button) findViewById(R.id.pushAllBtn);
+        lv = (ListView) findViewById(R.id.ListView);
         interfaceMember = new MemberDataInterface(getApplicationContext());
         memberList = interfaceMember.getAllMembers(1);
 
         populateList();
         registerForContextMenu(lv);
+
+        pushAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<HashMap<String, String>> memberMap = new ArrayList<HashMap<String, String>>();
+
+                for(int i = 0; i < memberList.size(); i++){
+
+                    Member temp = memberList.get(i);
+
+                    HashMap<String, String> pairs = new HashMap<String, String>();
+                    pairs.put("familyId", String.valueOf(temp.getFamilyId()));
+                    pairs.put("name", temp.getName());
+                    pairs.put("age", String.valueOf(temp.getAge()));
+                    pairs.put("childId", String.valueOf(temp.getChildId()));
+                    pairs.put("marriageStatus", temp.getMarriageStatus());
+                    pairs.put("familyPlan", temp.getFamilyPlan());
+                    pairs.put("education", temp.getEducation());
+                    pairs.put("literacy", temp.getLiteracy());
+                    pairs.put("weddingArr", temp.getWeddingArr());
+                    pairs.put("weddingDept", temp.getWeddingDept());
+                    memberMap.add(pairs);
+
+                }
+
+                Log.println(Log.ASSERT, "LIST SIZE: ", String.valueOf(memberList.size()));
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("map",memberMap);
+                Intent intent = new Intent(TransferMemberListView.this, WifiDirectActivity.class);
+                intent.putExtras(bundle);
+                Log.println(Log.ASSERT, "Size: ", String.valueOf(memberMap.size()));
+                startActivity(intent);
+            }
+        });
 
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -101,7 +138,7 @@ public class MemberListView extends AppCompatActivity {
 
         List<Member> memberList;
         public memberListAdapter(List<Member> medList) {
-            super(MemberListView.this, R.layout.member_all_item, medList);
+            super(TransferMemberListView.this, R.layout.member_all_item, medList);
             this.memberList = medList;
         }
 
@@ -124,3 +161,4 @@ public class MemberListView extends AppCompatActivity {
         }
     }
 }
+
