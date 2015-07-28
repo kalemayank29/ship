@@ -14,6 +14,7 @@ public class Member {
     private String name;
     private int age;
     private int childId;
+    private int houseId;
     private String marriageStatus;
     private String familyPlan;
     private String education;
@@ -25,8 +26,10 @@ public class Member {
 
     }
 
-    public Member(int familyId, int familyHeadId, String name, int age, int childId, String marriageStatus, String familyPlan, String education, String literacy, String weddingArr, String weddingDept) {
+    public Member(int familyId, int houseId, int familyHeadId, String name, int age, int childId, String marriageStatus, String familyPlan, String education, String literacy, String weddingArr, String weddingDept) {
+
         this.familyId = familyId;
+        this.houseId = houseId;
         this.familyHeadId = familyHeadId;
         this.name = name;
         this.age = age;
@@ -46,6 +49,7 @@ public class Member {
                 ) {
             HashMap<String,String> pairs = new HashMap<String,String>();
             pairs.put("familyId", String.valueOf(temp.getFamilyId()));
+            pairs.put("houseId", String.valueOf(temp.getHouseId()));
             pairs.put("familyHeadId", String.valueOf(temp.getFamilyId()));
             pairs.put("name", temp.getName());
             pairs.put("age", String.valueOf(temp.getAge()));
@@ -156,5 +160,13 @@ public class Member {
 
     public void setWeddingDept(String weddingDept) {
         this.weddingDept = weddingDept;
+    }
+
+    public int getHouseId() {
+        return houseId;
+    }
+
+    public void setHouseId(int houseId) {
+        this.houseId = houseId;
     }
 }

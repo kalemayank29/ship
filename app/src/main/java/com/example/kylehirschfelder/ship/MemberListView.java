@@ -35,7 +35,7 @@ public class MemberListView extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.memberAllListView);
         interfaceMember = new MemberDataInterface(getApplicationContext());
-        memberList = interfaceMember.getAllMembers(1);
+        memberList = interfaceMember.getAllMembers(0);
 
         populateList();
         registerForContextMenu(lv);

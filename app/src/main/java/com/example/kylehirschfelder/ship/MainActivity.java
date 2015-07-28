@@ -43,6 +43,11 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         MemberDataInterface test = new MemberDataInterface(getApplicationContext());
+        try {
+            test.cleanFamilyId();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         /********************************************
         Member member = new Member(4,1,"Kyle", 22, 14, "M", "F", "E", "L", "D", "A");
         Member member1 = new Member(4,0,"Kyle1", 22, 14, "M", "F", "E", "L", "D", "A");

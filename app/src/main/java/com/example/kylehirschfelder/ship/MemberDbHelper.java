@@ -15,7 +15,8 @@ public class MemberDbHelper extends SQLiteOpenHelper {
     public static final String TABLE_MEMBERCUR = "memberCur";
     public static final String MEMBER_ID = "_id";
     public static final String FAMILY_ID = "family_id";
-    public static final String FAMILY_HEAD_ID = "family_head_id";
+    public static final String HOUSE_ID = "house_id";
+    public static final String FAMILY_HEAD_BOOL = "family_head_id";
     public static final String NAME = "name";
     public static final String AGE = "age";
     public static final String CHILD_ID = "child_id";
@@ -32,7 +33,8 @@ public class MemberDbHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + TABLE_MEMBER + " (" +
                     MEMBER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     FAMILY_ID + " INTEGER NOT NULL, " +
-                    FAMILY_HEAD_ID + " INTEGER NOT NULL," +
+                    HOUSE_ID + " INTEGER NOT NULL, " +
+                    FAMILY_HEAD_BOOL + " INTEGER NOT NULL," +
                     NAME + " TEXT NOT NULL," +
                     AGE + " INTEGER NOT NULL, " +
                     CHILD_ID + " INTEGER, " +
@@ -48,7 +50,8 @@ public class MemberDbHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + TABLE_MEMBERCUR + " (" +
                     MEMBER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     FAMILY_ID + " INTEGER NOT NULL, " +
-                    FAMILY_HEAD_ID + " INTEGER NOT NULL," +
+                    HOUSE_ID + " INTEGER NOT NULL, " +
+                    FAMILY_HEAD_BOOL + " INTEGER NOT NULL," +
                     NAME + " TEXT NOT NULL," +
                     AGE + " INTEGER NOT NULL, " +
                     CHILD_ID + " INTEGER, " +

@@ -1,5 +1,6 @@
 package com.example.kylehirschfelder.ship;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,7 +11,7 @@ import android.widget.Button;
 
 public class FormFragment extends Fragment {
 
-    Button censusButton, memberButton, birthButton, deathButton;
+    Button censusButton, memberButton, birthButton, deathButton, familyButton;
 
     View myView;
     @Nullable
@@ -22,12 +23,14 @@ public class FormFragment extends Fragment {
         memberButton = (Button) myView.findViewById(R.id.memberBtn);
         birthButton = (Button) myView.findViewById(R.id.birthBtn);
         deathButton = (Button) myView.findViewById(R.id.deathBtn);
+        familyButton = (Button) myView.findViewById(R.id.familyBtn);
+
 
         censusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                Intent intent = new Intent(getActivity().getApplicationContext(), CensusFormPageOne.class);
+                startActivity(intent);
             }
         });
 
@@ -49,6 +52,14 @@ public class FormFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+
+        familyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity().getApplicationContext(), FamilyForm.class);
+                startActivity(intent);
             }
         });
 

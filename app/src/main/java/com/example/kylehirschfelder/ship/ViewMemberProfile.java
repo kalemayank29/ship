@@ -39,7 +39,7 @@ public class ViewMemberProfile extends AppCompatActivity {
         String index = getIntent().getStringExtra("index");
 
         try {
-            member = db.getMember(Integer.parseInt(index), 1);
+            member = db.getMember(Integer.parseInt(index), 0);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -16,8 +16,8 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/famText"
-            android:hint="Family Id No."
+            android:id="@+id/houseText"
+            android:hint="House Id No."
             android:textSize="25sp"
             android:inputType="number" />
 

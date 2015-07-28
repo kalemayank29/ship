@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -21,7 +20,7 @@ import android.widget.Toast;
 import java.sql.SQLException;
 import java.util.Calendar;
 
-public class MemberForm extends AppCompatActivity {
+public class FamilyForm  extends AppCompatActivity {
 
     Spinner marriageSpinner, familySpinner, educationSpinner, literacySpinner;
 
@@ -30,8 +29,8 @@ public class MemberForm extends AppCompatActivity {
     private int mDay, wDay;
     private int isHead = 0;
     static final String TAG = "LOG";
-    Button pushLocal,localBtn;
-    String famId, name, age, childId, marrSpin, famSpin, eduSpin, litSpin, wedDep, wedAr;
+    Button pushLocal, localBtn;
+    String houseId, name, age, childId, marrSpin, famSpin, eduSpin, litSpin, wedDep, wedAr;
     EditText nameText, famText, ageText, childText;
     MemberDataInterface db;
 
@@ -44,31 +43,30 @@ public class MemberForm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_member_form);
+        setContentView(R.layout.activity_family_form);
         //db.deleteAllTables();
         pushLocal = (Button) findViewById(R.id.localBtn);
 
         marriageSpinner = (Spinner) findViewById(R.id.spin_marriage);
-        final ArrayAdapter marriageAdapter = ArrayAdapter.createFromResource(this,R.array.marriage_array,android.R.layout.simple_spinner_dropdown_item);
+        final ArrayAdapter marriageAdapter = ArrayAdapter.createFromResource(this, R.array.marriage_array, android.R.layout.simple_spinner_dropdown_item);
         marriageSpinner.setAdapter(marriageAdapter);
 
         familySpinner = (Spinner) findViewById(R.id.spin_family_plan);
-        ArrayAdapter familyAdapter = ArrayAdapter.createFromResource(this,R.array.family_array,android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter familyAdapter = ArrayAdapter.createFromResource(this, R.array.family_array, android.R.layout.simple_spinner_dropdown_item);
         familySpinner.setAdapter(familyAdapter);
 
         educationSpinner = (Spinner) findViewById(R.id.spin_education);
-        ArrayAdapter educationAdapter = ArrayAdapter.createFromResource(this,R.array.education_array,android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter educationAdapter = ArrayAdapter.createFromResource(this, R.array.education_array, android.R.layout.simple_spinner_dropdown_item);
         educationSpinner.setAdapter(educationAdapter);
 
         literacySpinner = (Spinner) findViewById(R.id.spin_literacy);
-        ArrayAdapter literacyAdapter = ArrayAdapter.createFromResource(this,R.array.literacy_array,android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter literacyAdapter = ArrayAdapter.createFromResource(this, R.array.literacy_array, android.R.layout.simple_spinner_dropdown_item);
         literacySpinner.setAdapter(literacyAdapter);
 
-        famText = (EditText) findViewById(R.id.famText);
+        famText = (EditText) findViewById(R.id.houseText);
         nameText = (EditText) findViewById(R.id.nameText);
         ageText = (EditText) findViewById(R.id.ageText);
         childText = (EditText) findViewById(R.id.childText);
-
 
 
         //********DATE PICKER***********//
@@ -100,7 +98,7 @@ public class MemberForm extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                famId = famText.getText().toString();
+                houseId = famText.getText().toString();
                 name = nameText.getText().toString();
                 age = ageText.getText().toString();
                 childId = childText.getText().toString();
@@ -111,24 +109,17 @@ public class MemberForm extends AppCompatActivity {
                 wedDep = mDateDisplay.getText().toString();
                 wedAr = weddingArrDisplay.getText().toString();
 
-                if (famId.equals("") || name.equals("") || age.equals("") || childId.equals("")) {
-                    Toast.makeText(MemberForm.this, "Please complete all fields", Toast.LENGTH_SHORT).show();
+                if (houseId.equals("") || name.equals("") || age.equals("") || childId.equals("")) {
+                    Toast.makeText(FamilyForm.this, "Please complete all fields", Toast.LENGTH_SHORT).show();
                 } else {
-                    int houseId = 0;
-                    try {
-                        db = new MemberDataInterface(getApplicationContext());
-                        int headId = db.getFamilyHeadId(Integer.parseInt(famId), 0);
-                        Member head = db.getMember(headId,0);
-                        houseId = head.getHouseId();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                    Member member = new Member(Integer.parseInt(famId), houseId ,isHead, name, Integer.parseInt(age),
+                    Member member = new Member(-1, Integer.parseInt(houseId), 1, name, Integer.parseInt(age),
                             Integer.parseInt(childId), marrSpin, famSpin, eduSpin, litSpin, wedAr, wedDep);
 
+                    db = new MemberDataInterface(getApplicationContext());
                     Log.println(Log.ASSERT, "log", member.getFamilyPlan());
                     try {
                         long result = db.createMember(member, 0);
+                        db.cleanFamilyId();
                         Log.println(Log.ASSERT, "log", String.valueOf(result));
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -183,8 +174,8 @@ public class MemberForm extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void updateDisplay(int id){
-        switch(id){
+    public void updateDisplay(int id) {
+        switch (id) {
             case DATE_DIALOG_ID:
                 this.mDateDisplay.setText(
                         new StringBuilder()

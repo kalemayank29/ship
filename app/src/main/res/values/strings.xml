@@ -87,15 +87,82 @@
         <item>Ibuproffen</item>
     </string-array>
 
+    <string-array name="medicine_array">
+        <item>Aspirin</item>
+        <item>Caffeine</item>
+        <item>Ibuproffen</item>
+        <item>Acetoaminophen</item>
+        <item>Androgel</item>
+        <item>Cadeut</item>
+        <item>Calcitrol</item>
+        <item>Cantil</item>
+    </string-array>
+
+    <string-array name="religion">
+        <item>------</item>
+        <item>Hindu</item>
+        <item>Muslim</item>
+        <item>Christian</item>
+        <item>Sikh</item>
+        <item>Jain</item>
+        <item>Buddhism</item>
+    </string-array>
+
+    <string-array name="electricity">
+        <item>------</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="house_ownership">
+        <item>------</item>
+        <item>Rented</item>
+        <item>Owned</item>
+    </string-array>
+
+    <string-array name="toilets">
+        <item>------</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="does_everyone_use_toilet">
+        <item>------</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="seperate_room_for_kitchen">
+        <item>------</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="drinking_water">
+        <item>------</item>
+        <item>Well</item>
+        <item>Handpump</item>
+        <item>Tap</item>
+        <item>Lake</item>
+        <item>River</item>
+        <item>Canal</item>
+    </string-array>
+
     <string name="title_activity_view_member_profile">Member Profile</string>
     <string name="title_activity_member_family_from_head_list_view">MemberFamilyFromHeadListView
     </string>
     <string name="title_activity_transfer_member_list_view">TransferMemberListView</string>
     <string name="title_activity_wifi_direct">WifiDirectActivity</string>
-    <string name="title_activity_more_drug_info">MoreDrugInfo</string>
+    <string name="title_activity_more_drug_info">More Drug Info</string>
     <string name="title_activity_more_drug_info__drug_info">MoreDrugInfo_DrugInfo</string>
     <string name="title_activity_drug_info__side_effects">DrugInfo_SideEffects</string>
     <string name="title_activity_more_drug_info__uses">MoreDrugInfo_Uses</string>
     <string name="title_activity_more_drug_info__precautions">MoreDrugInfo_Precautions</string>
+    <string name="title_activity_medicine_add_interface">Add Medicine</string>
+    <string name="title_activity_medicine_add_list_view">Medicine List</string>
+    <string name="title_activity_medicine_add_show_cur">Curated Medicine</string>
+    <string name="title_activity_census_form_page_one">Page One</string>
+    <string name="title_activity_census_form_page_two">Page Two</string>
+    <string name="title_activity_family_form">FamilyForm</string>
 
 </resources>
