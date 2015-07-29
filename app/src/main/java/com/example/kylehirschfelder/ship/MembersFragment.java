@@ -24,7 +24,7 @@ import java.util.List;
 public class MembersFragment extends Fragment {
     View myView;
     ListView lv;
-    private static final int VIEWFAM = 0;
+    private static final int VIEWFAM = 0, ADDHOUSE = 1;
     ArrayAdapter<Member> memberAdapter, memberFamAdapter;
     List<Member> memberList, memberFamList;
     MemberDataInterface head;
@@ -78,6 +78,7 @@ public class MembersFragment extends Fragment {
         super.onCreateContextMenu(menu, view, info);
         menu.setHeaderTitle("Census Options");
         menu.add(Menu.NONE, VIEWFAM, menu.NONE, "View Family");
+        menu.add(Menu.NONE, ADDHOUSE, menu.NONE, "Add House");
     }
 
     public void populateList() {
@@ -93,6 +94,11 @@ public class MembersFragment extends Fragment {
                 intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
                 startActivity(intent);
                 break;
+            case ADDHOUSE:
+                Intent censusIntent = new Intent(getActivity(),CensusFormPageOne.class);
+                censusIntent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getMemberId()));
+                startActivity(censusIntent);
+
         }
         return super.onContextItemSelected(item);
     }

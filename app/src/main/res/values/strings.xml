@@ -164,5 +164,6 @@
     <string name="title_activity_census_form_page_one">Page One</string>
     <string name="title_activity_census_form_page_two">Page Two</string>
     <string name="title_activity_family_form">FamilyForm</string>
+    <string name="title_activity_add_primary_family">AddPrimaryFamily</string>
 
 </resources>

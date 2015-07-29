@@ -18,7 +18,7 @@ public class CensusFormPageOne extends AppCompatActivity implements AdapterView.
 
     Button formButton;
     String isCement, isBrick, isSand, isJunk, isOthers, religion, electricity, house_owner,
-            caste, pbus, abus1, abus2, abus3, wall_a,wall_b,wall_c, wall_d, wall_e, isFam;
+            caste, pbus, abus1, abus2, abus3, wall_a,wall_b,wall_c, wall_d, wall_e, isFam,familyId;
 
     EditText casteId, pbusId, abus1Id, abus2Id, abus3Id, famId;
     Spinner religionSpinner, electricitySpinner, house_ownershipSpinner,
@@ -28,12 +28,14 @@ public class CensusFormPageOne extends AppCompatActivity implements AdapterView.
     CheckBox cementBox, sandBox, junkBox, brickBox, otherBox;
     Boolean cement, brick, sand, junk, other;
     Button newButton;
-
+    String houseId;
     @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_census_form_page_one);
+
+        familyId = getIntent().getStringExtra("index");
 
         religionSpinner = (Spinner) findViewById(R.id.spinReligion);
         electricitySpinner = (Spinner) findViewById(R.id.spinElec);
@@ -133,6 +135,7 @@ public class CensusFormPageOne extends AppCompatActivity implements AdapterView.
                         break;
                 }
 
+                dataTransfer.putExtra("familyId", familyId);
                 dataTransfer.putExtra("wall_a", isCement);
                 dataTransfer.putExtra("wall_b", isBrick);
                 dataTransfer.putExtra("wall_c", isSand);

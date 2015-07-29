@@ -13,11 +13,11 @@ public class Census {
                 _toilet, _cook, _kitchen, _water, _date, _religion;
 
 
-    private int _famid;
+    private int _famid, _houseId;
 
     BitSet wallBit;
 
-    public Census(int _famid, String _caste, String _religion, String _pbus,
+    public Census(int _houseId, String _caste, String _religion, String _pbus,
                   String _abus1, String _abus2,
                   String _abus3, String _wall,
                   String _roof, String _electricity, String _houseowner,
@@ -25,7 +25,7 @@ public class Census {
                   String _kitchen, String _water,
                   String _date) {
 
-        this._famid = _famid;
+        this._houseId = _houseId;
         this._caste = _caste;
         this._pbus = _pbus;
         this._abus1 = _abus1;
@@ -345,7 +345,13 @@ Log.e("works","yes");
         return parsed;
     }
 
+    public int get_houseId() {
+        return _houseId;
+    }
 
+    public void set_houseId(int _houseId) {
+        this._houseId = _houseId;
+    }
 }
 
 

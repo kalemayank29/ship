@@ -2,6 +2,7 @@ package com.example.kylehirschfelder.ship;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -40,6 +41,7 @@ public class ViewMemberProfile extends AppCompatActivity {
 
         try {
             member = db.getMember(Integer.parseInt(index), 0);
+            Log.println(Log.ASSERT, "LOGGING HOUSE: ", String.valueOf(member.getHouseId()));
         } catch (SQLException e) {
             e.printStackTrace();
         }

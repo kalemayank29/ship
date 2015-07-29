@@ -28,6 +28,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.BitSet;
@@ -53,7 +54,7 @@ public class CensusFormPageTwo extends AppCompatActivity implements AdapterView.
             isWell, isTap, isLake, isRiver, isCanal, isHandpump, isToilet,
             isToiletUser, isKitchen, isElec, isHouse_owner, isReligion,
             wall_a, wall_b, wall_c, wall_d, wall_e, caste, pbus, abus1,
-            abus2, abus3, isFam;
+            abus2, abus3, isFam, isHouseId;
 
     private static final int EDIT = 0, DELETE = 1;
 
@@ -63,6 +64,7 @@ public class CensusFormPageTwo extends AppCompatActivity implements AdapterView.
     Bundle bundle;
     CensusDBHandler dbHandler;
     ArrayAdapter<Census> censusAdapter;
+    String famId;
 
     int longClickItemIndex;
 
@@ -100,6 +102,7 @@ public class CensusFormPageTwo extends AppCompatActivity implements AdapterView.
         canalBox = (CheckBox) findViewById(R.id.canalCheck);
         handpumpBox = (CheckBox) findViewById(R.id.handpumpCheck);
 
+        famId = data.getString("familyId");
         wall_a = data.getString("wall_a");
         wall_b = data.getString("wall_b");
         wall_c = data.getString("wall_c");
@@ -130,7 +133,6 @@ public class CensusFormPageTwo extends AppCompatActivity implements AdapterView.
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 cement = cementBox.isChecked();
                 mangalore = mangaloreBox.isChecked();
@@ -348,6 +350,16 @@ public class CensusFormPageTwo extends AppCompatActivity implements AdapterView.
                 //Log.e("COOK", census.get_cook());
 
                 dbHandler.createCensus(census);
+                Census element = dbHandler.getRecent();
+                MemberDataInterface insertInterface = new MemberDataInterface(getApplicationContext());
+                try {
+                    Member insert = insertInterface.getMember(Integer.parseInt(famId), 0);
+                    insert.setHouseId(element.get_houseId());
+                    insertInterface.update(insert, insert.getMemberId());
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 censusList.add(census);
                 //dbHandler.deleteAll();
                 InputStream is;
@@ -391,10 +403,6 @@ public class CensusFormPageTwo extends AppCompatActivity implements AdapterView.
                 //TODO: Implement editing a patient
                 break;
             case DELETE:
-
-                dbHandler.deleteContact(censusList.get(longClickItemIndex));
-                censusList.remove(longClickItemIndex);
-                censusAdapter.notifyDataSetChanged();
                 break;
         }
         return super.onContextItemSelected(item);

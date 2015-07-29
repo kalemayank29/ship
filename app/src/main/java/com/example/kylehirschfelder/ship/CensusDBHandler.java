@@ -15,9 +15,9 @@ import java.util.List;
 public class CensusDBHandler extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "formManager",
+    private static final String DATABASE_NAME = "formManager1",
             TABLE_CENSUS = "census",
-            KEY_FAMID = "family_id",
+            KEY_HOUSEID = "_id",
             KEY_CASTE = "caste",
             KEY_PBUS = "p_bus",
             KEY_ABUS1 = "a_bus_1",
@@ -44,7 +44,7 @@ public class CensusDBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS "
                 + TABLE_CENSUS + "("
-                + KEY_FAMID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + KEY_HOUSEID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + KEY_CASTE + " VARCHAR, "
                 + KEY_RELIGION + " VARCHAR, "
                 + KEY_PBUS + " VARCHAR, "
@@ -74,7 +74,7 @@ public class CensusDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(KEY_FAMID, census.get_famid());
+        values.put(KEY_HOUSEID, census.get_houseId());
         values.put(KEY_CASTE, census.get_caste());
         values.put(KEY_RELIGION, census.get_religion());
         values.put(KEY_PBUS, census.get_pbus());
@@ -94,13 +94,14 @@ public class CensusDBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_CENSUS, null, values);
         db.close();
     }
-
+    /*
     public void deleteContact(Census census) {
 
         SQLiteDatabase db = getWritableDatabase();
         db.delete(TABLE_CENSUS, KEY_FAMID + "=?", new String[]{String.valueOf(census.get_famid())});
         db.close();
     }
+    */
 
     public int getCensusCount() {
 
@@ -119,7 +120,7 @@ public class CensusDBHandler extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                Census element = new Census(Integer.parseInt(cursor.getString(0)), cursor.getString(1),
+                Census element = new Census(Integer.parseInt(cursor.getString(0)),  cursor.getString(1),
                         cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5),
                         cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9),
                         cursor.getString(10), cursor.getString(11), cursor.getString(12), cursor.getString(13),
@@ -139,5 +140,17 @@ public class CensusDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_CENSUS, null, null);
         db.close();
+    }
+
+    public Census getRecent(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_CENSUS + " ORDER BY _id DESC LIMIT 1",null);
+        cursor.moveToFirst();
+        Census element = new Census(Integer.parseInt(cursor.getString(0)),  cursor.getString(1),
+                cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5),
+                cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9),
+                cursor.getString(10), cursor.getString(11), cursor.getString(12), cursor.getString(13),
+                cursor.getString(14), cursor.getString(15), cursor.getString(16));
+        return element;
     }
 }

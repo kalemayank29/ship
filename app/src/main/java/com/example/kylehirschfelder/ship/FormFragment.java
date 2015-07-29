@@ -58,7 +58,7 @@ public class FormFragment extends Fragment {
         familyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), FamilyForm.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), AddPrimaryFamily.class);
                 startActivity(intent);
             }
         });
