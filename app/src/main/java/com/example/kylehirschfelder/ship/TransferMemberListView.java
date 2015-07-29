@@ -37,7 +37,7 @@ public class TransferMemberListView extends AppCompatActivity {
         pushAll = (Button) findViewById(R.id.pushAllBtn);
         lv = (ListView) findViewById(R.id.ListView);
         interfaceMember = new MemberDataInterface(getApplicationContext());
-        memberList = interfaceMember.getAllMembers(1);
+        memberList = interfaceMember.getAllMembers(0);
 
         populateList();
         registerForContextMenu(lv);
@@ -53,6 +53,7 @@ public class TransferMemberListView extends AppCompatActivity {
 
                     HashMap<String, String> pairs = new HashMap<String, String>();
                     pairs.put("familyId", String.valueOf(temp.getFamilyId()));
+                    pairs.put("houseId", String.valueOf(temp.getHouseId()));
                     pairs.put("name", temp.getName());
                     pairs.put("age", String.valueOf(temp.getAge()));
                     pairs.put("childId", String.valueOf(temp.getChildId()));

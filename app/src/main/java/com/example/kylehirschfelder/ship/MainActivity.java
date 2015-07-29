@@ -92,6 +92,12 @@ public class MainActivity extends AppCompatActivity
             case 1:
                 myFragment = new MembersFragment();
                 break;
+            case 2:
+                myFragment = new PatientFragment();
+                break;
+            case 3:
+                myFragment = new HouseFragment();
+                break;
             case 4:
                 myFragment = new FormFragment();
                 break;

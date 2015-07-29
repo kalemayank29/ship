@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#5ab49c</item>
-        <item name="colorPrimaryDark">#52a38d</item>
+        <item name="colorPrimaryDark">#011936</item>
         <item name="android:activatedBackgroundIndicator">@drawable/my_background</item>
 
     </style>

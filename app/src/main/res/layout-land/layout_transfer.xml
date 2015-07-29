@@ -9,6 +9,8 @@
         android:text="Member Form"
         android:layout_marginLeft="400dp"
         android:layout_marginTop="200dp"
-        android:id="@+id/memberBtn"/>
+        android:id="@+id/memberBtn"
+        android:textColor="#ffffff"
+        android:background="@drawable/my_button"/>
 
 </LinearLayout>

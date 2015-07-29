@@ -151,7 +151,7 @@
     <string name="title_activity_view_member_profile">Member Profile</string>
     <string name="title_activity_member_family_from_head_list_view">MemberFamilyFromHeadListView
     </string>
-    <string name="title_activity_transfer_member_list_view">TransferMemberListView</string>
+    <string name="title_activity_transfer_member_list_view">Transfer Member List</string>
     <string name="title_activity_wifi_direct">WifiDirectActivity</string>
     <string name="title_activity_more_drug_info">More Drug Info</string>
     <string name="title_activity_more_drug_info__drug_info">MoreDrugInfo_DrugInfo</string>
