@@ -37,7 +37,7 @@ public class TransferMemberListView extends AppCompatActivity {
         pushAll = (Button) findViewById(R.id.pushAllBtn);
         lv = (ListView) findViewById(R.id.ListView);
         interfaceMember = new MemberDataInterface(getApplicationContext());
-        memberList = interfaceMember.getAllMembers(0);
+        memberList = interfaceMember.getAllMembers(0);            // Push only from Local
 
         populateList();
         registerForContextMenu(lv);
@@ -47,6 +47,9 @@ public class TransferMemberListView extends AppCompatActivity {
             public void onClick(View v) {
                 ArrayList<HashMap<String, String>> memberMap = new ArrayList<HashMap<String, String>>();
 
+                memberMap = interfaceMember.toHashList(memberList);
+
+                /*
                 for(int i = 0; i < memberList.size(); i++){
 
                     Member temp = memberList.get(i);
@@ -65,18 +68,21 @@ public class TransferMemberListView extends AppCompatActivity {
                     pairs.put("weddingDept", temp.getWeddingDept());
                     memberMap.add(pairs);
 
-                }
+                }*/
 
-                Log.println(Log.ASSERT, "LIST SIZE: ", String.valueOf(memberList.size()));
+                //Log.println(Log.ASSERT, "LIST SIZE: ", String.valueOf(memberList.size()));
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("map",memberMap);
                 Intent intent = new Intent(TransferMemberListView.this, WifiDirectActivity.class);
                 intent.putExtras(bundle);
-                Log.println(Log.ASSERT, "Size: ", String.valueOf(memberMap.size()));
+
+                //Log.println(Log.ASSERT, "Size: ", String.valueOf(memberMap.size()));
+
                 startActivity(intent);
             }
         });
+
 
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override

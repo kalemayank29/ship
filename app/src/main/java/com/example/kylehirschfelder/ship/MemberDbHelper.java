@@ -4,6 +4,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+
+/**
+ * MemberDbHelper class: Separates table and database implementation.
+ * Query in form of String variable TAGS to simplify code.
+ */
 public class MemberDbHelper extends SQLiteOpenHelper {
 
     //Constants for db name and version
@@ -28,7 +33,7 @@ public class MemberDbHelper extends SQLiteOpenHelper {
     public static final String WEDDING_ARR = "wed_came";
 
 
-    //SQL to create table
+    //SQL to create local table
     private static final String MEMBER_CREATE =
             "CREATE TABLE " + TABLE_MEMBER + " (" +
                     MEMBER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -46,6 +51,7 @@ public class MemberDbHelper extends SQLiteOpenHelper {
                     WEDDING_DEPT + " TEXT " +
                     ")";
 
+    //SQL to create curated table
     private static final String MEMBER_CREATECUR =
             "CREATE TABLE " + TABLE_MEMBERCUR + " (" +
                     MEMBER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +

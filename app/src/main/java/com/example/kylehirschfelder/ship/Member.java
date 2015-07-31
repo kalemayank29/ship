@@ -4,9 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by mayank on 7/21/15.
+
+/**** MEMBER CLASS *****
+ *  Unique Id and primary key constraint is memberId.
+ *  Family Id is assigned as Member Id of the family head using CleanUp.
+ *  House Id is only assigned first to member head on house (census) data creation.
+ *
+ *  13 private variables. 6 int, 7 String types.
  */
+
 public class Member {
     private int memberId;
     private int familyId;
@@ -40,29 +46,6 @@ public class Member {
         this.literacy = literacy;
         this.weddingArr = weddingArr;
         this.weddingDept = weddingDept;
-    }
-
-
-    public ArrayList<HashMap<String,String>> toHashList(List<Member> memberList) {
-        ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();
-        for (Member temp:memberList
-                ) {
-            HashMap<String,String> pairs = new HashMap<String,String>();
-            pairs.put("familyId", String.valueOf(temp.getFamilyId()));
-            pairs.put("houseId", String.valueOf(temp.getHouseId()));
-            pairs.put("familyHeadId", String.valueOf(temp.getFamilyId()));
-            pairs.put("name", temp.getName());
-            pairs.put("age", String.valueOf(temp.getAge()));
-            pairs.put("childId", String.valueOf(temp.getChildId()));
-            pairs.put("marriageStatus", temp.getMarriageStatus());
-            pairs.put("familyPlan", temp.getFamilyPlan());
-            pairs.put("education", temp.getEducation());
-            pairs.put("literacy", temp.getLiteracy());
-            pairs.put("weddingArr", temp.getWeddingArr());
-            pairs.put("weddingDept", temp.getWeddingDept());
-            list.add(pairs);
-        }
-        return list;
     }
 
 
