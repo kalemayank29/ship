@@ -67,21 +67,24 @@ public class MemberDataInterface {
         value.put(dbHelper.FAMILY_HEAD_BOOL, element.getFamilyHeadId());        // Is family Head?
         value.put(dbHelper.NAME, element.getName());
         value.put(dbHelper.AGE, element.getAge());
-        value.put(dbHelper.CHILD_ID, element.getChildId());
+        value.put(dbHelper.SEX,element.getSex());
+        value.put(dbHelper.CHILD_ID,element.getChildId());
+        value.put(dbHelper.CHILD_DATE,element.getChildDate());
         value.put(dbHelper.MARRIAGE_STATUS, element.getMarriageStatus());
         value.put(dbHelper.FAMILY_PLAN, element.getFamilyPlan());
         value.put(dbHelper.EDUCATION, element.getEducation());
         value.put(dbHelper.LITERACY, element.getLiteracy());
         value.put(dbHelper.WEDDING_ARR, element.getWeddingArr());
         value.put(dbHelper.WEDDING_DEPT, element.getWeddingDept());
+        value.put(dbHelper.FLAG, 1);
 
-
-        if(cur == 0) {
+        if(cur == 0)
             newRowId = this.database.insert(dbHelper.TABLE_MEMBER, null, value);
-        }
-        else if(cur == 1){
+       else{
+            value.put(dbHelper.FLAG, 1);
             newRowId = this.database.insert(dbHelper.TABLE_MEMBERCUR, null, value);
         }
+
 
         this.close();
         return newRowId;
@@ -105,10 +108,9 @@ public class MemberDataInterface {
         String selection = "_id=?";     //unique member id
         String[] selectionArgs = new String[] { String.valueOf(id)};
 
-        if(cur == 0)        // Scratch database
+        if(cur == 0)
             c = database.query(MemberDbHelper.TABLE_MEMBER,null,selection,selectionArgs,null,null,null);
-
-        else if(cur == 1)   // Curated database
+        else
             c = database.query(MemberDbHelper.TABLE_MEMBERCUR,null,selection,selectionArgs,null,null,null);
 
         c.moveToFirst();
@@ -118,7 +120,9 @@ public class MemberDataInterface {
         element.setHouseId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.HOUSE_ID)));
         element.setFamilyHeadId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_HEAD_BOOL)));
         element.setAge(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.AGE)));
+        element.setSex(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.SEX)));
         element.setChildId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_ID)));
+        element.setChildId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_DATE)));
         element.setMarriageStatus(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.MARRIAGE_STATUS)));
         element.setFamilyPlan(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_PLAN)));
         element.setEducation(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.EDUCATION)));
@@ -145,9 +149,10 @@ public class MemberDataInterface {
         Cursor cursor = null;
 
         if(cur == 0)
-            cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBER, null);
-        else if(cur ==1)
-            cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR, null);
+            cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBER , null);
+        else
+            cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR , null);
+
 
         //Log.println(Log.ASSERT, "CURSOR SIZE: ", String.valueOf(cursor.getCount()));
 
@@ -157,10 +162,9 @@ public class MemberDataInterface {
                         Integer.parseInt(cursor.getString(1)),Integer.parseInt(cursor.getString(2)),
                         Integer.parseInt(cursor.getString(3)),
                         cursor.getString(4),Integer.parseInt(cursor.getString(5)),
-                        Integer.parseInt(cursor.getString(6)), cursor.getString(7),
-                        cursor.getString(8), cursor.getString(9),
-                        cursor.getString(10), cursor.getString(11),
-                        cursor.getString(12));
+                        Integer.parseInt(cursor.getString(6)), Integer.parseInt(cursor.getString(7)),cursor.getString(8),
+                        cursor.getString(9), cursor.getString(10),
+                        cursor.getString(11), cursor.getString(12),cursor.getString(13),cursor.getString(14));
 
                 element.setMemberId(Integer.parseInt(cursor.getString(0)));     // Done separately because of constructor
                 memberList.add(element);
@@ -190,7 +194,7 @@ public class MemberDataInterface {
 
         if(cur == 0)
             cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBER, null);
-        else if(cur ==1)
+        else
             cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR, null);
 
         c = cursor.getCount();
@@ -211,7 +215,7 @@ public class MemberDataInterface {
      *
      * TODO: Change params to be cleaner. Also, return long result ?
      */
-    public void update(Member element,int id) throws SQLException {
+    public void update(Member element,int id, int cur) throws SQLException {
         this.open();
 
         long result = -1;
@@ -219,20 +223,28 @@ public class MemberDataInterface {
 
         value.put(dbHelper.FAMILY_ID, element.getFamilyId());
         value.put(dbHelper.HOUSE_ID, element.getHouseId());
-        value.put(dbHelper.FAMILY_HEAD_BOOL, element.getFamilyHeadId());
+        value.put(dbHelper.FAMILY_HEAD_BOOL, element.getFamilyHeadId());        // Is family Head?
         value.put(dbHelper.NAME, element.getName());
         value.put(dbHelper.AGE, element.getAge());
-        value.put(dbHelper.CHILD_ID, element.getChildId());
+        value.put(dbHelper.SEX,element.getSex());
+        value.put(dbHelper.CHILD_ID,element.getChildId());
+        value.put(dbHelper.CHILD_DATE,element.getChildDate());
         value.put(dbHelper.MARRIAGE_STATUS, element.getMarriageStatus());
         value.put(dbHelper.FAMILY_PLAN, element.getFamilyPlan());
         value.put(dbHelper.EDUCATION, element.getEducation());
         value.put(dbHelper.LITERACY, element.getLiteracy());
         value.put(dbHelper.WEDDING_ARR, element.getWeddingArr());
         value.put(dbHelper.WEDDING_DEPT, element.getWeddingDept());
+        value.put(dbHelper.FLAG, 1);
 
-        result = database.update(dbHelper.TABLE_MEMBER, value, dbHelper.MEMBER_ID + " = ?",
+        if(cur == 0)
+            result = database.update(dbHelper.TABLE_MEMBER, value, dbHelper.MEMBER_ID + " = ?",
                 new String[] { String.valueOf(id)});
+        else
+            result = database.update(dbHelper.TABLE_MEMBERCUR, value, dbHelper.MEMBER_ID + " = ?",
+                    new String[] { String.valueOf(id)});
 
+        Log.println(Log.ASSERT,"update result",String.valueOf(result));
         this.close();
 
     }
@@ -261,12 +273,12 @@ public class MemberDataInterface {
         Cursor c = null;
 
         // SQL query. get unique one row with family id match and boolean family_head:true
-        String selection = "family_id=? AND family_head_id=?";
+        String selection = "family_id=? AND family_head=?";
         String[] selectionArgs = new String[] { String.valueOf(familyId), "1"};     // family id, YES(1) for head.
 
         if(cur == 0)
             c = database.query(MemberDbHelper.TABLE_MEMBER,null,selection,selectionArgs,null,null,null);
-        else if(cur == 1)
+        else
             c = database.query(MemberDbHelper.TABLE_MEMBERCUR,null,selection,selectionArgs,null,null,null);
 
         c.moveToFirst();        // Reset cursor after retrieval
@@ -284,25 +296,29 @@ public class MemberDataInterface {
      *
      * @return Returns list of Members: All are family heads.
      */
-    public List<Member> getAllFamilyHeads(){
+    public List<Member> getAllFamilyHeads(int cur){
 
         List<Member> headList = new ArrayList<Member>();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = null;
 
         // Simple SEQUEL query: select all members for family_head: true
-        cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBER + " WHERE family_head_id = 1", null);
+        if(cur == 0)
+             cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBER + " WHERE family_head = 1", null);
+        else
+            cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR + " WHERE family_head = 1", null);
+
 
         if(cursor.moveToFirst()){
             do{
+
                 Member element = new Member(
                         Integer.parseInt(cursor.getString(1)),Integer.parseInt(cursor.getString(2)),
                         Integer.parseInt(cursor.getString(3)),
                         cursor.getString(4),Integer.parseInt(cursor.getString(5)),
-                        Integer.parseInt(cursor.getString(6)), cursor.getString(7),
-                        cursor.getString(8), cursor.getString(9),
-                        cursor.getString(10), cursor.getString(11),
-                        cursor.getString(12));
+                        Integer.parseInt(cursor.getString(6)), Integer.parseInt(cursor.getString(7)),cursor.getString(8),
+                        cursor.getString(9), cursor.getString(10),
+                        cursor.getString(11), cursor.getString(12),cursor.getString(13),cursor.getString(14));
 
                 element.setMemberId(Integer.parseInt(cursor.getString(0)));         // Constructor enforced
                 headList.add(element);
@@ -320,7 +336,7 @@ public class MemberDataInterface {
     public void deleteAllTables(){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL("DELETE FROM " + dbHelper.TABLE_MEMBER);   // deletes all members from table.
-        db.execSQL("DELETE FROM " + dbHelper.TABLE_MEMBERCUR);
+
         db.close();
     }
     /***********************************************/
@@ -333,7 +349,7 @@ public class MemberDataInterface {
      * @return   -------- Member List of Family.
      * @throws SQLException
      */
-    public List<Member> getFamilyList(int familyId) throws SQLException {
+    public List<Member> getFamilyList(int familyId, int cur) throws SQLException {
         this.openRead();
 
 
@@ -344,7 +360,11 @@ public class MemberDataInterface {
         String selection = "family_id=?";
         String[] selectionArgs = new String[]{String.valueOf(familyId)};
 
-        c = database.query(MemberDbHelper.TABLE_MEMBER, null, selection, selectionArgs, null, null, null);
+        if(cur == 0)
+             c = database.query(MemberDbHelper.TABLE_MEMBER, null, selection, selectionArgs, null, null, null);
+
+        else if(cur == 1)
+            c = database.query(MemberDbHelper.TABLE_MEMBERCUR, null, selection, selectionArgs, null, null, null);
 
 
         if (c.moveToFirst()) {
@@ -356,13 +376,16 @@ public class MemberDataInterface {
                 element.setHouseId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.HOUSE_ID)));
                 element.setFamilyHeadId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_HEAD_BOOL)));
                 element.setAge(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.AGE)));
+                element.setSex(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.SEX)));
                 element.setChildId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_ID)));
+                element.setChildId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_DATE)));
                 element.setMarriageStatus(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.MARRIAGE_STATUS)));
                 element.setFamilyPlan(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_PLAN)));
                 element.setEducation(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.EDUCATION)));
                 element.setLiteracy(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.LITERACY)));
                 element.setWeddingArr(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.WEDDING_ARR)));
                 element.setWeddingDept(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.WEDDING_DEPT)));
+
                 memberFamList.add(element);
             }
             while (c.moveToNext());
@@ -385,16 +408,16 @@ public class MemberDataInterface {
      * TODO: Reduce time complexity. Maybe.
      * @throws SQLException
      */
-    public void cleanFamilyId() throws SQLException {
+    public void cleanFamilyId(int cur) throws SQLException {
         List<Member> memberList;
-        memberList = getAllMembers(0);
+        memberList = getAllMembers(cur);
 
         for (Member element: memberList
              ) {
             if(element.getFamilyId() == -1){
                 //Log.println(Log.ASSERT,"logclean", String.valueOf(element.getMemberId()));
                 element.setFamilyId(element.getMemberId());
-                update(element,element.getMemberId());
+                update(element,element.getMemberId(),cur);
             }
         }
     }
@@ -408,18 +431,22 @@ public class MemberDataInterface {
      * @return --------- Array List of Member Hash maps.
      */
 
-    public ArrayList<HashMap<String,String>> toHashList(List<Member> memberList) {
+    public ArrayList<HashMap<String,String>> toHashList(List<Member> memberList, HashMap<String,String> village) {
         ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();
+        list.add(village);
 
         for (Member temp:memberList) {
 
             HashMap<String,String> pairs = new HashMap<String,String>();
+            pairs.put("memberId",String.valueOf(temp.getMemberId()));
             pairs.put("familyId", String.valueOf(temp.getFamilyId()));
             pairs.put("houseId", String.valueOf(temp.getHouseId()));
             pairs.put("familyHeadId", String.valueOf(temp.getFamilyId()));
             pairs.put("name", temp.getName());
             pairs.put("age", String.valueOf(temp.getAge()));
-            pairs.put("childId", String.valueOf(temp.getChildId()));
+            pairs.put("sex",String.valueOf(temp.getSex()));
+            pairs.put("child_id",String.valueOf(temp.getChildId()));
+            pairs.put("child_date",String.valueOf(temp.getChildDate()));
             pairs.put("marriageStatus", temp.getMarriageStatus());
             pairs.put("familyPlan", temp.getFamilyPlan());
             pairs.put("education", temp.getEducation());
@@ -430,5 +457,198 @@ public class MemberDataInterface {
         }
 
         return list;
+    }
+
+    public List<Member> getUnsynced(int cur) throws SQLException {
+        this.openRead();
+
+        List<Member> memberList = new ArrayList<Member>();
+        Cursor c = null;
+
+        // SQL query: Select all where family_id matches.
+        String selection = "flag=?";
+        String[] selectionArgs = new String[]{String.valueOf(1)};
+
+        if(cur == 0)
+         c = database.query(MemberDbHelper.TABLE_MEMBER, null, selection, selectionArgs, null, null, null);
+        else if(cur == 1)
+            c = database.query(MemberDbHelper.TABLE_MEMBERCUR, null, selection, selectionArgs, null, null, null);
+
+
+        if (c.moveToFirst()) {
+            do {
+                Member element = new Member();
+                element.setName(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.NAME)));
+                element.setMemberId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.MEMBER_ID)));
+                element.setFamilyId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_ID)));
+                element.setHouseId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.HOUSE_ID)));
+                element.setFamilyHeadId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_HEAD_BOOL)));
+                element.setAge(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.AGE)));
+                element.setSex(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.SEX)));
+                element.setChildId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_ID)));
+                element.setChildId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_DATE)));
+                element.setMarriageStatus(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.MARRIAGE_STATUS)));
+                element.setFamilyPlan(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_PLAN)));
+                element.setEducation(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.EDUCATION)));
+                element.setLiteracy(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.LITERACY)));
+                element.setWeddingArr(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.WEDDING_ARR)));
+                element.setWeddingDept(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.WEDDING_DEPT)));
+
+                memberList.add(element);
+            }
+            while (c.moveToNext());
+
+        }
+        this.close();
+        return memberList;
+    }
+
+    public List<Member> getUnsyncedHeads(int cur) throws SQLException {
+        this.openRead();
+
+        List<Member> memberList = new ArrayList<Member>();
+        Cursor c = null;
+
+        // SQL query: Select all where family_id matches.
+        String selection = "family_head=? AND flag=?";
+        String[] selectionArgs = new String[]{String.valueOf(1),String.valueOf(1)};
+
+        if(cur == 0)
+            c = database.query(MemberDbHelper.TABLE_MEMBER, null, selection, selectionArgs, null, null, null);
+        else if (cur == 1)
+            c = database.query(MemberDbHelper.TABLE_MEMBERCUR, null, selection, selectionArgs, null, null, null);
+
+
+        if (c.moveToFirst()) {
+            do {
+                Member element = new Member();
+                element.setName(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.NAME)));
+                element.setMemberId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.MEMBER_ID)));
+                element.setFamilyId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_ID)));
+                element.setHouseId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.HOUSE_ID)));
+                element.setFamilyHeadId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_HEAD_BOOL)));
+                element.setAge(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.AGE)));
+                element.setSex(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.SEX)));
+                element.setChildId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_ID)));
+                element.setChildId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_DATE)));
+                element.setMarriageStatus(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.MARRIAGE_STATUS)));
+                element.setFamilyPlan(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_PLAN)));
+                element.setEducation(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.EDUCATION)));
+                element.setLiteracy(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.LITERACY)));
+                element.setWeddingArr(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.WEDDING_ARR)));
+                element.setWeddingDept(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.WEDDING_DEPT)));
+
+                memberList.add(element);
+            }
+            while (c.moveToNext());
+
+        }
+        this.close();
+        return memberList;
+    }
+
+    public List<Member> setAllSync(int cur) throws SQLException {
+        this.open();
+
+
+        List<Member> memberList = new ArrayList<Member>();
+        Cursor c = null;
+
+        // SQL query: Select all where family_id matches.
+        String selection = "flag=?";
+        String[] selectionArgs = new String[]{String.valueOf(1)};
+
+        if(cur == 0)
+            c = database.query(MemberDbHelper.TABLE_MEMBER, null, selection, selectionArgs, null, null, null);
+        else if(cur == 1)
+            c = database.query(MemberDbHelper.TABLE_MEMBERCUR, null, selection, selectionArgs, null, null, null);
+
+        if (c.moveToFirst()) {
+            do {
+                int id = c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.MEMBER_ID));
+                database.execSQL("UPDATE " + MemberDbHelper.TABLE_MEMBER + " SET flag=0" + " WHERE _id="+id+"");
+            }
+            while (c.moveToNext());
+
+        }
+
+
+
+        this.close();
+        return memberList;
+    }
+
+    public int isSynced(int id, int cur){
+        try {
+            this.openRead();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        Cursor c = null;
+        String selection = "_id=?";     //unique member id
+        String[] selectionArgs = new String[] { String.valueOf(id)};
+
+        if(cur == 0)
+            c = database.query(MemberDbHelper.TABLE_MEMBER,null,selection,selectionArgs,null,null,null);
+        else if (cur == 1)
+            c = database.query(MemberDbHelper.TABLE_MEMBERCUR,null,selection,selectionArgs,null,null,null);
+
+        c.moveToFirst();
+
+        int flag = c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FLAG));
+        return flag;
+    }
+
+    public Member getRecent(int cur) throws SQLException {
+        this.openRead();
+        Cursor c = null;
+
+        if(cur == 0)
+            c = database.rawQuery("SELECT * FROM " + MemberDbHelper.TABLE_MEMBER + " ORDER BY _id DESC LIMIT 1",null);
+        else if(cur == 1)
+            c = database.rawQuery("SELECT * FROM " + MemberDbHelper.TABLE_MEMBERCUR + " ORDER BY _id DESC LIMIT 1",null);
+
+        Member element = new Member();
+
+        if (c.moveToFirst()) {
+            element.setName(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.NAME)));
+            element.setMemberId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.MEMBER_ID)));
+            element.setFamilyId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_ID)));
+            element.setHouseId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.HOUSE_ID)));
+            element.setFamilyHeadId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_HEAD_BOOL)));
+            element.setAge(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.AGE)));
+            element.setSex(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.SEX)));
+            element.setChildId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_ID)));
+            element.setChildId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_DATE)));
+            element.setMarriageStatus(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.MARRIAGE_STATUS)));
+            element.setFamilyPlan(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_PLAN)));
+            element.setEducation(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.EDUCATION)));
+            element.setLiteracy(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.LITERACY)));
+            element.setWeddingArr(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.WEDDING_ARR)));
+            element.setWeddingDept(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.WEDDING_DEPT)));
+
+        }
+        this.close();
+        return element;
+
+    }
+
+    public String getHeadFromHouse(int houseId) throws SQLException {
+        this.openRead();
+        String head;
+        Cursor c = null;
+
+        // SQL query. get unique one row with family id match and boolean family_head:true
+        String selection = "house_id=? AND family_head=?";
+        String[] selectionArgs = new String[] { String.valueOf(houseId), "1"};     // family id, YES(1) for head.
+
+            c = database.query(MemberDbHelper.TABLE_MEMBERCUR,null,selection,selectionArgs,null,null,null);
+
+        c.moveToFirst();        // Reset cursor after retrieval
+
+        // Member id of family head is the family id. Get Member Id column of family head from cursor.
+        head = c.getString(c.getColumnIndexOrThrow(MemberDbHelper.NAME));
+        this.close();
+        return head;
     }
 }

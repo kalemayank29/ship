@@ -3,45 +3,58 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
+    <!--<Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Census Form"
         android:id="@+id/censusBtn"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="125dp"/>
+        android:layout_marginTop="125dp"/>-->
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Family Form"
-        android:id="@+id/familyBtn"
-        android:layout_gravity="center_horizontal" />
-
-    <Button
+    <!--<Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Member Form"
         android:id="@+id/memberBtn"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal" />-->
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <Button
+       <!-- <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Birth Form"
             android:id="@+id/birthBtn"
             android:layout_gravity="center_horizontal" />
+-->
         <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:id="@+id/familyBtn"
+            android:drawableTop="@drawable/family"
+            android:text="जनगणना नोंदणी"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="60dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:id="@+id/birthBtn"
+            android:drawableTop="@drawable/babyl"
+            android:text="जन्म माहिती नोंदणी"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="60dp"/>
+   <!--     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Death Form"
             android:id="@+id/deathBtn"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal" />-->
 
     </LinearLayout>
 </LinearLayout>

@@ -1,0 +1,176 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context="com.example.kylehirschfelder.ship.CensusFormPortal">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/familyHead"
+                android:drawableTop="@drawable/head"
+                android:layout_below="@+id/textView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="62dp"
+                android:layout_marginLeft="40dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxHead"
+                    android:onClick="checkBoxUnCheck"
+                    android:layout_marginLeft="10dp"
+                    android:tag="checkBoxHead"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/head_t"
+                    android:text="कुटुंब प्रमुख नोंदणी"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="60dp">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/familyMember"
+                android:drawableTop="@drawable/member"
+                android:layout_below="@+id/textView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="62dp"
+                android:layout_marginLeft="20dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxMember"
+                    android:layout_marginLeft="10dp"
+                    android:tag="checkBoxMember"
+                    android:onClick="checkBoxUnCheck"/>
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/member_t"
+                    android:text="सदस्य नोंदणी"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="60dp">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/house"
+                android:drawableTop="@drawable/house"
+                android:layout_below="@+id/textView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="62dp"
+                android:layout_marginLeft="20dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxHouse"
+                    android:onClick="checkBoxUnCheck"
+                    android:tag="checkBoxHouse"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/house_t"
+                    android:text="घर नोंदणी"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="30dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/portalList"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="64dp"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:layout_marginRight="246dp"
+        android:layout_marginEnd="246dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="सेव"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:id="@+id/save"
+        android:background="@drawable/save_button_pressed"
+        android:layout_alignTop="@+id/portalList"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:layout_marginRight="85dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginTop="51dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="नको"
+        android:background="@drawable/no_button_pressed"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:id="@+id/nope"
+        android:layout_alignTop="@+id/save"
+        android:layout_toRightOf="@+id/portalList"
+        android:layout_toEndOf="@+id/portalList" />
+
+
+</RelativeLayout>

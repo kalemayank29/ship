@@ -53,6 +53,8 @@ public class MemberListView extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_member_list_view, menu);
+
+
         return true;
     }
 
@@ -76,10 +78,11 @@ public class MemberListView extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_home) {
+            Intent intent = new Intent(MemberListView.this, MainActivity.class);
+            startActivity(intent);
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -117,8 +120,10 @@ public class MemberListView extends AppCompatActivity {
             TextView id = (TextView) view.findViewById(R.id.textId);
             id.setText(String.valueOf(currentMember.getMemberId()));
 
+            Translation object = new Translation();
+
             TextView name = (TextView) view.findViewById(R.id.textName);
-            name.setText(currentMember.getName());
+            name.setText(object.Letter_E2M(currentMember.getName()));
 
             return view;
         }

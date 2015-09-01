@@ -11,13 +11,6 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="20dp">
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/famId"
-            android:hint="Family Identification"
-            android:textSize="25sp"
-            android:inputType="number" />
 
         <EditText
             android:layout_width="wrap_content"

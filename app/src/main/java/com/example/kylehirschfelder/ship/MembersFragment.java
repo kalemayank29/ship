@@ -1,5 +1,6 @@
 package com.example.kylehirschfelder.ship;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,18 +18,22 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.sql.SQLException;
 import java.util.List;
 
 
 public class MembersFragment extends Fragment {
     View myView;
     ListView lv;
-    private static final int VIEWFAM = 0, ADDHOUSE = 1;
+    private static final int VIEWFAM = 0, ADDHOUSE = 1, ADDMEMBER = 2, UPMEM = 3, VIEWHOUSE = 4;
     ArrayAdapter<Member> memberAdapter, memberFamAdapter;
     List<Member> memberList, memberFamList;
     MemberDataInterface head;
     int longClickItemIndex;
+    Activity activity;
+
     Button add, all;
 
     @Nullable
@@ -39,25 +44,27 @@ public class MembersFragment extends Fragment {
         myView = inflater.inflate(R.layout.fragment_members, container,false);
         lv = (ListView) myView.findViewById(R.id.family_head_list);
         head = new MemberDataInterface(this.getActivity().getApplicationContext());
-        memberList = head.getAllFamilyHeads();
-        add = (Button) myView.findViewById(R.id.addMemberButton);
-        all = (Button) myView.findViewById(R.id.viewAllButton);
+        memberList = head.getAllFamilyHeads(1);
+     //   add = (Button) myView.findViewById(R.id.addMemberButton);
+//        all = (Button) myView.findViewById(R.id.viewAllButton);
+        activity = getActivity();
 
 
-        add.setOnClickListener(new View.OnClickListener() {
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),MemberForm.class);
-                startActivity(intent);
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                longClickItemIndex = position;
+                activity.openContextMenu(arg1);
             }
         });
-        all.setOnClickListener(new View.OnClickListener() {
+
+       /* all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             Intent intent = new Intent(getActivity(),MemberListView.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -76,10 +83,14 @@ public class MembersFragment extends Fragment {
 
     public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo info) {
         super.onCreateContextMenu(menu, view, info);
-        menu.setHeaderTitle("Census Options");
-        menu.add(Menu.NONE, VIEWFAM, menu.NONE, "View Family");
-        menu.add(Menu.NONE, ADDHOUSE, menu.NONE, "Add House");
+        menu.setHeaderTitle(".....");
+        menu.add(Menu.NONE, VIEWFAM, menu.NONE, "कुटुंब माहिती");
+      //  menu.add(Menu.NONE, ADDHOUSE, menu.NONE, "घर माहिती भरा");
+      //  menu.add(Menu.NONE, ADDMEMBER, menu.NONE, "सदस्य जोडा");
+      //  menu.add(Menu.NONE, UPMEM, menu.NONE, "सदस्य सुधारणा");
+        menu.add(Menu.NONE, VIEWHOUSE, menu.NONE, "घर माहिती पहा");
     }
+
 
     public void populateList() {
         memberAdapter = new memberListAdapter(this.memberList, myView.getContext());
@@ -95,9 +106,37 @@ public class MembersFragment extends Fragment {
                 startActivity(intent);
                 break;
             case ADDHOUSE:
-                Intent censusIntent = new Intent(getActivity(),CensusFormPageOne.class);
-                censusIntent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getMemberId()));
+                Intent censusIntent = new Intent(getActivity(),NewCensusForm.class);
+                censusIntent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getHouseId()));
                 startActivity(censusIntent);
+                //if(memberList.get(longClickItemIndex).getHouseId() == -1)
+                  //  startActivity(censusIntent);
+               // else
+                 //   Toast.makeText(getActivity(),"घर माहिती आधीच भरले गेले आहे",Toast.LENGTH_LONG).show();
+                break;
+            case ADDMEMBER:
+                Intent memberIntent = new Intent(getActivity(),MemberForm.class);
+                memberIntent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getMemberId()));
+                startActivity(memberIntent);
+                break;
+            case UPMEM:
+                Intent updateIntent = new Intent(getActivity(),MemberFormUpdate.class);
+                updateIntent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getMemberId()));
+                if(head.isSynced(memberList.get(longClickItemIndex).getMemberId(),1) == 1)
+                    startActivity(updateIntent);
+                else
+                    Toast.makeText(getActivity(),"आता संपादित करू शकत नाही",Toast.LENGTH_LONG).show();
+                break;
+            case VIEWHOUSE:
+                Intent hintent = new Intent(getActivity(),CensusViewForm.class);
+                Member houseMember = new Member();
+
+                    //houseMember = head.getMember(memberList.get(longClickItemIndex).getMemberId(), 1);
+                    hintent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getHouseId()));
+
+                if(houseMember.getHouseId() == -1)  Toast.makeText(getActivity(),"घर माहिती भरले गेले नाही",Toast.LENGTH_LONG).show();
+                else startActivity(hintent);
+                break;
 
         }
         return super.onContextItemSelected(item);
@@ -117,16 +156,21 @@ public class MembersFragment extends Fragment {
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             if (view == null) {
-                view = inflater.inflate(R.layout.family_head_list_item, parent, false);
+                view = inflater.inflate(R.layout.member_all_item, parent, false);
             }
 
             Member currentHead = memberList.get(position);
 
-            TextView id = (TextView) view.findViewById(R.id.textId);
-            id.setText(String.valueOf(currentHead.getMemberId()));
+            TextView Hid = (TextView) view.findViewById(R.id.houseIdM);
+            Hid.setText(String.valueOf(currentHead.getHouseId()));
 
-            TextView head = (TextView) view.findViewById(R.id.textHead);
-            head.setText(currentHead.getName());
+            TextView Fid = (TextView) view.findViewById(R.id.familyId);
+            Fid.setText(String.valueOf(currentHead.getFamilyId()));
+
+            Translation object = new Translation();
+            TextView head = (TextView) view.findViewById(R.id.textName);
+            head.setText(object.Letter_E2M(currentHead.getName()));
+
 
             return view;
         }

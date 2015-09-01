@@ -19,8 +19,10 @@ public class Member {
     private int familyHeadId;
     private String name;
     private int age;
-    private int childId;
+    private int sex;
     private int houseId;
+    private int childId;
+    private String childDate;
     private String marriageStatus;
     private String familyPlan;
     private String education;
@@ -32,14 +34,16 @@ public class Member {
 
     }
 
-    public Member(int familyId, int houseId, int familyHeadId, String name, int age, int childId, String marriageStatus, String familyPlan, String education, String literacy, String weddingArr, String weddingDept) {
+    public Member(int familyId, int houseId, int familyHeadId, String name, int age,int sex, int childId, String childDate, String marriageStatus, String familyPlan, String education, String literacy, String weddingArr, String weddingDept) {
 
         this.familyId = familyId;
         this.houseId = houseId;
+        this.childId = childId;
+        this.childDate = childDate;
         this.familyHeadId = familyHeadId;
         this.name = name;
         this.age = age;
-        this.childId = childId;
+        this.sex = sex;
         this.marriageStatus = marriageStatus;
         this.familyPlan = familyPlan;
         this.education = education;
@@ -48,6 +52,13 @@ public class Member {
         this.weddingDept = weddingDept;
     }
 
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
 
     public int getMemberId() {
         return memberId;
@@ -79,14 +90,6 @@ public class Member {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public int getChildId() {
-        return childId;
-    }
-
-    public void setChildId(int childId) {
-        this.childId = childId;
     }
 
     public String getMarriageStatus() {
@@ -137,6 +140,96 @@ public class Member {
         this.weddingArr = weddingArr;
     }
 
+    public void setMarriageParse(String string){
+        switch (string) {
+            case "विवाहित":
+                marriageStatus = "1";
+                break;
+            case "अविवाहित":
+                marriageStatus = "2";
+                break;
+            case "विधुर":
+                marriageStatus = "3";
+                break;
+            case "विधवा":
+                marriageStatus = "4";
+                break;
+            case "घटस्फोट":
+                marriageStatus = "5";
+                break;
+        }
+    }
+
+
+    public String getMarriageParse() {
+        String marriageStatus="";
+        switch (this.marriageStatus) {
+            case "1":
+                marriageStatus = "विवाहित";
+                break;
+            case "2":
+                marriageStatus = "अविवाहित";
+                break;
+            case "3":
+                marriageStatus = "विधुर";
+                break;
+            case "4":
+                marriageStatus = "विधवा";
+                break;
+            case "5":
+                marriageStatus = "घटस्फोट";
+                break;
+        }
+        return marriageStatus;
+    }
+
+    public void setLiteracyParse(String string){
+        if(string.equals("हो"))
+            literacy = "1";
+        else
+            literacy = "0";
+    }
+
+    public int getChildId() {
+        return childId;
+    }
+
+    public void setChildId(int childId) {
+        this.childId = childId;
+    }
+
+    public String getChildDate() {
+        return childDate;
+    }
+
+    public void setChildDate(String childDate) {
+        this.childDate = childDate;
+    }
+
+    public String getLiteracyParse(){
+        String literacy="";
+        if(this.literacy.equals("1"))
+            literacy = "हो";
+        else
+            literacy = "नाही";
+        return literacy;
+    }
+
+    public void getFamilyPlanParse(String string){
+        if(string.equals("1"))
+            familyPlan = "हो";
+        else
+            familyPlan = "नाही";
+    }
+
+
+    public void setFamilyPlanParse(String string){
+        if(string.equals("हो"))
+            familyPlan = "1";
+        else
+            familyPlan = "0";
+    }
+
     public String getWeddingDept() {
         return weddingDept;
     }
@@ -152,4 +245,140 @@ public class Member {
     public void setHouseId(int houseId) {
         this.houseId = houseId;
     }
+
+    public void getEducationParse(String string) {
+        switch (string) {
+            case "0":
+                education = "अशिक्षित";
+                break;
+            case "1":
+                education = "१ ली";
+                break;
+            case "2":
+                education = "२ री";
+                break;
+            case "3":
+                education = "३ री";
+                break;
+            case "4":
+                education = "४ थी";
+                break;
+            case "5":
+                education = "५ वी";
+                break;
+            case "6":
+                education = "६ वी";
+                break;
+            case "7":
+                education = "७ वी";
+                break;
+            case "8":
+                education = "८ वी";
+                break;
+            case "9":
+                education = "९ वी";
+                break;
+            case "10":
+                education = "१० वी";
+                break;
+            case "11":
+                education = "११ वी";
+                break;
+            case "12":
+                education = "१२ वी";
+                break;
+            case "13":
+                education = "B.A";
+                break;
+            case "14":
+                education = "B.Sc";
+                break;
+            case "15":
+                education = "B.Com";
+                break;
+            case "16":
+                education = "M.A";
+                break;
+            case "17":
+                education = "M.Sc";
+                break;
+            case "18":
+                education = "M.Com";
+                break;
+            case "19":
+                education = "ईतर";
+                break;
+        }
+    }
+
+   /* public void setMarriageParse(String string){
+        switch (string) {
+            case "विवाहित":
+                marriage = "1";
+                break;
+            case "अविवाहित":
+                marriage = "2";
+                break;
+            case "विधुर":
+                marriage = "3";
+                break;
+            case "विधवा":
+                marriage = "4";
+                break;
+            case "घटस्फोट":
+                marriage = "5";
+                break;
+        }
+    }
+
+
+    public void getMarriageParse(String string) {
+        switch (string) {
+            case "1":
+                marriage = "विवाहित";
+                break;
+            case "2":
+                marriage = "अविवाहित";
+                break;
+            case "3":
+                marriage = "विधुर";
+                break;
+            case "4":
+                marriage = "विधवा";
+                break;
+            case "5":
+                marriage = "घटस्फोट";
+                break;
+        }
+    }
+
+    public void getLiteracyParse(String string){
+        if(string.equals("हो"))
+            litaracy = "1";
+        else
+            literacy = "0";
+    }
+
+    public void setLiteracyParse(String string){
+        if(string.equals("1"))
+            litaracy = "हो";
+        else
+            literacy = "नाही";
+    }
+
+    public void setFamilyPlanParse(String string){
+        if(string.equals("1"))
+            familyPlanning = "हो";
+        else
+            familyPlanning = "नाही";
+    }
+
+
+    public void getFamilyPlanParse(String string){
+        if(string.equals("हो"))
+            familyPlanning = "1";
+        else
+            familyPlannning = "0";
+    }*/
+
 }

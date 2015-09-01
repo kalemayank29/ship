@@ -1,6 +1,8 @@
 package com.example.kylehirschfelder.ship;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,14 +17,16 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class TransferMemberListView extends AppCompatActivity {
 
-    private static final int VIEW = 0;
+    private static final int VIEW = 0,FAM = 1, HOUSE = 2;
     List<Member> memberList = new ArrayList<Member>();
+    List<Member> allList = new ArrayList<Member>();
     ListView lv;
     MemberDataInterface interfaceMember;
     ArrayAdapter<Member> memberAdapter;
@@ -34,10 +38,15 @@ public class TransferMemberListView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transfer_member_list_view);
 
+
         pushAll = (Button) findViewById(R.id.pushAllBtn);
         lv = (ListView) findViewById(R.id.ListView);
         interfaceMember = new MemberDataInterface(getApplicationContext());
-        memberList = interfaceMember.getAllMembers(0);            // Push only from Local
+        try {
+            memberList = interfaceMember.getUnsyncedHeads(1);            // Push only from Local
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         populateList();
         registerForContextMenu(lv);
@@ -47,7 +56,15 @@ public class TransferMemberListView extends AppCompatActivity {
             public void onClick(View v) {
                 ArrayList<HashMap<String, String>> memberMap = new ArrayList<HashMap<String, String>>();
 
-                memberMap = interfaceMember.toHashList(memberList);
+                try {
+                    allList = interfaceMember.getUnsynced(1);
+                    HashMap<String,String> village = new HashMap<String, String>();
+                    village.put("village","2");
+                    memberMap = interfaceMember.toHashList(allList,village);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
 
                 /*
                 for(int i = 0; i < memberList.size(); i++){
@@ -76,6 +93,7 @@ public class TransferMemberListView extends AppCompatActivity {
                 bundle.putSerializable("map",memberMap);
                 Intent intent = new Intent(TransferMemberListView.this, WifiDirectActivity.class);
                 intent.putExtras(bundle);
+                intent.putExtra("activityFlag","1");
 
                 //Log.println(Log.ASSERT, "Size: ", String.valueOf(memberMap.size()));
 
@@ -107,6 +125,13 @@ public class TransferMemberListView extends AppCompatActivity {
                 viewIntent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getMemberId()));
                 startActivity(viewIntent);
                 break;
+            case FAM:
+                Intent famIntent = new Intent(getApplicationContext(), MemberFamilyFromHeadListView.class);
+                famIntent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getMemberId()));
+                startActivity(famIntent);
+                break;
+            case HOUSE:
+                break;
 
         }
         return super.onContextItemSelected(item);
@@ -136,8 +161,10 @@ public class TransferMemberListView extends AppCompatActivity {
 
     public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo info) {
         super.onCreateContextMenu(menu, view, info);
-        menu.setHeaderTitle("Census Options");
-        menu.add(Menu.NONE, VIEW, menu.NONE, "View Member");
+        menu.setHeaderTitle("....");
+        menu.add(Menu.NONE, VIEW, menu.NONE, "सदस्य माहिती");
+        menu.add(Menu.NONE, FAM, menu.NONE, "कुटुंब माहिती");
+        menu.add(Menu.NONE, HOUSE, menu.NONE, "घर माहिती");
 
     }
 
@@ -158,11 +185,15 @@ public class TransferMemberListView extends AppCompatActivity {
 
             Member currentMember = memberList.get(position);
 
-            TextView id = (TextView) view.findViewById(R.id.textId);
-            id.setText(String.valueOf(currentMember.getMemberId()));
+            TextView id = (TextView) view.findViewById(R.id.familyId);
+            id.setText(String.valueOf(currentMember.getFamilyId()));
 
+            TextView Hid = (TextView) view.findViewById(R.id.houseIdM);
+           Hid.setText(String.valueOf(currentMember.getHouseId()));
+
+            Translation object = new Translation();
             TextView name = (TextView) view.findViewById(R.id.textName);
-            name.setText(currentMember.getName());
+            name.setText(object.Letter_E2M(currentMember.getName()));
 
             return view;
         }

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="5dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="House Id"
+        android:layout_marginLeft="25dp"
+        android:id="@+id/house_id"
+        android:textSize="20dp"
+        android:textColor="#465362"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Family id"
+        android:id="@+id/family_id"
+        android:textSize="20dp"
+        android:textColor="#465362"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Name"
+        android:id="@+id/name_field"
+        android:textSize="25dp"
+        android:textColor="#465362"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Age"
+        android:id="@+id/age_field"
+        android:textSize="20dp"
+        android:textColor="#465362"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Gender"
+        android:id="@+id/gender_field"
+        android:textSize="20dp"
+        android:textColor="#465362"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Marriage"
+        android:id="@+id/marriage_status"
+        android:textSize="20dp"
+        android:textColor="#465362"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"/>
+
+ <!--   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Education"
+        android:id="@+id/education_field"
+        android:textSize="20dp"
+        android:textColor="#465362"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"/>-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Literacy"
+        android:id="@+id/literacy_field"
+        android:textSize="20dp"
+        android:textColor="#465362"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"/>
+
+
+</LinearLayout>

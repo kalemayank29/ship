@@ -43,11 +43,24 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         MemberDataInterface test = new MemberDataInterface(getApplicationContext());
-        try {
+        CF_DatabaseOperations databaseOperations = new CF_DatabaseOperations(getApplicationContext());
+      //  databaseOperations.getUnsynced(1);
+        //databaseOperations.setAutoIncr();
+        /*try {
             test.cleanFamilyId();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
+        Translation object = new Translation();
+
+       // Log.println(Log.ASSERT,"supervisor",object.Letter_E2M("sarcha gaDachirolee"));
+        /*CF_DatabaseOperations census = new CF_DatabaseOperations(getApplicationContext());
+        List<Census> list = census.getUnsynced(0);
+
+        for (Census xyz: list
+             ) {
+            Log.println(Log.ASSERT,"House id",xyz.getHouseID());
+        }*/
         /********************************************
         Member member = new Member(4,1,"Kyle", 22, 14, "M", "F", "E", "L", "D", "A");
         Member member1 = new Member(4,0,"Kyle1", 22, 14, "M", "F", "E", "L", "D", "A");
@@ -63,12 +76,12 @@ public class MainActivity extends AppCompatActivity
             e.printStackTrace();
         }*/
 
-        List<Member> familyHead = test.getAllFamilyHeads();
+        /*List<Member> familyHead = test.getAllFamilyHeads(0);
 
         for (Member temp: familyHead
              ) {
             Log.println(Log.ASSERT,temp.getName(), String.valueOf(temp.getMemberId()));
-        }
+        }*/
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -92,27 +105,27 @@ public class MainActivity extends AppCompatActivity
             case 1:
                 myFragment = new MembersFragment();
                 break;
-            case 2:
+            /*case 2:
                 myFragment = new PatientFragment();
                 break;
             case 3:
                 myFragment = new HouseFragment();
-                break;
-            case 4:
+                break;*/
+            case 2:
                 myFragment = new FormFragment();
                 break;
-            case 5:
+            case 3:
                 myFragment = new TransferFragment();
                 break;
-            case 6:
+            case 4:
                 myFragment = new MedicineInventoryFragment();
                 break;
-            case 7:
+            case 5:
                 myFragment = new DrugInfoFragment();
                 break;
-            case 8:
+            /*case 6:
                 myFragment = new BugFragment();
-                break;
+                break;*/
         }
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
@@ -129,25 +142,27 @@ public class MainActivity extends AppCompatActivity
             case 2:
                 mTitle = getString(R.string.title_section2);
                 break;
-            case 3:
+          /*  case 3:
                 mTitle = getString(R.string.title_section3);
                 break;
             case 4:
                 mTitle = getString(R.string.title_section4);
-                break;
-            case 5:
+                break;*/
+            case 3:
                 mTitle = getString(R.string.title_section5);
                 break;
-            case 7:
+            case 4:
                 mTitle = getString(R.string.title_section7);
                 break;
-            case 8:
+            case 5:
                 mTitle = getString(R.string.title_section8);
                 break;
-            case 9:
+            /*case 6:
                 mTitle = getString(R.string.title_section9);
-                break;
+                break;*/
         }
+
+
     }
 
     public void restoreActionBar() {

@@ -14,7 +14,7 @@ public class ViewMemberProfile extends AppCompatActivity {
 
 
     TextView editFam, editName, editAge, editChildId,
-            editMarriage, editFamPlan, editEdu, editLit,
+            editMarriage, editHouse, editFamPlan, editEdu, editLit,
             editDeparture, editArrival;
     Member member;
     MemberDataInterface db;
@@ -29,7 +29,7 @@ public class ViewMemberProfile extends AppCompatActivity {
         editFam = (TextView) findViewById(R.id.editFamilyIdText);
         editName = (TextView) findViewById(R.id.editNameText);
         editAge = (TextView) findViewById(R.id.editAgeText);
-        editChildId = (TextView) findViewById(R.id.editChildIdText);
+        editHouse = (TextView) findViewById(R.id.editHouseIdText);
         editMarriage = (TextView) findViewById(R.id.editMarriageText);
         editFamPlan = (TextView) findViewById(R.id.editFamily);
         editEdu  = (TextView) findViewById(R.id.editEducationText);
@@ -40,7 +40,7 @@ public class ViewMemberProfile extends AppCompatActivity {
         String index = getIntent().getStringExtra("index");
 
         try {
-            member = db.getMember(Integer.parseInt(index), 0);
+            member = db.getMember(Integer.parseInt(index), 1);
             Log.println(Log.ASSERT, "LOGGING HOUSE: ", String.valueOf(member.getHouseId()));
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class ViewMemberProfile extends AppCompatActivity {
         editFam.setText(String.valueOf(member.getFamilyId()));
         editName.setText(String.valueOf(member.getName()));
         editAge.setText(String.valueOf(member.getAge()));
-        editChildId.setText(String.valueOf(member.getChildId()));
+        editHouse.setText(String.valueOf(member.getHouseId()));
         editMarriage.setText(String.valueOf(member.getMarriageStatus()));
         editFamPlan.setText(String.valueOf(member.getFamilyPlan()));
         editEdu.setText(String.valueOf(member.getEducation()));

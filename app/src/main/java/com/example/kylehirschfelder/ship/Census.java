@@ -7,351 +7,284 @@ import java.util.BitSet;
 import static android.text.TextUtils.split;
 
 public class Census {
+    private String houseID, caste, religion, pBusiness, aBusiness1, aBusiness2, aBusiness3,
+            wetlandA, drylandA, wall, roof, electricity, houseOwner, toilet,
+            toiletUse, cooking, kitchen, water, thing, animal, date, oldHouseID;
 
-    private String _caste, _pbus, _abus1, _abus2, _abus3, _wall,
-                _roof, _electricity, _houseowner, _toiletuse,
-                _toilet, _cook, _kitchen, _water, _date, _religion;
+    // newFamilyID, oldFamilyID nako ugach
 
-
-    private int _famid, _houseId;
-
-    BitSet wallBit;
-
-    public Census(int _houseId, String _caste, String _religion, String _pbus,
-                  String _abus1, String _abus2,
-                  String _abus3, String _wall,
-                  String _roof, String _electricity, String _houseowner,
-                  String _toilet, String _toiletuse, String _cook,
-                  String _kitchen, String _water,
-                  String _date) {
-
-        this._houseId = _houseId;
-        this._caste = _caste;
-        this._pbus = _pbus;
-        this._abus1 = _abus1;
-        this._abus2 = _abus2;
-        this._abus3 = _abus3;
-        this._wall = _wall;
-        this._roof = _roof;
-        this._electricity = _electricity;
-        this._houseowner = _houseowner;
-        this._toiletuse = _toiletuse;
-        this._toilet = _toilet;
-        this._cook = _cook;
-        this._kitchen = _kitchen;
-        this._water = _water;
-        this._date = _date;
-        this._religion = _religion;
+    public Census() {
     }
 
-    public int get_famid(){
-        return _famid;
+    public Census( String caste, String religion, String pBusiness, String aBusiness1, String aBusiness2, String aBusiness3, String wetlandA, String drylandA, String wall, String roof, String electricity, String houseOwner, String toilet, String toiletUse, String cooking, String kitchen, String water, String thing, String animal, String date, String oldHouseID) {
+        //  this.houseID = houseID;
+        this.caste = caste;
+        this.religion = religion;
+        this.pBusiness = pBusiness;
+        this.aBusiness1 = aBusiness1;
+        this.aBusiness2 = aBusiness2;
+        this.aBusiness3 = aBusiness3;
+        this.wetlandA = wetlandA;
+    //    this.wetlandG = wetlandG;
+        this.drylandA = drylandA;
+      //  this.drylandG = drylandG;
+        this.wall = wall;
+        this.roof = roof;
+        this.electricity = electricity;
+        this.houseOwner = houseOwner;
+        this.toilet = toilet;
+        this.toiletUse = toiletUse;
+        this.cooking = cooking;
+        this.kitchen = kitchen;
+        this.water = water;
+        this.thing = thing;
+        this.animal = animal;
+        this.date = date;
+        this.oldHouseID = oldHouseID;
     }
 
-    public String get_famid_str() {return String.valueOf(_famid); }
-
-    public String get_caste() {
-        return _caste;
+    public String getDate() {
+        return date;
     }
 
-    public String get_pbus() {
-        return _pbus;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String get_abus1() {
-        return _abus1;
+    public String getHouseID() {
+        return houseID;
     }
 
-    public String get_abus2() {
-        return _abus2;
+    public void setHouseID(String houseID) {
+        this.houseID = houseID;
     }
 
-    public String get_abus3() {
-        return _abus3;
+    public String getCaste() {
+        return caste;
     }
 
-    public String get_wall() {
-        return _wall;
+    public void setCaste(String caste) {
+        this.caste = caste;
     }
 
-    public String get_wallParse(String bitString) {
-
-        String uncompress= " ";
-        bitString = bitString.substring(1, bitString.length()-1);
-        String[] parsed = split(bitString, ", ");
-
-        for(int i=0;i<parsed.length;i++)
-        {
-            if(parsed[i].equals("0")){
-                uncompress += "Cement,";
-            }
-
-            if(parsed[i].equals("1")){
-                uncompress += "Brick,";
-            }
-
-            if(parsed[i].equals("2")){
-                uncompress += "Sand,";
-            }
-
-            if(parsed[i].equals("3")){
-                uncompress += "Junk,";
-            }
-
-            if(parsed[i].equals("4")){
-                uncompress += "Others,";
-            }
-        }
-
-        return uncompress;
+    public String getReligion() {
+        return religion;
     }
 
-    public String get_roof() {
-        return _roof;
-    }
-
-    public String get_roofParse(String bitString) {
-
-        String uncompress= " ";
-        bitString = bitString.substring(1, bitString.length()-1);
-        String[] parsed = split(bitString, ", ");
-
-        for(int i=0;i<parsed.length;i++)
-        {
-            if(parsed[i].equals("0")){
-                uncompress += "Cement,";
-            }
-
-            if(parsed[i].equals("1")){
-                uncompress += "Mangalore Tiles,";
-            }
-
-            if(parsed[i].equals("2")){
-                uncompress += "Normal Tiles,";
-            }
-
-            if(parsed[i].equals("3")){
-                uncompress += "Tin,";
-            }
-
-            if(parsed[i].equals("4")){
-                uncompress += "Grass,";
-            }
-
-            if(parsed[i].equals("5")){
-                uncompress += "Others,";
-            }
-        }
-
-        return uncompress;
-    }
-
-    public String get_electricity() {
-        return _electricity;
-    }
-
-    public String get_electricityParse() {
-        String parsed="";
-        switch (_electricity) {
+    public String getReligionParse() {
+        String parse = "";
+        switch(this.religion) {
             case "1":
-                parsed= "Yes";
-                break;
-            case "0":
-                parsed = "No";
-                break;
-        }
-        return parsed;
-    }
-
-    public String get_houseowner() {
-        return _houseowner;
-    }
-
-    public String get_houseOwnerParse() {
-        String parsed="";
-        switch (_houseowner) {
-            case "1":
-                parsed= "Owned";
-                break;
-            case "0":
-                parsed = "Rented";
-                break;
-        }
-        return parsed;
-    }
-
-    public String get_toiletuse() {
-        return _toiletuse;
-    }
-
-    public String get_toiletuseParse() {
-        String parsed="";
-        switch (_houseowner) {
-            case "1":
-                parsed= "Yes";
-                break;
-            case "0":
-                parsed = "No";
-                break;
-        }
-        return parsed;
-    }
-
-
-    public String get_toilet() {
-        return _toilet;
-    }
-
-    public String get_toiletParse() {
-        String parsed="";
-        switch (_houseowner) {
-            case "1":
-                parsed= "Yes";
-                break;
-            case "0":
-                parsed = "No";
-                break;
-        }
-        return parsed;
-    }
-
-
-    public String get_cook() {
-        return _cook;
-    }
-
-    public String get_cookParse(String bitString) {
-
-        String uncompress= " ";
-        bitString = bitString.substring(1, bitString.length()-1);
-        String[] parsed = split(bitString, ", ");
-
-        for(int i=0;i<parsed.length;i++)
-        {
-            if(parsed[i].equals("0")){
-                uncompress += "Light,";
-            }
-
-            if(parsed[i].equals("1")){
-                uncompress += "Gas,";
-            }
-
-            if(parsed[i].equals("2")){
-                uncompress += "Coal,";
-            }
-
-            if(parsed[i].equals("3")){
-                uncompress += "Wood,";
-            }
-
-            if(parsed[i].equals("4")){
-                uncompress += "Others,";
-            }
-        }
-Log.e("works","yes");
-        return uncompress;
-    }
-
-
-    public String get_kitchen() {
-        return _kitchen;
-    }
-
-    public String get_kitchenParse() {
-        String parsed="";
-        switch (_houseowner) {
-            case "1":
-                parsed= "Yes";
-                break;
-            case "0":
-                parsed = "No";
-                break;
-        }
-        return parsed;
-    }
-
-
-    public String get_water() {
-        return _water;
-    }
-
-    public String get_waterParse(String bitString) {
-
-        String uncompress= " ";
-        bitString = bitString.substring(1, bitString.length()-1);
-        String[] parsed = split(bitString, ", ");
-
-        for(int i=0;i<parsed.length;i++)
-        {
-            if(parsed[i].equals("0")){
-                uncompress += "Well,";
-            }
-
-            if(parsed[i].equals("1")){
-                uncompress += "Handpump,";
-            }
-
-            if(parsed[i].equals("2")){
-                uncompress += "Tap,";
-            }
-
-            if(parsed[i].equals("3")){
-                uncompress += "Lake,";
-            }
-
-            if(parsed[i].equals("4")){
-                uncompress += "River,";
-            }
-
-            if(parsed[i].equals("5")){
-                uncompress += "Canal,";
-            }
-        }
-
-        return uncompress;
-    }
-
-    public String get_date() {
-        return _date;
-    }
-
-    public String get_religion() {
-        return _religion;
-    }
-
-    public String get_religionParse() {
-        String parsed = "";
-        switch (_religion) {
-            case "1":
-                _religion = "Hindu";
+                parse = "हिंदू";
                 break;
             case "2":
-                _religion = "Muslim";
+                parse = "मुसलमान";
                 break;
             case "4":
-                _religion = "Christian";
+                parse = "ख्रिश्चन";
                 break;
             case "8":
-               _religion = "Sikh";
+                parse = "शीख";
                 break;
             case "16":
-                _religion = "Jain";
+                parse = "जैन";
                 break;
             case "32":
-                _religion = "Buddhism";
+                parse = "बौद्ध";
+                break;
+            default:
+                return "---";
+        }
+        return parse;
+    }
+
+    public void setReligionParse(String parse) {
+
+        switch(parse) {
+            case "हिंदू":
+                this.religion = "1";
+                break;
+            case "मुसलमान":
+                this.religion = "2";
+                break;
+            case "ख्रिश्चन":
+                this.religion = "4";
+                break;
+            case "शीख":
+                this.religion = "8";
+                break;
+            case "जैन":
+                this.religion = "16";
+                break;
+            case "बौद्ध":
+                this.religion = "32";
                 break;
         }
-
-        return parsed;
     }
 
-    public int get_houseId() {
-        return _houseId;
+    public void setReligion(String religion) {
+        this.religion = religion;
     }
 
-    public void set_houseId(int _houseId) {
-        this._houseId = _houseId;
+    public String getpBusiness() {
+        return pBusiness;
     }
+
+    public void setpBusiness(String pBusiness) {
+        this.pBusiness = pBusiness;
+    }
+
+    public String getaBusiness1() {
+        return aBusiness1;
+    }
+
+    public void setaBusiness1(String aBusiness1) {
+        this.aBusiness1 = aBusiness1;
+    }
+
+    public String getaBusiness2() {
+        return aBusiness2;
+    }
+
+    public void setaBusiness2(String aBusiness2) {
+        this.aBusiness2 = aBusiness2;
+    }
+
+    public String getaBusiness3() {
+        return aBusiness3;
+    }
+
+    public void setaBusiness3(String aBusiness3) {
+        this.aBusiness3 = aBusiness3;
+    }
+
+    public String getWetlandA() {
+        return wetlandA;
+    }
+
+    public void setWetlandA(String wetlandA) {
+        this.wetlandA = wetlandA;
+    }
+
+   /* public String getWetlandG() {
+        return wetlandG;
+    }
+
+    public void setWetlandG(String wetlandG) {
+        this.wetlandG = wetlandG;
+    }
+*/
+    public String getDrylandA() {
+        return drylandA;
+    }
+
+    public void setDrylandA(String drylandA) {
+        this.drylandA = drylandA;
+    }
+/*
+    public String getDrylandG() {
+        return drylandG;
+    }
+
+    public void setDrylandG(String drylandG) {
+        this.drylandG = drylandG;
+    }
+*/
+    public String getWall() {
+        return wall;
+    }
+
+    public void setWall(String wall) {
+        this.wall = wall;
+    }
+
+    public String getRoof() {
+        return roof;
+    }
+
+    public void setRoof(String roof) {
+        this.roof = roof;
+    }
+
+    public String getElectricity() {
+        return electricity;
+    }
+
+    public void setElectricity(String electricity) {
+        this.electricity = electricity;
+    }
+
+    public String getHouseOwner() {
+        return houseOwner;
+    }
+
+    public void setHouseOwner(String houseOwner) {
+        this.houseOwner = houseOwner;
+    }
+
+    public String getToilet() {
+        return toilet;
+    }
+
+    public void setToilet(String toilet) {
+        this.toilet = toilet;
+    }
+
+    public String getToiletUse() {
+        return toiletUse;
+    }
+
+    public void setToiletUse(String toiletUse) {
+        this.toiletUse = toiletUse;
+    }
+
+    public String getCooking() {
+        return cooking;
+    }
+
+    public void setCooking(String cooking) {
+        this.cooking = cooking;
+    }
+
+    public String getKitchen() {
+        return kitchen;
+    }
+
+    public void setKitchen(String kitchen) {
+        this.kitchen = kitchen;
+    }
+
+    public String getWater() {
+        return water;
+    }
+
+    public void setWater(String water) {
+        this.water = water;
+    }
+
+    public String getThing() {
+        return thing;
+    }
+
+    public void setThing(String thing) {
+        this.thing = thing;
+    }
+
+    public String getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(String animal) {
+        this.animal = animal;
+    }
+
+    public String getOldHouseID() {
+        return oldHouseID;
+    }
+
+    public void setOldHouseID(String oldHouseID) {
+        this.oldHouseID = oldHouseID;
+    }
+
+
 }
-
-

@@ -1,8 +1,11 @@
 package com.example.kylehirschfelder.ship;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,13 +14,17 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class MemberFamilyFromHeadListView extends AppCompatActivity {
 
+    private static final int VIEW = 0;
     ListView lv;
     MemberDataInterface interfaceMember;
     ArrayAdapter<Member> memberAdapter;
@@ -32,19 +39,31 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
 
         String index = getIntent().getStringExtra("index");
         familyId = Integer.parseInt(index);
-
-        lv = (ListView) findViewById(R.id.listView);
+        Log.println(Log.ASSERT,"LOG FAM ID",index);
+        lv = (ListView) findViewById(R.id.memberFamListView);
         interfaceMember = new MemberDataInterface(getApplicationContext());
 
         try {
-            memberFamList = interfaceMember.getFamilyList(familyId);
+            memberFamList = interfaceMember.getFamilyList(familyId,1);
+            Log.println(Log.ASSERT,"Member Fam List size", String.valueOf(memberFamList.size()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
 
+
         registerForContextMenu(lv);
         populateList();
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(getApplicationContext(), "कृपया नाव दाबून ठेवावे", Toast.LENGTH_LONG).show();
+            }
+        });
+
+
 
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -75,13 +94,29 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
+
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case VIEW:
+                Intent viewIntent = new Intent(getApplicationContext(), ViewMemberProfile.class);
+                viewIntent.putExtra("index", String.valueOf(memberFamList.get(longClickItemIndex).getMemberId()));
+                startActivity(viewIntent);
+                break;
+
+        }
+        return super.onContextItemSelected(item);
+    }
+
+    public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo info) {
+        super.onCreateContextMenu(menu, view, info);
+        menu.setHeaderTitle("......");
+        menu.add(Menu.NONE, VIEW, menu.NONE, "सदस्य माहिती");
+
+    }
+
 
     private class memberHeadListAdapter extends ArrayAdapter<Member> {
         Context context;
@@ -97,16 +132,44 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             if (view == null) {
-                view = inflater.inflate(R.layout.family_head_list_item, parent, false);
+                view = inflater.inflate(R.layout.full_census_item, parent, false);
             }
 
-            Member currentHead = memberFamList.get(position);
+            Member current = memberFamList.get(position);
 
-            TextView id = (TextView) view.findViewById(R.id.textId);
-            id.setText(String.valueOf(currentHead.getMemberId()));
+            TextView hId = (TextView) view.findViewById(R.id.house_id);
+            hId.setText(String.valueOf(current.getHouseId()));
 
-            TextView head = (TextView) view.findViewById(R.id.textHead);
-            head.setText(currentHead.getName());
+            TextView fId = (TextView) view.findViewById(R.id.family_id);
+            fId.setText(String.valueOf(current.getFamilyId()));
+
+            Translation object = new Translation();
+            TextView name = (TextView) view.findViewById(R.id.name_field);
+            name.setText(object.Letter_E2M(current.getName()));
+
+            TextView age = (TextView) view.findViewById(R.id.age_field);
+            age.setText(String.valueOf(current.getAge()));
+
+            TextView gender = (TextView) view.findViewById(R.id.gender_field);
+            String memberSex = String.valueOf(current.getSex());
+            switch (memberSex) {
+                case "1":
+                    memberSex = "man";
+                    break;
+                case "2":
+                    memberSex = "woman";
+                    break;
+            }
+            gender.setText(memberSex);
+
+            TextView marriage = (TextView) view.findViewById(R.id.marriage_status);
+            marriage.setText(current.getMarriageParse());
+
+//            TextView education = (TextView) view.findViewById(R.id.education_field);
+  //          education.setText(current.getEducationParse(current.getEducation()));
+
+            TextView literacy = (TextView) view.findViewById(R.id.literacy_field);
+            literacy.setText(current.getLiteracyParse());
 
             return view;
         }

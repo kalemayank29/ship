@@ -14,16 +14,15 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="407dp"
-        android:layout_marginEnd="407dp" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Push All"
+        android:text="सुपरवायझर 'टॅब' वर पाठवा"
         android:id="@+id/pushAllBtn"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/save_button_pressed"/>
 </RelativeLayout>

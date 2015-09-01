@@ -3,4 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ListView
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="100dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/family_head_list"
+        android:layout_weight="1" />
+
 </LinearLayout>

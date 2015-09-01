@@ -12,25 +12,29 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MemberDbHelper extends SQLiteOpenHelper {
 
     //Constants for db name and version
-    private static final String DATABASE_NAME = "village.db";
+    private static final String DATABASE_NAME = "searchVillage";
     private static final int DATABASE_VERSION = 1;
 
     //Constants for identifying table and columns
     public static final String TABLE_MEMBER = "member";
-    public static final String TABLE_MEMBERCUR = "memberCur";
+    public static final String TABLE_MEMBERCUR = "membercur";
+
     public static final String MEMBER_ID = "_id";
     public static final String FAMILY_ID = "family_id";
     public static final String HOUSE_ID = "house_id";
-    public static final String FAMILY_HEAD_BOOL = "family_head_id";
+    public static final String FAMILY_HEAD_BOOL = "family_head";
     public static final String NAME = "name";
     public static final String AGE = "age";
+    public static final String SEX = "sex";
     public static final String CHILD_ID = "child_id";
+    public static final String CHILD_DATE = "child_date";
     public static final String MARRIAGE_STATUS = "m_status";
     public static final String FAMILY_PLAN = "family_plan";
     public static final String EDUCATION = "education";
     public static final String LITERACY = "literacy";
     public static final String WEDDING_DEPT = "wed_left";
     public static final String WEDDING_ARR = "wed_came";
+    public static final String FLAG = "flag";
 
 
     //SQL to create local table
@@ -40,16 +44,21 @@ public class MemberDbHelper extends SQLiteOpenHelper {
                     FAMILY_ID + " INTEGER NOT NULL, " +
                     HOUSE_ID + " INTEGER NOT NULL, " +
                     FAMILY_HEAD_BOOL + " INTEGER NOT NULL," +
-                    NAME + " TEXT NOT NULL," +
-                    AGE + " INTEGER NOT NULL, " +
-                    CHILD_ID + " INTEGER, " +
-                    MARRIAGE_STATUS + " VARCHAR NOT NULL," +
-                    FAMILY_PLAN + " VARCHAR NOT NULL," +
-                    EDUCATION + " VARCHAR NOT NULL, " +
-                    LITERACY + " VARCHAR NOT NULL, " +
+                    NAME + " TEXT," +
+                    AGE + " INTEGER, " +
+                    SEX + " INTEGER, " +
+                    CHILD_ID + " INTEGER," +
+                    CHILD_DATE + " INTEGER," +
+                    MARRIAGE_STATUS + " TEXT," +
+                    FAMILY_PLAN + " TEXT," +
+                    EDUCATION + " TEXT, " +
+                    LITERACY + " TEXT, " +
                     WEDDING_ARR + " TEXT, " +
-                    WEDDING_DEPT + " TEXT " +
+                    WEDDING_DEPT + " TEXT, " +
+                    FLAG + " INTEGER" +
                     ")";
+
+    // Flag 1 = NOT TRANSFERRED.
 
     //SQL to create curated table
     private static final String MEMBER_CREATECUR =
@@ -58,15 +67,18 @@ public class MemberDbHelper extends SQLiteOpenHelper {
                     FAMILY_ID + " INTEGER NOT NULL, " +
                     HOUSE_ID + " INTEGER NOT NULL, " +
                     FAMILY_HEAD_BOOL + " INTEGER NOT NULL," +
-                    NAME + " TEXT NOT NULL," +
-                    AGE + " INTEGER NOT NULL, " +
-                    CHILD_ID + " INTEGER, " +
-                    MARRIAGE_STATUS + " VARCHAR NOT NULL," +
-                    FAMILY_PLAN + " VARCHAR NOT NULL," +
-                    EDUCATION + " VARCHAR NOT NULL, " +
-                    LITERACY + " VARCHAR NOT NULL, " +
+                    NAME + " TEXT," +
+                    AGE + " INTEGER, " +
+                    SEX + " INTEGER, " +
+                    CHILD_ID + " INTEGER," +
+                    CHILD_DATE + " INTEGER," +
+                    MARRIAGE_STATUS + " TEXT," +
+                    FAMILY_PLAN + " TEXT," +
+                    EDUCATION + " TEXT, " +
+                    LITERACY + " TEXT, " +
                     WEDDING_ARR + " TEXT, " +
-                    WEDDING_DEPT + " TEXT " +
+                    WEDDING_DEPT + " TEXT, " +
+                    FLAG + " INTEGER" +
                     ")";
 
 

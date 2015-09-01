@@ -14,54 +14,75 @@
         android:layout_marginTop="37dp">
 
         <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/famText"
-            android:hint="Family Id No."
-            android:textSize="25sp"
-            android:inputType="number" />
-
-        <EditText
-            android:layout_width="fill_parent"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:id="@+id/nameText"
-            android:hint="Name"
+            android:hint="नाव "
+            android:isScrollContainer="false"
             android:textSize="25sp"
             android:layout_marginTop="60dp"
             android:capitalize="sentences" />
 
+
         <EditText
-            android:layout_width="fill_parent"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:id="@+id/ageText"
-            android:hint="Age"
+            android:hint="वय "
             android:textSize="25sp"
             android:layout_marginTop="60dp"
             android:inputType="number" />
 
-        <EditText
-            android:layout_width="fill_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/childText"
-            android:hint="Child Id"
-            android:textSize="25sp"
+            android:id="@+id/gender"
+            android:textSize="17sp"
+            android:text="लिंग"
+            android:textColor="#011936"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
             android:layout_marginTop="60dp"
-            android:inputType="number" />
-
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/man"
+                android:onClick="genderClick"
+                android:text="पुरुष"
+                android:textSize="20sp"
+                android:tag="man"
+                android:buttonTint="#000000"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/woman"
+                android:textSize="20sp"
+                android:onClick="genderClick"
+                android:text="स्त्री"
+                android:tag="woman"
+                android:buttonTint="#000000"
+                />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        android:layout_marginLeft="120dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="17sp"
-            android:text="Marriage Status"
+            android:text="विवाह स्थिती"
             android:layout_marginTop="20dp"
             android:textColor="#011936"
             android:layout_marginLeft="5dp"
@@ -82,13 +103,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="17sp"
-            android:text="Family Planning"
+            android:text="कुटुंब नियोजनाचे ऑपरेशन"
             android:layout_marginTop="25dp"
             android:textColor="#011936"
             android:layout_marginLeft="5dp"
             android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="हो"
+                android:id="@+id/familyPlanningYes"
+                android:tag="yes"
+                android:layout_marginTop="5dp"
+                android:buttonTint="#000000"
+                android:onClick="familyPlanningClick"/>
 
-        <Spinner
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="नाही"
+                android:id="@+id/familyPlanningNo"
+                android:tag="no"
+                android:layout_marginTop="5dp"
+                android:buttonTint="#000000"
+                android:onClick="familyPlanningClick"/>
+        </LinearLayout>
+
+        <!--<Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spin_family_plan"
@@ -98,16 +145,17 @@
             android:layout_marginTop="5dp"
             android:layout_marginStart="59dp"
             android:background="@drawable/spinner" />
-
+-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="17sp"
-            android:text="Education"
-            android:layout_marginTop="25dp"
+            android:text="शिक्षण "
+            android:layout_marginTop="15dp"
             android:textColor="#011936"
             android:layout_marginLeft="5dp"
             android:textStyle="bold"/>
+
 
         <Spinner
             android:layout_width="wrap_content"
@@ -118,19 +166,20 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginStart="59dp"
-            android:background="@drawable/spinner" />
+            android:background="@drawable/spinner"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="17sp"
-            android:text="Literacy"
+            android:text="आता लिहता वाचता येते का"
             android:layout_marginTop="20dp"
             android:textColor="#011936"
             android:layout_marginLeft="5dp"
             android:textStyle="bold"/>
 
-        <Spinner
+      <!--  <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spin_literacy"
@@ -140,21 +189,52 @@
             android:layout_marginTop="5dp"
             android:layout_marginStart="59dp"
             android:background="@drawable/spinner" />
+        -->
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/yes"
+                android:text="हो"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="59dp"
+                android:tag="yes"
+                android:onClick="litClick"
+                android:buttonTint="#000000"
+                />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/no"
+                android:text="नाही"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="59dp"
+                android:tag="no"
+                android:buttonTint="#000000"
+                android:onClick="litClick"/>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        android:layout_marginLeft="120dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="40dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="Wedding Date (Departure)"
+            android:text="लग्न होऊन घरात आल्याची तारीख"
             android:layout_marginTop="0dp"
             android:textColor="#011936"
             android:layout_marginLeft="15dp"
@@ -177,11 +257,11 @@
             <Button android:id="@+id/myDatePickerButton"
                 android:layout_width="100dp"
                 android:layout_height="35dp"
-                android:background="@drawable/my_button"
-                android:text="Choose"
+                android:background="@drawable/button_pressed"
+                android:text="निवडा"
                 android:layout_marginTop="10dp"
                 android:textColor="#ffffff"
-                android:textSize="12dp"
+                android:textSize="15dp"
                 android:layout_marginLeft="15dp"/>
 
 
@@ -192,7 +272,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="Wedding Date (Arrival)"
+            android:text="लग्न होऊन घरातून गेल्याची तारीख"
             android:layout_marginTop="35dp"
             android:textColor="#011936"
             android:layout_marginLeft="15dp"
@@ -216,9 +296,9 @@
                 android:layout_height="35dp"
                 android:textColor="#ffffff"
                 android:layout_marginTop="15dp"
-                android:textSize="12dp"
-                android:background="@drawable/my_button"
-                android:text="Choose"
+                android:textSize="15dp"
+                android:background="@drawable/button_pressed"
+                android:text="निवडा"
                 android:layout_marginLeft="15dp"/>
 
 
@@ -226,21 +306,13 @@
                 android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:textColor="#ffffff"
-                android:textSize="15dp"
+                android:textSize="20dp"
                 android:layout_marginTop="140dp"
-                android:background="@drawable/my_button"
-                android:text="Push"
-                android:layout_marginLeft="-190dp"/>
+                android:background="@drawable/save_button_pressed"
+                android:text="सेव"
+                android:layout_marginLeft="-125dp"/>
 
-            <Button android:id="@+id/viewLocal"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:textColor="#ffffff"
-                android:layout_marginTop="200dp"
-                android:textSize="15dp"
-                android:background="@drawable/my_button"
-                android:text="View Members"
-                android:layout_marginLeft="-200dp"/>
+
 
 
         </LinearLayout>

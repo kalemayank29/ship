@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="125dp"
@@ -10,7 +9,192 @@
         android:background="@drawable/search"
         android:layout_gravity="center_horizontal" />
 
-    <TextView
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="50dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="गावाचे नाव"
+                    android:id="@+id/villageName_t"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="30dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/villageName_et"
+                    android:text=" खुर्सा"
+                    android:textSize="25dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="पुरुष आरोग्यदूत"
+                    android:id="@+id/healthWorkers_t"
+                    android:textSize="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/healthWorkers_et"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="आनंदराव दूधबळे"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="गाव लोकसंख्या"
+                    android:textSize="30dp"
+                    android:id="@+id/villagePop_t"
+                    android:textColor="#000000"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/village_et"
+                    android:textSize="25dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:text="2674"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="40dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_width="215dp"
+                        android:layout_height="wrap_content"
+                        android:text="घरांची संख्या"
+                        android:textSize="30dp"
+                        android:textColor="#000000"
+                        android:id="@+id/villageHouses_t"
+                        android:layout_gravity="center_horizontal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/villageHouses_et"
+                        android:textSize="30dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="650"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="20dp">
+                    <TextView
+                        android:layout_width="185dp"
+                        android:layout_height="wrap_content"
+                        android:text="कुटुंब संख्या"
+                        android:id="@+id/villageFamilies_t"
+                        android:textColor="#000000"
+                        android:textSize="30dp"
+                        android:layout_gravity="center_horizontal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/villageFamilies_et"
+                        android:textSize="30dp"
+                        android:layout_marginLeft="30dp"
+                        android:text="800"
+                        android:layout_gravity="center_horizontal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="20dp">
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="पाच वर्षा खालील मुलांची संख्या"
+                        android:textColor="#000000"
+                        android:id="@+id/lessThan5YrsChild_t"
+                        android:textSize="30dp"
+                        android:layout_gravity="center_horizontal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/lessThan5YrsChild_et"
+                        android:textSize="30dp"
+                        android:text="32"
+                        android:layout_marginLeft="30dp"
+                        android:layout_gravity="center_horizontal" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+
+
+
+
+    <!--<TextView
         android:layout_width="800dp"
         android:layout_height="400dp"
         android:text="Never doubt that a small group of thoughtful, committed citizens can change the world; indeed, it's the only thing that ever has."
@@ -27,5 +211,4 @@
         android:id="@+id/person"
         android:textSize="15dp"
         android:textColor="#011936"
-        android:layout_marginTop="15dp"/>
-</LinearLayout>
+        android:layout_marginTop="15dp"/>-->

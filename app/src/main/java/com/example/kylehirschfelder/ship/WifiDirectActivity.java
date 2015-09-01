@@ -1,8 +1,14 @@
 package com.example.kylehirschfelder.ship;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WpsInfo;
 import android.net.wifi.p2p.WifiP2pConfig;
@@ -19,6 +25,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -30,6 +37,7 @@ import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,6 +54,8 @@ public class WifiDirectActivity extends AppCompatActivity implements WifiP2pMana
     public List peers = new ArrayList();
     Bundle bundle;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +63,12 @@ public class WifiDirectActivity extends AppCompatActivity implements WifiP2pMana
 
         btn = (Button) findViewById(R.id.button);
         btnConnect = (Button) findViewById(R.id.btn2);
+        btnConnect.setVisibility(View.GONE);
+
 
         Intent intent = this.getIntent();
         Bundle bundle = getIntent().getExtras();
+
 
         list2 = (ArrayList<HashMap<String, String>>) bundle.getSerializable("map");
         Log.println(Log.ASSERT, "LIST2 SIZE: ", String.valueOf(list2.size()));
@@ -65,7 +78,7 @@ public class WifiDirectActivity extends AppCompatActivity implements WifiP2pMana
         Log.println(Log.ASSERT, TAG, "Resetting WIFI");
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -83,6 +96,13 @@ public class WifiDirectActivity extends AppCompatActivity implements WifiP2pMana
         mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
         mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
 
+        WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        wifi.disconnect();
+        DisconnectWifi discon = new DisconnectWifi(wifi);
+        registerReceiver(discon, new IntentFilter(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION));
+
+
+
         btnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,10 +113,12 @@ public class WifiDirectActivity extends AppCompatActivity implements WifiP2pMana
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 mManager.discoverPeers(mChannel, new WifiP2pManager.ActionListener() {
                     @Override
                     public void onSuccess() {
                         Log.println(Log.ASSERT,TAG,"Discovery process success");
+
                     }
 
                     @Override
@@ -133,6 +155,7 @@ public class WifiDirectActivity extends AppCompatActivity implements WifiP2pMana
         } else {
             Log.println(Log.ASSERT, TAG, String.valueOf(peers.size()) + " Devices found");
             Toast.makeText(WifiDirectActivity.this, "Connect and Transfer now", Toast.LENGTH_SHORT).show();
+            btnConnect.setVisibility(View.VISIBLE);
             //connect();
         }
     }
@@ -149,7 +172,7 @@ public class WifiDirectActivity extends AppCompatActivity implements WifiP2pMana
         Log.println(Log.ASSERT,"LOG","Before connecting to the tablet");
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -247,7 +270,7 @@ public class WifiDirectActivity extends AppCompatActivity implements WifiP2pMana
         return super.onOptionsItemSelected(item);
     }
 
-    public static class FileServerAsyncTask extends AsyncTask {
+    public static class FileServerAsyncTask extends AsyncTask <Object,Void,String> {
 
         Context context;
         String host;
@@ -268,7 +291,7 @@ public class WifiDirectActivity extends AppCompatActivity implements WifiP2pMana
         }
 
         @Override
-        protected Object doInBackground(Object[] objects) {
+        protected String doInBackground(Object[] objects) {
             Log.println(Log.ASSERT, "Tag", "Here");
 
             if (host != null) {
@@ -313,5 +336,68 @@ public class WifiDirectActivity extends AppCompatActivity implements WifiP2pMana
             }
             return null;
         }
+
+        @Override
+        protected void onPostExecute(String result) {
+            Intent intent = null;
+            MemberDataInterface sync = new MemberDataInterface(context);
+            try {
+                sync.setAllSync(0);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            String activityFlag = mActivity.getIntent().getStringExtra("activityFlag");
+            if(activityFlag.equals("1"))
+            {
+                intent = new Intent(this.mActivity,HouseTransferList.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setAction(android.content.Intent.ACTION_VIEW);
+                this.context.startActivity(intent);
+
+            }
+            else if(activityFlag.equals("2"))
+                Log.println(Log.ASSERT,"Flag","is two");
+
+
+        }
+    }
+    public class DisconnectWifi extends BroadcastReceiver {
+    WifiManager wifi;
+        DisconnectWifi(WifiManager wifi){
+            this.wifi = wifi;
+        }
+        @Override
+        public void onReceive(Context c, Intent intent) {
+            if(!intent.getParcelableExtra(wifi.EXTRA_NEW_STATE).toString().equals(SupplicantState.SCANNING)) wifi.disconnect();
+        }
+    }
+
+    private class TimerTask extends AsyncTask<Integer,Void,Void>{
+        private long time;
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+            time = System.currentTimeMillis();
+        }
+
+        @Override
+        protected Void doInBackground(Integer... params){
+
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result){
+            Log.println(Log.ASSERT,"in","postExec");
+            Button connect = (Button) findViewById(R.id.btn2);
+            connect.setVisibility(View.VISIBLE);
+        }
+
     }
 }
