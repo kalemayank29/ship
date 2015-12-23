@@ -161,8 +161,6 @@ public class Birth {
         }
 
 
-
-
         public String getHealthMessenger() {
             return healthMessenger;
         }
@@ -186,10 +184,6 @@ public class Birth {
         public void setHealthMessengerDate(String healthMessengerDate) {
             this.healthMessengerDate = healthMessengerDate;
         }
-
-
-
-
 
 
         public String getGuideName() {

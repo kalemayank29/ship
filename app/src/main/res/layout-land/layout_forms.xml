@@ -36,7 +36,7 @@
             android:textSize="25dp"
             android:id="@+id/familyBtn"
             android:drawableTop="@drawable/family"
-            android:text="जनगणना नोंदणी"
+            android:text="Census Registration"
             android:layout_marginLeft="150dp"
             android:layout_marginTop="60dp"/>
 
@@ -46,7 +46,7 @@
             android:textSize="25dp"
             android:id="@+id/birthBtn"
             android:drawableTop="@drawable/babyl"
-            android:text="जन्म माहिती नोंदणी"
+            android:text="Birth Information"
             android:layout_marginLeft="75dp"
             android:layout_marginTop="60dp"/>
    <!--     <Button

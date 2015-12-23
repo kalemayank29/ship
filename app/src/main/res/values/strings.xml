@@ -1,14 +1,14 @@
 <resources>
-    <string name="app_name"> सर्च - गडचिरोली </string>
+    <string name="app_name"> invoq health </string>
 
-    <string name="title_section1">होम</string>
-    <string name="title_section2">सदस्य</string>
-    <string name="title_section3">Family</string>
+    <string name="title_section1"> Home </string>
+    <string name="title_section2"> Members </string>
+    <string name="title_section3"> Family</string>
     <string name="title_section4">House</string>
-    <string name="title_section5">फॉर्म</string>
-    <string name="title_section6">सुपरवायझर</string>
-    <string name="title_section7">औषधी अहवाल</string>
-    <string name="title_section8">औषधी माहिती</string>
+    <string name="title_section5"> Forms </string>
+    <string name="title_section6"> Supervisor </string>
+    <string name="title_section7"> Medicine Inventory </string>
+    <string name="title_section8"> Medicine Information </string>
     <string name="title_section9">Submit Bug</string>
 
     <string name="head"><u> Family Head </u> </string>

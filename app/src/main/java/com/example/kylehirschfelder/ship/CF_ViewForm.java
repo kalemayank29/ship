@@ -87,9 +87,6 @@ public class CF_ViewForm extends AppCompatActivity {
         Log.println(Log.ASSERT, "log", Boolean.toString(casteText.isEnabled()));
 
 
-
-
-
         wall[0] = (CheckBox)findViewById(R.id.cement);
         wall[1] = (CheckBox)findViewById(R.id.brick);
         wall[2] = (CheckBox)findViewById(R.id.mud);
@@ -512,30 +509,6 @@ public class CF_ViewForm extends AppCompatActivity {
 
 
 /*
-        List<NameValuePair> data = new ArrayList<NameValuePair>();
-        data.add(new BasicNameValuePair("caste", census.getCaste()));
-        data.add(new BasicNameValuePair("religion", census.getReligion()));
-        data.add(new BasicNameValuePair("p_bus", census.getpBusiness()));
-        data.add(new BasicNameValuePair("a_bus_1", census.getaBusiness1()));
-        data.add(new BasicNameValuePair("a_bus_2", census.getaBusiness2()));
-        data.add(new BasicNameValuePair("a_bus_3", census.getaBusiness3()));
-        data.add(new BasicNameValuePair("dry_land_a", census.getDrylandA()));
-       // data.add(new BasicNameValuePair("dry_land_g", census.getDrylandG()));
-        data.add(new BasicNameValuePair("wet_land_a", census.getWetlandA()));
-        //data.add(new BasicNameValuePair("wet_land_g", census.getWetlandG()));
-        data.add(new BasicNameValuePair("wall", census.getWall()));
-        data.add(new BasicNameValuePair("roof", census.getRoof()));
-        data.add(new BasicNameValuePair("electricity", census.getElectricity()));
-        data.add(new BasicNameValuePair("house_owner", census.getHouseOwner()));
-        data.add(new BasicNameValuePair("toilet", census.getToilet()));
-        data.add(new BasicNameValuePair("toilet_use", census.getToiletUse()));
-        data.add(new BasicNameValuePair("cooking", census.getCooking()));
-        data.add(new BasicNameValuePair("kitchen", census.getKitchen()));
-        data.add(new BasicNameValuePair("water", census.getWater()));
-        data.add(new BasicNameValuePair("thing", census.getThing()));
-        data.add(new BasicNameValuePair("animal", census.getAnimal()));
-        data.add(new BasicNameValuePair("date", "0"));
-        data.add(new BasicNameValuePair("thing", "0"));
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);*/
