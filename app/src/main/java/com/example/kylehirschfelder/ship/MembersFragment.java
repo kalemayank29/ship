@@ -58,13 +58,7 @@ public class MembersFragment extends Fragment {
             }
         });
 
-       /* all.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            Intent intent = new Intent(getActivity(),MemberListView.class);
-                startActivity(intent);
-            }
-        });*/
+
 
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override

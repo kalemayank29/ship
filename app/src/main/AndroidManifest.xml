@@ -31,11 +31,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MemberListView"
-            android:label="@string/title_activity_member_list_view"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
             android:name=".MemberForm"
             android:label="@string/title_activity_member_form"
             android:screenOrientation="landscape" >

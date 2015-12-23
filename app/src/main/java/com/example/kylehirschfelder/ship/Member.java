@@ -9,7 +9,7 @@ import java.util.List;
  *  Unique Id and primary key constraint is memberId.
  *  Family Id is assigned as Member Id of the family head using CleanUp.
  *  House Id is only assigned first to member head on house (census) data creation.
- *
+ *  ^^ The fuck do i do about this?
  *  13 private variables. 6 int, 7 String types.
  */
 
