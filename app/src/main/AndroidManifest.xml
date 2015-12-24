@@ -75,18 +75,6 @@
             android:label="@string/title_activity_more_drug_info__precautions" >
         </activity>
         <activity
-            android:name=".MedicineAddInterface"
-            android:label="@string/title_activity_medicine_add_interface" >
-        </activity>
-        <activity
-            android:name=".MedicineAddListView"
-            android:label="@string/title_activity_medicine_add_list_view" >
-        </activity>
-        <activity
-            android:name=".MedicineAddShowCur"
-            android:label="@string/title_activity_medicine_add_show_cur" >
-        </activity>
-        <activity
             android:name=".AddPrimaryFamily"
             android:label="@string/title_activity_add_primary_family"
             android:screenOrientation="landscape" >

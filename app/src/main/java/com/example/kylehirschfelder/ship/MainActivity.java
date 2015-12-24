@@ -117,15 +117,7 @@ public class MainActivity extends AppCompatActivity
             case 4:
                 myFragment = new TransferFragment();
                 break;
-            case 5:
-                myFragment = new MedicineInventoryFragment();
-                break;
-            case 6:
-                myFragment = new DrugInfoFragment();
-                break;
-            /*case 6:
-                myFragment = new BugFragment();
-                break;*/
+
         }
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
@@ -151,7 +143,7 @@ public class MainActivity extends AppCompatActivity
             case 4:
                 mTitle = getString(R.string.title_section5);
                 break;
-            case 5:
+            /*case 5:
                 mTitle = getString(R.string.title_section7);
                 break;
             case 6:
