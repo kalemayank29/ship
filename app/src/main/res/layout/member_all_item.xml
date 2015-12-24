@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="50dp">
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Id"
-        android:layout_marginLeft="30dp"
-        android:id="@+id/textId"
-        android:textSize="27dp"
-        android:textColor="#465362"/>
+        android:text="Family id"
+        android:id="@+id/familyId"
+        android:textSize="20dp"
+        android:textColor="#465362"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"/>
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="85dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="7dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Name"
         android:id="@+id/textName"

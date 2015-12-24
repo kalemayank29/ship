@@ -133,7 +133,7 @@
         <activity
             android:name=".BirthInfoForm"
             android:label="Birth Info Form"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".BirthSelectMother"
@@ -142,13 +142,18 @@
         <activity
             android:name=".NewCensusForm"
             android:label="@string/title_activity_new_census_form"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".CensusViewForm"
             android:label="जनगणना"
             android:screenOrientation="landscape"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name=".PatientList"
+            android:label="@string/title_activity_patient_list"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

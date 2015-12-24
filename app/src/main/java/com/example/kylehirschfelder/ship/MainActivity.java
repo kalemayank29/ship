@@ -105,22 +105,22 @@ public class MainActivity extends AppCompatActivity
             case 1:
                 myFragment = new MembersFragment();
                 break;
-            /*case 2:
+            case 2:
                 myFragment = new PatientFragment();
                 break;
-            case 3:
+            /*case 3:
                 myFragment = new HouseFragment();
                 break;*/
-            case 2:
+            case 3:
                 myFragment = new FormFragment();
                 break;
-            case 3:
+            case 4:
                 myFragment = new TransferFragment();
                 break;
-            case 4:
+            case 5:
                 myFragment = new MedicineInventoryFragment();
                 break;
-            case 5:
+            case 6:
                 myFragment = new DrugInfoFragment();
                 break;
             /*case 6:
@@ -142,19 +142,19 @@ public class MainActivity extends AppCompatActivity
             case 2:
                 mTitle = getString(R.string.title_section2);
                 break;
-          /*  case 3:
+            case 3:
                 mTitle = getString(R.string.title_section3);
                 break;
-            case 4:
+            /*case 4:
                 mTitle = getString(R.string.title_section4);
                 break;*/
-            case 3:
+            case 4:
                 mTitle = getString(R.string.title_section5);
                 break;
-            case 4:
+            case 5:
                 mTitle = getString(R.string.title_section7);
                 break;
-            case 5:
+            case 6:
                 mTitle = getString(R.string.title_section8);
                 break;
             /*case 6:

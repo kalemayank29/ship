@@ -304,9 +304,9 @@ public class MemberDataInterface {
 
         // Simple SEQUEL query: select all members for family_head: true
         if(cur == 0)
-             cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBER + " WHERE family_head = 1", null);
+             cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBER + " WHERE family_head = 1 ORDER BY name", null);
         else
-            cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR + " WHERE family_head = 1", null);
+            cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR + " WHERE family_head = 1 ORDER BY name", null);
 
 
         if(cursor.moveToFirst()){

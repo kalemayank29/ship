@@ -3,7 +3,7 @@
 
     <string name="title_section1"> Home </string>
     <string name="title_section2"> Members </string>
-    <string name="title_section3"> Family</string>
+    <string name="title_section3"> Patients</string>
     <string name="title_section4">House</string>
     <string name="title_section5"> Forms </string>
     <string name="title_section6"> Supervisor </string>
@@ -574,5 +574,6 @@
     <string name="title_activity_birth_family_list_view">BirthFamilyListView</string>
     <string name="title_activity_birth_select_mother">BirthSelectMother</string>
     <string name="title_activity_new_census_form">NewCensusForm</string>
+    <string name="title_activity_patient_list">PatientList</string>
 
 </resources>

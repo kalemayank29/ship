@@ -1,8 +1,11 @@
 package com.example.kylehirschfelder.ship;
 
 import android.app.Activity;
+import android.app.ListActivity;
+import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -24,7 +27,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-public class MembersFragment extends Fragment {
+public class MembersFragment extends Fragment{
     View myView;
     ListView lv;
     private static final int VIEWFAM = 0, ADDHOUSE = 1, ADDMEMBER = 2, UPMEM = 3, VIEWHOUSE = 4;
