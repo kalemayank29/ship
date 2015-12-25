@@ -54,7 +54,7 @@ package com.example.kylehirschfelder.ship;
         public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
             // TODO Auto-generated method stub
 
-        }
+  }
 
         public void insert(Birth birth) {
 

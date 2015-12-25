@@ -141,7 +141,13 @@
         <activity
             android:name=".PatientList"
             android:label="@string/title_activity_patient_list"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity
+            android:name=".DeathAdultForm"
+            android:label="@string/title_activity_death_adult_form"
+            android:screenOrientation="landscape">
         </activity>
     </application>
 

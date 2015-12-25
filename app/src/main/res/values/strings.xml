@@ -575,5 +575,7 @@
     <string name="title_activity_birth_select_mother">BirthSelectMother</string>
     <string name="title_activity_new_census_form">NewCensusForm</string>
     <string name="title_activity_patient_list">PatientList</string>
+    <string name="title_activity_death">Death</string>
+    <string name="title_activity_death_adult_form">DeathAdultForm</string>
 
 </resources>
