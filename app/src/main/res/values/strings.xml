@@ -577,5 +577,6 @@
     <string name="title_activity_patient_list">PatientList</string>
     <string name="title_activity_death">Death</string>
     <string name="title_activity_death_adult_form">DeathAdultForm</string>
+    <string name="title_activity_pnm__info">PNM_Info</string>
 
 </resources>

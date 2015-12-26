@@ -143,11 +143,14 @@
             android:label="@string/title_activity_patient_list"
             android:screenOrientation="portrait" >
         </activity>
-
         <activity
             android:name=".DeathAdultForm"
             android:label="@string/title_activity_death_adult_form"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".PNM_Info"
+            android:label="@string/title_activity_pnm__info" >
         </activity>
     </application>
 
