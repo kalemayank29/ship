@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="50dp">
-
+    android:layout_height="match_parent">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Family id"
-        android:id="@+id/familyId"
-        android:textSize="20dp"
+        android:text="Id"
+        android:textSize="25dp"
+        android:layout_marginLeft="30dp"
         android:textColor="#465362"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="3dp"/>
-
+        android:id="@+id/textId" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="7dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Name"
-        android:id="@+id/textName"
-        android:textSize="27dp"
-        android:textColor="#465362"/>
-
+        android:text="PNM HEADER"
+        android:layout_marginLeft="25dp"
+        android:textSize="25dp"
+        android:textColor="#465362"
+        android:id="@+id/textInfo" />
 </LinearLayout>

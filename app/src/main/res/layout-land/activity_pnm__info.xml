@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<ListView android:layout_width="450dp"
+        android:layout_height="fill_parent"
+        android:id="@+id/mainListView">
+    </ListView>
+
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/severe"
+        android:text= "अ) गंभीर न्युमोनिया 
+        निदान : 
+खालील पैकी कोणतेही एक किवा जास्त लक्षणे असल्यास 
+- दुध ओढणे / पिणे बंद 
+- बेशुद्धी / खुप गुंगी 
+- फिट / दाटी 
+- मध्ये मध्ये श्वास थांबतो 
+- छाती बलकुशा खुप आत ओढतात 
+- स्ट्रायडर (शांत मुलात)
+- अपुर्या महिन्याच्या नवजात मुलाला न्युमोनिया 
+        उपचार : 
+        कोट्राचा डोस देऊन ताबडतोब 
+हॉस्पिटल मध्ये पाठवा 
+नेले / नेले नाही 
+कुठे? 
+कोणाकडे? 
+काय परिणाम? 
+हॉस्पिटल मध्ये न नेल्यास कोट्राचे
+औषध सुरु ठेवा 
+
+        "
+        android:layout_marginTop="40dp"
+        android:textSize="25dp"
+        android:layout_marginLeft="50dp"
+        android:textStyle="bold"/>
+
+
+</LinearLayout>

@@ -46,7 +46,8 @@ public class FormFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity().getApplicationContext(), BirthFamilyListView.class);
                 startActivity(intent);
-
+              //  Intent intent = new Intent(getActivity().getApplicationContext(), PNM_Info.class);
+               // startActivity(intent);
             }
         });
 /*

@@ -34,17 +34,18 @@ int longClickItemIndex, familyId;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_member_family_from_head_list_view);
+            setContentView(R.layout.activity_birth_select_mother);
             Member member = new Member();
 
             String index = getIntent().getStringExtra("index");
             familyId = Integer.parseInt(index);
             Log.println(Log.ASSERT, "LOG FAM ID", index);
-            lv = (ListView) findViewById(R.id.memberFamListView);
+            lv = (ListView) findViewById(R.id.femMemListView);
             interfaceMember = new MemberDataInterface(getApplicationContext());
 
             try {
-                memberFamList = interfaceMember.getFamilyList(familyId,1);
+                memberFamList = interfaceMember.getFemaleFamilyList(familyId,1);
+
                 Log.println(Log.ASSERT,"Member Fam List size", String.valueOf(memberFamList.size()));
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -113,8 +114,8 @@ int longClickItemIndex, familyId;
 
         public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo info) {
             super.onCreateContextMenu(menu, view, info);
-            menu.setHeaderTitle("......");
-            menu.add(Menu.NONE, VIEW, menu.NONE, "");
+            menu.setHeaderTitle("OPTIONS");
+            menu.add(Menu.NONE, VIEW, menu.NONE, "Birth slip BHARA");
 
         }
 
@@ -147,7 +148,7 @@ private class memberHeadListAdapter extends ArrayAdapter<Member> {
         TextView age = (TextView) view.findViewById(R.id.ageB);
         age.setText(String.valueOf(current.getAge()));
 
-        TextView gender = (TextView) view.findViewById(R.id.sexB);
+       /* TextView gender = (TextView) view.findViewById(R.id.sexB);
         String memberSex = String.valueOf(current.getSex());
         switch (memberSex) {
             case "1":
@@ -158,7 +159,7 @@ private class memberHeadListAdapter extends ArrayAdapter<Member> {
                 break;
         }
         gender.setText(memberSex);
-
+*/
 
         return view;
      }

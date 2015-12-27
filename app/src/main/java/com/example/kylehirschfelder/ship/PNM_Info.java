@@ -1,5 +1,6 @@
 package com.example.kylehirschfelder.ship;
 
+        import android.content.Context;
         import android.content.Intent;
         import android.os.Bundle;
         import android.support.annotation.Nullable;
@@ -12,62 +13,73 @@ package com.example.kylehirschfelder.ship;
         import android.view.View;
         import android.view.ViewGroup;
         import android.widget.AdapterView;
+        import android.widget.ArrayAdapter;
         import android.widget.Button;
         import android.widget.ListView;
         import android.widget.TextView;
 
+        import java.util.ArrayList;
+        import java.util.Arrays;
         import java.util.List;
 
 
 public class PNM_Info extends AppCompatActivity {
 
-        ListView lv;
-        Button moreBtn;
-        int click;
-        TextView genericName, brandName, formula, drugClass, color, shape;
-        //DrugDBHandler db;
-        //Drug aspirin, androgel, acetoaminophen, result;
+        private ListView mainListView ;
+        private ArrayAdapter<String> listAdapter ;
 
         View myView;
 
-        @Nullable
-
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            myView = inflater.inflate(R.layout.activity_pnm__info, container, false);
-
-        //    db = new DrugDBHandler(getActivity().getApplicationContext());
-            List<TextView> info;
-
-            //getApplicationContext().deleteDatabase("drugManager");
-            //getApplicationContext().deleteDatabase("drugManager1");
-
-        /*    aspirin = new Drug(0, "Aspirin", "Bufferin", "C9H8O4", "Nonsteroidal anti-inflammatory drug (NSAID), Salicylate", "White", "Round");
-            acetoaminophen = new Drug(0, "Acetoaminophen", "Bufferin", "C9H8O4", "Nonsteroidal anti-inflammatory drug (NSAID), Salicylate", "White", "Round");
-            androgel = new Drug(0, "Androgel", "Bufferin", "C9H8O4", "Nonsteroidal anti-inflammatory drug (NSAID), Salicylate", "White", "Round");
-
-            db.createDrug(acetoaminophen);
-            db.createDrug(aspirin);
-            db.createDrug(androgel);
-
-            temp = db.getAllDrugs();*/
-
-
-
-            return myView;
-        }
-
         @Override
-        public boolean onOptionsItemSelected (MenuItem item){
-            // Handle action bar item clicks here. The action bar will
-            // automatically handle clicks on the Home/Up button, so long
-            // as you specify a parent activity in AndroidManifest.xml.
-            int id = item.getItemId();
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_pnm__info);
+            mainListView = (ListView) findViewById( R.id.mainListView );
 
-            //noinspection SimplifiableIfStatement
-            if (id == R.id.action_settings) {
-                return true;
-            }
-            return super.onOptionsItemSelected(item);
+            // Create and populate a List of planet names.
+            String[] planets = new String[] { "Mercury", "Venus", "Earth", "Mars",
+                    "Jupiter", "Saturn", "Uranus", "Neptune"};
+            ArrayList<String> planetList = new ArrayList<String>();
+            planetList.addAll( Arrays.asList(planets) );
+
+            // Create ArrayAdapter using the planet list.
+            listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, planetList);
+
+            // Add more planets. If you passed a String[] instead of a List<String>
+            // into the ArrayAdapter constructor, you must not add more items.
+            // Otherwise an exception will occur.
+            listAdapter.add( "Ceres" );
+            listAdapter.add( "Pluto" );
+            listAdapter.add( "Haumea" );
+            listAdapter.add( "Makemake" );
+            listAdapter.add( "Eris" );
+
+            // Set the ArrayAdapter as the ListView's adapter.
+            mainListView.setAdapter( listAdapter );
+
+
         }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_birth_family_list_view, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     }
 

@@ -395,6 +395,61 @@ public class MemberDataInterface {
         return memberFamList;
     }
 
+    /**
+     * Returns a family based on the family id. Retrieve female Members, match family id.
+     *
+     * @param familyId
+     * @return   -------- Member List of Family.
+     * @throws SQLException
+     */
+    public List<Member> getFemaleFamilyList(int familyId, int cur) throws SQLException {
+        this.openRead();
+
+
+        List<Member> memberFamList = new ArrayList<Member>();
+        Cursor c = null;
+
+        // SQL query: Select all where family_id matches.
+        String selection = "family_id=?";
+        String[] selectionArgs = new String[]{String.valueOf(familyId)};
+
+        if(cur == 0)
+            c = database.query(MemberDbHelper.TABLE_MEMBER, null, selection, selectionArgs, null, null, null);
+
+        else if(cur == 1)
+            c = database.query(MemberDbHelper.TABLE_MEMBERCUR, null, selection, selectionArgs, null, null, null);
+
+
+        if (c.moveToFirst()) {
+            do {
+                Member element = new Member();
+                if(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.SEX))==2){
+                    element.setName(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.NAME)));
+                    element.setMemberId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.MEMBER_ID)));
+                    element.setFamilyId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_ID)));
+                    element.setHouseId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.HOUSE_ID)));
+                    element.setFamilyHeadId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_HEAD_BOOL)));
+                    element.setAge(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.AGE)));
+                    element.setSex(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.SEX)));
+                    element.setChildId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_ID)));
+                    element.setChildDate(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_DATE)));
+                    element.setMarriageStatus(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.MARRIAGE_STATUS)));
+                    element.setFamilyPlan(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_PLAN)));
+                    element.setEducation(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.EDUCATION)));
+                    element.setLiteracy(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.LITERACY)));
+                    element.setWeddingArr(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.WEDDING_ARR)));
+                    element.setWeddingDept(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.WEDDING_DEPT)));
+                    memberFamList.add(element);
+                }
+
+            }
+            while (c.moveToNext());
+
+        }
+        this.close();
+        return memberFamList;
+    }
+
 
     /**
      * <EXTREME CODE SORCEREY> Clean up family id based on inserted family heads. </EXTREME CODE SORCEREY>

@@ -32,11 +32,10 @@
         android:layout_marginLeft="10dp"
         android:textStyle="bold"/>
 
-
-
-
-
-
+    <ListView android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/mainListView">
+    </ListView>
 
 
 

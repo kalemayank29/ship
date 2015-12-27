@@ -116,7 +116,8 @@
         </activity>
         <activity
             android:name=".BirthFamilyListView"
-            android:label="@string/title_activity_birth_family_list_view" >
+            android:label="@string/title_activity_birth_family_list_view"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".BirthInfoForm"
@@ -150,7 +151,8 @@
         </activity>
         <activity
             android:name=".PNM_Info"
-            android:label="@string/title_activity_pnm__info" >
+            android:label="@string/title_activity_pnm__info"
+            android:screenOrientation="landscape">
         </activity>
     </application>
 
