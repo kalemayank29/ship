@@ -4,6 +4,7 @@ import android.app.ListActivity;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.provider.ContactsContract;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,6 +26,9 @@ import java.util.List;
 public class PatientList extends AppCompatActivity {
 
     ListView listView;
+   // List<Birth> birthList;
+    //BirthInfoDBHelper dbHelper;
+    //ArrayAdapter<Birth> birthAdapter;
     List<Member> memberList;
     MemberDataInterface head;
     ArrayAdapter<Member> memberAdapter;
@@ -34,10 +39,19 @@ public class PatientList extends AppCompatActivity {
         setContentView(R.layout.activity_patient_list);
 
         listView = (ListView) this.findViewById(R.id.pfamily_head_list);
-        head = new MemberDataInterface(this.getApplicationContext());
+         head = new MemberDataInterface(this.getApplicationContext());
         memberList = head.getAllFamilyHeads(1);
 
-        Log.println(Log.ASSERT, "LIST SIZE: ", String.valueOf(memberList.size()));
+       // dbHelper = new BirthInfoDBHelper(this.getApplicationContext());
+        // birthList = dbHelper.getAll();
+    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            Intent intent = new Intent(getApplicationContext(),PortalUnderFive.class);
+            startActivity(intent);
+        }
+    });
+       // Log.println(Log.ASSERT, "LIST SIZE: ", String.valueOf(birthList.size()));
         populateList();
         registerForContextMenu(listView);
 
@@ -55,6 +69,9 @@ public class PatientList extends AppCompatActivity {
         memberAdapter = new memberListAdapter(this.memberList, this.getApplicationContext());
         listView.setAdapter(memberAdapter);
         memberAdapter.notifyDataSetChanged();
+      //  birthAdapter = new birthListAdapter(this.birthList, this.getApplicationContext());
+       // listView.setAdapter((birthAdapter));
+        //birthAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -104,4 +121,36 @@ public class PatientList extends AppCompatActivity {
         }
 
     }
+/*
+    private class birthListAdapter extends ArrayAdapter<Birth> {
+        Context context;
+        List<Birth> birthList;
+
+        public birthListAdapter(List<Birth> birthList, Context context) {
+            super(context, R.layout.birth_item, birthList);
+            this.context = context;
+            this.birthList = birthList;
+        }
+
+        @Override
+        public View getView(int position, View view, ViewGroup parent) {
+
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            if (view == null) {
+                view = inflater.inflate(R.layout.birth_item, parent, false);
+            }
+
+            Birth current = birthList.get(position);
+
+            TextView Fid = (TextView) view.findViewById(R.id.mNameB);
+            Fid.setText(String.valueOf(current.getFamilyID()));
+
+            Translation object = new Translation();
+            TextView head = (TextView) view.findViewById(R.id.villageB);
+            head.setText(object.Letter_E2M(current.getBirthDate()));
+
+            return view;
+        }
+
+    }*/
 }

@@ -117,7 +117,7 @@
         <activity
             android:name=".BirthFamilyListView"
             android:label="@string/title_activity_birth_family_list_view"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".BirthInfoForm"
@@ -152,7 +152,11 @@
         <activity
             android:name=".PNM_Info"
             android:label="@string/title_activity_pnm__info"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".PortalUnderFive"
+            android:label="@string/title_activity_portal_under_five" >
         </activity>
     </application>
 

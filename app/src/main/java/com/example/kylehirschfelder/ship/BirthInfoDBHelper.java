@@ -15,7 +15,10 @@ package com.example.kylehirschfelder.ship;
     import android.provider.SyncStateContract.Columns;
     import android.util.Log;
 
-    public class BirthInfoDBHelper extends SQLiteOpenHelper {
+    import java.util.ArrayList;
+    import java.util.List;
+
+public class BirthInfoDBHelper extends SQLiteOpenHelper {
         public static final int database_version = 1;
         public String CREATE_QUERY = "CREATE TABLE "+ BirthInfoDB.TableInfo.TABLE_NAME+
                 "("+ BirthInfoDB.TableInfo.MOTHER_VILLAGE+" TEXT,"+
@@ -120,6 +123,48 @@ package com.example.kylehirschfelder.ship;
             birth.setGuideId(c.getString(19));
             birth.setGuideTestDate(c.getString(20));
             return birth;
+
+        }
+
+        public List<Birth> getAll(){
+            List<Birth> birthList = new ArrayList<Birth>();
+            SQLiteDatabase SQ = this.getReadableDatabase();
+
+            Cursor c;
+            c = SQ.rawQuery("SELECT * FROM " + TableInfo.TABLE_NAME , null);
+
+            if(c.moveToFirst()){
+                do{
+                    Birth birth = new Birth();
+                    birth.setMotherVillage(c.getString(0));
+                    birth.setMotherVillageID(c.getString(1));
+                    birth.setMotherName(c.getString(2));
+                    birth.setFamilyID(c.getString(3));
+                    birth.setHouseID(c.getString(4));
+                    birth.setChildID(c.getString(5));
+                    birth.setBirthDate(c.getString(6));
+                    birth.setVillageOfBirth(c.getString(7));
+                    birth.setVillageOfBirthID(c.getString(8));
+                    birth.setVillageOfBirthPlace(c.getString(9));
+                    birth.setDeliveryName(c.getString(10));
+                    birth.setDeliveryMethod(c.getString(11));
+                    birth.setChildGender(c.getString(12));
+                    birth.setPregnancyTime(c.getString(13));
+                    birth.setFadPresence(c.getString(14));
+                    birth.setHealthMessenger(c.getString(15));
+                    birth.setHealthMessengerId(c.getString(16));
+                    birth.setHealthMessengerDate(c.getString(17));
+                    birth.setGuideName(c.getString(18));
+                    birth.setGuideId(c.getString(19));
+                    birth.setGuideTestDate(c.getString(20));
+                    birthList.add(birth);
+
+                }
+                while(c.moveToNext());
+            }
+
+
+            return birthList;
 
         }
 

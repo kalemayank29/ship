@@ -18,6 +18,7 @@ public class Birth {
                      String deliveryName, String deliveryMethod, String childGender, String pregnancyTime,
                      String fadPresence, String healthMessenger, String healthMessengerId, String healthMessengerDate,
                      String guideName, String guideId, String guideTestDate) {
+
             this.motherVillage = motherVillage;
             this.motherVillageID = motherVillageID;
             this.motherName = motherName;

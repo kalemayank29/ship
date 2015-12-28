@@ -75,7 +75,8 @@ public class BirthInfoForm extends ActionBarActivity {
             villageOfBirthId.setVisibility(View.GONE);
 
             birth.setBirthDate("00-00-0000");
-
+            String familyId = getIntent().getStringExtra("index");
+            birth.setFamilyID(familyId);
 
 
             villageBlockSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -152,15 +153,6 @@ public class BirthInfoForm extends ActionBarActivity {
             }
 
             );
-
-
-
-
-
-
-
-
-
 
 
             villageOfBirthBlockSpinner = (Spinner)findViewById(R.id.villageOfBirthBlockSpinner);
@@ -518,7 +510,7 @@ public class BirthInfoForm extends ActionBarActivity {
 
        //     if(flag == 0) {
                 Toast.makeText(getBaseContext(), "Form Submitted", Toast.LENGTH_LONG).show();
-                DB.insert(birth);
+                DB.insert   (birth);
                 finish();
           //  }
 

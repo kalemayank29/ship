@@ -134,7 +134,7 @@ private class memberHeadListAdapter extends ArrayAdapter<Member> {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (view == null) {
-            view = inflater.inflate(R.layout.birth_item, parent, false);
+            view = inflater.inflate(R.layout.birth_item_select_mother, parent, false);
         }
 
         Member current = memberFamList.get(position);

@@ -9,7 +9,7 @@ public class DeathAdult {
     private String name, memberID, familyID, houseID, birthDate, deathDate,
                     age, villageOfDeath,
                     villageOfDeathID,healthMessenger, healthMessengerId,
-                healthMessengerDate, guideName, guideId, guideTestDate;
+                    healthMessengerDate, guideName, guideId, guideTestDate;
 
     public DeathAdult() {
 
