@@ -511,6 +511,7 @@ public class BirthInfoForm extends ActionBarActivity {
        //     if(flag == 0) {
                 Toast.makeText(getBaseContext(), "Form Submitted", Toast.LENGTH_LONG).show();
                 DB.insert   (birth);
+                Member member = new Member();
                 finish();
           //  }
 

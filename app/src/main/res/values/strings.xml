@@ -579,5 +579,10 @@
     <string name="title_activity_death_adult_form">DeathAdultForm</string>
     <string name="title_activity_pnm__info">PNM_Info</string>
     <string name="title_activity_portal_under_five">PortalUnderFive</string>
+    <string name="title_activity_portal_mother">PortalMother</string>
+    <string name="title_activity_pnmform_ask">PNMForm_ask</string>
+    <string name="title_activity_pnmform_see">PNMForm_see</string>
+    <string name="title_activity_pnmform_hear">PNMForm_hear</string>
+    <string name="title_activity_pnmform_other">PNMForm_other</string>
 
 </resources>

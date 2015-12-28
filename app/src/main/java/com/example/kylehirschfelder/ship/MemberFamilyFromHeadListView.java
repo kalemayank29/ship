@@ -137,11 +137,11 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
 
             Member current = memberFamList.get(position);
 
-            TextView hId = (TextView) view.findViewById(R.id.house_id);
+            /*TextView hId = (TextView) view.findViewById(R.id.house_id);
             hId.setText(String.valueOf(current.getHouseId()));
 
             TextView fId = (TextView) view.findViewById(R.id.family_id);
-            fId.setText(String.valueOf(current.getFamilyId()));
+            fId.setText(String.valueOf(current.getFamilyId()));*/
 
             Translation object = new Translation();
             TextView name = (TextView) view.findViewById(R.id.name_field);
@@ -154,15 +154,15 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
             String memberSex = String.valueOf(current.getSex());
             switch (memberSex) {
                 case "1":
-                    memberSex = "man";
+                    memberSex = "पुरूष";
                     break;
                 case "2":
-                    memberSex = "woman";
+                    memberSex = "स्त्री     ";
                     break;
             }
             gender.setText(memberSex);
 
-            TextView marriage = (TextView) view.findViewById(R.id.marriage_status);
+           /* TextView marriage = (TextView) view.findViewById(R.id.marriage_status);
             marriage.setText(current.getMarriageParse());
 
 //            TextView education = (TextView) view.findViewById(R.id.education_field);
@@ -170,7 +170,7 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
 
             TextView literacy = (TextView) view.findViewById(R.id.literacy_field);
             literacy.setText(current.getLiteracyParse());
-
+*/
             return view;
         }
     }

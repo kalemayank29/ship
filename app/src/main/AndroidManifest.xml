@@ -43,7 +43,7 @@
         <activity
             android:name=".MemberFamilyFromHeadListView"
             android:label="Family"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".TransferMemberListView"
@@ -53,26 +53,6 @@
         <activity
             android:name=".WifiDirectActivity"
             android:label="@string/title_activity_wifi_direct" >
-        </activity>
-        <activity
-            android:name=".MoreDrugInfo"
-            android:label="@string/title_activity_more_drug_info" >
-        </activity>
-        <activity
-            android:name=".MoreDrugInfo_DrugInfo"
-            android:label="@string/title_activity_more_drug_info__drug_info" >
-        </activity>
-        <activity
-            android:name=".MoreDrugInfo_SideEffects"
-            android:label="@string/title_activity_drug_info__side_effects" >
-        </activity>
-        <activity
-            android:name=".MoreDrugInfo_Uses"
-            android:label="@string/title_activity_more_drug_info__uses" >
-        </activity>
-        <activity
-            android:name=".MoreDrugInfo_Precautions"
-            android:label="@string/title_activity_more_drug_info__precautions" >
         </activity>
         <activity
             android:name=".AddPrimaryFamily"
@@ -151,12 +131,34 @@
         </activity>
         <activity
             android:name=".PNM_Info"
-            android:label="@string/title_activity_pnm__info"
-            android:screenOrientation="landscape" >
+            android:label="@string/title_activity_pnm__info" >
         </activity>
         <activity
             android:name=".PortalUnderFive"
             android:label="@string/title_activity_portal_under_five" >
+        </activity>
+        <activity
+            android:name=".PortalMother"
+            android:label="@string/title_activity_portal_mother" >
+        </activity>
+        <activity
+            android:name=".PNMForm_ask"
+            android:label="@string/title_activity_pnmform_ask"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".PNMForm_see"
+            android:label="@string/title_activity_pnmform_see"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".PNMForm_hear"
+            android:label="@string/title_activity_pnmform_hear" >
+        </activity>
+        <activity
+            android:name=".PNMForm_other"
+            android:label="@string/title_activity_pnmform_other" >
         </activity>
     </application>
 

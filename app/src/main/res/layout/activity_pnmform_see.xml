@@ -1,0 +1,362 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#011936"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="270dp">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:text="बघा (मुल शांत असताना)"
+            android:textColor="#ffffdd"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="50dp"
+            android:textAlignment="center"
+            android:textSize="45sp"
+            android:layout_marginBottom="25dp"
+            />
+
+
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginLeft="130dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:text="बेशुध्द/खूप सुस्त व गुंगीत?"/>
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="130dp">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffdd"
+                        android:buttonTint="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="होय"
+                        android:id="@+id/unconYes"
+                        android:onClick="select"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="नाही"
+                        android:id="@+id/unconNo"
+                        android:onClick="select"/>
+                </RadioGroup>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:text="            श्वासाव दर? (एक मिनिट मोजा)
+(२ महिने पर्यंतच्या मुलात श्वासाचा दर ६०
+ किंवा अधिक असल्यास दुसर्यांदा मोजा)"/>
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="130dp"
+                    android:layout_marginTop="30dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/coughDays"
+                    android:textSize="25sp"
+                    android:text=""
+                    android:background="#cccccc"
+                    android:inputType="number"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:text="छाती/बल्कुशा खूप आत ओढतात?"/>
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="130dp"
+                    >
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffdd"
+                        android:buttonTint="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="होय"
+                        android:id="@+id/breathYes"
+                        android:onClick="select"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="नाही"
+                        android:id="@+id/breathNo"
+                        android:onClick="select"/>
+                </RadioGroup>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:text="मध्ये मध्ये श्वास थांबतो (२० सेकंदापर्यंत) का?"/>
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="65dp"
+                    >
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffdd"
+                        android:buttonTint="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="होय"
+                        android:id="@+id/fitYes"
+                        android:onClick="select"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="नाही"
+                        android:id="@+id/fitNo"
+                        android:onClick="select"/>
+                </RadioGroup>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginLeft="175dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:text=" फार कुपोषित आहे?"/>
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="130dp"
+                    >
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffdd"
+                        android:buttonTint="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="होय"
+                        android:id="@+id/malnourishedYes"
+                        android:onClick="select"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="नाही"
+                        android:id="@+id/malnourishedNo"
+                        android:onClick="select"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="340dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:text="डिहायड्रेशन आहे? (जीभ कोरडा, डोळे खोल, चाम्डीवर वळ टिकून राहते)?"/>
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="130dp"
+                    >
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffdd"
+                        android:buttonTint="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="होय"
+                        android:id="@+id/dehydrationYes"
+                        android:onClick="select"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="नाही"
+                        android:id="@+id/dehydrationNo"
+                        android:onClick="select"/>
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:gravity="center"
+                    android:text="गोवर निघाली आहे काय? (ताजी = लाल माता) (जुनी = काळडर)"/>
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="130dp"
+                    >
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffdd"
+                        android:buttonTint="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="होय"
+                        android:id="@+id/vomitYes"
+                        android:onClick="select"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="नाही"
+                        android:id="@+id/vomitNo"
+                        android:onClick="select"/>
+                </RadioGroup>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="270dp"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:text="ताप मोजा "
+                    />
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="130dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/birthMonths"
+                    android:textSize="25sp"
+                    android:text=""
+                    android:background="#cccccc"
+                    android:inputType="number"
+                    />
+
+            </LinearLayout>
+
+            <!-- "सुपरवायझर
+             जन्म माहिती
+             सुपरवायझर 'टॅब'  शी संपर्क साधा
+             सुपरवायझर 'टॅब' वर सर्व पाठवा "-->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="750dp"
+                android:layout_marginBottom="125dp"
+                android:background="@drawable/save_button_pressed"
+                android:text="Save"
+                android:textColor="#ffffff"
+                android:id="@+id/saveSee"
+                android:onClick="save_click"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

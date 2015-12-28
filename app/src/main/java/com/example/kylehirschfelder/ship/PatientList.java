@@ -48,7 +48,11 @@ public class PatientList extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             Intent intent = new Intent(getApplicationContext(),PortalUnderFive.class);
-            startActivity(intent);
+           // intent.putExtra("index", String.valueOf(memberList.get(i).getFamilyId()));
+            int age = memberList.get(i).getAge();
+            if(age<20)
+                intent.putExtra("name", String.valueOf(memberList.get(i).getName()));
+                startActivity(intent);
         }
     });
        // Log.println(Log.ASSERT, "LIST SIZE: ", String.valueOf(birthList.size()));

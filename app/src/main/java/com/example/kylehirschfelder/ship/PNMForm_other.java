@@ -1,42 +1,22 @@
 package com.example.kylehirschfelder.ship;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-public class PortalUnderFive extends AppCompatActivity {
-    TextView name;
-    Button pnm;
+public class PNMForm_other extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_portal_under_five);
+        setContentView(R.layout.activity_pnmform_other);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_portal_under_five, menu);
-        name = (TextView) findViewById(R.id.portalText);
-        pnm = (Button) findViewById(R.id.buttonPNM);
-        String nameObj = getIntent().getStringExtra("name");
-        name.setText(nameObj);
-
-        pnm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PNMForm_ask.class);
-                startActivity(intent);
-
-            }
-        });
-
+        getMenuInflater().inflate(R.menu.menu_pnmform_other, menu);
         return true;
     }
 

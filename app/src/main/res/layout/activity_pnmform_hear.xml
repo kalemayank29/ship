@@ -1,0 +1,181 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#011936"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="385dp">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:text="ऐका"
+            android:textColor="#ffffdd"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="50dp"
+            android:textAlignment="center"
+            android:textSize="45sp"
+            android:layout_marginBottom="25dp"
+            />
+
+
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginLeft="290dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:text="स्ट्रायडर?"/>
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="130dp">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffdd"
+                        android:buttonTint="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="होय"
+                        android:id="@+id/unconYes"
+                        android:onClick="select"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="नाही"
+                        android:id="@+id/unconNo"
+                        android:onClick="select"/>
+                </RadioGroup>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginLeft="300dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:text="व्हीज?"/>
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="130dp"
+                    >
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffdd"
+                        android:buttonTint="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="होय"
+                        android:id="@+id/breathYes"
+                        android:onClick="select"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="नाही"
+                        android:id="@+id/breathNo"
+                        android:onClick="select"/>
+                </RadioGroup>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginLeft="265dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:text="कान्हावणे?"/>
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="130dp"
+                    >
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffdd"
+                        android:buttonTint="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="होय"
+                        android:id="@+id/fitYes"
+                        android:onClick="select"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:textSize="25sp"
+                        android:text="नाही"
+                        android:id="@+id/fitNo"
+                        android:onClick="select"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+
+            <!-- "सुपरवायझर
+             जन्म माहिती
+             सुपरवायझर 'टॅब'  शी संपर्क साधा
+             सुपरवायझर 'टॅब' वर सर्व पाठवा "-->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="750dp"
+                android:layout_marginBottom="125dp"
+                android:background="@drawable/save_button_pressed"
+                android:text="Save"
+                android:textColor="#ffffff"
+                android:id="@+id/saveHear"
+                android:onClick="save_click"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
