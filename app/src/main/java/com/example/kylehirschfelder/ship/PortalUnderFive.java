@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class PortalUnderFive extends AppCompatActivity {
     TextView name;
-    Button pnm;
+    Button pnm, pnmInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class PortalUnderFive extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_portal_under_five, menu);
         name = (TextView) findViewById(R.id.portalText);
         pnm = (Button) findViewById(R.id.buttonPNM);
+        pnmInfo = (Button) findViewById(R.id.button4);
         String nameObj = getIntent().getStringExtra("name");
         name.setText(nameObj);
 
@@ -32,6 +33,15 @@ public class PortalUnderFive extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), PNMForm_ask.class);
+                startActivity(intent);
+
+            }
+        });
+
+        pnmInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PNM_Info.class);
                 startActivity(intent);
 
             }

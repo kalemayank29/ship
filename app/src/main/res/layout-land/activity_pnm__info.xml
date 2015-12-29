@@ -3,40 +3,63 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<ListView android:layout_width="450dp"
+
+
+    <ListView
+        android:layout_width="250dp"
         android:layout_height="fill_parent"
-        android:id="@+id/mainListView">
+        android:id="@+id/mainListView"
+        android:layout_marginRight="30dp">
     </ListView>
 
-    <TextView
-        android:layout_width="400dp"
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/diagnosis_treatment"
+            android:text= ""
+            android:textSize="25dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"/>
+
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/severe"
-        android:text= "अ) गंभीर न्युमोनिया 
-        निदान : 
-खालील पैकी कोणतेही एक किवा जास्त लक्षणे असल्यास 
-- दुध ओढणे / पिणे बंद 
-- बेशुद्धी / खुप गुंगी 
-- फिट / दाटी 
-- मध्ये मध्ये श्वास थांबतो 
-- छाती बलकुशा खुप आत ओढतात 
-- स्ट्रायडर (शांत मुलात)
-- अपुर्या महिन्याच्या नवजात मुलाला न्युमोनिया 
-        उपचार : 
-        कोट्राचा डोस देऊन ताबडतोब 
-हॉस्पिटल मध्ये पाठवा 
-नेले / नेले नाही 
-कुठे? 
-कोणाकडे? 
-काय परिणाम? 
-हॉस्पिटल मध्ये न नेल्यास कोट्राचे
-औषध सुरु ठेवा 
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/diagnosis"
+            android:text= "निदान :"
+            android:textSize="25dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"/>
 
-        "
-        android:layout_marginTop="40dp"
-        android:textSize="25dp"
-        android:layout_marginLeft="50dp"
-        android:textStyle="bold"/>
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/diagnosis_editText"
+            android:textSize="25dp"
+            android:layout_marginBottom="100dp"
+            android:layout_weight="1" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/treatment"
+            android:text= "उपचार  :"
+            android:textSize="25dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"/>
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/treatment_editText"
+            android:textSize="25dp"
+            android:layout_weight="1" />
+    </LinearLayout>
 
 </LinearLayout>

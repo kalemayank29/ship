@@ -48,6 +48,7 @@ public class PatientFragment extends Fragment  {
 
         buttPatient = (Button) myView.findViewById(R.id.buttonPatient);
         Intent intent = new Intent(getActivity().getApplicationContext(), PatientList.class);
+        //Intent intent = new Intent(getActivity().getApplicationContext(), PNM_Info.class);
         startActivity(intent);
 /*
         buttPatient.setOnClickListener(new View.OnClickListener() {
