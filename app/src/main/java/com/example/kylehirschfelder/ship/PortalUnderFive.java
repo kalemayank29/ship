@@ -32,7 +32,8 @@ public class PortalUnderFive extends AppCompatActivity {
         pnm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PNMForm_ask.class);
+                //Intent intent = new Intent(getApplicationContext(), PNMForm_ask.class);
+                Intent intent = new Intent(getApplicationContext(),DeathAdultForm.class);
                 startActivity(intent);
 
             }

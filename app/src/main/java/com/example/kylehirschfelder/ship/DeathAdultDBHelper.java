@@ -15,8 +15,8 @@ public class DeathAdultDBHelper extends SQLiteOpenHelper{
         public static final int database_version = 1;
 
 
-        public static final String VILLAGE_OF_BIRTH = "village_of_birth" ;//2 spinners
-        public static final String VILLAGE_OF_BIRTH_ID = "village_of_birth_id" ;//tv
+       // public static final String VILLAGE_OF_BIRTH = "village_of_birth" ;//2 spinners
+       // public static final String VILLAGE_OF_BIRTH_ID = "village_of_birth_id" ;//tv
 
         public static final String NAME = "name" ;//tv
         public static final String MEMBER_ID = "member_id" ;//
@@ -45,8 +45,8 @@ public class DeathAdultDBHelper extends SQLiteOpenHelper{
         public String CREATE_QUERY = "CREATE TABLE "+ TABLE_NAME+
                 "("+
 
-                VILLAGE_OF_BIRTH+" TEXT,"+
-                VILLAGE_OF_BIRTH_ID+" TEXT,"+
+              //  VILLAGE_OF_BIRTH+" TEXT,"+
+              //  VILLAGE_OF_BIRTH_ID+" TEXT,"+
 
                 NAME+" TEXT,"+
                 FAMILY_ID+" TEXT,"+

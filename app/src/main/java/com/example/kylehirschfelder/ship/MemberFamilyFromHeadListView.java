@@ -101,7 +101,7 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case VIEW:
-                Intent viewIntent = new Intent(getApplicationContext(), ViewMemberProfile.class);
+                Intent viewIntent = new Intent(getApplicationContext(), DeathAdultForm.class);
                 viewIntent.putExtra("index", String.valueOf(memberFamList.get(longClickItemIndex).getMemberId()));
                 startActivity(viewIntent);
                 break;

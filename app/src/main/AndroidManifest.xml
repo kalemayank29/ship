@@ -160,6 +160,10 @@
             android:name=".PNMForm_other"
             android:label="@string/title_activity_pnmform_other" >
         </activity>
+        <activity
+            android:name=".SearchSEARCH"
+            android:label="@string/title_activity_pnmform_other" >
+        </activity>
     </application>
 
 </manifest>

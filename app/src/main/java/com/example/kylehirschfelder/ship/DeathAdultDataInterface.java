@@ -38,8 +38,8 @@ public class DeathAdultDataInterface {
         SQLiteDatabase SQ = dbHelper.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
-        cv.put(dbHelper.VILLAGE_OF_BIRTH, death.getVillageOfBirth());
-        cv.put(dbHelper.VILLAGE_OF_BIRTH_ID, death.getVillageOfBirthID());
+       // cv.put(dbHelper.VILLAGE_OF_BIRTH, death.getVillageOfBirth());
+        //cv.put(dbHelper.VILLAGE_OF_BIRTH_ID, death.getVillageOfBirthID());
 
 
         cv.put(dbHelper.NAME, death.getName());
