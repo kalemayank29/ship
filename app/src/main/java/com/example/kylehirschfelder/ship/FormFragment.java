@@ -44,7 +44,8 @@ public class FormFragment extends Fragment {
         birthButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), BirthFamilyListView.class);
+        //        Intent intent = new Intent(getActivity().getApplicationContext(), BirthFamilyListView.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), SearchSEARCH.class);
                 startActivity(intent);
               //  Intent intent = new Intent(getActivity().getApplicationContext(), PNM_Info.class);
                // startActivity(intent);

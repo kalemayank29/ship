@@ -8,6 +8,8 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 /**
  * Created by poorwa on 29/12/15.
  */
@@ -16,11 +18,17 @@ public class SearchSEARCH extends AppCompatActivity {
     TextView textView;
     Button searchButton;
     SearchView searchView;
-
+    List<Member> list;
+    Translation translation = new Translation();
+    MemberDataInterface member;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        member = new MemberDataInterface(getApplicationContext());
+
+        //select id from member where name = searchView.getQuery()
+
         textView = (TextView) findViewById(R.id.textView);
         searchButton = (Button) findViewById(R.id.searchButton);
         searchView = (SearchView) findViewById(R.id.searchView);
@@ -28,13 +36,15 @@ public class SearchSEARCH extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(searchView.getQuery().toString().equals("नवीन घर क्रमांक")) {
-                    Toast.makeText(getBaseContext(), "FOUND", Toast.LENGTH_SHORT).show();
+                String text="";
+                list = member.getIdByName(translation.Letter_M2E(searchView.getQuery().toString()));
+                for (Member element: list
+                     ) {
+                    text += "."+ translation.Letter_E2M(element.getName());
                 }
-                else {
-                    Toast.makeText(getBaseContext(), "NOT FOUND", Toast.LENGTH_SHORT).show();
+                textView.setText(text);
 
-                }
+
             }
         });
 

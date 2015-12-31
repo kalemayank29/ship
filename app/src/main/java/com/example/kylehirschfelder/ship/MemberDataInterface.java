@@ -205,6 +205,39 @@ public class MemberDataInterface {
         return c;
     }
 
+    public List<Member> getIdByName(String name){
+
+        List<Member> memberList = new ArrayList<Member>();
+        SQLiteDatabase db = dbHelper.getWritableDatabase();         // Don't know why we need a writable db.
+        Cursor cursor = null;
+        cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR + " WHERE name LIKE '" + name + " %'", null);
+
+
+        //Log.println(Log.ASSERT, "CURSOR SIZE: ", String.valueOf(cursor.getCount()));
+
+        if(cursor.moveToFirst()){
+            do{
+                Member element = new Member(
+                        Integer.parseInt(cursor.getString(1)),Integer.parseInt(cursor.getString(2)),
+                        Integer.parseInt(cursor.getString(3)),
+                        cursor.getString(4),Integer.parseInt(cursor.getString(5)),
+                        Integer.parseInt(cursor.getString(6)), Integer.parseInt(cursor.getString(7)),cursor.getString(8),
+                        cursor.getString(9), cursor.getString(10),
+                        cursor.getString(11), cursor.getString(12),cursor.getString(13),cursor.getString(14));
+
+                element.setMemberId(Integer.parseInt(cursor.getString(0)));     // Done separately because of constructor
+                memberList.add(element);
+
+                //  Log.println(Log.ASSERT,"head", String.valueOf(element.getFamilyHeadId()));
+            }
+            while(cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return memberList;
+    }
+
 
 
     /**
