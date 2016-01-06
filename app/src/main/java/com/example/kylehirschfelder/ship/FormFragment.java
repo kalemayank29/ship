@@ -1,5 +1,11 @@
 package com.example.kylehirschfelder.ship;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -59,6 +65,9 @@ public class FormFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
+                ResidentDialog dialog = new ResidentDialog();
+                FragmentManager manager = getActivity().getFragmentManager();
+                dialog.show(manager,"frag");
                 //dbHelper.deleteAll();
                 //Intent intent = new Intent(getActivity().getApplicationContext(), BirthFamilyListView.class);
               //  Intent intent = new Intent(getActivity().getApplicationContext(), BirthInfoForm.class);
@@ -98,7 +107,7 @@ public class FormFragment extends Fragment {
                         // TODO Auto-generated catch block
                     }
                 }
-*/
+
                // BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
                 List<Birth> birthList = dbHelper.getAll();
                 for (Birth element: birthList
@@ -163,7 +172,7 @@ public class FormFragment extends Fragment {
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
                     }
-                }
+                }*/
             }
         });
 /*
@@ -188,3 +197,5 @@ public class FormFragment extends Fragment {
         return myView;
     }
 }
+
+

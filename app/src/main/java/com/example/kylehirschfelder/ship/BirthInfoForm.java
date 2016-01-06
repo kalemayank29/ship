@@ -40,7 +40,7 @@ public class BirthInfoForm extends ActionBarActivity {
         Context context = this;
         BirthInfoDBHelper DB = new BirthInfoDBHelper(context);
         Spinner villageBlockSpinner, villageNameSpinner, villageOfBirthBlockSpinner, villageOfBirthSpinner;
-        EditText deliveryName, healthMessenger, healthMessengerID, guideName, guideId;
+        EditText deliveryName, healthMessenger, healthMessengerID, guideName, guideId,motherName;
         RadioButton[] villageOfBirthPlace = new RadioButton[6], pregnancyTime = new RadioButton[6], fadPresence = new RadioButton[2],
                 gender = new RadioButton[2];
         CheckBox[] deliveryMethod = new CheckBox[5];
@@ -48,10 +48,11 @@ public class BirthInfoForm extends ActionBarActivity {
         ArrayAdapter  villageOfBirthAdapter;
         TextView motherVillageId, villageOfBirthId;
         Button submit;
-        int vSpinId, vobSpinId, flag, midwifeFlag = 0;
+        int vSpinId, vobSpinId, flag, midwifeFlag = 0,resident;
         String vSpin, vobSpin, temp;
         String[] tempArray1, tempArray2;
       ArrayAdapter villageNameAdapter;
+    Translation translate;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -62,8 +63,10 @@ public class BirthInfoForm extends ActionBarActivity {
             healthMessengerID = (EditText) findViewById(R.id.healthMessengerId);
             guideName = (EditText) findViewById(R.id.guideName);
             guideId = (EditText) findViewById(R.id.guideId);
-
+            motherName = (EditText) findViewById(R.id.motherName);
             birthDate = (DatePicker) findViewById(R.id.birthDate);
+
+            translate = new Translation();
 
             villageBlockSpinner = (Spinner)findViewById(R.id.villageBlockSpinner);
             final ArrayAdapter villageBlockAdapter = ArrayAdapter.createFromResource(this,R.array.block_array,android.R.layout.simple_spinner_dropdown_item);
@@ -79,12 +82,20 @@ public class BirthInfoForm extends ActionBarActivity {
             villageOfBirthId.setVisibility(View.GONE);
 
             birth.setBirthDate("00-00-0000");
+            int resident = Integer.parseInt(getIntent().getStringExtra("resident"));
             String familyId = getIntent().getStringExtra("index");
             String houseId = getIntent().getStringExtra("house");
-            String name = getIntent().getStringExtra("name");
+            if(resident == 1){
+                String name = getIntent().getStringExtra("name");
+                birth.setMotherName(name);
+                motherName.setText(translate.Letter_E2M(birth.getMotherName()));
+                motherName.setEnabled(false);
+            }
+
             birth.setFamilyID(familyId);
             birth.setHouseID(houseId);
-            birth.setMotherName(name);
+
+
 
 
             villageBlockSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -435,7 +446,6 @@ public class BirthInfoForm extends ActionBarActivity {
             birth.setDeliveryMethod(temp);
             birth.setMotherVillage(TR.Letter_M2E(vSpin));
             birth.setMotherVillageID(motherVillageId.getText().toString());
-            birth.setMotherName(TR.Letter_E2M("poorvaa"));
        //     birth.setFamilyID("1");
          //   birth.setHouseID("1");
            // birth.setChildID("1");

@@ -30,6 +30,7 @@ public class BirthFamilyListView extends AppCompatActivity {
     MemberDataInterface head;
     int longClickItemIndex;
     Activity activity;
+    int resident;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,8 @@ public class BirthFamilyListView extends AppCompatActivity {
         head = new MemberDataInterface(getApplicationContext());
         memberList = head.getAllFamilyHeads(1);
         activity = this;
+
+        resident =Integer.parseInt(getIntent().getStringExtra("resident"));
 
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -54,6 +57,7 @@ public class BirthFamilyListView extends AppCompatActivity {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 longClickItemIndex = position;
                 activity.openContextMenu(arg1);
+
             }
         });
 
@@ -86,10 +90,11 @@ public class BirthFamilyListView extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo info) {
         super.onCreateContextMenu(menu, view, info);
         menu.setHeaderTitle(".....");
-        menu.add(Menu.NONE, VIEWFAM, menu.NONE, "कुटुंब माहिती");
+        menu.add(Menu.NONE, VIEWFAM, menu.NONE, "Select Family Head");
     }
 
 
@@ -102,9 +107,17 @@ public class BirthFamilyListView extends AppCompatActivity {
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case VIEWFAM:
-                Intent intent = new Intent(BirthFamilyListView.this,BirthSelectMother.class);
-                intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
-                startActivity(intent);
+                if(resident == 0){
+                    Intent intent = new Intent(getApplicationContext(),BirthInfoForm.class);
+                    intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
+                    intent.putExtra("resident", "0");
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(BirthFamilyListView.this,BirthSelectMother.class);
+                    intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
+                    startActivity(intent);
+                }
                 break;
         }
         return super.onContextItemSelected(item);
