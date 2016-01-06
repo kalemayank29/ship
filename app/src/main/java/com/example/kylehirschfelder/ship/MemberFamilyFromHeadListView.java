@@ -60,6 +60,7 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(getApplicationContext(), "कृपया नाव दाबून ठेवावे", Toast.LENGTH_LONG).show();
+
             }
         });
 
@@ -101,7 +102,7 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case VIEW:
-                Intent viewIntent = new Intent(getApplicationContext(), DeathAdultForm.class);
+                Intent viewIntent = new Intent(getApplicationContext(), PortalUnderFive.class);
                 viewIntent.putExtra("index", String.valueOf(memberFamList.get(longClickItemIndex).getMemberId()));
                 startActivity(viewIntent);
                 break;

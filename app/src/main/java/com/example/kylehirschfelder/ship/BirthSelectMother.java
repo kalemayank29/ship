@@ -104,7 +104,8 @@ int longClickItemIndex, familyId;
             switch (item.getItemId()) {
                 case VIEW:
                     Intent viewIntent = new Intent(getApplicationContext(), BirthInfoForm.class);
-                    viewIntent.putExtra("index", String.valueOf(memberFamList.get(longClickItemIndex).getMemberId()));
+                    viewIntent.putExtra("index", String.valueOf(memberFamList.get(longClickItemIndex).getFamilyId()));
+                    viewIntent.putExtra("house", String.valueOf(memberFamList.get(longClickItemIndex).getHouseId()));
                     viewIntent.putExtra("name", String.valueOf(memberFamList.get(longClickItemIndex).getName()));
                     startActivity(viewIntent);
                     break;

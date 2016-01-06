@@ -5,7 +5,7 @@ package com.example.kylehirschfelder.ship;
  */
 public class Birth {
 
-        private String motherVillage, motherVillageID, motherName, familyID, houseID, childID, birthDate,
+        private String motherVillage, motherVillageID, motherName, familyID, houseID, childID, birthDate, memberId,
                 villageOfBirth, villageOfBirthID, villageOfBirthPlace,  deliveryName, deliveryMethod, childGender, pregnancyTime,
                 fadPresence, healthMessenger, healthMessengerId, healthMessengerDate, guideName, guideId, guideTestDate;
 
@@ -42,7 +42,15 @@ public class Birth {
             this.guideTestDate = guideTestDate;
         }
 
-        public String getMotherVillage() {
+    public String getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
+
+    public String getMotherVillage() {
             return motherVillage;
         }
 

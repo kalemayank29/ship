@@ -131,7 +131,8 @@
         </activity>
         <activity
             android:name=".PNM_Info"
-            android:label="@string/title_activity_pnm__info" >
+            android:label="@string/title_activity_pnm__info"
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".PortalUnderFive"

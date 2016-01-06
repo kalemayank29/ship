@@ -22,11 +22,12 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
         public static final int database_version = 1;
         public String CREATE_QUERY = "CREATE TABLE "+ BirthInfoDB.TableInfo.TABLE_NAME+
                 "("+ BirthInfoDB.TableInfo.MOTHER_VILLAGE+" TEXT,"+
+                TableInfo.CHILD_ID+" INTEGER PRIMARY KEY AUTOINCREMENT," +
                 TableInfo.MOTHER_VILLAGE_ID+" TEXT," +
                 TableInfo.MOTHER_NAME+" TEXT,"+
                 TableInfo.FAMILY_ID+" TEXT,"+
-                TableInfo.HOUSE_ID+" TEXT,"+
-                TableInfo.CHILD_ID+" TEXT," +
+                TableInfo.HOUSE_ID + " TEXT,"+
+                TableInfo.MEMBER_ID +" INTEGER," +
                 TableInfo.BIRTH_DATE+" TEXT,"+
                 TableInfo.VILLAGE_OF_BIRTH+" TEXT,"+
                 TableInfo.VILLAGE_OF_BIRTH_ID+" TEXT,"+
@@ -69,7 +70,7 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
             cv.put(TableInfo.MOTHER_NAME, birth.getMotherName());
             cv.put(TableInfo.FAMILY_ID, birth.getFamilyID());
             cv.put(TableInfo.HOUSE_ID, birth.getHouseID());
-            cv.put(TableInfo.CHILD_ID, birth.getChildID());
+            cv.put(TableInfo.MEMBER_ID, Integer.parseInt(birth.getMemberId()));
             cv.put(TableInfo.BIRTH_DATE, birth.getBirthDate());
             cv.put(TableInfo.VILLAGE_OF_BIRTH, birth.getVillageOfBirth());
             cv.put(TableInfo.VILLAGE_OF_BIRTH_ID, birth.getVillageOfBirthID());
@@ -126,6 +127,11 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
 
         }
 
+    public void deleteAll(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.rawQuery("DELETE FROM BirthInfo;", null);
+    }
+
         public List<Birth> getAll(){
             List<Birth> birthList = new ArrayList<Birth>();
             SQLiteDatabase SQ = this.getReadableDatabase();
@@ -136,27 +142,29 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
             if(c.moveToFirst()){
                 do{
                     Birth birth = new Birth();
+
                     birth.setMotherVillage(c.getString(0));
-                    birth.setMotherVillageID(c.getString(1));
-                    birth.setMotherName(c.getString(2));
-                    birth.setFamilyID(c.getString(3));
-                    birth.setHouseID(c.getString(4));
-                    birth.setChildID(c.getString(5));
-                    birth.setBirthDate(c.getString(6));
-                    birth.setVillageOfBirth(c.getString(7));
-                    birth.setVillageOfBirthID(c.getString(8));
-                    birth.setVillageOfBirthPlace(c.getString(9));
-                    birth.setDeliveryName(c.getString(10));
-                    birth.setDeliveryMethod(c.getString(11));
-                    birth.setChildGender(c.getString(12));
-                    birth.setPregnancyTime(c.getString(13));
-                    birth.setFadPresence(c.getString(14));
-                    birth.setHealthMessenger(c.getString(15));
-                    birth.setHealthMessengerId(c.getString(16));
-                    birth.setHealthMessengerDate(c.getString(17));
-                    birth.setGuideName(c.getString(18));
-                    birth.setGuideId(c.getString(19));
-                    birth.setGuideTestDate(c.getString(20));
+                    birth.setChildID(c.getString(1));
+                    birth.setMotherVillageID(c.getString(2));
+                    birth.setMotherName(c.getString(3));
+                    birth.setFamilyID(c.getString(4));
+                    birth.setHouseID(c.getString(5));
+                    birth.setMemberId(c.getString(6));
+                    birth.setBirthDate(c.getString(7));
+                    birth.setVillageOfBirth(c.getString(8));
+                    birth.setVillageOfBirthID(c.getString(9));
+                    birth.setVillageOfBirthPlace(c.getString(10));
+                    birth.setDeliveryName(c.getString(11));
+                    birth.setDeliveryMethod(c.getString(12));
+                    birth.setChildGender(c.getString(13));
+                    birth.setPregnancyTime(c.getString(14));
+                    birth.setFadPresence(c.getString(15));
+                    birth.setHealthMessenger(c.getString(16));
+                    birth.setHealthMessengerId(c.getString(17));
+                    birth.setHealthMessengerDate(c.getString(18));
+                    birth.setGuideName(c.getString(19));
+                    birth.setGuideId(c.getString(20));
+                    birth.setGuideTestDate(c.getString(21));
                     birthList.add(birth);
 
                 }

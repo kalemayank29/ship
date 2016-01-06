@@ -435,6 +435,18 @@ public class CensusForm extends AppCompatActivity {
                 census.setDate(formattedDate);
                 DB.insert(census, 0);
 
+                Log.println(Log.ASSERT, "LOG", census.getWall());
+                Log.println(Log.ASSERT, "LOG", census.getRoof());
+                Log.println(Log.ASSERT, "LOG", census.getElectricity());
+                Log.println(Log.ASSERT, "LOG", census.getHouseOwner());
+                Log.println(Log.ASSERT, "LOG", census.getToilet());
+                Log.println(Log.ASSERT, "LOG", census.getToiletUse());
+                Log.println(Log.ASSERT, "LOG", census.getCooking());
+                Log.println(Log.ASSERT, "LOG", census.getKitchen());
+                Log.println(Log.ASSERT, "LOG", census.getWater());
+                Log.println(Log.ASSERT, "LOG", census.getThing());
+                Log.println(Log.ASSERT, "LOG", census.getAnimal());
+
                /* Census element = DB.getRecent(0);
                 Log.println(Log.ASSERT, "log", element.getHouseID());
                 MemberDataInterface insertInterface = new MemberDataInterface(getApplicationContext());

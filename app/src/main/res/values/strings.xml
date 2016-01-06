@@ -76,6 +76,7 @@
 
 <string-array name = "block_array">
     <item> ---- </item>
+    <item>non-resident</item>
     <item>गडचिरोली</item>
     <item>धानोरा</item>
     <item>कारवाफा</item>
@@ -446,6 +447,14 @@
     <item>154</item>
     
 </string-array>
+
+    <string-array name = "non_resident">
+    <item> Non-Resident </item>
+    </string-array>
+
+    <string-array name = "non_resident_array">
+    <item>0</item>
+    </string-array>
 
 
 

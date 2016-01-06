@@ -29,6 +29,10 @@ import android.widget.Toast;
 
 import com.example.kylehirschfelder.ship.Translation;
 
+import org.apache.http.message.BasicNameValuePair;
+
+import java.sql.SQLException;
+
 public class BirthInfoForm extends ActionBarActivity {
 
         Birth birth = new Birth();
@@ -76,7 +80,11 @@ public class BirthInfoForm extends ActionBarActivity {
 
             birth.setBirthDate("00-00-0000");
             String familyId = getIntent().getStringExtra("index");
+            String houseId = getIntent().getStringExtra("house");
+            String name = getIntent().getStringExtra("name");
             birth.setFamilyID(familyId);
+            birth.setHouseID(houseId);
+            birth.setMotherName(name);
 
 
             villageBlockSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -85,6 +93,10 @@ public class BirthInfoForm extends ActionBarActivity {
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     vSpin = villageBlockSpinner.getSelectedItem().toString();
                     switch (vSpin) {
+                        case "non-resident":
+                            villageNameAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.non_resident, android.R.layout.simple_spinner_dropdown_item);
+                            villageNameSpinner.setAdapter(villageNameAdapter);
+                            break;
                         case "गडचिरोली":
                             villageNameAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.gadchiroli_block_array, android.R.layout.simple_spinner_dropdown_item);
                             villageNameSpinner.setAdapter(villageNameAdapter);
@@ -111,7 +123,7 @@ public class BirthInfoForm extends ActionBarActivity {
 
                 @Override
                 public void onNothingSelected(AdapterView<?> parent) {
-                    Toast.makeText(getApplicationContext(), "Nothing Selected. Maath", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Nothing Selected. ", Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -121,6 +133,10 @@ public class BirthInfoForm extends ActionBarActivity {
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     vSpinId = position;
                     switch(vSpin){
+                        case "non-resident":
+                            tempArray1 = getResources().getStringArray(R.array.non_resident_array);
+                            motherVillageId.setText(tempArray1[vSpinId]);
+                            break;
                         case "गडचिरोली":
                             tempArray1 = getResources().getStringArray(R.array.gadchiroli_villageId_array);
                             motherVillageId.setText(tempArray1[vSpinId]);
@@ -147,7 +163,7 @@ public class BirthInfoForm extends ActionBarActivity {
 
                 @Override
                 public void onNothingSelected(AdapterView<?> parent) {
-                    Toast.makeText(getApplicationContext(), "Nothing Selected. Maath", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Nothing Selected. ", Toast.LENGTH_LONG).show();
 
                 }
             }
@@ -166,6 +182,10 @@ public class BirthInfoForm extends ActionBarActivity {
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     vobSpin = villageOfBirthBlockSpinner.getSelectedItem().toString();
                     switch(vobSpin){
+                        case "non-resident":
+                            villageOfBirthAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.non_resident, android.R.layout.simple_spinner_dropdown_item);
+                            villageOfBirthSpinner.setAdapter(villageNameAdapter);
+                            break;
                         case "गडचिरोली":
                             villageOfBirthAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.gadchiroli_block_array, android.R.layout.simple_spinner_dropdown_item);
                             villageOfBirthSpinner.setAdapter(villageOfBirthAdapter);
@@ -191,7 +211,7 @@ public class BirthInfoForm extends ActionBarActivity {
 
                 @Override
                 public void onNothingSelected(AdapterView<?> parent) {
-                    Toast.makeText(getApplicationContext(), "Nothing Selected. Maath", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Nothing Selected. ", Toast.LENGTH_LONG).show();
                 }
             });
             villageOfBirthSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -200,6 +220,10 @@ public class BirthInfoForm extends ActionBarActivity {
                     vobSpinId = position;
                     Log.println(Log.ASSERT, "", vobSpin);
                     switch(vobSpin){
+                        case "non-resident":
+                            tempArray2 = getResources().getStringArray(R.array.non_resident_array);
+                            villageOfBirthId.setText(tempArray2[vobSpinId]);
+                            break;
                         case "गडचिरोली":
                             tempArray2 = getResources().getStringArray(R.array.gadchiroli_villageId_array);
                             villageOfBirthId.setText(tempArray2[vobSpinId]);
@@ -226,7 +250,7 @@ public class BirthInfoForm extends ActionBarActivity {
 
                 @Override
                 public void onNothingSelected(AdapterView<?> parent) {
-                    Toast.makeText(getApplicationContext(), "Nothing Selected. Maath", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Nothing Selected. ", Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -296,7 +320,7 @@ public class BirthInfoForm extends ActionBarActivity {
                 break;
             case "girl":
                 gender[0].setChecked(false);
-                birth.setChildGender("0");
+                birth.setChildGender("2");
                 break;
             case "villageOfBirthPlace0":
                 villageOfBirthPlace[1].setChecked(false);
@@ -400,7 +424,7 @@ public class BirthInfoForm extends ActionBarActivity {
         }
     }
 
-        public void save_click(View view) {
+        public void save_click(View view) throws SQLException {
             temp = "";
             for (int i = 0; i < 5; i++) {
                 if ( deliveryMethod[i].isChecked())
@@ -429,28 +453,6 @@ public class BirthInfoForm extends ActionBarActivity {
             birth.setHealthMessengerDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
             birth.setGuideTestDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
 
-
-   //         Log.println(Log.ASSERT, "mvname", birth.getMotherVillage());
-     //       Log.println(Log.ASSERT, "mvnameid", birth.getMotherVillageID());
-       //     Log.println(Log.ASSERT, "mname", birth.getMotherName());
-//            Log.println(Log.ASSERT, "fid", birth.getFamilyID());
-  //          Log.println(Log.ASSERT, "hid", birth.getHouseID());
-    //        Log.println(Log.ASSERT, "cid", birth.getChildID());
-      /*      Log.println(Log.ASSERT, "bd", birth.getBirthDate());
-            Log.println(Log.ASSERT, "vobname", birth.getVillageOfBirth());
-            Log.println(Log.ASSERT, "vobnum", birth.getVillageOfBirthID());
-            Log.println(Log.ASSERT, "vobplace", birth.getVillageOfBirthPlace());
-            Log.println(Log.ASSERT, "delname", birth.getDeliveryName());
-            Log.println(Log.ASSERT, "delmeth", birth.getDeliveryMethod());
-            Log.println(Log.ASSERT, "gen", birth.getChildGender());
-            Log.println(Log.ASSERT, "preg", birth.getPregnancyTime());
-            Log.println(Log.ASSERT, "fad", birth.getFadPresence());
-            Log.println(Log.ASSERT, "hname", birth.getHealthMessenger());
-            Log.println(Log.ASSERT, "hnum", birth.getHealthMessengerId());
-            Log.println(Log.ASSERT, "hdate", birth.getHealthMessengerDate());
-            Log.println(Log.ASSERT, "gname", birth.getGuideName());
-            Log.println(Log.ASSERT, "gnum", birth.getGuideId());
-            Log.println(Log.ASSERT, "gdate", birth.getGuideTestDate());*/
 
 
             if(birth.getMotherVillage().equals("----")) {
@@ -510,9 +512,41 @@ public class BirthInfoForm extends ActionBarActivity {
 
        //     if(flag == 0) {
                 Toast.makeText(getBaseContext(), "Form Submitted", Toast.LENGTH_LONG).show();
-                DB.insert   (birth);
-                Member member = new Member();
+                //DB.insert   (birth);
+                MemberDataInterface memInterface = new MemberDataInterface(getApplicationContext());
+            Translation translation = new Translation();
+                Member member = new Member(Integer.parseInt(birth.getFamilyID()),Integer.parseInt(birth.getHouseID()) ,0, translation.Letter_M2E("CHILD"), 0,Integer.parseInt(birth.getChildGender()), -1, "-1",
+                        "0","0", "0", "0", "0", "0");
+                memInterface.createMember(member,1);
+                member = memInterface.getRecent(1);
+                birth.setMemberId(String.valueOf(member.getMemberId()));
+            //Log.println(Log.ASSERT,"member_id", String.valueOf(birth.getMemberId()));
+                DB.insert(birth);
+
+          /*  Log.println(Log.ASSERT,"member_id", String.valueOf(birth.getMemberId()));
+            Log.println(Log.ASSERT,"village_id","4");
+            Log.println(Log.ASSERT,"house_id", String.valueOf(birth.getHouseID()));
+            Log.println(Log.ASSERT,"family_id", String.valueOf(birth.getFamilyID()));
+            Log.println(Log.ASSERT,"mother_name",String.valueOf(birth.getMotherName()));
+            Log.println(Log.ASSERT,"dob", String.valueOf(birth.getBirthDate()));
+            Log.println(Log.ASSERT,"mother_vill_name", String.valueOf(birth.getMotherVillage()));
+            Log.println(Log.ASSERT,"mother_vill_id", String.valueOf(birth.getMotherVillageID()));
+            Log.println(Log.ASSERT,"vill_of_birth",String.valueOf(birth.getVillageOfBirth()));
+            Log.println(Log.ASSERT,"vill_of_birth_id", String.valueOf(birth.getVillageOfBirthID()));
+            Log.println(Log.ASSERT,"vill_of_birth_place",String.valueOf(birth.getVillageOfBirthPlace()));
+            Log.println(Log.ASSERT,"delivery_name", String.valueOf(birth.getDeliveryName()));
+            Log.println(Log.ASSERT,"delivery_method", String.valueOf(birth.getDeliveryMethod()));
+            Log.println(Log.ASSERT,"gender", String.valueOf(birth.getChildGender()));
+            Log.println(Log.ASSERT,"preg_time", String.valueOf(birth.getPregnancyTime()));
+            Log.println(Log.ASSERT,"fad", String.valueOf(birth.getFadPresence()));
+            Log.println(Log.ASSERT,"messenger_name", String.valueOf(birth.getHealthMessenger()));
+            Log.println(Log.ASSERT,"messenger_id", String.valueOf(birth.getHealthMessengerId()));
+            Log.println(Log.ASSERT,"messenger_date", String.valueOf(birth.getHealthMessengerDate()));
+            Log.println(Log.ASSERT,"guide_name", String.valueOf(birth.getGuideName()));
+            Log.println(Log.ASSERT,"guide_id", String.valueOf(birth.getGuideId()));
+            Log.println(Log.ASSERT,"guide_date", String.valueOf(birth.getGuideTestDate()));*/
                 finish();
+
           //  }
 
                // displayalert();
