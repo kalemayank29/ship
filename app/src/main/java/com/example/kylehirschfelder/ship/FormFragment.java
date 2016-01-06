@@ -44,8 +44,15 @@ public class FormFragment extends Fragment {
         birthButton = (Button) myView.findViewById(R.id.birthBtn);
        // deathButton = (Button) myView.findViewById(R.id.deathBtn);
         familyButton = (Button) myView.findViewById(R.id.familyBtn);
+        deathButton = (Button) myView.findViewById(R.id.deathBtn);
 
-
+        deathButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity().getApplicationContext(),DeathAdultForm.class);
+                startActivity(intent);
+            }
+        });
        /* censusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,22 +71,22 @@ public class FormFragment extends Fragment {
         birthButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
-                ResidentDialog dialog = new ResidentDialog();
-                FragmentManager manager = getActivity().getFragmentManager();
-                dialog.show(manager,"frag");
+               // BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
+               // ResidentDialog dialog = new ResidentDialog();
+             //   FragmentManager manager = getActivity().getFragmentManager();
+                //dialog.show(manager,"frag");
                 //dbHelper.deleteAll();
                 //Intent intent = new Intent(getActivity().getApplicationContext(), BirthFamilyListView.class);
               //  Intent intent = new Intent(getActivity().getApplicationContext(), BirthInfoForm.class);
                 //startActivity(intent);
               //  Intent intent = new Intent(getActivity().getApplicationContext(), PNM_Info.class);
                // startActivity(intent);
-               /* MemberDataInterface memberDataInterface = new MemberDataInterface(getActivity().getApplicationContext());
+               MemberDataInterface memberDataInterface = new MemberDataInterface(getActivity().getApplicationContext());
                 List<Member> memList = memberDataInterface.getAllMembers(1);
                 for (Member element: memList
                      ) {
                     HttpClient httpclient = new DefaultHttpClient();
-                    HttpPost httppost = new HttpPost("http://192.168.1.41:8888/member/submit");
+                    HttpPost httppost = new HttpPost("http://192.168.1.38:8888/member/submit");
                     try {
                         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(14);
                         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -108,12 +115,12 @@ public class FormFragment extends Fragment {
                     }
                 }
 
-               // BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
+                BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
                 List<Birth> birthList = dbHelper.getAll();
                 for (Birth element: birthList
                         ) {
                     HttpClient httpclient = new DefaultHttpClient();
-                    HttpPost httppost = new HttpPost("http://192.168.1.41:8888/birth/add");
+                    HttpPost httppost = new HttpPost("http://192.168.1.38:8888/birth/add");
                     try {
                         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(22);
                         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -172,7 +179,7 @@ public class FormFragment extends Fragment {
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
                     }
-                }*/
+                }
             }
         });
 /*

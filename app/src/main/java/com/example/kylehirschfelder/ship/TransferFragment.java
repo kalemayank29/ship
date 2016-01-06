@@ -59,8 +59,8 @@ public class TransferFragment extends Fragment {
 
                 JSONParser jsonParser = new JSONParser();
                 try {
-                    JSONArray json = jsonParser.getJSONFromUrl("http://192.168.1.237:8888/member/all");
-                   // Log.println(Log.ASSERT,"json size",json.toString());
+                    JSONArray json = jsonParser.getJSONFromUrl("http://192.168.1.38:8888/member/all");
+                    //Log.println(Log.ASSERT,"json size",json.toString());
                     MemberDataInterface memberInterface = new MemberDataInterface(getActivity().getApplicationContext());
                     FamilyHeadDataInterface headInterface = new FamilyHeadDataInterface(getActivity().getApplicationContext());
 

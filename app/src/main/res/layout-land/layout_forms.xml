@@ -29,32 +29,37 @@
             android:text="Birth Form"
             android:id="@+id/birthBtn"
             android:layout_gravity="center_horizontal" />
--->
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:id="@+id/familyBtn"
-            android:drawableTop="@drawable/family"
-            android:text="Census Registration"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="60dp"/>
 
-        <Button
+-->
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:id="@+id/familyBtn"
+                android:drawableTop="@drawable/family"
+                android:text="Census Registration"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="30dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:id="@+id/birthBtn"
+                android:drawableTop="@drawable/babyl"
+                android:text="Birth Information"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="30dp"/>
+
+
+   <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:id="@+id/birthBtn"
-            android:drawableTop="@drawable/babyl"
-            android:text="Birth Information"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="60dp"/>
-   <!--     <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
             android:text="Death Form"
             android:id="@+id/deathBtn"
-            android:layout_gravity="center_horizontal" />-->
+            android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
 </LinearLayout>

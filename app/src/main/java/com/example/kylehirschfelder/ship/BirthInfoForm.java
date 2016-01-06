@@ -48,10 +48,11 @@ public class BirthInfoForm extends ActionBarActivity {
         ArrayAdapter  villageOfBirthAdapter;
         TextView motherVillageId, villageOfBirthId;
         Button submit;
-        int vSpinId, vobSpinId, flag, midwifeFlag = 0,resident;
+        int vSpinId, vobSpinId, flag, midwifeFlag = 0;
         String vSpin, vobSpin, temp;
         String[] tempArray1, tempArray2;
       ArrayAdapter villageNameAdapter;
+    int resident;
     Translation translate;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -82,15 +83,10 @@ public class BirthInfoForm extends ActionBarActivity {
             villageOfBirthId.setVisibility(View.GONE);
 
             birth.setBirthDate("00-00-0000");
-            int resident = Integer.parseInt(getIntent().getStringExtra("resident"));
+            resident = Integer.parseInt(getIntent().getStringExtra("resident"));
             String familyId = getIntent().getStringExtra("index");
             String houseId = getIntent().getStringExtra("house");
-            if(resident == 1){
-                String name = getIntent().getStringExtra("name");
-                birth.setMotherName(name);
-                motherName.setText(translate.Letter_E2M(birth.getMotherName()));
-                motherName.setEnabled(false);
-            }
+
 
             birth.setFamilyID(familyId);
             birth.setHouseID(houseId);
@@ -443,6 +439,15 @@ public class BirthInfoForm extends ActionBarActivity {
                 else
                     temp = temp + '0';
             }
+            if(resident == 1){
+                String name = getIntent().getStringExtra("name");
+                birth.setMotherName(name);
+                motherName.setText(translate.Letter_E2M(birth.getMotherName()));
+                motherName.setEnabled(false);
+            }
+            else{
+                birth.setMotherName(motherName.getText().toString());
+            }
             birth.setDeliveryMethod(temp);
             birth.setMotherVillage(TR.Letter_M2E(vSpin));
             birth.setMotherVillageID(motherVillageId.getText().toString());
@@ -525,11 +530,17 @@ public class BirthInfoForm extends ActionBarActivity {
                 //DB.insert   (birth);
                 MemberDataInterface memInterface = new MemberDataInterface(getApplicationContext());
             Translation translation = new Translation();
+            if(resident == 1){
                 Member member = new Member(Integer.parseInt(birth.getFamilyID()),Integer.parseInt(birth.getHouseID()) ,0, translation.Letter_M2E("CHILD"), 0,Integer.parseInt(birth.getChildGender()), -1, "-1",
                         "0","0", "0", "0", "0", "0");
                 memInterface.createMember(member,1);
                 member = memInterface.getRecent(1);
                 birth.setMemberId(String.valueOf(member.getMemberId()));
+            }
+            else{
+                birth.setMemberId("-1");
+            }
+
             //Log.println(Log.ASSERT,"member_id", String.valueOf(birth.getMemberId()));
                 DB.insert(birth);
 
