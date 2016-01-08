@@ -21,6 +21,7 @@ public class ResidentDialog extends DialogFragment {
                         // FIRE ZE MISSILES!
                         Intent intent = new Intent(getActivity().getApplicationContext(), BirthFamilyListView.class);
                         intent.putExtra("resident", "1");
+                        intent.putExtra("form","1");
                         startActivity(intent);
                     }
                 })
@@ -29,6 +30,7 @@ public class ResidentDialog extends DialogFragment {
                         // User cancelled the dialog
                         Intent intent = new Intent(getActivity().getApplicationContext(), BirthFamilyListView.class);
                         intent.putExtra("resident", "0");
+                        intent.putExtra("form","1");
                         startActivity(intent);
                     }
                 });

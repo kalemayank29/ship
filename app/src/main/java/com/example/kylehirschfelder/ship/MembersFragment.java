@@ -34,7 +34,7 @@ public class MembersFragment extends Fragment{
     ArrayAdapter<Member> memberAdapter, memberFamAdapter;
     List<Member> memberList, memberFamList;
     MemberDataInterface head;
-    int longClickItemIndex;
+    int longClickItemIndex, curVillage;
     Activity activity;
 
     Button add, all;
@@ -46,11 +46,14 @@ public class MembersFragment extends Fragment{
 
         myView = inflater.inflate(R.layout.fragment_members, container,false);
         lv = (ListView) myView.findViewById(R.id.family_head_list);
+        curVillage = ((CurrentVillage) this.getActivity().getApplication()).getSomeVariable();
+
         head = new MemberDataInterface(this.getActivity().getApplicationContext());
-        memberList = head.getAllFamilyHeads(1);
+        memberList = head.getAllFamilyHeads(1,curVillage);
      //   add = (Button) myView.findViewById(R.id.addMemberButton);
 //        all = (Button) myView.findViewById(R.id.viewAllButton);
         activity = getActivity();
+
 
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

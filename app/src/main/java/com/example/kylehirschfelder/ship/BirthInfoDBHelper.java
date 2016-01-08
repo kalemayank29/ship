@@ -42,7 +42,10 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
                 TableInfo.HEALTH_MESSENGER_DATE+" TEXT,"+
                 TableInfo.GUIDE_NAME+" TEXT,"+
                 TableInfo.GUIDE_ID+" TEXT,"+
-                TableInfo.GUIDE_TEST_DATE+")";
+                TableInfo.GUIDE_TEST_DATE+ " TEXT," +
+                TableInfo.VILLAGE_ID + " TEXT"+
+
+                ")";
 
 
         public BirthInfoDBHelper(Context context) {
@@ -86,6 +89,7 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
             cv.put(TableInfo.GUIDE_NAME, birth.getGuideName());
             cv.put(TableInfo.GUIDE_ID, birth.getGuideId());
             cv.put(TableInfo.GUIDE_TEST_DATE, birth.getGuideTestDate());
+            cv.put(TableInfo.VILLAGE_ID, birth.getVillageId());
 
             long z = SQ.insert(TableInfo.TABLE_NAME, null, cv);
             Log.println(Log.ASSERT, "LOG", String.valueOf(z));
@@ -123,6 +127,7 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
             birth.setGuideName(c.getString(18));
             birth.setGuideId(c.getString(19));
             birth.setGuideTestDate(c.getString(20));
+            birth.setVillageId(c.getString(21));
             return birth;
 
         }
@@ -165,6 +170,7 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
                     birth.setGuideName(c.getString(19));
                     birth.setGuideId(c.getString(20));
                     birth.setGuideTestDate(c.getString(21));
+                    birth.setVillageId(c.getString(22));
                     birthList.add(birth);
 
                 }

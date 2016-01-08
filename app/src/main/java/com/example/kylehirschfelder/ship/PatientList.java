@@ -1,5 +1,6 @@
 package com.example.kylehirschfelder.ship;
 
+import android.app.FragmentManager;
 import android.app.ListActivity;
 import android.app.LoaderManager;
 import android.content.Context;
@@ -32,15 +33,18 @@ public class PatientList extends AppCompatActivity {
     List<Member> memberList;
     MemberDataInterface head;
     ArrayAdapter<Member> memberAdapter;
+    int curVillage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_list);
 
+        curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
         listView = (ListView) this.findViewById(R.id.pfamily_head_list);
          head = new MemberDataInterface(this.getApplicationContext());
-        memberList = head.getAllFamilyHeads(1);
+        Log.println(Log.ASSERT,"curVillage", String.valueOf(curVillage));
+        memberList = head.getAllFamilyHeads(1,curVillage);
 
        // dbHelper = new BirthInfoDBHelper(this.getApplicationContext());
         // birthList = dbHelper.getAll();
@@ -91,6 +95,15 @@ public class PatientList extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+
+        if (item.getItemId() == R.id.action_example) {
+            //Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
+            VillageSelectDialog dialog = new VillageSelectDialog();
+            FragmentManager manager = this.getFragmentManager();
+            dialog.show(manager,"Villages");
+            return true;
+        }
+
 
         return super.onOptionsItemSelected(item);
     }

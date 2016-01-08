@@ -26,6 +26,7 @@ public class MemberDbHelper extends SQLiteOpenHelper {
     public static final String NAME = "name";
     public static final String AGE = "age";
     public static final String SEX = "sex";
+    public static final String VILLAGE_ID = "village_id";
     public static final String CHILD_ID = "child_id";
     public static final String CHILD_DATE = "child_date";
     public static final String MARRIAGE_STATUS = "m_status";
@@ -44,6 +45,7 @@ public class MemberDbHelper extends SQLiteOpenHelper {
                     FAMILY_ID + " INTEGER NOT NULL, " +
                     HOUSE_ID + " INTEGER NOT NULL, " +
                     FAMILY_HEAD_BOOL + " INTEGER NOT NULL," +
+                  //  VILLAGE_ID + " INTEGER NOT NULL," +
                     NAME + " TEXT," +
                     AGE + " INTEGER, " +
                     SEX + " INTEGER, " +
@@ -55,7 +57,9 @@ public class MemberDbHelper extends SQLiteOpenHelper {
                     LITERACY + " TEXT, " +
                     WEDDING_ARR + " TEXT, " +
                     WEDDING_DEPT + " TEXT, " +
-                    FLAG + " INTEGER" +
+                    FLAG + " INTEGER," +
+                    VILLAGE_ID + " INTEGER NOT NULL" +
+                   // "CONSTRAINT pkey PRIMARY KEY (" + MEMBER_ID +", "+ VILLAGE_ID +
                     ")";
 
     // Flag 1 = NOT TRANSFERRED.
@@ -78,7 +82,9 @@ public class MemberDbHelper extends SQLiteOpenHelper {
                     LITERACY + " TEXT, " +
                     WEDDING_ARR + " TEXT, " +
                     WEDDING_DEPT + " TEXT, " +
-                    FLAG + " INTEGER" +
+                    FLAG + " INTEGER," +
+                    VILLAGE_ID + " INTEGER NOT NULL" +
+                  //  " CONSTRAINT pkey PRIMARY KEY (_id,village_id)" +
                     ")";
 
 

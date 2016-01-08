@@ -53,6 +53,9 @@ public class DeathAdultDataInterface {
         cv.put(dbHelper.VILLAGE_OF_DEATH, death.getVillageOfDeath());
         cv.put(dbHelper.VILLAGE_OF_DEATH_ID, death.getVillageOfDeathID());
 
+        cv.put(dbHelper.VILLAGE_OF_STAY, death.getVillageStay());
+        cv.put(dbHelper.VILLAGE_OF_STAY_ID, death.getVillageStayId());
+
         cv.put(dbHelper.HEALTH_MESSENGER, death.getHealthMessenger());
         cv.put(dbHelper.HEALTH_MESSENGER_ID, death.getHealthMessengerId());
         cv.put(dbHelper.HEALTH_MESSENGER_DATE, death.getHealthMessengerDate());

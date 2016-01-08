@@ -7,7 +7,7 @@ public class Birth {
 
         private String motherVillage, motherVillageID, motherName, familyID, houseID, childID, birthDate, memberId,
                 villageOfBirth, villageOfBirthID, villageOfBirthPlace,  deliveryName, deliveryMethod, childGender, pregnancyTime,
-                fadPresence, healthMessenger, healthMessengerId, healthMessengerDate, guideName, guideId, guideTestDate;
+                fadPresence, healthMessenger, healthMessengerId, healthMessengerDate, guideName, guideId, guideTestDate, villageId;
 
         public Birth() {
 
@@ -17,7 +17,7 @@ public class Birth {
                      String childID, String birthDate, String villageOfBirth, String villageOfBirthID, String villageOfBirthPlace,
                      String deliveryName, String deliveryMethod, String childGender, String pregnancyTime,
                      String fadPresence, String healthMessenger, String healthMessengerId, String healthMessengerDate,
-                     String guideName, String guideId, String guideTestDate) {
+                     String guideName, String guideId, String guideTestDate,String villageId) {
 
             this.motherVillage = motherVillage;
             this.motherVillageID = motherVillageID;
@@ -40,7 +40,16 @@ public class Birth {
             this.guideName = guideName;
             this.guideId = guideId;
             this.guideTestDate = guideTestDate;
+            this.villageId = villageId;
         }
+
+    public String getVillageId() {
+        return villageId;
+    }
+
+    public void setVillageId(String villageId) {
+        this.villageId = villageId;
+    }
 
     public String getMemberId() {
         return memberId;

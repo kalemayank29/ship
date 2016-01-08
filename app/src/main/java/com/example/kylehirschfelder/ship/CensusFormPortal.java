@@ -33,6 +33,7 @@ public class CensusFormPortal extends AppCompatActivity{
     String flagFamily, flagCensus;
     Census object;
     ListView lv;
+    int curVillage;
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ protected void onCreate(Bundle savedInstanceState) {
     flagCensus = getIntent().getStringExtra("flagCensus");
     flagFamily = getIntent().getStringExtra("flagFamily");
 
+    curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
 
     checkBoxHead = (CheckBox) findViewById(R.id.checkBoxHead);
     checkBoxMember = (CheckBox) findViewById(R.id.checkBoxMember);
@@ -68,7 +70,7 @@ protected void onCreate(Bundle savedInstanceState) {
     familyHead.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            List<Member> checkHead = memberInterface.getAllFamilyHeads(0);
+            List<Member> checkHead = memberInterface.getAllFamilyHeads(0,curVillage);
             if(flagFamily.equals("0") && flagCensus.equals("0") && (checkHead.size() < 1)){
                 finish();
                 Intent intent = new Intent(CensusFormPortal.this, AddPrimaryFamily.class);
@@ -139,12 +141,12 @@ protected void onCreate(Bundle savedInstanceState) {
                     //    Log.println(Log.ASSERT, "MemberHouseid", String.valueOf(element.getHouseId()));
                 }
 
-                List<Member> head = memberInterface.getAllFamilyHeads(0);
+                List<Member> head = memberInterface.getAllFamilyHeads(0,curVillage);
                 Member tempHead = head.get(0);
                 tempHead.setHouseId(Integer.parseInt(tempHouse.getHouseID()));
 
                 try {
-                    //memberInterface.createMember(tempHead, 1);
+                    //memberInterface.createVillMember(tempHead, 1);
                     headDataInterface.createMember(tempHead);
                     tempHead = headDataInterface.getRecent();
                     //tempHead.setFamilyId(tempHead.getMemberId());
@@ -153,12 +155,14 @@ protected void onCreate(Bundle savedInstanceState) {
                     for (Member element : memberList
                             ) {
                         element.setFamilyId(tempHead.getMemberId());
+
                     }
 
                     for (int i = 0; i < memberList.size(); i++) {
-                            memberInterface.createMember(memberList.get(i), 1);
+                        memberList.get(i).setVillageId(curVillage);
+                        memberInterface.createMember(memberList.get(i), 1);
                         Log.println(Log.ASSERT,"name",memberList.get(i).getName());
-                        Log.println(Log.ASSERT,"house id", String.valueOf(memberList.get(i).getHouseId()));
+                        Log.println(Log.ASSERT,"village id", String.valueOf(memberList.get(i).getVillageId()));
                     }
 
                     //   head = memberInterface.getFamilyList(tempHead.getFamilyId(),1);

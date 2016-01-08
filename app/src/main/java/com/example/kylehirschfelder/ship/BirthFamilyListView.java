@@ -18,6 +18,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -25,12 +27,14 @@ public class BirthFamilyListView extends AppCompatActivity {
 
     ListView lv;
     private static final int VIEWFAM = 0, ADDHOUSE = 1, ADDMEMBER = 2, UPMEM = 3, VIEWHOUSE = 4;
+    TextView currentVillage;
     ArrayAdapter<Member> memberAdapter, memberFamAdapter;
     List<Member> memberList, memberFamList;
     MemberDataInterface head;
     int longClickItemIndex;
     Activity activity;
-    int resident;
+    int resident,form;
+    int curVillage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +42,26 @@ public class BirthFamilyListView extends AppCompatActivity {
         setContentView(R.layout.activity_birth_family_list_view);
 
         lv = (ListView) findViewById(R.id.family_head_listB);
+        currentVillage = (TextView) findViewById(R.id.curVillage);
         head = new MemberDataInterface(getApplicationContext());
-        memberList = head.getAllFamilyHeads(1);
+        curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
+        switch(curVillage){
+            case 12:
+                currentVillage.setText("खुरसा ");
+                break;
+            case 13:
+                currentVillage.setText("मुरमाडी");
+                break;
+            case 14:
+                currentVillage.setText("गिलगाव");
+                break;
+
+        }
+        memberList = head.getAllFamilyHeads(1,curVillage);
         activity = this;
 
         resident =Integer.parseInt(getIntent().getStringExtra("resident"));
+        form = Integer.parseInt(getIntent().getStringExtra("form"));        //1: Birth Mother  2: Death all Family
 
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -107,16 +126,32 @@ public class BirthFamilyListView extends AppCompatActivity {
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case VIEWFAM:
-                if(resident == 0){
-                    Intent intent = new Intent(getApplicationContext(),BirthInfoForm.class);
-                    intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
-                    intent.putExtra("resident", "0");
-                    startActivity(intent);
+                if(form == 1) {
+                    if(resident == 0){
+                        Intent intent = new Intent(getApplicationContext(),BirthInfoForm.class);
+                        intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
+                        intent.putExtra("resident", "0");
+                        startActivity(intent);
+                    }
+                    else{
+                        Intent intent = new Intent(BirthFamilyListView.this,BirthSelectMother.class);
+                        intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
+                        startActivity(intent);
+                    }
                 }
-                else{
-                    Intent intent = new Intent(BirthFamilyListView.this,BirthSelectMother.class);
-                    intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
-                    startActivity(intent);
+                else if(form == 2){
+                    if(resident == 1){
+                        Intent intent = new Intent(BirthFamilyListView.this,MemberFamilyFromHeadListView.class);
+                        intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
+                        intent.putExtra("resident", "1");
+                        startActivity(intent);
+                    }
+                    if(resident == 0){
+                        Intent intent = new Intent(BirthFamilyListView.this,DeathAdultForm.class);
+                        intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
+                        intent.putExtra("resident", "0");
+                        startActivity(intent);
+                    }
                 }
                 break;
         }

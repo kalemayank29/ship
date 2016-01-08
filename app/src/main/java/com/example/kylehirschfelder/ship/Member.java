@@ -22,6 +22,7 @@ public class Member {
     private int sex;
     private int houseId;
     private int childId;
+    private int villageId;
     private String childDate;
     private String marriageStatus;
     private String familyPlan;
@@ -34,7 +35,15 @@ public class Member {
 
     }
 
-    public Member(int familyId, int houseId, int familyHeadId, String name, int age,int sex, int childId, String childDate, String marriageStatus, String familyPlan, String education, String literacy, String weddingArr, String weddingDept) {
+    public int getVillageId() {
+        return villageId;
+    }
+
+    public void setVillageId(int villageId) {
+        this.villageId = villageId;
+    }
+
+    public Member(int familyId, int houseId, int familyHeadId, String name, int age,int sex, int childId, String childDate, String marriageStatus, String familyPlan, String education, String literacy, String weddingArr, String weddingDept,int villageId) {
 
         this.familyId = familyId;
         this.houseId = houseId;
@@ -49,6 +58,7 @@ public class Member {
         this.education = education;
         this.literacy = literacy;
         this.weddingArr = weddingArr;
+        this.villageId = villageId;
         this.weddingDept = weddingDept;
     }
 

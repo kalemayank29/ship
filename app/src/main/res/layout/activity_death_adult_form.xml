@@ -31,16 +31,16 @@
                     android:textSize="25sp"
                     />
 
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_marginLeft="155dp"
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_marginLeft="75dp"
                     android:layout_marginTop="65dp"
                     android:textColor="#000000"
                     android:textAlignment="center"
                     android:layout_height="wrap_content"
                     android:id="@+id/Name"
-                    android:textSize="25sp"
-                    android:text="Mayank Kale"
+                    android:textSize="25dp"
+                    android:text=""
                     android:background="#cccccc"
                     />
 
@@ -77,7 +77,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="25dp"
                 android:orientation="horizontal">
-                <TextView
+              <!--  <TextView
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -115,6 +115,72 @@
                     android:textSize="25sp"
                     android:text=""
                     android:background="#cccccc"
+                    />-->
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="55dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/VillageStayBlockText"
+                    android:textSize="15dp"
+                    android:text="nehmi गावाचा ब्लॉक"
+                    />
+                <Spinner
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="65dp"
+                    android:id="@+id/villageStayBlockSpinner"
+                    android:layout_marginLeft="5dp"
+                    android:dropDownSelector="#ffffffff"
+                    android:spinnerMode="dropdown"
+                    android:background="@drawable/spinner"
+                    />
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_marginTop="55dp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/VillageStayNameText"
+                    android:textSize="15dp"
+                    android:text="नेहमी राहण्याचे गाव"
+                    />
+                <Spinner
+                    android:layout_marginTop="65dp"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/villageStayNameSpinner"
+                    android:layout_marginLeft="5dp"
+                    android:dropDownSelector="#ffffffff"
+                    android:spinnerMode="dropdown"
+                    android:background="@drawable/spinner"
+                    android:textColor="#000000"
+                    />
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_marginTop="55dp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/VillageStayIdText"
+                    android:textSize="15dp"
+                    android:text="गाव क्रमांक"
+                    />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="65dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/VillageStayId"
+                    android:textSize="20dp"
+                    android:text=""
+                    android:background="@drawable/spinner"
                     />
             </LinearLayout>
             <LinearLayout
@@ -267,43 +333,70 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="25sp"
+                    android:layout_width="100dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="55dp"
                     android:textColor="#ffffdd"
-                    android:text="मृत्यूचे गाव"/>
-                <EditText
-                    android:layout_width="150dp"
-                    android:layout_marginLeft="140dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="#000000"
                     android:textAlignment="center"
                     android:layout_height="wrap_content"
-                    android:id="@+id/DeathVillage"
-                    android:textSize="25sp"
-                    android:text=""
-                    android:background="#cccccc"
+                    android:id="@+id/VillageDeathBlockText"
+                    android:textSize="15dp"
+                    android:text="death गावाचा ब्लॉक"
+                    />
+                <Spinner
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="65dp"
+                    android:id="@+id/villageDeathBlockSpinner"
+                    android:layout_marginLeft="5dp"
+                    android:dropDownSelector="#ffffffff"
+                    android:spinnerMode="dropdown"
+                    android:background="@drawable/spinner"
                     />
                 <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="90dp"
-                    android:textSize="25sp"
+                    android:layout_width="100dp"
+                    android:layout_marginTop="55dp"
+                    android:layout_marginLeft="20dp"
                     android:textColor="#ffffdd"
-                    android:text="मृत्यूचे गाव क्रमांक"/>
-                <EditText
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/VillageDeathNameText"
+                    android:textSize="15dp"
+                    android:text="Death che राहण्याचे गाव"
+                    />
+                <Spinner
+                    android:layout_marginTop="65dp"
                     android:layout_width="150dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/villageDeathNameSpinner"
+                    android:layout_marginLeft="5dp"
+                    android:dropDownSelector="#ffffffff"
+                    android:spinnerMode="dropdown"
+                    android:background="@drawable/spinner"
+                    android:textColor="#000000"
+                    />
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_marginTop="55dp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/VillageDeathIdText"
+                    android:textSize="15dp"
+                    android:text="गाव क्रमांक"
+                    />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="65dp"
                     android:textColor="#000000"
                     android:textAlignment="center"
                     android:layout_height="wrap_content"
-                    android:id="@+id/DeathVillageId"
-                    android:textSize="25sp"
+                    android:id="@+id/VillageDeathId"
+                    android:textSize="20dp"
                     android:text=""
-                    android:background="#cccccc"
+                    android:background="@drawable/spinner"
                     />
             </LinearLayout>
 
@@ -332,7 +425,7 @@
                     android:text=""
                     android:background="#cccccc"/>
 
-                <LinearLayout
+          <!--      <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -359,8 +452,8 @@
                         android:id="@+id/GuideDate"
                         />
                 </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
+            </LinearLayout>-->
+            <!--<LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -384,7 +477,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/MessengerDate"
                     android:text=""
-                    />
+                    />-->
             </LinearLayout>
 
             <!-- "सुपरवायझर

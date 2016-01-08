@@ -378,10 +378,6 @@ public class CensusViewForm extends AppCompatActivity {
     }
 
 
-
-
-
-
     public void saveClick(View view) throws IOException{
         flag = 0;
         CF_DatabaseOperations DB = new CF_DatabaseOperations(context);

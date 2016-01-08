@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,6 +41,9 @@ public class AddPrimaryFamily extends AppCompatActivity {
     String name = "", age = "", education = "", marriage = "", marrSpin, famSpin, eduSpin, litSpin, wedDep, wedAr;
     EditText nameText, famText, ageText, childText;
     MemberDataInterface db;
+    private int villageId;
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
+
 
     private TextView mDateDisplay, weddingArrDisplay;
     private Button mPickDate, wPickDate;
@@ -53,6 +57,8 @@ public class AddPrimaryFamily extends AppCompatActivity {
         setContentView(R.layout.activity_member_form);
         //db.deleteAllTables();
         pushLocal = (Button) findViewById(R.id.localBtn);
+
+        villageId = ((CurrentVillage) this.getApplication()).getSomeVariable();
 
         marriageSpinner = (Spinner) findViewById(R.id.spin_marriage);
         final ArrayAdapter marriageAdapter = ArrayAdapter.createFromResource(this, R.array.marriage_array, android.R.layout.simple_spinner_dropdown_item);
@@ -206,7 +212,7 @@ public class AddPrimaryFamily extends AppCompatActivity {
                     String tname = object.Letter_M2E(name);
                     Log.println(Log.ASSERT,"name",name);
                     Member member = new Member(-1, -1, isHead, tname, Integer.parseInt(age),Integer.parseInt(gender), -1, "-1",
-                                     marriage, familyPlanning, education, literacy, wedAr, wedDep);
+                                     marriage, familyPlanning, education, literacy, wedAr, wedDep,villageId);
 
                     db = new MemberDataInterface(getApplicationContext());
                    // Log.println(Log.ASSERT, "log", member.getFamilyPlan());

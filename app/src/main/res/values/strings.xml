@@ -85,6 +85,13 @@
     
 </string-array>
 
+    <string-array name = "death_array">
+        <item>resident</item>
+        <item>non-resident</item>
+        <item>Outsider</item>
+
+    </string-array>
+
 <string-array name = "gadchiroli_block_array">
     <item> ---- </item>
     <item>दिभना</item>
@@ -519,6 +526,12 @@
         <item>------</item>
         <item>Yes</item>
         <item>No</item>
+    </string-array>
+
+    <string-array name="select_village_array">
+        <item>खुरसा </item>
+        <item>मुरमाडी </item>
+        <item>गिलगाव</item>
     </string-array>
 
     <string-array name="house_ownership">

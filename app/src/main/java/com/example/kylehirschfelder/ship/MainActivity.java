@@ -1,6 +1,7 @@
 package com.example.kylehirschfelder.ship;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
@@ -35,12 +36,13 @@ public class MainActivity extends AppCompatActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         MemberDataInterface test = new MemberDataInterface(getApplicationContext());
         CF_DatabaseOperations databaseOperations = new CF_DatabaseOperations(getApplicationContext());
@@ -52,8 +54,27 @@ public class MainActivity extends AppCompatActivity
             e.printStackTrace();
         }*/
         Translation object = new Translation();
+       try {
+            Member member = test.getRecent(1);
+          Log.println(Log.ASSERT, "memberid", String.valueOf(member.getMemberId()));
+         Log.println(Log.ASSERT, "villageid", String.valueOf(member.getFamilyId()));
+        } catch (SQLException e) {
+            e.printStackTrace();
 
-       // Log.println(Log.ASSERT,"supervisor",object.Letter_E2M("sarcha gaDachirolee"));
+        }
+
+        SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+        editor.putString("village", "12");
+        editor.commit();
+
+        ((CurrentVillage) this.getApplication()).setSomeVariable(12);
+        int curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
+                Log.println(Log.ASSERT,"curVillage", String.valueOf(curVillage));
+
+
+
+
+        // Log.println(Log.ASSERT,"supervisor",object.Letter_E2M("sarcha gaDachirolee"));
         /*CF_DatabaseOperations census = new CF_DatabaseOperations(getApplicationContext());
         List<Census> list = census.getUnsynced(0);
 

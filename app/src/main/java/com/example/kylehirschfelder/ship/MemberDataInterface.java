@@ -2,6 +2,7 @@ package com.example.kylehirschfelder.ship;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -26,7 +27,6 @@ public class MemberDataInterface {
     private SQLiteDatabase database;
     private MemberDbHelper dbHelper;
     public long result;
-
     public MemberDataInterface(Context context){
         dbHelper = new MemberDbHelper(context);
     }
@@ -62,6 +62,7 @@ public class MemberDataInterface {
         long newRowId = -1;
 
         ContentValues value = new ContentValues();
+        //value.put(dbHelper.MEMBER_ID, element.getMemberId());
         value.put(dbHelper.FAMILY_ID, element.getFamilyId());
         value.put(dbHelper.HOUSE_ID, element.getHouseId());
         value.put(dbHelper.FAMILY_HEAD_BOOL, element.getFamilyHeadId());        // Is family Head?
@@ -76,6 +77,7 @@ public class MemberDataInterface {
         value.put(dbHelper.LITERACY, element.getLiteracy());
         value.put(dbHelper.WEDDING_ARR, element.getWeddingArr());
         value.put(dbHelper.WEDDING_DEPT, element.getWeddingDept());
+        value.put(dbHelper.VILLAGE_ID,element.getVillageId());
         value.put(dbHelper.FLAG, 1);
 
         if(cur == 0)
@@ -89,6 +91,41 @@ public class MemberDataInterface {
         this.close();
         return newRowId;
     }
+    public long createVillMember(Member element, int cur) throws SQLException {
+        this.open();
+
+        long newRowId = -1;
+
+        ContentValues value = new ContentValues();
+        value.put(dbHelper.FAMILY_ID, element.getFamilyId());
+        value.put(dbHelper.HOUSE_ID, element.getHouseId());
+        value.put(dbHelper.FAMILY_HEAD_BOOL, element.getFamilyHeadId());        // Is family Head?
+        value.put(dbHelper.NAME, element.getName());
+        value.put(dbHelper.AGE, element.getAge());
+        value.put(dbHelper.SEX,element.getSex());
+        value.put(dbHelper.CHILD_ID,element.getChildId());
+        value.put(dbHelper.CHILD_DATE,element.getChildDate());
+        value.put(dbHelper.MARRIAGE_STATUS, element.getMarriageStatus());
+        value.put(dbHelper.FAMILY_PLAN, element.getFamilyPlan());
+        value.put(dbHelper.EDUCATION, element.getEducation());
+        value.put(dbHelper.LITERACY, element.getLiteracy());
+        value.put(dbHelper.WEDDING_ARR, element.getWeddingArr());
+        value.put(dbHelper.WEDDING_DEPT, element.getWeddingDept());
+        value.put(dbHelper.VILLAGE_ID, 3);
+        value.put(dbHelper.FLAG, 1);
+
+        if(cur == 0)
+            newRowId = this.database.insert(dbHelper.TABLE_MEMBER, null, value);
+        else{
+            value.put(dbHelper.FLAG, 1);
+            newRowId = this.database.insert(dbHelper.TABLE_MEMBERCUR, null, value);
+        }
+
+
+        this.close();
+        return newRowId;
+    }
+
 
 
 
@@ -164,7 +201,7 @@ public class MemberDataInterface {
                         cursor.getString(4),Integer.parseInt(cursor.getString(5)),
                         Integer.parseInt(cursor.getString(6)), Integer.parseInt(cursor.getString(7)),cursor.getString(8),
                         cursor.getString(9), cursor.getString(10),
-                        cursor.getString(11), cursor.getString(12),cursor.getString(13),cursor.getString(14));
+                        cursor.getString(11), cursor.getString(12),cursor.getString(13),cursor.getString(14),Integer.parseInt(cursor.getString(16)));
 
                 element.setMemberId(Integer.parseInt(cursor.getString(0)));     // Done separately because of constructor
                 memberList.add(element);
@@ -223,7 +260,7 @@ public class MemberDataInterface {
                         cursor.getString(4),Integer.parseInt(cursor.getString(5)),
                         Integer.parseInt(cursor.getString(6)), Integer.parseInt(cursor.getString(7)),cursor.getString(8),
                         cursor.getString(9), cursor.getString(10),
-                        cursor.getString(11), cursor.getString(12),cursor.getString(13),cursor.getString(14));
+                        cursor.getString(11), cursor.getString(12),cursor.getString(13),cursor.getString(14),Integer.parseInt(cursor.getString(16)));
 
                 element.setMemberId(Integer.parseInt(cursor.getString(0)));     // Done separately because of constructor
                 memberList.add(element);
@@ -329,7 +366,7 @@ public class MemberDataInterface {
      *
      * @return Returns list of Members: All are family heads.
      */
-    public List<Member> getAllFamilyHeads(int cur){
+    public List<Member> getAllFamilyHeads(int cur, int curVillage){
 
         List<Member> headList = new ArrayList<Member>();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -337,10 +374,10 @@ public class MemberDataInterface {
 
         // Simple SEQUEL query: select all members for family_head: true
         if(cur == 0)
-             cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBER + " WHERE family_head = 1 ORDER BY name", null);
+             cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBER + " WHERE family_head = 1 AND village_id = "+ curVillage + " ORDER BY family_id", null);
         else
-            cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR + " WHERE family_head = 1 ORDER BY name", null);
-
+            cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR + " WHERE family_head = 1 AND village_id = "+ curVillage + " ORDER BY family_id", null);
+           // cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR + " WHERE family_head = 1 ORDER BY name", null);
 
         if(cursor.moveToFirst()){
             do{
@@ -351,7 +388,7 @@ public class MemberDataInterface {
                         cursor.getString(4),Integer.parseInt(cursor.getString(5)),
                         Integer.parseInt(cursor.getString(6)), Integer.parseInt(cursor.getString(7)),cursor.getString(8),
                         cursor.getString(9), cursor.getString(10),
-                        cursor.getString(11), cursor.getString(12),cursor.getString(13),cursor.getString(14));
+                        cursor.getString(11), cursor.getString(12),cursor.getString(13),cursor.getString(14),Integer.parseInt(cursor.getString(16)));
 
                 element.setMemberId(Integer.parseInt(cursor.getString(0)));         // Constructor enforced
                 headList.add(element);
@@ -382,7 +419,7 @@ public class MemberDataInterface {
      * @return   -------- Member List of Family.
      * @throws SQLException
      */
-    public List<Member> getFamilyList(int familyId, int cur) throws SQLException {
+    public List<Member> getFamilyList(int familyId, int cur,int curVillage) throws SQLException {
         this.openRead();
 
 
@@ -390,8 +427,8 @@ public class MemberDataInterface {
         Cursor c = null;
 
         // SQL query: Select all where family_id matches.
-        String selection = "family_id=?";
-        String[] selectionArgs = new String[]{String.valueOf(familyId)};
+        String selection = "family_id=? AND village_id=?";
+        String[] selectionArgs = new String[]{String.valueOf(familyId),String.valueOf(curVillage)};
 
         if(cur == 0)
              c = database.query(MemberDbHelper.TABLE_MEMBER, null, selection, selectionArgs, null, null, null);
@@ -461,6 +498,7 @@ public class MemberDataInterface {
                     element.setMemberId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.MEMBER_ID)));
                     element.setFamilyId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_ID)));
                     element.setHouseId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.HOUSE_ID)));
+                    element.setHouseId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.VILLAGE_ID)));
                     element.setFamilyHeadId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_HEAD_BOOL)));
                     element.setAge(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.AGE)));
                     element.setSex(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.SEX)));
@@ -496,7 +534,7 @@ public class MemberDataInterface {
      * TODO: Reduce time complexity. Maybe.
      * @throws SQLException
      */
-    public void cleanFamilyId(int cur) throws SQLException {
+    public void cleanFamilyId(int cur,int curVillage) throws SQLException {
         List<Member> memberList;
         memberList = getAllMembers(cur);
 
@@ -701,7 +739,8 @@ public class MemberDataInterface {
         if (c.moveToFirst()) {
             element.setName(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.NAME)));
             element.setMemberId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.MEMBER_ID)));
-            element.setFamilyId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_ID)));
+            //element.setFamilyId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_ID)));
+            element.setFamilyId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.VILLAGE_ID)));
             element.setHouseId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.HOUSE_ID)));
             element.setFamilyHeadId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_HEAD_BOOL)));
             element.setAge(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.AGE)));

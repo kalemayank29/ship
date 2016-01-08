@@ -49,84 +49,23 @@ public class FormFragment extends Fragment {
         deathButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity().getApplicationContext(),DeathAdultForm.class);
-                startActivity(intent);
-            }
-        });
-       /* censusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), CensusForm.class);
-                startActivity(intent);
-            }
-        });*/
-
-      /*  memberButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
-
-        birthButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               // BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
-               // ResidentDialog dialog = new ResidentDialog();
-             //   FragmentManager manager = getActivity().getFragmentManager();
-                //dialog.show(manager,"frag");
-                //dbHelper.deleteAll();
-                //Intent intent = new Intent(getActivity().getApplicationContext(), BirthFamilyListView.class);
-              //  Intent intent = new Intent(getActivity().getApplicationContext(), BirthInfoForm.class);
-                //startActivity(intent);
-              //  Intent intent = new Intent(getActivity().getApplicationContext(), PNM_Info.class);
+               //Intent intent = new Intent(getActivity().getApplicationContext(),DeathAdultForm.class);
                // startActivity(intent);
-               MemberDataInterface memberDataInterface = new MemberDataInterface(getActivity().getApplicationContext());
-                List<Member> memList = memberDataInterface.getAllMembers(1);
-                for (Member element: memList
-                     ) {
-                    HttpClient httpclient = new DefaultHttpClient();
-                    HttpPost httppost = new HttpPost("http://192.168.1.38:8888/member/submit");
-                    try {
-                        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(14);
-                        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-                        StrictMode.setThreadPolicy(policy);
-                        nameValuePairs.add(new BasicNameValuePair("member_id", String.valueOf(element.getMemberId())));
-                        nameValuePairs.add(new BasicNameValuePair("village_id","4"));
-                        nameValuePairs.add(new BasicNameValuePair("house_id", String.valueOf(element.getHouseId())));
-                        nameValuePairs.add(new BasicNameValuePair("family_id", String.valueOf(element.getFamilyId())));
-                        nameValuePairs.add(new BasicNameValuePair("family_head_bool",String.valueOf(element.getFamilyHeadId())));
-                        nameValuePairs.add(new BasicNameValuePair("name", String.valueOf(element.getName())));
-                        nameValuePairs.add(new BasicNameValuePair("age", String.valueOf(element.getAge())));
-                        nameValuePairs.add(new BasicNameValuePair("sex", String.valueOf(element.getSex())));
-                        nameValuePairs.add(new BasicNameValuePair("m_status",String.valueOf(element.getMarriageStatus())));
-                        nameValuePairs.add(new BasicNameValuePair("family_plan", String.valueOf(element.getFamilyPlan())));
-                        nameValuePairs.add(new BasicNameValuePair("education",String.valueOf(element.getEducation())));
-                        nameValuePairs.add(new BasicNameValuePair("literacy", String.valueOf(element.getLiteracy())));
-                        nameValuePairs.add(new BasicNameValuePair("wedding_left", String.valueOf(element.getWeddingDept())));
-                        nameValuePairs.add(new BasicNameValuePair("wedding_came", String.valueOf(element.getWeddingArr())));
-                        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-                        httpclient.execute(httppost);
-
-                    } catch (ClientProtocolException e) {
-                        // TODO Auto-generated catch block
-                    } catch (IOException e) {
-                        // TODO Auto-generated catch block
-                    }
-                }
-
-                BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
+                DeathAdultDialog dialog = new DeathAdultDialog();
+                FragmentManager manager = getActivity().getFragmentManager();
+                dialog.show(manager,"deathFrag");
+                /*BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
                 List<Birth> birthList = dbHelper.getAll();
                 for (Birth element: birthList
                         ) {
                     HttpClient httpclient = new DefaultHttpClient();
-                    HttpPost httppost = new HttpPost("http://192.168.1.38:8888/birth/add");
+                    HttpPost httppost = new HttpPost("http://192.168.1.42:8888/birth/add");
                     try {
                         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(22);
                         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                         StrictMode.setThreadPolicy(policy);
                         nameValuePairs.add(new BasicNameValuePair("member_id", String.valueOf(element.getMemberId())));
-                        nameValuePairs.add(new BasicNameValuePair("village_id","4"));
+                        nameValuePairs.add(new BasicNameValuePair("village_id",String.valueOf(element.getVillageId())));
                         nameValuePairs.add(new BasicNameValuePair("house_id", String.valueOf(element.getHouseID())));
                         nameValuePairs.add(new BasicNameValuePair("family_id", String.valueOf(element.getFamilyID())));
                         nameValuePairs.add(new BasicNameValuePair("mother_name",String.valueOf(element.getMotherName())));
@@ -149,7 +88,7 @@ public class FormFragment extends Fragment {
                         nameValuePairs.add(new BasicNameValuePair("guide_date", String.valueOf(element.getGuideTestDate())));
 
                         Log.println(Log.ASSERT, "member_id", String.valueOf(element.getMemberId()));
-                        Log.println(Log.ASSERT,"village_id","4");
+                        Log.println(Log.ASSERT,"village_id",String.valueOf(element.getVillageId()));
                         Log.println(Log.ASSERT,"house_id", String.valueOf(element.getHouseID()));
                         Log.println(Log.ASSERT,"family_id", String.valueOf(element.getFamilyID()));
                         Log.println(Log.ASSERT,"mother_name",String.valueOf(element.getMotherName()));
@@ -170,7 +109,7 @@ public class FormFragment extends Fragment {
                         Log.println(Log.ASSERT,"guide_name", String.valueOf(element.getGuideName()));
                         Log.println(Log.ASSERT,"guide_id", String.valueOf(element.getGuideId()));
                         Log.println(Log.ASSERT,"guide_date", String.valueOf(element.getGuideTestDate()));
-                        
+
                         httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                         httpclient.execute(httppost);
 
@@ -180,6 +119,107 @@ public class FormFragment extends Fragment {
                         // TODO Auto-generated catch block
                     }
                 }
+
+                MemberDataInterface memberDataInterface = new MemberDataInterface(getActivity().getApplicationContext());
+                List<Member> memList = memberDataInterface.getAllMembers(1);
+                for (Member element: memList
+                        ) {
+                    HttpClient httpclient = new DefaultHttpClient();
+                    HttpPost httppost = new HttpPost("http://192.168.1.42:8888/member/submit");
+                    try {
+                        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(14);
+                        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                        StrictMode.setThreadPolicy(policy);
+                        nameValuePairs.add(new BasicNameValuePair("member_id", String.valueOf(element.getMemberId())));
+                        nameValuePairs.add(new BasicNameValuePair("village_id",String.valueOf(element.getVillageId())));
+                        Log.println(Log.ASSERT,"sendvillageid",String.valueOf(element.getVillageId()));
+                        nameValuePairs.add(new BasicNameValuePair("house_id", String.valueOf(element.getHouseId())));
+                        nameValuePairs.add(new BasicNameValuePair("family_id", String.valueOf(element.getFamilyId())));
+                        nameValuePairs.add(new BasicNameValuePair("family_head_bool",String.valueOf(element.getFamilyHeadId())));
+                        nameValuePairs.add(new BasicNameValuePair("name", String.valueOf(element.getName())));
+                        nameValuePairs.add(new BasicNameValuePair("age", String.valueOf(element.getAge())));
+                        nameValuePairs.add(new BasicNameValuePair("sex", String.valueOf(element.getSex())));
+                        nameValuePairs.add(new BasicNameValuePair("m_status",String.valueOf(element.getMarriageStatus())));
+                        nameValuePairs.add(new BasicNameValuePair("family_plan", String.valueOf(element.getFamilyPlan())));
+                        nameValuePairs.add(new BasicNameValuePair("education",String.valueOf(element.getEducation())));
+                        nameValuePairs.add(new BasicNameValuePair("literacy", String.valueOf(element.getLiteracy())));
+                        nameValuePairs.add(new BasicNameValuePair("wedding_left", String.valueOf(element.getWeddingDept())));
+                        nameValuePairs.add(new BasicNameValuePair("wedding_came", String.valueOf(element.getWeddingArr())));
+                        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                        httpclient.execute(httppost);
+
+                    } catch (ClientProtocolException e) {
+                        // TODO Auto-generated catch block
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                    }
+                }*/
+            }
+        });
+       /* censusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity().getApplicationContext(), CensusForm.class);
+                startActivity(intent);
+            }
+        });*/
+
+      /*  memberButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });*/
+
+        birthButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
+                ResidentDialog dialog = new ResidentDialog();
+               FragmentManager manager = getActivity().getFragmentManager();
+                dialog.show(manager,"frag");
+                //dbHelper.deleteAll();
+                //Intent intent = new Intent(getActivity().getApplicationContext(), BirthFamilyListView.class);
+              //  Intent intent = new Intent(getActivity().getApplicationContext(), BirthInfoForm.class);
+                //startActivity(intent);
+              //  Intent intent = new Intent(getActivity().getApplicationContext(), PNM_Info.class);
+               // startActivity(intent);
+            /*   MemberDataInterface memberDataInterface = new MemberDataInterface(getActivity().getApplicationContext());
+                List<Member> memList = memberDataInterface.getAllMembers(1);
+                for (Member element: memList
+                     ) {
+                    HttpClient httpclient = new DefaultHttpClient();
+                    HttpPost httppost = new HttpPost("http://192.168.1.42:8888/member/submit");
+                    try {
+                        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(14);
+                        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                        StrictMode.setThreadPolicy(policy);
+                        nameValuePairs.add(new BasicNameValuePair("member_id", String.valueOf(element.getMemberId())));
+                        nameValuePairs.add(new BasicNameValuePair("village_id",String.valueOf(element.getVillageId())));
+                        Log.println(Log.ASSERT,"sendvillageid",String.valueOf(element.getVillageId()));
+                        nameValuePairs.add(new BasicNameValuePair("house_id", String.valueOf(element.getHouseId())));
+                        nameValuePairs.add(new BasicNameValuePair("family_id", String.valueOf(element.getFamilyId())));
+                        nameValuePairs.add(new BasicNameValuePair("family_head_bool",String.valueOf(element.getFamilyHeadId())));
+                        nameValuePairs.add(new BasicNameValuePair("name", String.valueOf(element.getName())));
+                        nameValuePairs.add(new BasicNameValuePair("age", String.valueOf(element.getAge())));
+                        nameValuePairs.add(new BasicNameValuePair("sex", String.valueOf(element.getSex())));
+                        nameValuePairs.add(new BasicNameValuePair("m_status",String.valueOf(element.getMarriageStatus())));
+                        nameValuePairs.add(new BasicNameValuePair("family_plan", String.valueOf(element.getFamilyPlan())));
+                        nameValuePairs.add(new BasicNameValuePair("education",String.valueOf(element.getEducation())));
+                        nameValuePairs.add(new BasicNameValuePair("literacy", String.valueOf(element.getLiteracy())));
+                        nameValuePairs.add(new BasicNameValuePair("wedding_left", String.valueOf(element.getWeddingDept())));
+                        nameValuePairs.add(new BasicNameValuePair("wedding_came", String.valueOf(element.getWeddingArr())));
+                        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                        httpclient.execute(httppost);
+
+                    } catch (ClientProtocolException e) {
+                        // TODO Auto-generated catch block
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                    }
+                }
+*/
+
             }
         });
 /*

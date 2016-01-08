@@ -26,21 +26,24 @@ public class DeathAdultDBHelper extends SQLiteOpenHelper{
         public static final String BIRTH_DATE = "birth_date" ;//dp
         public static final String DEATH_DATE = "death_date" ;//dp
 
-        public static final String AGE = "death_date" ;//dp
+        public static final String AGE = "age" ;//dp
 
         public static final String VILLAGE_OF_DEATH = "village_of_death" ;//2 spinners
         public static final String VILLAGE_OF_DEATH_ID = "village_of_death_id" ;//tv
 
+        public static final String VILLAGE_OF_STAY = "village_of_stay" ;//2 spinners
+        public static final String VILLAGE_OF_STAY_ID = "village_of_stay_id" ;//tv
 
         public static final String HEALTH_MESSENGER = "health_messenger" ;//et
         public static final String HEALTH_MESSENGER_ID = "health_messenger_id";//et
         public static final String HEALTH_MESSENGER_DATE = "health_messenger_date" ;//dp
+
         public static final String GUIDE_NAME = "guide_name" ;//et
         public static final String GUIDE_ID = "guide_id" ;//et
         public static final String GUIDE_TEST_DATE = "guide_test_date" ;//dp
 
         public static final String DATABASE_NAME = "SEARCH";
-        public static final String TABLE_NAME = "DeathInfo";
+        public static final String TABLE_NAME = "AdultDeathInfo";
 
         public String CREATE_QUERY = "CREATE TABLE "+ TABLE_NAME+
                 "("+
@@ -55,6 +58,9 @@ public class DeathAdultDBHelper extends SQLiteOpenHelper{
                 BIRTH_DATE+" TEXT,"+
                 DEATH_DATE+" TEXT,"+
                 AGE +" TEXT,"+
+
+                VILLAGE_OF_STAY+" TEXT,"+
+                VILLAGE_OF_STAY_ID+" TEXT,"+
 
                 VILLAGE_OF_DEATH+" TEXT,"+
                 VILLAGE_OF_DEATH_ID+" TEXT,"+

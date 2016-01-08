@@ -34,6 +34,7 @@ public class PatientFragment extends Fragment  {
     MemberDataInterface head;
     ArrayAdapter<Member> memberAdapter;
     Button buttPatient;
+    int curVillage;
 
     @Nullable
     @Override
@@ -41,7 +42,17 @@ public class PatientFragment extends Fragment  {
         myView = inflater.inflate(R.layout.layout_patients, container,false);
         listView = (ListView) myView.findViewById(R.id.family_head_list);
         head = new MemberDataInterface(this.getActivity().getApplicationContext());
-        memberList = head.getAllFamilyHeads(1);
+
+        curVillage = ((CurrentVillage) this.getActivity().getApplication()).getSomeVariable();
+
+        Log.println(Log.ASSERT,"curVillage", String.valueOf(curVillage));
+
+        memberList = head.getAllFamilyHeads(1,curVillage);
+
+        for (Member element: memberList
+             ) {
+            Log.println(Log.ASSERT,"villageid", String.valueOf(element.getVillageId()));
+        }
 
         memberAdapter = new memberListAdapter(this.memberList, myView.getContext());
 

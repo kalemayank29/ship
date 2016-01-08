@@ -6,6 +6,7 @@ package com.example.kylehirschfelder.ship;
 public class DeathAdult {
 
    // private String motherVillage, motherVillageID, villageOfBirth, villageOfBirthID;
+    private String villageStay, villageStayId;
     private String name, memberID, familyID, houseID, birthDate, deathDate,
                     age, villageOfDeath,
                     villageOfDeathID,healthMessenger, healthMessengerId,
@@ -15,22 +16,38 @@ public class DeathAdult {
 
     }
 
- /*   public String getMotherVillage() {
-        return motherVillage;
+    public String getVillageStay() {
+        return villageStay;
     }
 
-    public void setMotherVillage(String motherVillage) {
-        this.motherVillage = motherVillage;
+    public void setVillageStay(String villageStay) {
+        this.villageStay = villageStay;
     }
 
-    public String getMotherVillageID() {
-        return motherVillageID;
+    public String getVillageStayId() {
+        return villageStayId;
     }
 
-    public void setMotherVillageID(String motherVillageID) {
-        this.motherVillageID = motherVillageID;
+    public void setVillageStayId(String villageStayId) {
+        this.villageStayId = villageStayId;
     }
-*/
+
+    /*   public String getMotherVillage() {
+            return motherVillage;
+        }
+
+        public void setMotherVillage(String motherVillage) {
+            this.motherVillage = motherVillage;
+        }
+
+        public String getMotherVillageID() {
+            return motherVillageID;
+        }
+
+        public void setMotherVillageID(String motherVillageID) {
+            this.motherVillageID = motherVillageID;
+        }
+    */
     public String getName() {
         return name;
     }

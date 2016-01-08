@@ -55,6 +55,7 @@ public class MemberForm extends AppCompatActivity {
     String education = "", marriage = "";
     RadioButton manRadioButton, womanRadioButton, litYes, litNo, familyYes, familyNo;
     String gender = "", literacy, familyPlanning = "",flagCensus,flagFamily;
+    int curVillage;
 
     private TextView mDateDisplay, weddingArrDisplay;
     private Button mPickDate, wPickDate;
@@ -71,6 +72,8 @@ public class MemberForm extends AppCompatActivity {
 
         flagCensus = getIntent().getStringExtra("flagCensus");
         flagFamily = getIntent().getStringExtra("flagFamily");
+
+        curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
 
         marriageSpinner = (Spinner) findViewById(R.id.spin_marriage);
         final ArrayAdapter marriageAdapter = ArrayAdapter.createFromResource(this,R.array.marriage_array,android.R.layout.simple_spinner_dropdown_item);
@@ -242,7 +245,7 @@ public class MemberForm extends AppCompatActivity {
 
 
                         member = new Member(-1, houseId ,isHead, tname, Integer.parseInt(age),Integer.parseInt(gender), -1, "-1",
-                                             marrSpin, famSpin, education, litSpin, wedAr, wedDep);
+                                             marrSpin, famSpin, education, litSpin, wedAr, wedDep,curVillage);
 
                     member.setMarriageParse(marrSpin);
                     member.setFamilyPlanParse(famSpin);

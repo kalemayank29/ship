@@ -1,5 +1,6 @@
 package com.example.kylehirschfelder.ship;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -29,22 +30,22 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
     MemberDataInterface interfaceMember;
     ArrayAdapter<Member> memberAdapter;
     List<Member> memberFamList;
-    int longClickItemIndex, familyId;
+    int longClickItemIndex, familyId,curVillage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_family_from_head_list_view);
         Member member = new Member();
-
+        curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
         String index = getIntent().getStringExtra("index");
         familyId = Integer.parseInt(index);
         Log.println(Log.ASSERT,"LOG FAM ID",index);
         lv = (ListView) findViewById(R.id.memberFamListView);
         interfaceMember = new MemberDataInterface(getApplicationContext());
-
+        final Activity activity = this;
         try {
-            memberFamList = interfaceMember.getFamilyList(familyId,1);
+            memberFamList = interfaceMember.getFamilyList(familyId,1,curVillage);
             Log.println(Log.ASSERT,"Member Fam List size", String.valueOf(memberFamList.size()));
         } catch (SQLException e) {
             e.printStackTrace();
@@ -59,20 +60,20 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), "कृपया नाव दाबून ठेवावे", Toast.LENGTH_LONG).show();
-
+                //Toast.makeText(getApplicationContext(), "कृपया नाव दाबून ठेवावे", Toast.LENGTH_LONG).show();
+                longClickItemIndex = i;
+                activity.openContextMenu(view);
             }
         });
 
-
-
+/*
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 longClickItemIndex = position;
                 return false;
             }
-        });
+        });*/
     }
 
     public void populateList() {
@@ -102,8 +103,10 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case VIEW:
-                Intent viewIntent = new Intent(getApplicationContext(), PortalUnderFive.class);
+                Intent viewIntent = new Intent(getApplicationContext(), DeathAdultForm.class);
                 viewIntent.putExtra("index", String.valueOf(memberFamList.get(longClickItemIndex).getMemberId()));
+                viewIntent.putExtra("name", String.valueOf(memberFamList.get(longClickItemIndex).getName()));
+                viewIntent.putExtra("resident", "1");
                 startActivity(viewIntent);
                 break;
 

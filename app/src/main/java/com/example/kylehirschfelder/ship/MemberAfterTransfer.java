@@ -2,6 +2,7 @@ package com.example.kylehirschfelder.ship;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,11 +25,14 @@ public class MemberAfterTransfer extends AppCompatActivity {
     MemberDataInterface interfaceMember;
     ArrayAdapter<Member> memberAdapter;
     Button store;
+    int curVillage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_after_transfer);
+
+        curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
 
         store = (Button) findViewById(R.id.localBtn);
 

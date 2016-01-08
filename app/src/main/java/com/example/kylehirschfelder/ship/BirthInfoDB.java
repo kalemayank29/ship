@@ -25,6 +25,7 @@ public class BirthInfoDB {
                         public static final String HOUSE_ID = "house_id" ;//tv
                         public static final String CHILD_ID = "child_id" ;//
                         public static final String MEMBER_ID = "member_id" ;
+                        public static final String VILLAGE_ID = "village_id" ;
                         public static final String BIRTH_DATE = "birth_date" ;//dp
                         public static final String VILLAGE_OF_BIRTH = "village_of_birth" ;//2 spinners
                         public static final String VILLAGE_OF_BIRTH_ID = "village_of_birth_id" ;//tv
