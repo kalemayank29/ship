@@ -49,10 +49,6 @@ protected void onCreate(Bundle savedInstanceState) {
     checkBoxMember = (CheckBox) findViewById(R.id.checkBoxMember);
     checkBoxHouse = (CheckBox) findViewById(R.id.checkBoxHouse);
 
-    if(flagCensus.equals("1")) checkBoxHouse.setChecked(true);
-    if(flagFamily.equals("1") || flagFamily.equals("2")) checkBoxHead.setChecked(true);
-    if(flagFamily.equals("2")) checkBoxMember.setChecked(true);
-
 
     familyHead = (Button) findViewById(R.id.familyHead);
     familyMember = (Button) findViewById(R.id.familyMember);
@@ -65,6 +61,19 @@ protected void onCreate(Bundle savedInstanceState) {
     censusOperations = new CF_DatabaseOperations(getApplicationContext());
     headDataInterface = new FamilyHeadDataInterface(getApplicationContext());
     memberList = memberInterface.getAllMembers(0);
+
+    if(memberList.size()>0){
+        flagFamily = "1";
+        if(memberList.size()>1){
+            flagFamily = "2";
+        }
+
+    }
+
+    if(flagCensus.equals("1")) checkBoxHouse.setChecked(true);
+    if(flagFamily.equals("1") || flagFamily.equals("2")) checkBoxHead.setChecked(true);
+    if(flagFamily.equals("2")) checkBoxMember.setChecked(true);
+
     populateList();
 
     familyHead.setOnClickListener(new View.OnClickListener() {

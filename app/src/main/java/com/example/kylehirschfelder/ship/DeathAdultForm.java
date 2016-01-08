@@ -308,7 +308,7 @@ public class DeathAdultForm extends AppCompatActivity {
         adult.setGuideId("1");
         adult.setHealthMessengerDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
         adult.setGuideTestDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
-
+        adult.setVillageId(String.valueOf(curVillage));
         //  adult.setVillageId(String.valueOf(curVillage));
 
         DeathAdultDataInterface deathInterface = new DeathAdultDataInterface(getApplicationContext());

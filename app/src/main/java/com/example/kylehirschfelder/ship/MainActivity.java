@@ -3,6 +3,7 @@ package com.example.kylehirschfelder.ship;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -21,6 +22,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -71,8 +73,8 @@ public class MainActivity extends AppCompatActivity
         int curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
                 Log.println(Log.ASSERT,"curVillage", String.valueOf(curVillage));
 
-
-
+        File externalStorage = Environment.getExternalStorageDirectory();
+        Log.println(Log.ASSERT,"path",externalStorage.getAbsolutePath());
 
         // Log.println(Log.ASSERT,"supervisor",object.Letter_E2M("sarcha gaDachirolee"));
         /*CF_DatabaseOperations census = new CF_DatabaseOperations(getApplicationContext());

@@ -22,7 +22,7 @@ public class DeathAdultDBHelper extends SQLiteOpenHelper{
         public static final String MEMBER_ID = "member_id" ;//
         public static final String FAMILY_ID = "family_id" ;//tv
         public static final String HOUSE_ID = "house_id" ;//tv
-
+        public static final String VILLAGE_ID  = "village_id";
         public static final String BIRTH_DATE = "birth_date" ;//dp
         public static final String DEATH_DATE = "death_date" ;//dp
 
@@ -55,6 +55,7 @@ public class DeathAdultDBHelper extends SQLiteOpenHelper{
                 FAMILY_ID+" TEXT,"+
                 HOUSE_ID+" TEXT,"+
                 MEMBER_ID+" TEXT," +
+                VILLAGE_ID+ " TEXT," +
                 BIRTH_DATE+" TEXT,"+
                 DEATH_DATE+" TEXT,"+
                 AGE +" TEXT,"+

@@ -606,5 +606,6 @@
     <string name="title_activity_pnmform_see">PNMForm_see</string>
     <string name="title_activity_pnmform_hear">PNMForm_hear</string>
     <string name="title_activity_pnmform_other">PNMForm_other</string>
+    <string name="title_activity_video_player">VideoPlayer</string>
 
 </resources>

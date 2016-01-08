@@ -6,7 +6,7 @@ package com.example.kylehirschfelder.ship;
 public class DeathAdult {
 
    // private String motherVillage, motherVillageID, villageOfBirth, villageOfBirthID;
-    private String villageStay, villageStayId;
+    private String villageStay, villageStayId, villageId;
     private String name, memberID, familyID, houseID, birthDate, deathDate,
                     age, villageOfDeath,
                     villageOfDeathID,healthMessenger, healthMessengerId,
@@ -14,6 +14,14 @@ public class DeathAdult {
 
     public DeathAdult() {
 
+    }
+
+    public String getVillageId() {
+        return villageId;
+    }
+
+    public void setVillageId(String villageId) {
+        this.villageId = villageId;
     }
 
     public String getVillageStay() {
