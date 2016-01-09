@@ -1,6 +1,7 @@
 package com.example.kylehirschfelder.ship;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
@@ -76,7 +77,8 @@ public class MainActivity extends AppCompatActivity
         File externalStorage = Environment.getExternalStorageDirectory();
         Log.println(Log.ASSERT,"path",externalStorage.getAbsolutePath());
 
-        // Log.println(Log.ASSERT,"supervisor",object.Letter_E2M("sarcha gaDachirolee"));
+
+         // Log.println(Log.ASSERT,"supervisor",object.Letter_E2M("sarcha gaDachirolee"));
         /*CF_DatabaseOperations census = new CF_DatabaseOperations(getApplicationContext());
         List<Census> list = census.getUnsynced(0);
 

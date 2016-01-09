@@ -1,5 +1,6 @@
 package com.example.kylehirschfelder.ship;
 
+import android.media.session.MediaController;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,8 +18,13 @@ public class VideoPlayer extends AppCompatActivity {
         // mediaController.setAnchorView(videoView);
         //videoView.setMediaController(mediaController);
 
-        videoView.setVideoPath("/sdcard/Movies/NVE_DVD/VIDEO_TS/");
+        videoView.setVideoPath("/sdcard/Pictures/Video/Abc.3gp");
 
+        android.widget.MediaController mediaController = new android.widget.MediaController(this);
+
+        mediaController.setAnchorView(videoView);
+        videoView.setMediaController(mediaController);
+        videoView.requestFocus();
         videoView.start();
 
     }

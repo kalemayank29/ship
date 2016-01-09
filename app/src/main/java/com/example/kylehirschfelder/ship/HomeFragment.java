@@ -1,6 +1,7 @@
 package com.example.kylehirschfelder.ship;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -24,9 +25,12 @@ public class HomeFragment extends Fragment {
         selectVillage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                VillageSelectDialog dialog = new VillageSelectDialog();
-                FragmentManager manager = getActivity().getFragmentManager();
-                dialog.show(manager,"Villages");
+                //VillageSelectDialog dialog = new VillageSelectDialog();
+                //FragmentManager manager = getActivity().getFragmentManager();
+                //dialog.show(manager,"Villages");
+                Intent intent = new Intent(getActivity(),VideoPlayer.class);
+                startActivity(intent);
+
             }
         });
 

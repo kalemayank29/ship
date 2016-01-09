@@ -8,11 +8,13 @@
     android:paddingTop="2px"
     android:paddingBottom="2px"
     android:layout_width="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#000000">
 
     <VideoView
         android:layout_height="fill_parent"
         android:layout_width="fill_parent"
-        android:id="@+id/VideoView" />
+        android:id="@+id/VideoView"
+        android:layout_marginLeft="75dp"/>
 
 </LinearLayout>
