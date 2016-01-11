@@ -39,6 +39,7 @@ public class PatientList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_list);
+        
 
         curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
         listView = (ListView) this.findViewById(R.id.pfamily_head_list);

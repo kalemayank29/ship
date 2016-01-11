@@ -92,12 +92,15 @@
                     android:layout_marginTop="20dp"
                     android:text="2674"
                     android:layout_gravity="center_horizontal" />
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
-                    android:text="Cholera Video"
+                    android:layout_marginLeft="200dp"
+                    android:text="Change Village"
                     android:id="@+id/changeVillage"/>
+
             </LinearLayout>
 
         </LinearLayout>

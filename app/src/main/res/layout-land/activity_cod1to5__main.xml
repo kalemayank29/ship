@@ -1,0 +1,506 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#011936"
+    android:weightSum="1">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="मुलाचे पूर्ण नाव:"
+                    />
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/childName"
+                    android:textSize="20dp"
+                    android:text="DEAFULT"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/childVillageText"
+                    android:textSize="20dp"
+                    android:text="मुलाच्या गावाचे नाव:"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/childVillage"
+                    android:textSize="20dp"
+                    android:text="default village"
+                    android:background="@drawable/spinner"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/childVillageId"
+                    android:textSize="20dp"
+                    android:text="id"
+                    android:background="@drawable/spinner"
+                    />
+
+
+
+
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffdd"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="लिंग"
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="मुलगा"
+                android:id="@+id/male"
+                android:buttonTint="#ffffdd"
+                android:textColor="#ffffdd"
+                android:onClick="radioClick"
+                android:tag="male"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp"
+                android:text="मुलगी"
+                android:id="@+id/female"
+                android:tag="female"
+                android:buttonTint="#ffffdd"
+                android:textColor="#ffffdd"
+                android:onClick="radioClick"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="250dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffdd"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:id="@+id/deathVillageText"
+                android:textSize="20dp"
+                android:text="मृत्यूचे ठिकाण (गाव):"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#000000"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:id="@+id/deathVillage"
+                android:textSize="20dp"
+                android:text="default village"
+                android:background="@drawable/spinner"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#000000"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:id="@+id/deathVillageId"
+                android:textSize="20dp"
+                android:text="id"
+                android:background="@drawable/spinner"
+                />
+         </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="मृत्यू कुठे झाला?"
+                    />
+
+                <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="घरी"
+                android:id="@+id/home"
+                android:buttonTint="#ffffdd"
+                android:textColor="#ffffdd"
+                android:onClick="radioClick"
+                android:tag="male"/>
+
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="सर.दवा."
+                    android:id="@+id/hospital"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    android:onClick="radioClick"
+                    android:tag="male"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="नर्स क़्वा."
+                    android:id="@+id/nursing"
+                    android:tag="female"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    android:onClick="radioClick"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="४) पी एच सी."
+                    android:id="@+id/PHC"
+                    android:tag="female"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    android:onClick="radioClick"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="सर्च दवा."
+                    android:id="@+id/search"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    android:onClick="radioClick"
+                    android:tag="male"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="इतर"
+                    android:id="@+id/other"
+                    android:tag="female"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    android:onClick="radioClick"/>
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffdd"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="मृत्यू घरी सोडून इतर ठिकाणी झाला असल्यास मृत्युच्या ठिकाणी कोणत्या गावातून नेले?"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#000000"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="enterd text"
+                android:background="@drawable/spinner"
+                />
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="घर क्रमां"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="ID"
+                    android:background="@drawable/spinner"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="200dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="कुटुंबाचा ओळख क्रमांक"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="ID"
+                    android:background="@drawable/spinner"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="जन्म तारीख"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="xx-xx-xxxx"
+                    android:background="@drawable/spinner"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="मृत्यूची तारीख"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="xx-xx-xxxx"
+                    android:background="@drawable/spinner"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="मृत्युच्या वेळी वय:"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:hint="वर्ष "
+                    android:background="@drawable/spinner"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:hint="महिना"
+                    android:background="@drawable/spinner"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:hint="दिवस"
+                    android:background="@drawable/spinner"
+                    />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:hint="तास "
+                    android:background="@drawable/spinner"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="री आरोग्य-दूत हजर होती "
+                    />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:text="१) होय"
+                    android:id="@+id/fhwYes"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    android:onClick="radioClick"
+                    android:tag="male"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="२) नाही"
+                    android:id="@+id/fhwNo"
+                    android:tag="female"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    android:onClick="radioClick"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginLeft="300dp"
+                    android:background="@drawable/save_button_pressed"
+                    android:text="Next"
+                    android:textColor="#ffffff"
+                    android:id="@+id/add_mem_b"
+                    android:onClick="save_click"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

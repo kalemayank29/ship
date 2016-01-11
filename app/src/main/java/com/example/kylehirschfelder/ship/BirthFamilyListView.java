@@ -147,8 +147,8 @@ public class BirthFamilyListView extends AppCompatActivity {
                         startActivity(intent);
                     }
                     if(resident == 0){
-                        Intent intent = new Intent(BirthFamilyListView.this,DeathAdultForm.class);
-                        intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
+                        Intent intent = new Intent(BirthFamilyListView.this,DeathChildForm.class);
+                        intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getMemberId()));
                         intent.putExtra("resident", "0");
                         startActivity(intent);
                     }

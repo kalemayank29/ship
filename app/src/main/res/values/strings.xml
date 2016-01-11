@@ -610,5 +610,13 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_death_child_form">DeathChildForm</string>
+    <string name="title_activity_cod1to5__main">Cod1to5_Main</string>
+    <string name="title_activity_cod1to5__i__ii">Cod1to5_I_II</string>
+    <string name="title_activity_cod1to5__iii">Cod1to5_III</string>
+    <string name="title_activity_cod1to5__iv">Cod1to5_IV</string>
+    <string name="title_activity_cod1to5__v">Cod1to5_V</string>
+    <string name="title_activity_cod1to5__vi">Cod1to5_VI</string>
+    <string name="title_activity_cod1to5__vii">Cod1to5_VII</string>
 
 </resources>

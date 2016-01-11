@@ -1,5 +1,6 @@
 package com.example.kylehirschfelder.ship;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * Created by kylehirschfelder on 1/8/16.
@@ -15,20 +17,25 @@ public class EducationFragment extends Fragment {
 
     //declare variables here
     View myView;
+    Button cholera;
 
     //Similar to onCreate, except on Create for fragment
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.layout_educationfragment, container, false);
+        cholera = (Button) myView.findViewById(R.id.cholera);
+        cholera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //VillageSelectDialog dialog = new VillageSelectDialog();
+                //FragmentManager manager = getActivity().getFragmentManager();
+                //dialog.show(manager,"Villages");
+                Intent intent = new Intent(getActivity(),VideoPlayer.class);
+                startActivity(intent);
 
-        /*
-
-
-        BODY OF FRAGMENT HERE
-
-
-         */
+            }
+        });
 
 
         //return the view

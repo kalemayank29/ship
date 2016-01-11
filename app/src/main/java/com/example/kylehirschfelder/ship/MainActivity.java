@@ -68,6 +68,10 @@ public class MainActivity extends AppCompatActivity
 
         SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
         editor.putString("village", "12");
+        editor.putString("vhw", "Mayank Kale");
+        editor.putString("supervisor", "Ryan Singh");
+        editor.putString("vhwId","56");
+        editor.putString("supervisorId","75");
         editor.commit();
 
         ((CurrentVillage) this.getApplication()).setSomeVariable(12);
@@ -78,6 +82,7 @@ public class MainActivity extends AppCompatActivity
         Log.println(Log.ASSERT,"path",externalStorage.getAbsolutePath());
 
 
+        CodOneFive.getInstance().setName("mayank");
          // Log.println(Log.ASSERT,"supervisor",object.Letter_E2M("sarcha gaDachirolee"));
         /*CF_DatabaseOperations census = new CF_DatabaseOperations(getApplicationContext());
         List<Census> list = census.getUnsynced(0);
@@ -142,6 +147,11 @@ public class MainActivity extends AppCompatActivity
             case 4:
                 myFragment = new TransferFragment();
                 break;
+            case 5:
+                myFragment = new TransferFragment();
+                break;
+            case 6:
+                myFragment = new EducationFragment();
 
         }
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -168,6 +178,8 @@ public class MainActivity extends AppCompatActivity
             case 4:
                 mTitle = getString(R.string.title_section5);
                 break;
+            case 7:
+                mTitle = getString(R.string.title_section8);
             /*case 5:
                 mTitle = getString(R.string.title_section7);
                 break;

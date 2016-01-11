@@ -49,17 +49,17 @@ public class PatientFragment extends Fragment  {
 
         memberList = head.getAllFamilyHeads(1,curVillage);
 
-        for (Member element: memberList
+        /*for (Member element: memberList
              ) {
             Log.println(Log.ASSERT,"villageid", String.valueOf(element.getVillageId()));
-        }
+        }*/
 
         memberAdapter = new memberListAdapter(this.memberList, myView.getContext());
 
 
         buttPatient = (Button) myView.findViewById(R.id.buttonPatient);
-        Intent intent = new Intent(getActivity().getApplicationContext(), PatientList.class);
-        //Intent intent = new Intent(getActivity().getApplicationContext(), PNM_Info.class);
+        //Intent intent = new Intent(getActivity().getApplicationContext(), PatientList.class);
+        Intent intent = new Intent(getActivity().getApplicationContext(), Cod1to5_I_II.class);
         startActivity(intent);
 /*
         buttPatient.setOnClickListener(new View.OnClickListener() {

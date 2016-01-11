@@ -4,11 +4,13 @@ import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -51,8 +53,10 @@ public class BirthInfoForm extends ActionBarActivity {
         int vSpinId, vobSpinId, flag, midwifeFlag = 0;
         String vSpin, vobSpin, temp;
         String[] tempArray1, tempArray2;
-      ArrayAdapter villageNameAdapter;
-    int resident,curVillage;
+        ArrayAdapter villageNameAdapter;
+        int resident,curVillage;
+        public static final String MY_PREFS_NAME = "MyPrefsFile";
+
     Translation translate;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -469,10 +473,17 @@ public class BirthInfoForm extends ActionBarActivity {
                 birth.setDeliveryName(TR.Letter_M2E(deliveryName.getText().toString()));
             else
                 birth.setDeliveryName("null");
-            birth.setHealthMessenger(TR.Letter_M2E(healthMessenger.getText().toString()));
-            birth.setHealthMessengerId(healthMessengerID.getText().toString());
-            birth.setGuideName(TR.Letter_M2E(guideName.getText().toString()));
-            birth.setGuideId(guideId.getText().toString());
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            String vhw = prefs.getString("vhw","default");
+            String supervisor = prefs.getString("supervisor","default");
+            String vhwId = prefs.getString("vhwId","-1");
+            String supervisorId = prefs.getString("supervisorId","-1");
+
+            birth.setHealthMessenger(TR.Letter_M2E(vhw));
+            birth.setHealthMessengerId(vhwId);
+            birth.setGuideName(TR.Letter_M2E(supervisor));
+            birth.setGuideId(supervisorId);
             birth.setHealthMessengerDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
             birth.setGuideTestDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
 

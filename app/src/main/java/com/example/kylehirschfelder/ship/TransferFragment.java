@@ -66,8 +66,8 @@ public class TransferFragment extends Fragment {
 
                     int familyId = 0;
 
-                    for (int i = 0; i < json.length(); i++) {
-                    //for (int i = 0; i < 500; i++) {
+                    //for (int i = 0; i < json.length(); i++) {
+                    for (int i = 0; i < 500; i++) {
                         try {
                             JSONObject c = json.getJSONObject(i);
 
@@ -119,8 +119,8 @@ public class TransferFragment extends Fragment {
                     CF_DatabaseOperations dbOperations = new CF_DatabaseOperations(getActivity().getApplicationContext());
 
 
-                    for (int i = 0; i < json.length(); i++) {
-                       // for (int i = 0; i < 500; i++) {
+                    //for (int i = 0; i < json.length(); i++) {
+                        for (int i = 0; i < 500; i++) {
                         try {
                             JSONObject c = json.getJSONObject(i);
 

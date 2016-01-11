@@ -1,0 +1,334 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#011936"
+    android:weightSum="1">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffdd"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:text="I.\n १. मुल जन्माला आल तेव्हा गरोदरपणाचे किती महिने व आठवडे पूर्ण झालेले होते?"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp">
+
+            <RadioGroup
+                android:layout_marginLeft="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/pregMonths">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="सात पेक्षा कमी"
+                android:id="@+id/less7"
+                android:buttonTint="#ffffdd"
+                android:textColor="#ffffdd"
+                android:tag="less7"
+                android:textSize="20dp"/>
+
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="सात"
+                android:id="@+id/sevenMonths"
+                android:buttonTint="#ffffdd"
+                android:textColor="#ffffdd"
+                android:textSize="20dp"
+                android:tag="sevenMonths"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="आठ + २१ दिवस "
+                android:id="@+id/eightMonths"
+                android:tag="eightMonths"
+                android:buttonTint="#ffffdd"
+                android:textColor="#ffffdd"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp"
+                android:text="नऊ"
+                android:id="@+id/nineMonths"
+                android:tag="nineMonths"
+                android:textSize="20dp"
+                android:buttonTint="#ffffdd"
+                android:textColor="#ffffdd"
+               />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="मा. ना."
+                android:id="@+id/dontKnow"
+                android:textSize="20dp"
+                android:buttonTint="#ffffdd"
+                android:textColor="#ffffdd"
+                android:tag="dontKnow"/>
+                 </RadioGroup>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="२. जन्मले तेव्हा मुल आकाराने किती मोठं होत?"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="50dp">
+
+                <RadioGroup
+                    android:layout_marginLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/size">
+                    
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="नेहमी इतकं"
+                    android:textSize="20dp"
+                    android:id="@+id/normalSize"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    
+                    />
+
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="नेहमीपेक्षा लहान"
+                    android:id="@+id/smallSize"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    
+                    android:textSize="20dp"
+                    />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="मोठं"
+                    android:id="@+id/largeSiz"
+                    android:tag="female"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    
+                    android:textSize="20dp"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="मा. ना."
+                    android:id="@+id/dontKnowSize"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    
+                    android:tag="male"
+                    android:textSize="20dp"/>
+            </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="II.\n मुल खालील पैकी कशाने दगावले कां?"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="50dp">
+
+                <RadioGroup
+                    android:layout_marginLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/accidentG">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="१. अपघात"
+                    android:id="@+id/accident"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    
+                    android:tag="accident"
+                    android:textSize="20dp"/>
+
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="२. बुडणे"
+                    android:id="@+id/drown"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    
+                    android:textSize="20dp"
+                    android:tag="drown"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:text="३. जखम "
+                    android:id="@+id/hurt"
+                    android:tag="hurt"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    
+                    android:textSize="20dp"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:text="४. पडला."
+                    android:id="@+id/fall"
+                    android:tag="fall"
+                    android:textSize="20dp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="५. साप चावला"
+                    android:id="@+id/snake"
+                    android:textSize="20dp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    
+                    android:tag="snake"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="६. विष बाधा"
+                    android:id="@+id/poison"
+                    android:textSize="20dp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"
+                    
+                    android:tag="poison"/>
+                </RadioGroup>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/save_button_pressed"
+                    android:text="Next"
+                    android:textColor="#ffffff"
+                    android:id="@+id/next"
+                    android:onClick="save_click"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

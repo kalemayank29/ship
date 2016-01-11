@@ -51,10 +51,17 @@ public class FormFragment extends Fragment {
             public void onClick(View view) {
                //Intent intent = new Intent(getActivity().getApplicationContext(),DeathAdultForm.class);
                // startActivity(intent);
-                DeathAdultDialog dialog = new DeathAdultDialog();
-                FragmentManager manager = getActivity().getFragmentManager();
-                dialog.show(manager,"deathFrag");
-                /*BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
+
+
+                // ***** CODE THAT IS SUPPOSED TO BE WORKING IN THE FINAL VERSION BELOW ***** \\
+
+                //DeathAdultDialog dialog = new DeathAdultDialog();
+                //FragmentManager manager = getActivity().getFragmentManager();
+                //dialog.show(manager,"deathFrag");
+
+                // ***** CODE THAT IS SUPPOSED TO BE WORKING IN THE FINAL VERSION ABOVE ***** \\
+
+                BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
                 List<Birth> birthList = dbHelper.getAll();
                 for (Birth element: birthList
                         ) {
@@ -120,6 +127,7 @@ public class FormFragment extends Fragment {
                     }
                 }
 
+                /*
                 MemberDataInterface memberDataInterface = new MemberDataInterface(getActivity().getApplicationContext());
                 List<Member> memList = memberDataInterface.getAllMembers(1);
                 for (Member element: memList

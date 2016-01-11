@@ -138,6 +138,7 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
     }
 
         public List<Birth> getAll(){
+
             List<Birth> birthList = new ArrayList<Birth>();
             SQLiteDatabase SQ = this.getReadableDatabase();
 

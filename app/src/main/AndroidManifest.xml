@@ -168,6 +168,45 @@
         <activity
             android:name=".VideoPlayer"
             android:label="@string/title_activity_video_player"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".DeathChildForm"
+            android:label="@string/title_activity_death_child_form"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".Cod1to5_Main"
+            android:label="@string/title_activity_cod1to5__main" >
+        </activity>
+        <activity
+            android:name=".Cod1to5_I_II"
+            android:label="@string/title_activity_cod1to5__i__ii"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".Cod1to5_III"
+            android:label="@string/title_activity_cod1to5__iii"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".Cod1to5_IV"
+            android:label="@string/title_activity_cod1to5__iv"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".Cod1to5_V"
+            android:label="@string/title_activity_cod1to5__v"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".Cod1to5_VI"
+            android:label="@string/title_activity_cod1to5__vi"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".Cod1to5_VII"
+            android:label="@string/title_activity_cod1to5__vii"
             android:screenOrientation="landscape">
         </activity>
     </application>
