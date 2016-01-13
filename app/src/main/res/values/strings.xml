@@ -618,5 +618,8 @@
     <string name="title_activity_cod1to5__v">Cod1to5_V</string>
     <string name="title_activity_cod1to5__vi">Cod1to5_VI</string>
     <string name="title_activity_cod1to5__vii">Cod1to5_VII</string>
+    <string name="title_activity_cod1__i">Cod1_I</string>
+    <string name="title_activity_cod1__ii">Cod1_II</string>
+    <string name="title_activity_cod1__iv">Cod1_IV</string>
 
 </resources>

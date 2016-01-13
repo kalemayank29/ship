@@ -182,32 +182,44 @@
         <activity
             android:name=".Cod1to5_I_II"
             android:label="@string/title_activity_cod1to5__i__ii"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".Cod1to5_III"
             android:label="@string/title_activity_cod1to5__iii"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".Cod1to5_IV"
             android:label="@string/title_activity_cod1to5__iv"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".Cod1to5_V"
             android:label="@string/title_activity_cod1to5__v"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".Cod1to5_VI"
             android:label="@string/title_activity_cod1to5__vi"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".Cod1to5_VII"
             android:label="@string/title_activity_cod1to5__vii"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".Cod1_I"
+            android:label="@string/title_activity_cod1__i" >
+        </activity>
+        <activity
+            android:name=".Cod1_II"
+            android:label="@string/title_activity_cod1__ii" >
+        </activity>
+        <activity
+            android:name=".Cod1_IV"
+            android:label="@string/title_activity_cod1__iv" >
         </activity>
     </application>
 

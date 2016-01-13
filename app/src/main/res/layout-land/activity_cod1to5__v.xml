@@ -41,6 +41,12 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/cough">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -51,7 +57,6 @@
                     android:id="@+id/noCough"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -63,9 +68,8 @@
                     android:id="@+id/yesCough"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
                     android:textSize="20dp"/>
-
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -94,6 +98,13 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
 
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/asthama">
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -103,7 +114,7 @@
                     android:id="@+id/noAsthama"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -115,9 +126,9 @@
                     android:id="@+id/yesAsthama"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
-
+                </RadioGroup>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -147,6 +158,8 @@
                     android:hint="तास"
                     android:id="@+id/coughDays"
                     android:background="@drawable/spinner"
+                    android:inputType="number"
+                    android:imeOptions="actionDone"
                     />
             </LinearLayout>
 
@@ -230,6 +243,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noMucus"
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -242,6 +256,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="dontKnowMucus"
                     android:textSize="20dp"/>
 
             </LinearLayout>
@@ -295,6 +310,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noFever"
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -307,6 +323,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="dontKnowFever"
                     android:textSize="20dp"/>
 
             </LinearLayout>
@@ -360,6 +377,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noCHANGE"
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -372,6 +390,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="dontKnowCHANGE"
                     android:textSize="20dp"/>
 
             </LinearLayout>
@@ -425,6 +444,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noCoughL"
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -437,6 +457,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="dontKnowCoughL"
                     android:textSize="20dp"/>
 
             </LinearLayout>
@@ -467,6 +488,13 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
 
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/face">
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -476,7 +504,7 @@
                     android:id="@+id/yesFace"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -488,7 +516,7 @@
                     android:id="@+id/noFace"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -500,8 +528,9 @@
                     android:id="@+id/dontKnowFace"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -529,6 +558,12 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/coughSound">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -539,7 +574,7 @@
                     android:id="@+id/yesCoughSound"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -551,7 +586,7 @@
                     android:id="@+id/noCoughSound"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -563,8 +598,9 @@
                     android:id="@+id/dontKnowSound"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -592,6 +628,12 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/coughVomit">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -602,7 +644,7 @@
                     android:id="@+id/yesCoughVomit"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -614,7 +656,7 @@
                     android:id="@+id/noCoughVomit"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -626,8 +668,9 @@
                     android:id="@+id/dontKnowVomit"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -655,6 +698,12 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/coughWhoop">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -665,7 +714,7 @@
                     android:id="@+id/yesCoughWhoop"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -677,7 +726,7 @@
                     android:id="@+id/noCoughWhoop"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -689,8 +738,9 @@
                     android:id="@+id/dontKnowWhoop"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -719,6 +769,12 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/coughWhoopCont">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -729,7 +785,7 @@
                     android:id="@+id/yesCoughWhoopCont"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -741,7 +797,7 @@
                     android:id="@+id/noCoughWhoopCont"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -753,8 +809,9 @@
                     android:id="@+id/dontKnowWhoopCont"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -782,6 +839,12 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/dose">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -792,7 +855,7 @@
                     android:id="@+id/yesDose"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -804,7 +867,7 @@
                     android:id="@+id/noDose"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -816,8 +879,9 @@
                     android:id="@+id/dontKnowDose"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
+            </RadioGroup>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -825,10 +889,22 @@
                     android:layout_marginTop="80dp"
                     android:layout_marginLeft="300dp"
                     android:background="@drawable/save_button_pressed"
+                    android:text="Back"
+                    android:textColor="#ffffff"
+                    android:id="@+id/back"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginLeft="100dp"
+                    android:background="@drawable/save_button_pressed"
                     android:text="Next"
                     android:textColor="#ffffff"
-                    android:id="@+id/add_mem_b"
-                    android:onClick="save_click"/>
+                    android:id="@+id/next"
+                    />
+
             </LinearLayout>
 
 

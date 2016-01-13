@@ -52,6 +52,8 @@
                     android:hint="हो तर किती वेळा"
                     android:id="@+id/yesDysentry"
                     android:background="@drawable/spinner"
+                    android:inputType="number"
+                    android:imeOptions="actionDone"
                     />
 
                 <RadioButton
@@ -64,6 +66,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noDysentry"
                     android:textSize="20dp"/>
 
             </LinearLayout>
@@ -93,6 +96,12 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/blood">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -103,7 +112,7 @@
                     android:id="@+id/yesBlood"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -115,7 +124,7 @@
                     android:id="@+id/noBlood"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -127,8 +136,9 @@
                     android:id="@+id/dontKnowBlood"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -159,6 +169,8 @@
                     android:hint="दिवस"
                     android:id="@+id/dysentryDays"
                     android:background="@drawable/spinner"
+                    android:inputType="number"
+                    android:imeOptions="actionDone"
                     />
             </LinearLayout>
 
@@ -187,6 +199,12 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/water">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -197,7 +215,7 @@
                     android:id="@+id/yesWater"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -209,7 +227,7 @@
                     android:id="@+id/noWater"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -221,8 +239,9 @@
                     android:id="@+id/dontKnowWater"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -262,6 +281,8 @@
                     android:hint="हो तर किती दिवस"
                     android:id="@+id/yesVomit"
                     android:background="@drawable/spinner"
+                    android:inputType="number"
+                    android:imeOptions="actionDone"
                     />
 
                 <RadioButton
@@ -274,6 +295,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noVomit"
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -286,6 +308,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="dontKnowVomit"
                     android:textSize="20dp"/>
 
             </LinearLayout>
@@ -314,6 +337,12 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/thirst">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -324,7 +353,7 @@
                     android:id="@+id/increaseThirst"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -336,7 +365,7 @@
                     android:id="@+id/noThirst"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -348,8 +377,9 @@
                     android:id="@+id/dontKnowThirst"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -377,6 +407,12 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/eyes">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -387,7 +423,7 @@
                     android:id="@+id/yesEyes"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -399,7 +435,7 @@
                     android:id="@+id/noEyes"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -411,8 +447,9 @@
                     android:id="@+id/dontKnowEyes"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -441,6 +478,13 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
 
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/skull">
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -450,7 +494,7 @@
                     android:id="@+id/insideSkull"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -462,7 +506,7 @@
                     android:id="@+id/normalSkull"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -474,8 +518,9 @@
                     android:id="@+id/dontKnowSkull"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -503,6 +548,12 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/urine">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -513,7 +564,7 @@
                     android:id="@+id/lessUrine"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -525,7 +576,7 @@
                     android:id="@+id/normalUrine"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -537,8 +588,9 @@
                     android:id="@+id/dontKnowUrine"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
+                </RadioGroup>
             </LinearLayout>
 
 
@@ -567,6 +619,12 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/urineColor">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -577,7 +635,7 @@
                     android:id="@+id/yellowUrine"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -589,7 +647,7 @@
                     android:id="@+id/normalUrineColor"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -601,8 +659,9 @@
                     android:id="@+id/dontKnowUrineColor"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
+                </RadioGroup>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -630,6 +689,13 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
 
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/milk">
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -639,7 +705,7 @@
                     android:id="@+id/lotMilk"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -651,7 +717,7 @@
                     android:id="@+id/lessMilk"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -663,9 +729,9 @@
                     android:id="@+id/dontKnowMilk"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+                    
                     android:textSize="20dp"/>
-
+                </RadioGroup>
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -674,8 +740,8 @@
                     android:background="@drawable/save_button_pressed"
                     android:text="Next"
                     android:textColor="#ffffff"
-                    android:id="@+id/add_mem_b"
-                    android:onClick="save_click"/>
+                    android:id="@+id/next"
+                    />
             </LinearLayout>
 
         </LinearLayout>

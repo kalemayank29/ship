@@ -44,50 +44,7 @@ public class Cod1to5_III extends AppCompatActivity {
 
         next = (Button) findViewById(R.id.next);
 
-
-
-        if(CodOneFive.getInstance().getMeasles_fever()!= null){
-            ((RadioButton)fever.getChildAt(Integer.parseInt(CodOneFive.getInstance().getMeasles_fever()))).setChecked(true);
-        }
-
-        if(CodOneFive.getInstance().getMeasles_three_days()!= null){
-            ((RadioButton)measles.getChildAt(Integer.parseInt(CodOneFive.getInstance().getMeasles_three_days()))).setChecked(true);
-        }
-
-        if(CodOneFive.getInstance().getMeasles_cough()!= null){
-            ((RadioButton)cough.getChildAt(Integer.parseInt(CodOneFive.getInstance().getMeasles_cough()))).setChecked(true);
-        }
-
-        if(CodOneFive.getInstance().getMeasles_eyes()!= null){
-            ((RadioButton)eyes.getChildAt(Integer.parseInt(CodOneFive.getInstance().getMeasles_eyes()))).setChecked(true);
-        }
-
-        if(CodOneFive.getInstance().getMeasles_gone()!= null){
-            ((RadioButton)gone.getChildAt(Integer.parseInt(CodOneFive.getInstance().getMeasles_gone()))).setChecked(true);
-        }
-
-        if(CodOneFive.getInstance().getMeasles_water()!= null){
-            ((RadioButton)water.getChildAt(Integer.parseInt(CodOneFive.getInstance().getMeasles_water()))).setChecked(true);
-        }
-
-        if(CodOneFive.getInstance().getMeasles_days()!= null){
-            if(CodOneFive.getInstance().getMeasles_days().equals("0")){
-                days.setChecked(true);
-            }
-            else{
-                measlesDays.setText(CodOneFive.getInstance().getMeasles_days());
-            }
-        }
-
-        if(CodOneFive.getInstance().getDeath_age()!= null){
-            if(CodOneFive.getInstance().getDeath_age().equals("0")){
-                death.setChecked(true);
-            }
-            else{
-                deathAge.setText(CodOneFive.getInstance().getDeath_age());
-            }
-        }
-
+        setAll();
 
         deathAge.setFocusableInTouchMode(true);
 
@@ -165,8 +122,8 @@ public class Cod1to5_III extends AppCompatActivity {
 
 
         }
-
     }
+
     public void hideKeyboard(View view){
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
@@ -177,6 +134,49 @@ public class Cod1to5_III extends AppCompatActivity {
         imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
     }
 
+    public void setAll(){
+        if(CodOneFive.getInstance().getMeasles_fever()!= null){
+            ((RadioButton)fever.getChildAt(Integer.parseInt(CodOneFive.getInstance().getMeasles_fever()))).setChecked(true);
+        }
+
+        if(CodOneFive.getInstance().getMeasles_three_days()!= null){
+            ((RadioButton)measles.getChildAt(Integer.parseInt(CodOneFive.getInstance().getMeasles_three_days()))).setChecked(true);
+        }
+
+        if(CodOneFive.getInstance().getMeasles_cough()!= null){
+            ((RadioButton)cough.getChildAt(Integer.parseInt(CodOneFive.getInstance().getMeasles_cough()))).setChecked(true);
+        }
+
+        if(CodOneFive.getInstance().getMeasles_eyes()!= null){
+            ((RadioButton)eyes.getChildAt(Integer.parseInt(CodOneFive.getInstance().getMeasles_eyes()))).setChecked(true);
+        }
+
+        if(CodOneFive.getInstance().getMeasles_gone()!= null){
+            ((RadioButton)gone.getChildAt(Integer.parseInt(CodOneFive.getInstance().getMeasles_gone()))).setChecked(true);
+        }
+
+        if(CodOneFive.getInstance().getMeasles_water()!= null){
+            ((RadioButton)water.getChildAt(Integer.parseInt(CodOneFive.getInstance().getMeasles_water()))).setChecked(true);
+        }
+
+        if(CodOneFive.getInstance().getMeasles_days()!= null){
+            if(CodOneFive.getInstance().getMeasles_days().equals("0")){
+                days.setChecked(true);
+            }
+            else{
+                measlesDays.setText(CodOneFive.getInstance().getMeasles_days());
+            }
+        }
+
+        if(CodOneFive.getInstance().getDeath_age()!= null){
+            if(CodOneFive.getInstance().getDeath_age().equals("0")){
+                death.setChecked(true);
+            }
+            else{
+                deathAge.setText(CodOneFive.getInstance().getDeath_age());
+            }
+        }
+    }
 /*
 
     public void text_click(View view){

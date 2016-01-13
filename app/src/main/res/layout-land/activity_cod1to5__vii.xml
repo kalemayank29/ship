@@ -43,6 +43,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noFever"
                     android:textSize="20dp"/>
 
 
@@ -87,6 +88,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noUnconsc"
                     android:textSize="20dp"/>
 
 
@@ -131,6 +133,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noFit"
                     android:textSize="20dp"/>
 
 
@@ -182,7 +185,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="हो तर किती दिवस"
-                    android:id="@+id/yesEar"
+                    android:id="@+id/earDays"
                     android:background="@drawable/spinner"
                     />
 
@@ -196,6 +199,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noEar"
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -208,6 +212,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="dontKnowEar"
                     android:textSize="20dp"/>
             </LinearLayout>
 
@@ -246,7 +251,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="हो तर किती दिवस"
-                    android:id="@+id/yesNeck"
+                    android:id="@+id/neckDays"
                     android:background="@drawable/spinner"
                     />
 
@@ -260,6 +265,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noNeck"
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -272,6 +278,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="dontKnowNeck"
                     android:textSize="20dp"/>
             </LinearLayout>
 
@@ -310,7 +317,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="हो तर किती दिवस"
-                    android:id="@+id/yesVomit"
+                    android:id="@+id/vomitDays"
                     android:background="@drawable/spinner"
                     />
 
@@ -324,6 +331,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noVomit"
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -336,6 +344,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="dontKnowVomit"
                     android:textSize="20dp"/>
             </LinearLayout>
 
@@ -374,7 +383,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="हो तर किती दिवस"
-                    android:id="@+id/yesCHANGE"
+                    android:id="@+id/CHANGEDays"
                     android:background="@drawable/spinner"
                     />
 
@@ -388,6 +397,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noCHANGE"
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -400,6 +410,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="dontKnowCHANGE"
                     android:textSize="20dp"/>
             </LinearLayout>
 
@@ -439,6 +450,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noMilk"
                     android:textSize="20dp"/>
 
                 <EditText
@@ -450,7 +462,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="ना तर किती दिवस"
-                    android:id="@+id/noMilk"
+                    android:id="@+id/milkDays"
                     android:background="@drawable/spinner"
                     />
 
@@ -465,6 +477,7 @@
                     android:id="@+id/dontKnowMilk"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
+                    android:tag="dontKnowMilk"
                     android:onClick="radioClick"
                     android:textSize="20dp"/>
             </LinearLayout>
@@ -504,7 +517,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:hint="हो तर किती दिवस"
-                    android:id="@+id/yesTeeth"
+                    android:id="@+id/teethDays"
                     android:background="@drawable/spinner"
                     />
 
@@ -518,6 +531,7 @@
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
                     android:onClick="radioClick"
+                    android:tag="noTeeth"
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -529,6 +543,7 @@
                     android:id="@+id/dontKnowTeeth"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
+                    android:tag="dontKnowTeeth"
                     android:onClick="radioClick"
                     android:textSize="20dp"/>
             </LinearLayout>
@@ -559,6 +574,13 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp">
 
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/others">
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -568,7 +590,7 @@
                     android:id="@+id/yesOthers"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
+
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -580,7 +602,6 @@
                     android:id="@+id/noOthers"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
                     android:textSize="20dp"/>
 
                 <RadioButton
@@ -592,9 +613,9 @@
                     android:id="@+id/dontKnowOthers"
                     android:buttonTint="#ffffdd"
                     android:textColor="#ffffdd"
-                    android:onClick="radioClick"
                     android:textSize="20dp"/>
 
+                </RadioGroup>
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -603,8 +624,8 @@
                     android:background="@drawable/save_button_pressed"
                     android:text="Next"
                     android:textColor="#ffffff"
-                    android:id="@+id/add_mem_b"
-                    android:onClick="save_click"/>
+                    android:id="@+id/next"
+                    />
             </LinearLayout>
 
         </LinearLayout>

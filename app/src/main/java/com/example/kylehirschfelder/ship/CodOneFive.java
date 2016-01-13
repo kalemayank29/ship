@@ -14,7 +14,7 @@ public class CodOneFive {
             birth_date, death_date, age, fem_health_worker, birth_time, size, death_accident, measles, measles_days,
             death_age, measles_three_days, measles_fever, measles_cough, measles_eyes, measles_gone, measles_water,
             malntr_growth, malntr_weight, malntr_swelling, malntr_milk, malntr_milk_bott, malntr_food, malntr_meal,
-            malntr_poop, malntr_poop_times, malntr_days, malntr_health, malntr_play, malntr_satvi_CHANGE,
+            malntr_poop, malntr_poop_times, malntr_days, malntr_health, malntr_play, malntr_blind, malntr_satvi_CHANGE,
             malntr_premature, breath_cough, breath_asthama, breath_cough_days, breath_asthama_days, breath_mucus,
             breath_fever, breath_CHANGE_kanvhavat, breath_cough_long, cough_face, cough_sound, cough_vomit, cough_whoop,
             cough_whoop_spread, cough_dose, dysentry_loose, dysentry_loose_times, dysentry_blood, dysentry_days,
@@ -30,6 +30,14 @@ public class CodOneFive {
             mInstance = new CodOneFive();
         }
         return mInstance;
+    }
+
+    public String getMalntr_blind() {
+        return malntr_blind;
+    }
+
+    public void setMalntr_blind(String malntr_blind) {
+        this.malntr_blind = malntr_blind;
     }
 
     public static CodOneFive getmInstance() {
