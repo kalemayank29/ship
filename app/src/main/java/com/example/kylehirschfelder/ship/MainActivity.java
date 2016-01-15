@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity
         //adultDataInterface.drop();
 
         MemberDataInterface test = new MemberDataInterface(getApplicationContext());
+       // test.getAllMembers(1);
         CF_DatabaseOperations databaseOperations = new CF_DatabaseOperations(getApplicationContext());
       //  databaseOperations.getUnsynced(1);
         //databaseOperations.setAutoIncr();

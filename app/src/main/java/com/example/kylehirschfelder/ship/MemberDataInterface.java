@@ -116,6 +116,51 @@ public class MemberDataInterface {
         return flag;
     }
 
+    public String child(Member element, int cur) throws SQLException {
+        this.open();
+        String flag="";
+
+        long newRowId = -1;
+
+        Member result = getLastMember(element.getVillageId());
+
+
+            element.setMemberId(result.getMemberId() + 1);
+
+
+
+        ContentValues value = new ContentValues();
+        value.put(dbHelper.MEMBER_ID, element.getMemberId());
+        value.put(dbHelper.FAMILY_ID, element.getFamilyId());
+        value.put(dbHelper.HOUSE_ID, element.getHouseId());
+        value.put(dbHelper.FAMILY_HEAD_BOOL, element.getFamilyHeadId());        // Is family Head?
+        value.put(dbHelper.NAME, element.getName());
+        value.put(dbHelper.AGE, element.getAge());
+        value.put(dbHelper.SEX,element.getSex());
+        value.put(dbHelper.CHILD_ID,element.getChildId());
+        value.put(dbHelper.CHILD_DATE,element.getChildDate());
+        value.put(dbHelper.MARRIAGE_STATUS, element.getMarriageStatus());
+        value.put(dbHelper.FAMILY_PLAN, element.getFamilyPlan());
+        value.put(dbHelper.EDUCATION, element.getEducation());
+        value.put(dbHelper.LITERACY, element.getLiteracy());
+        value.put(dbHelper.WEDDING_ARR, element.getWeddingArr());
+        value.put(dbHelper.WEDDING_DEPT, element.getWeddingDept());
+        value.put(dbHelper.VILLAGE_ID,element.getVillageId());
+        value.put(dbHelper.FLAG, 1);
+
+        if(cur == 0)
+            newRowId = this.database.insert(dbHelper.TABLE_MEMBER, null, value);
+        else{
+            value.put(dbHelper.FLAG, 1);
+            newRowId = this.database.insert(dbHelper.TABLE_MEMBERCUR, null, value);
+            flag = "." + String.valueOf(element.getMemberId()) + "-0";
+        }
+
+
+        this.close();
+        return flag;
+    }
+
     public long createMemberTemp(Member element, int cur) throws SQLException {
         this.open();
 
@@ -198,7 +243,7 @@ public class MemberDataInterface {
      * @return Member matched with id
      * @throws SQLException
      */
-    public Member getMember(int id, int cur, int village_id) throws SQLException{
+    public Member getMember(int id, int village_id, int cur) throws SQLException{
         this.openRead();
 
         Member element = new Member();
@@ -267,7 +312,7 @@ public class MemberDataInterface {
                 element.setMemberId(Integer.parseInt(cursor.getString(0)));     // Done separately because of constructor
                 memberList.add(element);
 
-              //  Log.println(Log.ASSERT,"head", String.valueOf(element.getFamilyHeadId()));
+                Log.println(Log.ASSERT,String.valueOf(element.getFamilyId()), String.valueOf(element.getName()));
             }
             while(cursor.moveToNext());
         }
@@ -800,14 +845,14 @@ public class MemberDataInterface {
         if (c.moveToFirst()) {
             element.setName(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.NAME)));
             element.setMemberId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.MEMBER_ID)));
-            //element.setFamilyId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_ID)));
-            element.setFamilyId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.VILLAGE_ID)));
+            element.setFamilyId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_ID)));
+            element.setVillageId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.VILLAGE_ID)));
             element.setHouseId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.HOUSE_ID)));
             element.setFamilyHeadId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_HEAD_BOOL)));
             element.setAge(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.AGE)));
             element.setSex(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.SEX)));
             element.setChildId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_ID)));
-            element.setChildId(c.getInt(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_DATE)));
+            element.setChildDate(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.CHILD_DATE)));
             element.setMarriageStatus(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.MARRIAGE_STATUS)));
             element.setFamilyPlan(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.FAMILY_PLAN)));
             element.setEducation(c.getString(c.getColumnIndexOrThrow(MemberDbHelper.EDUCATION)));

@@ -63,7 +63,7 @@ public class Cod1to5_V extends AppCompatActivity {
         cough.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(cough.indexOfChild(findViewById(checkedId)) == 0 && asthama.indexOfChild(findViewById(checkedId)) == 0) {
+                if(cough.indexOfChild(findViewById(checkedId)) == 0 && asthama.indexOfChild(findViewById(asthama.getCheckedRadioButtonId())) == 0) {
                     big.setVisibility(View.GONE);
                     otherBig.setVisibility(View.GONE);
                 }
@@ -76,7 +76,7 @@ public class Cod1to5_V extends AppCompatActivity {
         asthama.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(cough.indexOfChild(findViewById(checkedId)) == 0 && asthama.indexOfChild(findViewById(checkedId)) == 0) {
+                if(cough.indexOfChild(findViewById(cough.getCheckedRadioButtonId())) == 0 && asthama.indexOfChild(findViewById(checkedId)) == 0) {
                     big.setVisibility(View.GONE);
                     otherBig.setVisibility(View.GONE);
                 }
@@ -157,7 +157,7 @@ public class Cod1to5_V extends AppCompatActivity {
         yesCHANGE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Integer.parseInt(coughDays.toString()) < 15)
+                if(Integer.parseInt(coughDays.getText().toString()) < 15)
                     otherBig.setVisibility(View.GONE);
                 else
                     otherBig.setVisibility(View.VISIBLE);
@@ -166,7 +166,7 @@ public class Cod1to5_V extends AppCompatActivity {
         noCHANGE.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(Integer.parseInt(coughDays.toString()) < 15)
+                if(Integer.parseInt(coughDays.getText().toString()) < 15)
                     otherBig.setVisibility(View.GONE);
                 else
                     otherBig.setVisibility(View.VISIBLE);
@@ -175,7 +175,7 @@ public class Cod1to5_V extends AppCompatActivity {
         dontKnowCHANGE.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (Integer.parseInt(coughDays.toString()) < 15)
+                if (Integer.parseInt(coughDays.getText().toString()) < 15)
                     otherBig.setVisibility(View.GONE);
                 else
                     otherBig.setVisibility(View.VISIBLE);

@@ -233,6 +233,10 @@
             android:name=".Cod5to15_I"
             android:label="@string/title_activity_cod5to15__i" >
         </activity>
+        <activity
+            android:name=".BirthSupervisor"
+            android:label="@string/title_activity_birth_supervisor" >
+        </activity>
     </application>
 
 </manifest>

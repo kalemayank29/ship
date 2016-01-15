@@ -12,5 +12,14 @@
         android:id="@+id/memberBtn"
         android:textColor="#ffffff"
         android:background="@drawable/button_pressed"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Birth Form"
+        android:layout_marginLeft="400dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/birthBtn"
+        android:textColor="#ffffff"
+        android:background="@drawable/button_pressed"/>
 
 </LinearLayout>

@@ -33,7 +33,7 @@ public class Upload {
         while (m.find( )) {
             //Log.println(Log.ASSERT, "Found value: " + m.group(0), "lol");
             int[] array = parse(m.group(0));
-          //  Log.println(Log.ASSERT,String.valueOf(array[0]),String.valueOf(array[1]));
+            Log.println(Log.ASSERT,String.valueOf(array[0]),String.valueOf(array[1]));
             if(array[1]==flag){
                 result.add(array[0]);
             }
@@ -44,11 +44,15 @@ public class Upload {
 
     private int[] parse(String value){
         int[] array = new int[2];
-        String pattern = "\\d{2,}";
+
+        String pattern = "\\.\\d*\\-";
+      //  Log.println(Log.ASSERT,"parse",value);
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(value);
         if (m.find( )) {
            String result = m.group(0);
+            result = result.substring(1,result.length()-1);
+            //Log.println(Log.ASSERT,"parseResult",result);
             array[0] = Integer.parseInt(result);
         }
 
@@ -65,21 +69,28 @@ public class Upload {
 
     public String updateFlags(List<Integer> ids, int flag, String value){
         StringBuilder builder = new StringBuilder(value);
+        int arrayLength = ids.size();
+        int counter = 1;
         for (int id: ids
              ) {
            // Log.println(Log.ASSERT,"oldString",builder.toString());
-            int index = builder.indexOf(String.valueOf(id));
+            int index = builder.indexOf(String.valueOf(id)) - 1;
            // Log.println(Log.ASSERT,"index",String.valueOf(index));
-            String replace = String.valueOf(id) + "-" + String.valueOf(flag)+".";
-           // Log.println(Log.ASSERT,"replace",replace);
-            int length = replace.length();
-          //  Log.println(Log.ASSERT,"replaceLenght",String.valueOf(length));
-            builder.replace(index,index+length,replace);
-          //  Log.println(Log.ASSERT,"newstring",builder.toString());
+
+                String replace = "." + String.valueOf(id) + "-" + String.valueOf(flag);
+                // Log.println(Log.ASSERT,"replace",replace);
+                int length = replace.length();
+                //  Log.println(Log.ASSERT,"replaceLenght",String.valueOf(length));
+                builder.replace(index,index+length,replace);
+                //  Log.println(Log.ASSERT,"newstring",builder.toString());
+
+
+            counter++;
+
         }
 
         String result = builder.toString();
         int length = result.length();
-        return result.substring(0,length-1);
+        return result.substring(0,length);
     }
 }

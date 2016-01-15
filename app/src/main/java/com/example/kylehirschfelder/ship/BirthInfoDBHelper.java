@@ -63,7 +63,7 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
 
   }
 
-        public void insert(Birth birth) {
+        public String insert(Birth birth) {
 
             SQLiteDatabase SQ = this.getWritableDatabase();
 
@@ -94,43 +94,94 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
             long z = SQ.insert(TableInfo.TABLE_NAME, null, cv);
             Log.println(Log.ASSERT, "LOG", String.valueOf(z));
             SQ.close();
+
+            Birth recent = getRecent();
+           String flag = "." + String.valueOf(recent.getChildID()) + "-1";
+            Log.println(Log.ASSERT,"flag",flag);
+
+            return flag;
         }
 
+    public Birth getRecent(){
+
+        SQLiteDatabase SQ = this.getReadableDatabase();
+        Cursor c = null;
+
+
+            c = SQ.rawQuery("SELECT * FROM " + TableInfo.TABLE_NAME + " ORDER BY child_id DESC LIMIT 1",null);
+
+        Birth birth = new Birth();
+
+        if (c.moveToFirst()) {
+
+            birth.setMotherVillage(c.getString(0));
+            birth.setChildID(c.getString(1));
+            birth.setMotherVillageID(c.getString(2));
+            birth.setMotherName(c.getString(3));
+            birth.setFamilyID(c.getString(4));
+            birth.setHouseID(c.getString(5));
+            birth.setMemberId(c.getString(6));
+            birth.setBirthDate(c.getString(7));
+            birth.setVillageOfBirth(c.getString(8));
+            birth.setVillageOfBirthID(c.getString(9));
+            birth.setVillageOfBirthPlace(c.getString(10));
+            birth.setDeliveryName(c.getString(11));
+            birth.setDeliveryMethod(c.getString(12));
+            birth.setChildGender(c.getString(13));
+            birth.setPregnancyTime(c.getString(14));
+            birth.setFadPresence(c.getString(15));
+            birth.setHealthMessenger(c.getString(16));
+            birth.setHealthMessengerId(c.getString(17));
+            birth.setHealthMessengerDate(c.getString(18));
+            birth.setGuideName(c.getString(19));
+            birth.setGuideId(c.getString(20));
+            birth.setGuideTestDate(c.getString(21));
+            birth.setVillageId(c.getString(22));
+        }
+
+
+        return birth;
+
+    }
 
 
         public Birth getInfo(int id){
             Birth birth = new Birth();
             Cursor c;
             SQLiteDatabase SQ = this.getReadableDatabase();
-            String selection = "_id=?";
+            Log.println(Log.ASSERT,"id",String.valueOf(id));
+            String selection = "child_id=?";
             String[] selectionArgs = new String[]{String.valueOf(id)};
             c = SQ.query(TableInfo.TABLE_NAME, null,  selection, selectionArgs, null, null, null, null);
             c.moveToFirst();
+
             birth.setMotherVillage(c.getString(0));
-            birth.setMotherVillageID(c.getString(1));
-            birth.setMotherName(c.getString(2));
-            birth.setFamilyID(c.getString(3));
-            birth.setHouseID(c.getString(4));
-            birth.setChildID(c.getString(5));
-            birth.setBirthDate(c.getString(6));
-            birth.setVillageOfBirth(c.getString(7));
-            birth.setVillageOfBirthID(c.getString(8));
-            birth.setVillageOfBirthPlace(c.getString(9));
-            birth.setDeliveryName(c.getString(10));
-            birth.setDeliveryMethod(c.getString(11));
-            birth.setChildGender(c.getString(12));
-            birth.setPregnancyTime(c.getString(13));
-            birth.setFadPresence(c.getString(14));
-            birth.setHealthMessenger(c.getString(15));
-            birth.setHealthMessengerId(c.getString(16));
-            birth.setHealthMessengerDate(c.getString(17));
-            birth.setGuideName(c.getString(18));
-            birth.setGuideId(c.getString(19));
-            birth.setGuideTestDate(c.getString(20));
-            birth.setVillageId(c.getString(21));
+            birth.setChildID(c.getString(1));
+            birth.setMotherVillageID(c.getString(2));
+            birth.setMotherName(c.getString(3));
+            birth.setFamilyID(c.getString(4));
+            birth.setHouseID(c.getString(5));
+            birth.setMemberId(c.getString(6));
+            birth.setBirthDate(c.getString(7));
+            birth.setVillageOfBirth(c.getString(8));
+            birth.setVillageOfBirthID(c.getString(9));
+            birth.setVillageOfBirthPlace(c.getString(10));
+            birth.setDeliveryName(c.getString(11));
+            birth.setDeliveryMethod(c.getString(12));
+            birth.setChildGender(c.getString(13));
+            birth.setPregnancyTime(c.getString(14));
+            birth.setFadPresence(c.getString(15));
+            birth.setHealthMessenger(c.getString(16));
+            birth.setHealthMessengerId(c.getString(17));
+            birth.setHealthMessengerDate(c.getString(18));
+            birth.setGuideName(c.getString(19));
+            birth.setGuideId(c.getString(20));
+            birth.setGuideTestDate(c.getString(21));
+            birth.setVillageId(c.getString(22));
             return birth;
 
         }
+
 
     public void deleteAll(){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -143,7 +194,7 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
             SQLiteDatabase SQ = this.getReadableDatabase();
 
             Cursor c;
-            c = SQ.rawQuery("SELECT * FROM " + TableInfo.TABLE_NAME , null);
+            c = SQ.rawQuery("SELECT * FROM " + BirthInfoDB.TableInfo.TABLE_NAME , null);
 
             if(c.moveToFirst()){
                 do{
@@ -154,6 +205,7 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
                     birth.setMotherVillageID(c.getString(2));
                     birth.setMotherName(c.getString(3));
                     birth.setFamilyID(c.getString(4));
+                    Log.println(Log.ASSERT,"famid",birth.getFamilyID());
                     birth.setHouseID(c.getString(5));
                     birth.setMemberId(c.getString(6));
                     birth.setBirthDate(c.getString(7));

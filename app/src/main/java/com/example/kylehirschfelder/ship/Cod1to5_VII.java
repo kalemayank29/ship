@@ -9,9 +9,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class Cod1to5_VII extends AppCompatActivity {
 
@@ -21,14 +24,19 @@ public class Cod1to5_VII extends AppCompatActivity {
     EditText yesFever, yesUnconsc, yesFit, yesEar,yesNeck, yesVomit, yesCHANGE, yesMilkX, yesTeeth;
     
     RadioGroup others;
-    
+    LinearLayout big;
 
-    Button next;
+    Button next, nextVisible;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cod1to5__vii);
+
+        next = (Button) findViewById(R.id.next);
+        big = (LinearLayout)findViewById(R.id.big);
+        big.setVisibility(View.GONE);
+        next.setVisibility(View.GONE);
 
             noFever   = (RadioButton) findViewById(R.id.noFever);
                noUnconsc = (RadioButton) findViewById(R.id. noUnconsc);
@@ -60,7 +68,29 @@ public class Cod1to5_VII extends AppCompatActivity {
 
         setAll();
 
-        next = (Button) findViewById(R.id.next);
+
+        nextVisible = (Button) findViewById(R.id.nextVisible);
+
+        nextVisible.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if((noFever.isChecked() || !(yesFever.getText().toString().isEmpty()))
+                    && (noUnconsc.isChecked() || !(yesUnconsc.getText().toString().isEmpty()))
+                        && (noFit.isChecked() || !(yesFit.getText().toString().isEmpty()))) {
+                    if (!(noFever.isChecked() && noFit.isChecked() && noUnconsc.isChecked())) {
+                        big.setVisibility(View.VISIBLE);
+                        next.setVisibility(View.VISIBLE);
+                    }
+                    else{
+                        Intent intent = new Intent(getApplicationContext(), Cod1to5_VI.class);
+                        startActivity(intent);
+                    }
+
+                }
+                else
+                        Toast.makeText(getApplicationContext(), "Answer The Question!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         yesFever.setOnClickListener(new View.OnClickListener() {
             @Override

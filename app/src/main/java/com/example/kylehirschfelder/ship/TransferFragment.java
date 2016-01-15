@@ -32,7 +32,7 @@ import java.sql.SQLException;
 
 public class TransferFragment extends Fragment {
 
-    Button memberButton;
+    Button memberButton, birthButton;
     View myView;
     @Nullable
     @Override
@@ -44,17 +44,18 @@ public class TransferFragment extends Fragment {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
         loginDialog.displayalert(alertDialog, context);
 
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("member", "");
-        editor.putString("vhw", "Mayank Kale");
-        editor.putString("supervisor", "Ryan Singh");
-        editor.putString("vhwId","56");
-        editor.putString("supervisorId","75");
-        editor.commit();
 
+
+        birthButton = (Button)myView.findViewById(R.id.birthBtn);
         memberButton = (Button) myView.findViewById(R.id.memberBtn);
 
+        birthButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), BirthSupervisor.class);
+                startActivity(intent);
+            }
+        });
         memberButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

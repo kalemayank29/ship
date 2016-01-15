@@ -150,6 +150,21 @@
                     android:background="@drawable/spinner"
                     />
             </LinearLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="300dp"
+                android:background="@drawable/save_button_pressed"
+                android:text="Next"
+                android:textColor="#ffffff"
+                android:id="@+id/nextVisible"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/big">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -616,6 +631,8 @@
                     android:textSize="20dp"/>
 
                 </RadioGroup>
+            </LinearLayout>
+                </LinearLayout>
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -626,7 +643,7 @@
                     android:textColor="#ffffff"
                     android:id="@+id/next"
                     />
-            </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>

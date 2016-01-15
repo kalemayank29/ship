@@ -57,6 +57,7 @@ public class BirthInfoForm extends ActionBarActivity {
         int resident,curVillage;
         public static final String MY_PREFS_NAME = "MyPrefsFile";
 
+
     Translation translate;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +92,7 @@ public class BirthInfoForm extends ActionBarActivity {
             birth.setBirthDate("00-00-0000");
             resident = Integer.parseInt(getIntent().getStringExtra("resident"));
             String familyId = getIntent().getStringExtra("index");
+            Log.println(Log.ASSERT,"fammmd",familyId);
             String houseId = getIntent().getStringExtra("house");
 
 
@@ -552,10 +554,12 @@ public class BirthInfoForm extends ActionBarActivity {
             resident = Integer.parseInt(getIntent().getStringExtra("resident"));
 
             if(resident == 1){
+                Log.println(Log.ASSERT,"CHECK",birth.getFamilyID());
                 Member member = new Member(Integer.parseInt(birth.getFamilyID()),Integer.parseInt(birth.getHouseID()) ,0, translation.Letter_M2E("CHILD"), 0,Integer.parseInt(birth.getChildGender()), -1, "-1",
                         "0","0", "0", "0", "0", "0",curVillage);
-                memInterface.createMember(member,1);
+                memInterface.child(member, 1);
                 member = memInterface.getRecent(1);
+                Log.println(Log.ASSERT,String.valueOf(member.getFamilyId()),String.valueOf(member.getMemberId()));
                 birth.setMemberId(String.valueOf(member.getMemberId()));
             }
             else if (resident == 0){
@@ -563,7 +567,17 @@ public class BirthInfoForm extends ActionBarActivity {
             }
 
             //Log.println(Log.ASSERT,"member_id", String.valueOf(birth.getMemberId()));
-                DB.insert(birth);
+               String birthFlag =  DB.insert(birth);
+
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            String birthShared = preferences.getString("birth","default");
+
+            birthShared += birthFlag;
+            Log.println(Log.ASSERT,"falg", birthShared);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("birth", birthShared);
+            editor.commit();
+
 
           /*  Log.println(Log.ASSERT,"member_id", String.valueOf(birth.getMemberId()));
             Log.println(Log.ASSERT,"village_id","4");

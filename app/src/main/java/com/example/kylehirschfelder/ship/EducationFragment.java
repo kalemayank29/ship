@@ -1,7 +1,9 @@
 package com.example.kylehirschfelder.ship;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,6 +27,18 @@ public class EducationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.layout_educationfragment, container, false);
         cholera = (Button) myView.findViewById(R.id.cholera);
+
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("member", "");
+        editor.putString("birth", "");
+        editor.putString("vhw", "Mayank Kale");
+        editor.putString("supervisor", "Ryan Singh");
+        editor.putString("vhwId","56");
+        editor.putString("supervisorId","75");
+        editor.commit();
+
         cholera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
