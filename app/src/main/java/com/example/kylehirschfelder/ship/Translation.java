@@ -843,12 +843,11 @@ public class Translation {
         ret_int = Integer.parseInt(conv_mar);
         return ret_int;
     }
-    public String Number_E2M(int english) {
-        String eng_conv = Integer.toString(english);
+    public String Number_E2M(String english) {
         String ret_mar = "";
         String mnums = "०१२३४५६७८९";
-        for(int i = 0; i < eng_conv.length(); i++) {
-            char ch = eng_conv.charAt(i);
+        for(int i = 0; i < english.length(); i++) {
+            char ch = english.charAt(i);
 
             switch(ch) {
                 case '0':
@@ -880,6 +879,9 @@ public class Translation {
                     break;
                 case '9':
                     ret_mar  = ret_mar + mnums.charAt(9);
+                    break;
+                default:
+                    ret_mar = ret_mar + ch;
                     break;
 
             }

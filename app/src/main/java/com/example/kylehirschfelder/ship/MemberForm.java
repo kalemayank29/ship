@@ -288,8 +288,8 @@ public class MemberForm extends AppCompatActivity {
                     }*/
 
                     try {
-                        long result = db.createMember(member, 0);
-                        Log.println(Log.ASSERT, "log", String.valueOf(result));
+                        db.createMember(member, 0);
+                     //   Log.println(Log.ASSERT, "log", String.valueOf(result));
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }

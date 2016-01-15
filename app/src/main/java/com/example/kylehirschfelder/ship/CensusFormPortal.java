@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -168,10 +170,23 @@ protected void onCreate(Bundle savedInstanceState) {
                     }
 
                     for (int i = 0; i < memberList.size(); i++) {
+
                         memberList.get(i).setVillageId(curVillage);
-                        memberInterface.createMember(memberList.get(i), 1);
-                        Log.println(Log.ASSERT,"name",memberList.get(i).getName());
+                        String flag = memberInterface.createMember(memberList.get(i), 1);
+                        Log.println(Log.ASSERT,"member_id", String.valueOf(memberList.get(i).getMemberId()));
+                        Log.println(Log.ASSERT,"family_id", String.valueOf(memberList.get(i).getFamilyId()));
                         Log.println(Log.ASSERT,"village id", String.valueOf(memberList.get(i).getVillageId()));
+                       // Log.println(Log.ASSERT,"falg", flag);
+
+                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                        String member = preferences.getString("member","default");
+
+                        member += flag;
+                        Log.println(Log.ASSERT,"falg", member);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("member", member);
+                        editor.commit();
+
                     }
 
                     //   head = memberInterface.getFamilyList(tempHead.getFamilyId(),1);

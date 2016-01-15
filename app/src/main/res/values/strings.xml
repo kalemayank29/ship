@@ -621,5 +621,9 @@
     <string name="title_activity_cod1__i">Cod1_I</string>
     <string name="title_activity_cod1__ii">Cod1_II</string>
     <string name="title_activity_cod1__iv">Cod1_IV</string>
+    <string name="title_activity_still_birth_form">StillBirthForm</string>
+    <string name="title_activity_cod_fifteen_form">CodFifteenForm</string>
+    <string name="title_activity_cod5to15__main">Cod5to15_Main</string>
+    <string name="title_activity_cod5to15__i">Cod5to15_I</string>
 
 </resources>

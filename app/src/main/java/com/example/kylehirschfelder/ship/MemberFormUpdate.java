@@ -17,6 +17,7 @@ public class MemberFormUpdate extends AppCompatActivity {
     Member element;
     EditText name,age;
     Spinner marriageSpinner;
+    int curVillage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,9 @@ public class MemberFormUpdate extends AppCompatActivity {
         setContentView(R.layout.activity_member_form);
         updateForm = new MemberDataInterface(getApplicationContext());
         memberId = Integer.parseInt(getIntent().getStringExtra("index"));
+        int curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
         try {
-            element = updateForm.getMember(memberId, 1);
+            element = updateForm.getMember(memberId, 1,curVillage);
         } catch (SQLException e) {
             e.printStackTrace();
         }

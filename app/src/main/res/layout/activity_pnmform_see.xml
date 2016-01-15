@@ -53,7 +53,8 @@
                 <RadioGroup
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="130dp">
+                    android:layout_marginLeft="130dp"
+                    android:id="@+id/unconGroup">
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -100,7 +101,7 @@
                     android:textColor="#000000"
                     android:textAlignment="center"
                     android:layout_height="wrap_content"
-                    android:id="@+id/coughDays"
+                    android:id="@+id/pulseRate"
                     android:textSize="25sp"
                     android:text=""
                     android:background="#cccccc"
@@ -126,6 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
+                    android:id="@+id/breathGroup"
                     >
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -166,6 +168,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="65dp"
+                    android:id="@+id/breathHaltGroup"
                     >
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -174,7 +177,7 @@
                         android:buttonTint="#ffffdd"
                         android:textSize="25sp"
                         android:text="होय"
-                        android:id="@+id/fitYes"
+                        android:id="@+id/breathHaltYes"
                         android:onClick="select"/>
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -183,7 +186,7 @@
                         android:textColor="#ffffdd"
                         android:textSize="25sp"
                         android:text="नाही"
-                        android:id="@+id/fitNo"
+                        android:id="@+id/breathHaltNo"
                         android:onClick="select"/>
                 </RadioGroup>
 
@@ -206,6 +209,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
+                    android:id="@+id/malnourishedGroup"
                     >
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -247,6 +251,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
+                    android:id="@+id/dehydrationGroup"
                     >
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -289,6 +294,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
+                    android:id="@+id/measlesGroup"
                     >
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -297,7 +303,7 @@
                         android:buttonTint="#ffffdd"
                         android:textSize="25sp"
                         android:text="होय"
-                        android:id="@+id/vomitYes"
+                        android:id="@+id/measlesYes"
                         android:onClick="select"/>
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -306,7 +312,7 @@
                         android:textColor="#ffffdd"
                         android:textSize="25sp"
                         android:text="नाही"
-                        android:id="@+id/vomitNo"
+                        android:id="@+id/measlesNo"
                         android:onClick="select"/>
                 </RadioGroup>
 
@@ -333,7 +339,7 @@
                     android:textColor="#000000"
                     android:textAlignment="center"
                     android:layout_height="wrap_content"
-                    android:id="@+id/birthMonths"
+                    android:id="@+id/feverTemp"
                     android:textSize="25sp"
                     android:text=""
                     android:background="#cccccc"

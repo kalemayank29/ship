@@ -51,7 +51,20 @@
                 android:text="Birth Information"
                 android:layout_marginLeft="75dp"
                 android:layout_marginTop="30dp"/>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="PNM"
+        android:id="@+id/pnm"
+        android:layout_gravity="center_horizontal"/>
 
+
+</LinearLayout>
 
    <Button
             android:layout_width="wrap_content"

@@ -1,5 +1,6 @@
 package com.example.kylehirschfelder.ship;
 
+import android.content.Intent;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ public class DeathAdultForm extends AppCompatActivity {
 
     TextView memberId, villageName, villageId, familyId, houseId;
     MemberDataInterface memInterface;
-    EditText name;
+    EditText name,age;
     Spinner villageStayBlockSpinner, villageStayNameSpinner;
     Spinner villageDeathBlockSpinner, villageDeathNameSpinner;
     
@@ -52,6 +53,7 @@ public class DeathAdultForm extends AppCompatActivity {
 
         resident = Integer.parseInt(getIntent().getStringExtra("resident"));
         name = (EditText) findViewById(R.id.Name);
+        age = (EditText) findViewById(R.id.Age);
         memberId = (TextView) findViewById(R.id.PersonId);
         // villageName = (TextView) findViewById(R.id.VillageName);
         // villageId = (TextView) findViewById(R.id.VillageId);
@@ -62,7 +64,7 @@ public class DeathAdultForm extends AppCompatActivity {
 
         if (resident == 1) {
             try {
-                Member member = dInterface.getMember(memId, 1);
+                Member member = dInterface.getMember(memId, 1,curVillage);
                 adult.setName(translation.Letter_E2M(member.getName()));
                 adult.setMemberID(String.valueOf(member.getMemberId()));
                 adult.setFamilyID(String.valueOf(member.getFamilyId()));
@@ -309,6 +311,7 @@ public class DeathAdultForm extends AppCompatActivity {
         adult.setHealthMessengerDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
         adult.setGuideTestDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
         adult.setVillageId(String.valueOf(curVillage));
+        adult.setAge(age.getText().toString());
         //  adult.setVillageId(String.valueOf(curVillage));
 
         DeathAdultDataInterface deathInterface = new DeathAdultDataInterface(getApplicationContext());
@@ -332,8 +335,17 @@ public class DeathAdultForm extends AppCompatActivity {
 */
         //Log.println(Log.ASSERT,"member_id", String.valueOf(birth.getMemberId()));
         deathInterface.insert(adult);
-
         finish();
+
+        if(Integer.parseInt(adult.getAge())>=5 && Integer.parseInt(adult.getAge())<=15)
+        {
+            Intent intent = new Intent(this, Cod5to15_Main.class);
+            intent.putExtra("id",adult.getMemberID());
+            intent.putExtra("resident","1");
+            startActivity(intent);
+
+        }
+
 
         //  }
 

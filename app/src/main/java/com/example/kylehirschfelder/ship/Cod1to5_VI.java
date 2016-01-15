@@ -54,7 +54,7 @@ public class Cod1to5_VI extends AppCompatActivity {
                 yesDysentry.setText("");
                 noDysentry.setChecked(false);
                 showKeyboard(view);
-
+                
             }
         });
 

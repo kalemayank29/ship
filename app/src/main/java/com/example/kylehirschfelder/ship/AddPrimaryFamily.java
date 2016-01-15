@@ -217,7 +217,7 @@ public class AddPrimaryFamily extends AppCompatActivity {
                     db = new MemberDataInterface(getApplicationContext());
                    // Log.println(Log.ASSERT, "log", member.getFamilyPlan());
                     try {
-                        long result = db.createMember(member, 0);
+                        long result = db.createMemberTemp(member, 0);
                        // db.cleanFamilyId(0);
                         Log.println(Log.ASSERT, "log", String.valueOf(result));
                     } catch (SQLException e) {

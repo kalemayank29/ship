@@ -64,7 +64,7 @@ public class DeathChildForm extends AppCompatActivity {
         
         if (resident == 1) {
             try {
-                Member member = dInterface.getMember(memId, 1);
+                Member member = dInterface.getMember(memId, 1,curVillage);
                 child.setName(translation.Letter_E2M(member.getName()));
                 child.setMemberID(String.valueOf(member.getMemberId()));
                 child.setFamilyID(String.valueOf(member.getFamilyId()));
@@ -82,7 +82,7 @@ public class DeathChildForm extends AppCompatActivity {
         }
         if(resident == 0){
             try {
-                Member member = dInterface.getMember(memId, 1);
+                Member member = dInterface.getMember(memId, 1,curVillage);
                 child.setMemberID(String.valueOf(-1));
                 child.setFamilyID(String.valueOf(member.getFamilyId()));
                 child.setHouseID(String.valueOf(member.getHouseId()));

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //DeathAdultDataInterface adultDataInterface = new DeathAdultDataInterface(getApplicationContext());
+        //adultDataInterface.drop();
 
         MemberDataInterface test = new MemberDataInterface(getApplicationContext());
         CF_DatabaseOperations databaseOperations = new CF_DatabaseOperations(getApplicationContext());
@@ -57,22 +60,36 @@ public class MainActivity extends AppCompatActivity
             e.printStackTrace();
         }*/
         Translation object = new Translation();
-       try {
+     /*  try {
             Member member = test.getRecent(1);
           Log.println(Log.ASSERT, "memberid", String.valueOf(member.getMemberId()));
          Log.println(Log.ASSERT, "villageid", String.valueOf(member.getFamilyId()));
         } catch (SQLException e) {
             e.printStackTrace();
 
+        }*/
+
+      //  Member result = test.getLastMember(12);
+      //  Log.println(Log.ASSERT,"lastmember", String.valueOf(result.getMemberId()));
+
+       // test.getAllMembers(1);
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences( getApplicationContext());
+
+        String member = preferences.getString("member","default");
+
+        //Log.println(Log.ASSERT,"memberFlag",member);
+       /* Upload upload = new Upload("XXX");
+        //upload.uploadPairs(member);
+        List<Integer> result = upload.idList(member, 0);
+        for (Integer x:result
+             ) {
+            Log.println(Log.ASSERT,"ID",String.valueOf(x));
         }
 
-        SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-        editor.putString("village", "12");
-        editor.putString("vhw", "Mayank Kale");
-        editor.putString("supervisor", "Ryan Singh");
-        editor.putString("vhwId","56");
-        editor.putString("supervisorId","75");
-        editor.commit();
+        String value = upload.updateFlags(result,1,member);
+        Log.println(Log.ASSERT,"value",value);
+*/
 
         ((CurrentVillage) this.getApplication()).setSomeVariable(12);
         int curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
@@ -82,7 +99,7 @@ public class MainActivity extends AppCompatActivity
         Log.println(Log.ASSERT,"path",externalStorage.getAbsolutePath());
 
 
-        CodOneFive.getInstance().setName("mayank");
+        //CodOneFive.getInstance().setName("mayank");
          // Log.println(Log.ASSERT,"supervisor",object.Letter_E2M("sarcha gaDachirolee"));
         /*CF_DatabaseOperations census = new CF_DatabaseOperations(getApplicationContext());
         List<Census> list = census.getUnsynced(0);

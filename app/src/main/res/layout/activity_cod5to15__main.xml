@@ -1,0 +1,983 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#011936"
+    android:weightSum="1">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="कुटुंब प्रमुखाचे नाव"
+                    />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:id="@+id/familyHeadName"
+                    android:background="@drawable/spinner"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="कुटुंब प्रमुखाचा ओळख कोड"
+                    />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:id="@+id/familyHeadCode"
+                    android:background="@drawable/spinner"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="मृतकाचे पूर्ण नाव"
+                    />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:id="@+id/deathPersonName"
+                    android:background="@drawable/spinner"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="मृतकाचा परिचय कोड"
+                    />
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:id="@+id/deathPersonCode"
+                    android:background="@drawable/spinner"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="मृतकाच्या आईचे नाव"
+                    />
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:id="@+id/deathMotherName"
+                    android:background="@drawable/spinner"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="मृतकाच्या आईचा परिचय कोड"
+                    />
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:id="@+id/deathMotherCode"
+                    android:background="@drawable/spinner"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffdd"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:text="उत्तर देणाऱ्याची माहिती"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="१).उत्तर देणाऱ्याचे नाव"
+                    />
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:id="@+id/answererName"
+                    android:background="@drawable/spinner"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="उत्तर देणार्याचा परिचय कोड"
+                    />
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:id="@+id/answererCode"
+                    android:background="@drawable/spinner"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffdd"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:text="२).उत्तर देणाऱ्याचा मृतकाशी संभंध"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="50dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/relation1">
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text=""
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="भाऊ / बहिण"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text=""
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="आई / वडील"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text=""
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text=""
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:id="@+id/relation2"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text=""
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text=""
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="आजोबा / आजी"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="शेजारी / संबंध नाही"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="माहित नाही"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+                    </RadioGroup>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffdd"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:text="३).उत्तर देणाऱ्याचा परिचय कोड
+ज्या आजारामध्ये मृतकाचा मृत्य झाला त्या आजाराच्या काळात
+उत्तर देणारी व्यक्ती मृतकाच्या सोबत राहत होती काय"
+                />
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:id="@+id/LiveTogether"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="होय"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:onClick="radioClick"
+                        android:textSize="20dp"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="नाही"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:onClick="radioClick"
+                        android:textSize="20dp"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="माहित नाही"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:onClick="radioClick"
+                        android:textSize="20dp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="४).उत्तर देणाऱ्याचे पूर्ण वय काय"
+                    />
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:hint="वर्ष"
+                    android:id="@+id/age"
+                    android:background="@drawable/spinner"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="५).उत्तर देणाऱ्याचे लिंग"
+                    />
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:id="@+id/gender"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="पुरुष"
+                        android:id="@+id/ansMale"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:onClick="radioClick"
+                        android:textSize="20dp"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="स्त्री"
+                        android:id="@+id/ansFemale"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:onClick="radioClick"
+                        android:textSize="20dp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffdd"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:text="मृतकाचे विस्तृत विवरण"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="६).वय"
+                    />
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:hint="वर्ष"
+                    android:id="@+id/deathAge"
+                    android:background="@drawable/spinner"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="७).लिंग"
+                    />
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:id="@+id/deathGender"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="पुरुष"
+                        android:id="@+id/ansMale"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:onClick="radioClick"
+                        android:textSize="20dp"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="स्त्री"
+                        android:id="@+id/ansFemale"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:onClick="radioClick"
+                        android:textSize="20dp"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffdd"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:text="८).मृतकाचे कुटुंब प्रमुखाशी नाते"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="50dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/relationDead1">
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text=""
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="भाऊ / बहिण"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="मुलगा / मुलगी"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text=""
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="नातू / नातीन "
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text=""
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/relationDead2">
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text=""
+                            android:id="@+id/deathRelation7"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text=""
+                            android:id="@+id/deathRelation8"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="आजोबा / आजी"
+                            android:id="@+id/deathRelation9"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="इतर नातेवाईक "
+                            android:id="@+id/deathRelation10"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="शेजारी / संबंध नाही"
+                            android:id="@+id/deathRelation11"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="माहित नाही"
+                            android:id="@+id/deathRelation12"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+                    </RadioGroup>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffdd"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:text="९).मृतकाच्या घराचा पत्ता ( पिन कोड सह )"
+                />
+            <EditText
+                android:layout_width="150dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#000000"
+                android:textAlignment="center"
+                android:layout_height="300dp"
+                android:textSize="20dp"
+                android:id="@+id/address"
+                android:background="@drawable/spinner"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="50dp"
+                >
+                <TextView
+                    android:layout_marginTop="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:text="१०).मृत्यूची तारीख"/>
+                <EditText
+                    android:layout_marginTop="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:id="@+id/dateDeath"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"
+                android:text="११). मृत्यूचे स्थान ? "/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/placeDeath1">
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="घर "
+                            android:id="@+id/home"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="आरोग्य संस्था"
+                            android:id="@+id/healthOrganization"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/placeDeath2">
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="इतर ठिकाण"
+                            android:id="@+id/otherPlace"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:text="माहित नाही"
+                            android:id="@+id/dontKnow"
+                            android:buttonTint="#ffffdd"
+                            android:textColor="#ffffdd"
+                            android:onClick="radioClick"
+                            android:textSize="20dp"/>
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffdd"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:text="१२).उत्तरदेणार्याच्या मते बालकाच्या मृत्यूचे कारण कोणते होते ?"
+                />
+            <EditText
+                android:layout_width="150dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#000000"
+                android:textAlignment="center"
+                android:layout_height="300dp"
+                android:textSize="20dp"
+                android:id="@+id/reasonDeath"
+                android:background="@drawable/spinner"
+                />
+
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="300dp"
+                android:background="@drawable/save_button_pressed"
+                android:text="Next"
+                android:textColor="#ffffff"
+                android:id="@+id/save1"
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -3,8 +3,10 @@ package com.example.kylehirschfelder.ship;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -42,6 +44,15 @@ public class TransferFragment extends Fragment {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
         loginDialog.displayalert(alertDialog, context);
 
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("member", "");
+        editor.putString("vhw", "Mayank Kale");
+        editor.putString("supervisor", "Ryan Singh");
+        editor.putString("vhwId","56");
+        editor.putString("supervisorId","75");
+        editor.commit();
+
         memberButton = (Button) myView.findViewById(R.id.memberBtn);
 
         memberButton.setOnClickListener(new View.OnClickListener() {
@@ -59,21 +70,19 @@ public class TransferFragment extends Fragment {
 
                 JSONParser jsonParser = new JSONParser();
                 try {
-                    JSONArray json = jsonParser.getJSONFromUrl("http://192.168.1.42:8888/member/all");
+                    JSONArray json = jsonParser.getJSONFromUrl("http://192.168.1.33:8888/member/all");
                     Log.println(Log.ASSERT,"json size",json.toString());
                     MemberDataInterface memberInterface = new MemberDataInterface(getActivity().getApplicationContext());
                     FamilyHeadDataInterface headInterface = new FamilyHeadDataInterface(getActivity().getApplicationContext());
 
-                    int familyId = 0;
-
-                    //for (int i = 0; i < json.length(); i++) {
+                   // for (int i = 0; i < json.length(); i++) {
                     for (int i = 0; i < 500; i++) {
                         try {
                             JSONObject c = json.getJSONObject(i);
 
                             Member element = new Member();
                             //element.setMemberId(Integer.parseInt(c.getString("id")));
-                            element.setFamilyId(Integer.parseInt(c.getString("family_id")));
+                            //element.setFamilyId(Integer.parseInt(c.getString("family_id")));
                             element.setFamilyHeadId(Integer.parseInt(c.getString("family_head_id")));
                             element.setVillageId(Integer.parseInt(c.getString("village_id")));
                             element.setName(c.getString("name"));
@@ -89,15 +98,13 @@ public class TransferFragment extends Fragment {
                             element.setWeddingArr(c.getString("marriage_came"));
                             element.setWeddingDept(c.getString("marriage_left"));
 
-                            familyId = element.getFamilyId();
-                            if(element.getFamilyHeadId() == 1){
-                                Member head;
-                                headInterface.createMember(element);
-                                head = headInterface.getRecent();
-                                familyId = head.getMemberId();
-                          }
+                           // familyId = element.getFamilyId();
+                            //  if(element.getFamilyHeadId() == 0){
+                              //  Member head = memberInterface.getLastHead(element.getVillageId());
+                            //    familyId = head.getMemberId();
+                          //}
 
-                            element.setFamilyId(familyId);
+                          //  element.setFamilyId(familyId);
                             Log.println(Log.ASSERT,"Fam id", String.valueOf(element.getFamilyId()));
                             Log.println(Log.ASSERT,"Name", element.getName());
                             Log.println(Log.ASSERT,"Gender", String.valueOf(element.getSex()));
@@ -112,7 +119,7 @@ public class TransferFragment extends Fragment {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
+/*
                 try {
                     JSONArray json = jsonParser.getJSONFromUrl("http://192.168.1.42:8888/census/all");
                     Log.println(Log.ASSERT,"json size",json.toString());
@@ -158,7 +165,7 @@ public class TransferFragment extends Fragment {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
+*/
             }
 
         });

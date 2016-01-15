@@ -12,11 +12,13 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 public class Cod1to5_III extends AppCompatActivity {
-
+    LinearLayout measlesT,feverT,coughT,eyesT,goneT,waterT;
     RadioGroup measles,fever,cough,eyes,gone,water;
     RadioButton days,death;
     EditText measlesDays, deathAge;
@@ -29,6 +31,14 @@ public class Cod1to5_III extends AppCompatActivity {
         days = new RadioButton(getApplicationContext());
         death = new RadioButton(getApplicationContext());
 
+     
+        measlesT = (LinearLayout) findViewById(R.id.measlesT);
+        feverT = (LinearLayout) findViewById(R.id.feverT);
+        coughT = (LinearLayout) findViewById(R.id.coughT);
+        eyesT = (LinearLayout) findViewById(R.id.eyesT);
+        goneT = (LinearLayout) findViewById(R.id.goneT);
+        waterT = (LinearLayout) findViewById(R.id.waterT);
+        
         measles = (RadioGroup) findViewById(R.id.measles);
         fever = (RadioGroup) findViewById(R.id.fever);
         cough = (RadioGroup) findViewById(R.id.cough);
@@ -57,6 +67,7 @@ public class Cod1to5_III extends AppCompatActivity {
                 days.setChecked(false);
                 showKeyboard(view);
                 //CodOneFive.getInstance().setMeasles_days(measlesDays.getText().toString());
+                if(!death.isChecked()) unHideAll();
 
             }
 
@@ -70,6 +81,7 @@ public class Cod1to5_III extends AppCompatActivity {
                 deathAge.setText("");
                 death.setChecked(false);
                 showKeyboard(view);
+                if(!days.isChecked()) unHideAll();
                 //CodOneFive.getInstance().setMeasles_days(measlesDays.getText().toString());
 
             }
@@ -111,6 +123,7 @@ public class Cod1to5_III extends AppCompatActivity {
                 measlesDays.setClickable(true);
                 hideKeyboard(view);
                 CodOneFive.getInstance().setMeasles_days("0");
+                
             break;
             case "noDeath":
                 deathAge.setText("0");
@@ -122,6 +135,39 @@ public class Cod1to5_III extends AppCompatActivity {
 
 
         }
+        hideAll();
+    }
+    
+    private void hideAll(){
+        measlesT.setVisibility(View.GONE);
+        feverT.setVisibility(View.GONE);
+        coughT.setVisibility(View.GONE);
+        eyesT.setVisibility(View.GONE);
+        goneT.setVisibility(View.GONE);
+        waterT.setVisibility(View.GONE);
+
+        measles.setVisibility(View.GONE);
+        fever.setVisibility(View.GONE);
+        cough.setVisibility(View.GONE);
+        eyes.setVisibility(View.GONE);
+        gone.setVisibility(View.GONE);
+        water.setVisibility(View.GONE);
+    }
+
+    private void unHideAll(){
+        measlesT.setVisibility(View.VISIBLE);
+        feverT.setVisibility(View.VISIBLE);
+        coughT.setVisibility(View.VISIBLE);
+        eyesT.setVisibility(View.VISIBLE);
+        goneT.setVisibility(View.VISIBLE);
+        waterT.setVisibility(View.VISIBLE);
+
+        measles.setVisibility(View.VISIBLE);
+        fever.setVisibility(View.VISIBLE);
+        cough.setVisibility(View.VISIBLE);
+        eyes.setVisibility(View.VISIBLE);
+        gone.setVisibility(View.VISIBLE);
+        water.setVisibility(View.VISIBLE);
     }
 
     public void hideKeyboard(View view){

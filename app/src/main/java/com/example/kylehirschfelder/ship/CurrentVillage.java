@@ -16,5 +16,7 @@ public class CurrentVillage extends Application {
         public void setSomeVariable(int villageId) {
             this.villageId = villageId;
         }
+
+
     }
 

@@ -53,7 +53,8 @@
                 <RadioGroup
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="130dp">
+                    android:layout_marginLeft="130dp"
+                    android:id="@+id/striderGroup">
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -61,7 +62,7 @@
                         android:buttonTint="#ffffdd"
                         android:textSize="25sp"
                         android:text="होय"
-                        android:id="@+id/unconYes"
+                        android:id="@+id/striderYes"
                         android:onClick="select"/>
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -70,7 +71,7 @@
                         android:textColor="#ffffdd"
                         android:textSize="25sp"
                         android:text="नाही"
-                        android:id="@+id/unconNo"
+                        android:id="@+id/striderNo"
                         android:onClick="select"/>
                 </RadioGroup>
 
@@ -97,6 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
+                    android:id="@+id/wheezeGroup"
                     >
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -105,7 +107,7 @@
                         android:buttonTint="#ffffdd"
                         android:textSize="25sp"
                         android:text="होय"
-                        android:id="@+id/breathYes"
+                        android:id="@+id/wheezeYes"
                         android:onClick="select"/>
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -114,7 +116,7 @@
                         android:textColor="#ffffdd"
                         android:textSize="25sp"
                         android:text="नाही"
-                        android:id="@+id/breathNo"
+                        android:id="@+id/wheezeNo"
                         android:onClick="select"/>
                 </RadioGroup>
 
@@ -137,6 +139,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
+                    android:id="@+id/noiseGroup"
                     >
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -145,7 +148,7 @@
                         android:buttonTint="#ffffdd"
                         android:textSize="25sp"
                         android:text="होय"
-                        android:id="@+id/fitYes"
+                        android:id="@+id/noiseYes"
                         android:onClick="select"/>
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -154,7 +157,7 @@
                         android:textColor="#ffffdd"
                         android:textSize="25sp"
                         android:text="नाही"
-                        android:id="@+id/fitNo"
+                        android:id="@+id/noiseNo"
                         android:onClick="select"/>
                 </RadioGroup>
 

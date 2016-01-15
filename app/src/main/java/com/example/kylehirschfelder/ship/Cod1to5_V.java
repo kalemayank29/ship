@@ -10,7 +10,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -20,12 +22,15 @@ public class Cod1to5_V extends AppCompatActivity {
     Button back, next;
     RadioButton noMucus, dontKnowMucus, noFever, dontKnowFever, noCHANGE, dontKnowCHANGE, noCoughL,dontKnowCoughL;
     EditText yesMucus, yesFever, yesCHANGE, yesCoughL, coughDays,asthamaDays;
+    LinearLayout big, otherBig;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cod1to5__v);
 
+        big = (LinearLayout)findViewById(R.id.big);
+        otherBig = (LinearLayout)findViewById(R.id.otherBig);
         cough = (RadioGroup) findViewById(R.id.cough);
         asthama =(RadioGroup) findViewById(R.id.asthama);
         face = (RadioGroup) findViewById(R.id.face);
@@ -55,6 +60,33 @@ public class Cod1to5_V extends AppCompatActivity {
 
         setAll();
 
+        cough.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(cough.indexOfChild(findViewById(checkedId)) == 0 && asthama.indexOfChild(findViewById(checkedId)) == 0) {
+                    big.setVisibility(View.GONE);
+                    otherBig.setVisibility(View.GONE);
+                }
+                else {
+                    big.setVisibility(View.VISIBLE);
+                    otherBig.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        asthama.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(cough.indexOfChild(findViewById(checkedId)) == 0 && asthama.indexOfChild(findViewById(checkedId)) == 0) {
+                    big.setVisibility(View.GONE);
+                    otherBig.setVisibility(View.GONE);
+                }
+                else {
+                    big.setVisibility(View.VISIBLE);
+                    otherBig.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        
         yesCoughL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,6 +141,44 @@ public class Cod1to5_V extends AppCompatActivity {
                 dontKnowMucus.setChecked(false);
                 showKeyboard(view);
 
+            }
+        });
+
+        coughDays.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                yesCHANGE.setText("");
+                noCHANGE.setChecked(false);
+                dontKnowCHANGE.setChecked(false);
+            }
+        });
+
+
+        yesCHANGE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Integer.parseInt(coughDays.toString()) < 15)
+                    otherBig.setVisibility(View.GONE);
+                else
+                    otherBig.setVisibility(View.VISIBLE);
+            }
+        });
+        noCHANGE.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(Integer.parseInt(coughDays.toString()) < 15)
+                    otherBig.setVisibility(View.GONE);
+                else
+                    otherBig.setVisibility(View.VISIBLE);
+            }
+        });
+        dontKnowCHANGE.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (Integer.parseInt(coughDays.toString()) < 15)
+                    otherBig.setVisibility(View.GONE);
+                else
+                    otherBig.setVisibility(View.VISIBLE);
             }
         });
 

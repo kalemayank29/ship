@@ -31,7 +31,7 @@ import java.util.List;
 
 public class FormFragment extends Fragment {
 
-    Button censusButton, memberButton, birthButton, deathButton, familyButton;
+    Button censusButton, memberButton, birthButton, deathButton, familyButton,pnm;
 
     View myView;
     @Nullable
@@ -45,22 +45,31 @@ public class FormFragment extends Fragment {
        // deathButton = (Button) myView.findViewById(R.id.deathBtn);
         familyButton = (Button) myView.findViewById(R.id.familyBtn);
         deathButton = (Button) myView.findViewById(R.id.deathBtn);
+        pnm = (Button) myView.findViewById(R.id.pnm);
+
+        pnm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                  Intent intent = new Intent(getActivity().getApplicationContext(), CodFifteenForm.class);
+                startActivity(intent);
+            }
+        });
 
         deathButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               //Intent intent = new Intent(getActivity().getApplicationContext(),DeathAdultForm.class);
+             //  Intent intent = new Intent(getActivity().getApplicationContext(),CodFifteenForm.class);
                // startActivity(intent);
 
 
                 // ***** CODE THAT IS SUPPOSED TO BE WORKING IN THE FINAL VERSION BELOW ***** \\
 
-                //DeathAdultDialog dialog = new DeathAdultDialog();
-                //FragmentManager manager = getActivity().getFragmentManager();
-                //dialog.show(manager,"deathFrag");
+                DeathAdultDialog dialog = new DeathAdultDialog();
+                FragmentManager manager = getActivity().getFragmentManager();
+                dialog.show(manager,"deathFrag");
 
                 // ***** CODE THAT IS SUPPOSED TO BE WORKING IN THE FINAL VERSION ABOVE ***** \\
-
+/*
                 BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
                 List<Birth> birthList = dbHelper.getAll();
                 for (Birth element: birthList
@@ -125,7 +134,7 @@ public class FormFragment extends Fragment {
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
                     }
-                }
+                }*/
 
                 /*
                 MemberDataInterface memberDataInterface = new MemberDataInterface(getActivity().getApplicationContext());

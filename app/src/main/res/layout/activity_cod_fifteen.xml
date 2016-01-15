@@ -1,0 +1,1819 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <!--
+
+
+     गावाचे नाव
+    घर क्रमान्क
+    कुतुंब
+    म्रुत
+व्यक्तिचे
+पूर्ण
+नाव
+
+    -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="घरातील प्रमुख व्यक्तिचे नाव"
+                android:textColor="#ffffdd"
+                android:textSize="25sp"/>
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="true"
+                android:id="@+id/familyHeadName"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="गावाचे नाव"
+                android:textColor="#ffffdd"
+                android:textSize="25sp"/>
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="true"
+                android:id="@+id/villageName"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="घर क्रमांक"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="true"
+                android:inputType="number"
+                android:id="@+id/houseId"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="कुतुंब क्रमांक"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="true"
+                android:inputType="number"
+                android:id="@+id/familyId"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="मृत व्यक्तिचे पूर्ण नाव"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="true"
+                android:id="@+id/deathName"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="फॉर्म भरण्याची तारीख"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/dateOfForm"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="850dp"
+            android:layout_height="2dp"
+            android:background="#ffffdd"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="45dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="माहिती देणार्याबद्दलची माहिती"
+            android:textColor="#ffffdd"
+            android:textSize="35sp"
+            android:gravity="center"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="माहिती देणाऱ्याचे नाव"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="true"
+                android:id="@+id/informantName"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="माहिती देणाऱ्याचा मृत व्यक्तीशी नातेसंबंध"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="true"
+                android:id="@+id/informantRelation"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="माहिती देणारा व्यक्ती मृत झालेल्या व्याक्तीसिबत राहत होतं का ?"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/informantVicinity">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="माहिती देणाऱ्याचे वय"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="true"
+                android:inputType="number"
+                android:id="@+id/informantAge"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Informant Vicinity"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/informantGender">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="पुरुष   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="स्त्री"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="850dp"
+            android:layout_height="2dp"
+            android:background="#ffffdd"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="45dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Death Info"
+            android:textColor="#ffffdd"
+            android:textSize="35sp"
+            android:gravity="center"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Death Age"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="true"
+                android:id="@+id/deathAge"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Death Gender"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/deathGender">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="पुरुष   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="स्त्री"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marriage Status"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <Spinner
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="-10dp"
+                android:background="@drawable/spinner"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/marriageStatus"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Education"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <Spinner
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="-10dp"
+                android:textSize="25sp"
+                android:background="@drawable/spinner"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/education"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Work Outside"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/workOutside">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="माहिती नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="If हो, How Much Time?"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/workOutsideTime">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Less than a month"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 - 3 months"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=">3 months"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Death Family Head Relation"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="true"
+                android:id="@+id/deathFamilyHeadRelation"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Death Date"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <DatePicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="true"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                android:id="@+id/deathDate"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Death Place"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <Spinner
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="-10dp"
+                android:background="@drawable/spinner"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/deathPlace"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Death Address"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <EditText
+                android:layout_width="650dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="false"
+                android:id="@+id/deathAddress"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Death Address Time"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="false"
+                android:id="@+id/deathAddressTime"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Informant Diagnosis"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <EditText
+                android:layout_width="600dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="false"
+                android:id="@+id/informantDiagnosis"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="850dp"
+            android:layout_height="2dp"
+            android:background="#ffffdd"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="45dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Doctor Info About Deceased"
+            android:textColor="#ffffdd"
+            android:textSize="35sp"
+            android:gravity="center"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blood Pressure"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/bloodPressure">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="माहिती नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heart Problem"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/heartProblem">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="माहिती नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paralysis"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/paralysis">
+
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="माहिती नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diabetes"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/diabetes">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="माहिती नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Typhoid"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/typhoid">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="माहिती नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AIDS"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/AIDS">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="माहिती नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancer"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/Cancer">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="माहिती नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asthma"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/Asthma">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="माहिती नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other Illness"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/otherIllness">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="माहिती नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Extreme Weight Loss"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/extremeWeightLoss">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="माहिती नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="माहिती नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Routine Medicine"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <EditText
+                android:layout_width="650dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:layout_marginLeft="30dp"
+                android:singleLine="false"
+                android:id="@+id/routineMedicine"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="850dp"
+            android:layout_height="2dp"
+            android:background="#ffffdd"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="45dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Death + Informant Info"
+            android:textColor="#ffffdd"
+            android:textSize="35sp"
+            android:gravity="center"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Routine Medicine"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:layout_marginTop="30dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Routine Medicine"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:layout_marginTop="30dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Routine Medicine"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:layout_marginTop="30dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Routine Medicine"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:layout_marginTop="30dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Routine Medicine"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:layout_marginTop="30dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Routine Medicine"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:layout_marginTop="30dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/deathSmoking">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="हो   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="नाही   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="माहिती नाही"
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/deathHookah">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="हो   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="नाही   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="माहिती नाही"
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/deathTobacco">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="हो   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="नाही   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="माहिती नाही"
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/deathBrushTeeth">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="हो   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="नाही   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="माहिती नाही"
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/deathAlcohol">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="हो   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="नाही   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="माहिती नाही"
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                </RadioGroup>
+
+                <EditText
+                    android:layout_marginTop="30dp"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:background="#ffffdd"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:id="@+id/deathAlcoholDays"/>
+
+                <RadioGroup
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/deathNonVeg">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="हो   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="नाही   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="माहिती नाही"
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/informantSmoking">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="हो   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="नाही   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/informantHookah">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="हो   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="नाही   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:layout_marginTop="30dp"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/informantTobacco">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="हो   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="नाही   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/informantBrushTeeth">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="हो   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="नाही   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/informantAlcohol">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="हो   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="नाही   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:layout_marginTop="85dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/informantNonVeg">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="हो   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="नाही   "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pregnant"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/deathPregnant">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Birth42"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/death42Birth">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pregnant42"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/death42Pregnant">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="हो   "
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="नाही"
+                    android:textSize="25sp"
+                    android:buttonTint="#ffffdd"
+                    android:textColor="#ffffdd"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="informant details"
+                android:textSize="25sp"
+                android:textColor="#ffffdd"/>
+
+            <EditText
+                android:layout_width="850dp"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:background="#cccccc"
+                android:singleLine="false"
+                android:id="@+id/informantDetails"/>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="750dp"
+            android:layout_marginBottom="75dp"
+            android:background="@drawable/save_button_pressed"
+            android:text="Save"
+            android:textColor="#ffffff"
+            android:id="@+id/saveAsk"
+            android:onClick="save_click"/>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

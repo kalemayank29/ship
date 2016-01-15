@@ -46,6 +46,7 @@ public class DeathAdultDataInterface {
         cv.put(dbHelper.FAMILY_ID, death.getFamilyID());
         cv.put(dbHelper.HOUSE_ID, death.getHouseID());
         cv.put(dbHelper.MEMBER_ID, death.getMemberID());
+        cv.put(dbHelper.VILLAGE_ID,death.getVillageId());
         cv.put(dbHelper.BIRTH_DATE, death.getBirthDate());
         cv.put(dbHelper.DEATH_DATE, death.getDeathDate());
         cv.put(dbHelper.AGE, death.getAge());
@@ -70,36 +71,38 @@ public class DeathAdultDataInterface {
 
 
 
-    /*public DeathAdult getInfo(int id){
-        Birth birth = new Birth();
+    public DeathAdult getInfo(int mem_id,int village_id){
+        DeathAdult death = new DeathAdult();
         Cursor c;
-        SQLiteDatabase SQ = this.getReadableDatabase();
-        String selection = "_id=?";
-        String[] selectionArgs = new String[]{String.valueOf(id)};
-        c = SQ.query(BirthInfoDB.TableInfo.TABLE_NAME, null,  selection, selectionArgs, null, null, null, null);
+        SQLiteDatabase SQ = dbHelper.getReadableDatabase();
+        String selection = "member_id=? AND village_id=?";
+        String[] selectionArgs = new String[]{String.valueOf(mem_id),String.valueOf(village_id)};
+        c = SQ.query(DeathAdultDBHelper.TABLE_NAME, null,  selection, selectionArgs, null, null, null, null);
         c.moveToFirst();
-        birth.setMotherVillage(c.getString(0));
-        birth.setMotherVillageID(c.getString(1));
-        birth.setMotherName(c.getString(2));
-        birth.setFamilyID(c.getString(3));
-        birth.setHouseID(c.getString(4));
-        birth.setChildID(c.getString(5));
-        birth.setBirthDate(c.getString(6));
-        birth.setVillageOfBirth(c.getString(7));
-        birth.setVillageOfBirthID(c.getString(8));
-        birth.setVillageOfBirthPlace(c.getString(9));
-        birth.setDeliveryName(c.getString(10));
-        birth.setDeliveryMethod(c.getString(11));
-        birth.setChildGender(c.getString(12));
-        birth.setPregnancyTime(c.getString(13));
-        birth.setFadPresence(c.getString(14));
-        birth.setHealthMessenger(c.getString(15));
-        birth.setHealthMessengerId(c.getString(16));
-        birth.setHealthMessengerDate(c.getString(17));
-        birth.setGuideName(c.getString(18));
-        birth.setGuideId(c.getString(19));
-        birth.setGuideTestDate(c.getString(20));
-        return birth;
+        
+        death.setName(c.getString(0));
+        death.setFamilyID(c.getString(1));
+        death.setHouseID(c.getString(2));
+        death.setMemberID(c.getString(3));
+        death.setVillageId(c.getString(4));
+        death.setBirthDate(c.getString(5));
+        death.setDeathDate(c.getString(6));
+        death.setAge(c.getString(7));
+        death.setVillageStay(c.getString(8));
+        death.setVillageStayId(c.getString(9));
+        death.setVillageOfDeath(c.getString(10));
+        death.setVillageOfDeathID(c.getString(11));
+        death.setHealthMessenger(c.getString(12));
+        death.setHealthMessengerId(c.getString(13));
+        death.setHealthMessengerDate(c.getString(14));
+        death.setGuideName(c.getString(15));
+        death.setGuideId(c.getString(16));
+        death.setGuideTestDate(c.getString(17));
+        return death;
+    }
 
-    }*/
+    public void drop(){
+        SQLiteDatabase SQ = dbHelper.getWritableDatabase();
+        SQ.execSQL("DROP TABLE IF EXISTS " + dbHelper.TABLE_NAME);
+    }
 }

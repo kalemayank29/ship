@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.sql.SQLException;
@@ -56,7 +57,66 @@ public class MemberDataInterface {
      * @return long result with row number. Inserts param in the right tables.
      * @throws SQLException
      */
-    public long createMember(Member element, int cur) throws SQLException {
+    public String createMember(Member element, int cur) throws SQLException {
+        this.open();
+        String flag="";
+
+        long newRowId = -1;
+
+        Member result = getLastMember(element.getVillageId());
+
+        if(result == null){
+            element.setMemberId(1);
+            element.setFamilyId(1);
+            element.setHouseId(1);
+        }
+        else{
+            element.setMemberId(result.getMemberId() + 1);
+            if(element.getFamilyHeadId() == 1){
+                element.setFamilyId(element.getMemberId());
+                element.setHouseId(result.getMemberId() + 1);
+            }
+            else{
+                Member head = getLastHead(element.getVillageId());
+                Log.println(Log.ASSERT,"memberdhead",String.valueOf(element.getMemberId()));
+                element.setFamilyId(head.getMemberId());
+            }
+
+        }
+
+        ContentValues value = new ContentValues();
+        value.put(dbHelper.MEMBER_ID, element.getMemberId());
+        value.put(dbHelper.FAMILY_ID, element.getFamilyId());
+        value.put(dbHelper.HOUSE_ID, element.getHouseId());
+        value.put(dbHelper.FAMILY_HEAD_BOOL, element.getFamilyHeadId());        // Is family Head?
+        value.put(dbHelper.NAME, element.getName());
+        value.put(dbHelper.AGE, element.getAge());
+        value.put(dbHelper.SEX,element.getSex());
+        value.put(dbHelper.CHILD_ID,element.getChildId());
+        value.put(dbHelper.CHILD_DATE,element.getChildDate());
+        value.put(dbHelper.MARRIAGE_STATUS, element.getMarriageStatus());
+        value.put(dbHelper.FAMILY_PLAN, element.getFamilyPlan());
+        value.put(dbHelper.EDUCATION, element.getEducation());
+        value.put(dbHelper.LITERACY, element.getLiteracy());
+        value.put(dbHelper.WEDDING_ARR, element.getWeddingArr());
+        value.put(dbHelper.WEDDING_DEPT, element.getWeddingDept());
+        value.put(dbHelper.VILLAGE_ID,element.getVillageId());
+        value.put(dbHelper.FLAG, 1);
+
+        if(cur == 0)
+            newRowId = this.database.insert(dbHelper.TABLE_MEMBER, null, value);
+       else{
+            value.put(dbHelper.FLAG, 1);
+            newRowId = this.database.insert(dbHelper.TABLE_MEMBERCUR, null, value);
+            flag = "." + String.valueOf(element.getMemberId()) + "-0";
+        }
+
+
+        this.close();
+        return flag;
+    }
+
+    public long createMemberTemp(Member element, int cur) throws SQLException {
         this.open();
 
         long newRowId = -1;
@@ -82,7 +142,7 @@ public class MemberDataInterface {
 
         if(cur == 0)
             newRowId = this.database.insert(dbHelper.TABLE_MEMBER, null, value);
-       else{
+        else{
             value.put(dbHelper.FLAG, 1);
             newRowId = this.database.insert(dbHelper.TABLE_MEMBERCUR, null, value);
         }
@@ -91,6 +151,7 @@ public class MemberDataInterface {
         this.close();
         return newRowId;
     }
+
     public long createVillMember(Member element, int cur) throws SQLException {
         this.open();
 
@@ -137,13 +198,13 @@ public class MemberDataInterface {
      * @return Member matched with id
      * @throws SQLException
      */
-    public Member getMember(int id, int cur) throws SQLException{
+    public Member getMember(int id, int cur, int village_id) throws SQLException{
         this.openRead();
 
         Member element = new Member();
         Cursor c = null;
-        String selection = "_id=?";     //unique member id
-        String[] selectionArgs = new String[] { String.valueOf(id)};
+        String selection = "_id=? AND village_id=?";     //unique member id
+        String[] selectionArgs = new String[] { String.valueOf(id),String.valueOf(village_id)};
 
         if(cur == 0)
             c = database.query(MemberDbHelper.TABLE_MEMBER,null,selection,selectionArgs,null,null,null);
@@ -191,7 +252,7 @@ public class MemberDataInterface {
             cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR , null);
 
 
-        //Log.println(Log.ASSERT, "CURSOR SIZE: ", String.valueOf(cursor.getCount()));
+       // Log.println(Log.ASSERT, "CURSOR SIZE: ", String.valueOf(cursor.getCount()));
 
         if(cursor.moveToFirst()){
             do{
@@ -777,5 +838,71 @@ public class MemberDataInterface {
         head = c.getString(c.getColumnIndexOrThrow(MemberDbHelper.NAME));
         this.close();
         return head;
+    }
+
+    public Member getLastMember(int village){
+
+        Member result = null;
+        SQLiteDatabase db = dbHelper.getWritableDatabase();         // Don't know why we need a writable db.
+        Cursor cursor = null;
+
+            cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR + " WHERE village_id = " + village + " ORDER BY _id DESC limit 1" , null);
+
+
+        //Log.println(Log.ASSERT, "CURSOR SIZE: ", String.valueOf(cursor.getCount()));
+
+        if(cursor.moveToFirst()){
+            do{
+                Member element = new Member(
+                        Integer.parseInt(cursor.getString(1)),Integer.parseInt(cursor.getString(2)),
+                        Integer.parseInt(cursor.getString(3)),
+                        cursor.getString(4),Integer.parseInt(cursor.getString(5)),
+                        Integer.parseInt(cursor.getString(6)), Integer.parseInt(cursor.getString(7)),cursor.getString(8),
+                        cursor.getString(9), cursor.getString(10),
+                        cursor.getString(11), cursor.getString(12),cursor.getString(13),cursor.getString(14),Integer.parseInt(cursor.getString(16)));
+
+                element.setMemberId(Integer.parseInt(cursor.getString(0)));     // Done separately because of constructor
+                //  Log.println(Log.ASSERT,"head", String.valueOf(element.getFamilyHeadId()));
+                result = element;
+            }
+            while(cursor.moveToNext());
+        }
+
+        cursor.close();
+
+        return result;
+    }
+
+    public Member getLastHead(int village){
+
+        Member result = null;
+        SQLiteDatabase db = dbHelper.getWritableDatabase();         // Don't know why we need a writable db.
+        Cursor cursor = null;
+
+        cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR + " WHERE family_head = 1 AND village_id = " + village + " ORDER BY _id DESC limit 1" , null);
+
+
+        //Log.println(Log.ASSERT, "CURSOR SIZE: ", String.valueOf(cursor.getCount()));
+
+        if(cursor.moveToFirst()){
+            do{
+                Member element = new Member(
+                        Integer.parseInt(cursor.getString(1)),Integer.parseInt(cursor.getString(2)),
+                        Integer.parseInt(cursor.getString(3)),
+                        cursor.getString(4),Integer.parseInt(cursor.getString(5)),
+                        Integer.parseInt(cursor.getString(6)), Integer.parseInt(cursor.getString(7)),cursor.getString(8),
+                        cursor.getString(9), cursor.getString(10),
+                        cursor.getString(11), cursor.getString(12),cursor.getString(13),cursor.getString(14),Integer.parseInt(cursor.getString(16)));
+
+                element.setMemberId(Integer.parseInt(cursor.getString(0)));     // Done separately because of constructor
+                //  Log.println(Log.ASSERT,"head", String.valueOf(element.getFamilyHeadId()));
+                result = element;
+            }
+            while(cursor.moveToNext());
+        }
+
+        cursor.close();
+
+        return result;
     }
 }

@@ -9,40 +9,50 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class PNMForm_ask extends AppCompatActivity {
 
+    RadioGroup gaspGroup;
     RadioButton gaspYes, gaspNo;
     EditText gaspDays;
     String gasp = "0";
 
+    RadioGroup coughGroup;
     RadioButton coughYes, coughNo;
     EditText coughDays;
     String cough = "0";
 
+    RadioGroup feverGroup;
     RadioButton feverYes, feverNo;
     EditText feverDays;
     String fever = "0";
 
+    RadioGroup fitGroup;
     RadioButton fitYes, fitNo;
     EditText fitDays;
     String fit = "0";
 
+    RadioGroup faintGroup;
     RadioButton faintYes, faintNo;
     EditText faintDays;
     String faint = "0";
 
+    RadioGroup milkGroup;
     RadioButton milkYes, milkLess, milkNo;
     EditText milkDays, milkHours;
     String milk = "0";
 
+    RadioGroup measlesGroup;
     RadioButton measlesYes, measlesNo;
     EditText measlesDays;
     String measles = "0";
 
+    RadioGroup vomitGroup;
     RadioButton vomitYes, vomitNo;
     EditText vomitDays;
-    String vomit = "";
+    String vomit = "0";
 
     EditText birthMonths;
     String birth = "000";
@@ -55,36 +65,44 @@ public class PNMForm_ask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pnmform_ask);
 
+        gaspGroup = (RadioGroup) findViewById(R.id.gaspGroup);
         gaspYes = (RadioButton) findViewById(R.id.gaspYes);
         gaspNo = (RadioButton) findViewById(R.id.gaspNo);
         gaspDays = (EditText) findViewById(R.id.gaspDays);
 
+        coughGroup = (RadioGroup) findViewById(R.id.coughGroup);
         coughYes = (RadioButton) findViewById(R.id.coughYes);
         coughNo = (RadioButton) findViewById(R.id.coughNo);
         coughDays = (EditText) findViewById(R.id.coughDays);
 
+        feverGroup = (RadioGroup) findViewById(R.id.feverGroup);
         feverYes = (RadioButton) findViewById(R.id.feverYes);
         feverNo = (RadioButton) findViewById(R.id.feverNo);
         feverDays = (EditText) findViewById(R.id.feverDays);
 
+        fitGroup = (RadioGroup) findViewById(R.id.fitGroup);
         fitYes = (RadioButton) findViewById(R.id.fitYes);
         fitNo = (RadioButton) findViewById(R.id.fitNo);
         fitDays = (EditText) findViewById(R.id.fitDays);
 
+        faintGroup = (RadioGroup) findViewById(R.id.faintGroup);
         faintYes = (RadioButton) findViewById(R.id.faintYes);
         faintNo = (RadioButton) findViewById(R.id.faintNo);
         faintDays = (EditText) findViewById(R.id.faintDays);
 
+        milkGroup = (RadioGroup) findViewById(R.id.milkGroup);
         milkYes = (RadioButton) findViewById(R.id.milkYes);
         milkLess = (RadioButton) findViewById(R.id.milkLess);
         milkNo = (RadioButton) findViewById(R.id.milkNo);
         milkDays = (EditText) findViewById(R.id.milkDays);
         milkHours = (EditText) findViewById(R.id.milkHours);
 
+        measlesGroup = (RadioGroup) findViewById(R.id.measlesGroup);
         measlesYes = (RadioButton) findViewById(R.id.measlesYes);
         measlesNo = (RadioButton) findViewById(R.id.measlesNo);
         measlesDays = (EditText) findViewById(R.id.measlesDays);
 
+        vomitGroup = (RadioGroup) findViewById(R.id.vomitGroup);
         vomitYes = (RadioButton) findViewById(R.id.vomitYes);
         vomitNo = (RadioButton) findViewById(R.id.vomitNo);
         vomitDays = (EditText) findViewById(R.id.vomitDays);
@@ -96,19 +114,40 @@ public class PNMForm_ask extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cough = coughDays.getText().toString();
-                gasp = gaspDays.getText().toString();
-                fever = feverDays.getText().toString();
-                fit = fitDays.getText().toString();
-                faint = faintDays.getText().toString();
-                milk = milkDays.getText().toString();
-                measles = measlesDays.getText().toString();
-                vomit = vomitDays.getText().toString();
+                if(Integer.parseInt(cough) != -1)
+                    cough = coughDays.getText().toString();
+                if(Integer.parseInt(gasp) != -1)
+                    gasp = gaspDays.getText().toString();
+                if(Integer.parseInt(fever) != -1)
+                    fever = feverDays.getText().toString();
+                if(Integer.parseInt(fit) != -1)
+                    fit = fitDays.getText().toString();
+                if(Integer.parseInt(faint) != -1)
+                    faint = faintDays.getText().toString();
+                milk += "-" + milkDays.getText().toString();
+                milk += "-" + milkHours.getText().toString();
+                if(Integer.parseInt(measles) != -1)
+                    measles = measlesDays.getText().toString();
+                if(Integer.parseInt(vomit) != -1)
+                    vomit = vomitDays.getText().toString();
                 birth = birthMonths.getText().toString();
-                String []send = {cough, gasp, fever, fit, faint, milk, measles, vomit, birth};
-                Intent intent = new Intent(getBaseContext(), PNMForm_see.class);
-                intent.putExtra("KEY", send);
-                startActivity(intent);
+                if((coughGroup.getCheckedRadioButtonId() == -1) ||
+                        (gaspGroup.getCheckedRadioButtonId() == -1) ||
+                        (feverGroup.getCheckedRadioButtonId() == -1) ||
+                        (fitGroup.getCheckedRadioButtonId() == -1) ||
+                        (faintGroup.getCheckedRadioButtonId() == -1) ||
+                        (milkGroup.getCheckedRadioButtonId() == -1) ||
+                        (measlesGroup.getCheckedRadioButtonId() == -1) ||
+                        (vomitGroup.getCheckedRadioButtonId() == -1)) {
+
+                    Toast.makeText(getBaseContext(), "क्रुपया सगळी माहिती भरावे", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    String[] send = {cough, gasp, fever, fit, faint, milk, measles, vomit, birth};
+                    Intent intent = new Intent(getBaseContext(), PNMForm_see.class);
+                    intent.putExtra("KEY", send);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -120,62 +159,57 @@ public class PNMForm_ask extends AppCompatActivity {
             case R.id.gaspYes:
                 if (checked) {
                     gaspDays.setVisibility(view.VISIBLE);
-                    gasp = "1";
                 }
                 break;
             case R.id.gaspNo:
                 if (checked) {
                     gaspDays.setVisibility(view.INVISIBLE);
-                    gasp = "0";
+                    gasp = "-1";
                 }
 
                 break;
             case R.id.coughYes:
                 if (checked) {
                     coughDays.setVisibility(view.VISIBLE);
-                    cough = "1";
                 }
                 break;
             case R.id.coughNo:
                 if (checked) {
                     coughDays.setVisibility(view.INVISIBLE);
-                    cough = "0";
+                    cough = "-1";
                 }
                 break;
             case R.id.feverYes:
                 if (checked) {
                     feverDays.setVisibility(view.VISIBLE);
-                    fever = "1";
                 }
                 break;
             case R.id.feverNo:
                 if (checked) {
                     feverDays.setVisibility(view.INVISIBLE);
-                    fever = "0";
+                    fever = "-1";
                 }
                 break;
             case R.id.fitYes:
                 if (checked) {
                     fitDays.setVisibility(view.VISIBLE);
-                    fit = "1";
                 }
                 break;
             case R.id.fitNo:
                 if (checked) {
                     fitDays.setVisibility(view.INVISIBLE);
-                    fit = "0";
+                    fit = "-1";
                 }
                 break;
             case R.id.faintYes:
                 if (checked) {
                     faintDays.setVisibility(view.VISIBLE);
-                    faint = "1";
                 }
                 break;
             case R.id.faintNo:
                 if (checked) {
                     faintDays.setVisibility(view.INVISIBLE);
-                    faint = "0";
+                    faint = "-1";
                 }
                 break;
             case R.id.milkYes:
@@ -199,8 +233,10 @@ public class PNMForm_ask extends AppCompatActivity {
                 }
                 break;
             case R.id.measlesNo:
-                if(checked)
+                if(checked) {
                     measlesDays.setVisibility(view.INVISIBLE);
+                    measles = "-1";
+                }
                 break;
             case R.id.vomitYes:
                 if(checked) {
@@ -208,8 +244,10 @@ public class PNMForm_ask extends AppCompatActivity {
                 }
                 break;
             case R.id.vomitNo:
-                if(checked)
+                if(checked) {
                     vomitDays.setVisibility(view.INVISIBLE);
+                    vomit = "-1";
+                }
                 break;
         }
     }

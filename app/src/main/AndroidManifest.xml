@@ -214,12 +214,24 @@
             android:label="@string/title_activity_cod1__i" >
         </activity>
         <activity
-            android:name=".Cod1_II"
-            android:label="@string/title_activity_cod1__ii" >
+            android:name=".CodFifteenForm"
+            android:label="@string/title_activity_cod_fifteen_form" >
         </activity>
         <activity
             android:name=".Cod1_IV"
             android:label="@string/title_activity_cod1__iv" >
+        </activity>
+        <activity
+            android:name=".StillBirthForm"
+            android:label="@string/title_activity_still_birth_form" >
+        </activity>
+        <activity
+            android:name=".Cod5to15_Main"
+            android:label="@string/title_activity_cod5to15__main" >
+        </activity>
+        <activity
+            android:name=".Cod5to15_I"
+            android:label="@string/title_activity_cod5to15__i" >
         </activity>
     </application>
 

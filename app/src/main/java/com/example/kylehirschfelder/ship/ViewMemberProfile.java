@@ -38,9 +38,10 @@ public class ViewMemberProfile extends AppCompatActivity {
         editArrival = (TextView) findViewById(R.id.editArrivalText);
 
         String index = getIntent().getStringExtra("index");
+        int curVillage =  ((CurrentVillage) this.getApplication()).getSomeVariable();
 
         try {
-            member = db.getMember(Integer.parseInt(index), 1);
+            member = db.getMember(Integer.parseInt(index), 1,curVillage);
             Log.println(Log.ASSERT, "LOGGING HOUSE: ", String.valueOf(member.getHouseId()));
         } catch (SQLException e) {
             e.printStackTrace();

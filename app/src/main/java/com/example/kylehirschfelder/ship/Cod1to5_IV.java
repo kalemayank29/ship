@@ -10,7 +10,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -20,12 +22,15 @@ public class Cod1to5_IV extends AppCompatActivity {
     RadioButton noWeight, noSwelling, noDysentry, dontKnowDysentry, noBlind, dontKnowBlind;
     EditText yesWeight, yesSwelling, yesDysentry, yesBlind, milkDays, milkBott, food;
     Button next;
+    LinearLayout big;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cod1to5__iv);
 
+
+        big = (LinearLayout)findViewById(R.id.big);
         growth = (RadioGroup) findViewById(R.id.growth);
         meal = (RadioGroup) findViewById(R.id.meal);
         malntr = (RadioGroup) findViewById(R.id.malntr);
@@ -60,7 +65,7 @@ public class Cod1to5_IV extends AppCompatActivity {
                 yesWeight.setText("");
                 noWeight.setChecked(false);
                 showKeyboard(view);
-
+                big.setVisibility(View.VISIBLE);
             }
         });
 
@@ -72,6 +77,7 @@ public class Cod1to5_IV extends AppCompatActivity {
                 yesSwelling.setText("");
                 noSwelling.setChecked(false);
                 showKeyboard(view);
+                big.setVisibility(View.VISIBLE);
             }
         });
 
@@ -98,6 +104,20 @@ public class Cod1to5_IV extends AppCompatActivity {
                 showKeyboard(view);
             }
         });
+
+        growth.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                int growthValue = growth.indexOfChild(findViewById(checkedId));
+                if(growthValue == 0 && noWeight.isChecked() && noSwelling.isChecked()) {
+                    big.setVisibility(View.GONE);
+                }
+                else if(growthValue == 1)
+                    big.setVisibility(View.VISIBLE);
+            }
+        });
+
+
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,6 +162,8 @@ public class Cod1to5_IV extends AppCompatActivity {
                 yesWeight.setClickable(true);
                 hideKeyboard(view);
                 CodOneFive.getInstance().setMalntr_weight("0");
+                if(noSwelling.isChecked() && growth.indexOfChild(findViewById(growth.getCheckedRadioButtonId())) == 0)
+                    big.setVisibility(View.GONE);
                 break;
             case "noSwelling":
                 yesSwelling.setText("0");
@@ -149,6 +171,8 @@ public class Cod1to5_IV extends AppCompatActivity {
                 yesSwelling.setClickable(true);
                 hideKeyboard(view);
                 CodOneFive.getInstance().setMalntr_swelling("0");
+                if(noWeight.isChecked() && growth.indexOfChild(findViewById(growth.getCheckedRadioButtonId())) == 0)
+                    big.setVisibility(View.GONE);
                 break;
             case "noDysentry":
                 yesDysentry.setText("0");

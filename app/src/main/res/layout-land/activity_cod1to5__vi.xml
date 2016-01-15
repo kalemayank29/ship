@@ -70,7 +70,11 @@
                     android:textSize="20dp"/>
 
             </LinearLayout>
-
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/big1">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -140,7 +144,12 @@
                     android:textSize="20dp"/>
                 </RadioGroup>
             </LinearLayout>
-
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/big2">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -173,7 +182,12 @@
                     android:imeOptions="actionDone"
                     />
             </LinearLayout>
-
+                </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/big3">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -732,6 +746,8 @@
                     
                     android:textSize="20dp"/>
                 </RadioGroup>
+                </LinearLayout>
+                </LinearLayout>
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -742,7 +758,7 @@
                     android:textColor="#ffffff"
                     android:id="@+id/next"
                     />
-            </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>

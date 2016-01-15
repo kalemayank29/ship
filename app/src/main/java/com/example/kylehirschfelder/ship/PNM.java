@@ -5,7 +5,9 @@ package com.example.kylehirschfelder.ship;
  */
 public class PNM {
 
-    private int id;
+    private int id,gender,village_id,family_id,age;
+
+    String name,villageName,birth_date,date;
 
     private int cough,coughDays,gasp,gaspDays,fever,feverDays,fit,fitDays,faint,faintDays,
             milk, milkDays, milkHours, measles, measlesDays,vomit, vomitDays, birthMonths;
@@ -15,6 +17,72 @@ public class PNM {
     private int stryder, exhale, shortBreath;
 
     private String comments;
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    public int getVillage_id() {
+        return village_id;
+    }
+
+    public void setVillage_id(int village_id) {
+        this.village_id = village_id;
+    }
+
+    public int getFamily_id() {
+        return family_id;
+    }
+
+    public void setFamily_id(int family_id) {
+        this.family_id = family_id;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getVillageName() {
+        return villageName;
+    }
+
+    public void setVillageName(String villageName) {
+        this.villageName = villageName;
+    }
+
+    public String getBirth_date() {
+        return birth_date;
+    }
+
+    public void setBirth_date(String birth_date) {
+        this.birth_date = birth_date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+
 
     public int getId() {
         return id;

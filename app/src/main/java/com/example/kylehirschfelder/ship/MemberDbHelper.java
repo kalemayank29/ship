@@ -67,7 +67,7 @@ public class MemberDbHelper extends SQLiteOpenHelper {
     //SQL to create curated table
     private static final String MEMBER_CREATECUR =
             "CREATE TABLE " + TABLE_MEMBERCUR + " (" +
-                    MEMBER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    MEMBER_ID + " INTEGER NOT NULL, " +
                     FAMILY_ID + " INTEGER NOT NULL, " +
                     HOUSE_ID + " INTEGER NOT NULL, " +
                     FAMILY_HEAD_BOOL + " INTEGER NOT NULL," +
@@ -83,8 +83,8 @@ public class MemberDbHelper extends SQLiteOpenHelper {
                     WEDDING_ARR + " TEXT, " +
                     WEDDING_DEPT + " TEXT, " +
                     FLAG + " INTEGER," +
-                    VILLAGE_ID + " INTEGER NOT NULL" +
-                  //  " CONSTRAINT pkey PRIMARY KEY (_id,village_id)" +
+                    VILLAGE_ID + " INTEGER NOT NULL," +
+                    " CONSTRAINT pkey PRIMARY KEY (_id,village_id)" +
                     ")";
 
 
