@@ -34,11 +34,14 @@ import com.example.kylehirschfelder.ship.Translation;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class BirthInfoForm extends ActionBarActivity {
 
         Birth birth = new Birth();
         Translation TR = new Translation();
+    TextView spinner1, spinner2, spinner3, spinner4;
         Context context = this;
         BirthInfoDBHelper DB = new BirthInfoDBHelper(context);
         Spinner villageBlockSpinner, villageNameSpinner, villageOfBirthBlockSpinner, villageOfBirthSpinner;
@@ -46,9 +49,9 @@ public class BirthInfoForm extends ActionBarActivity {
         RadioButton[] villageOfBirthPlace = new RadioButton[6], pregnancyTime = new RadioButton[6], fadPresence = new RadioButton[2],
                 gender = new RadioButton[2];
         CheckBox[] deliveryMethod = new CheckBox[5];
-        DatePicker birthDate, healthMessengerDate, guideTestDate;
+        DatePicker birthDate,  guideTestDate;
         ArrayAdapter  villageOfBirthAdapter;
-        TextView motherVillageId, villageOfBirthId;
+        TextView motherVillageId, villageOfBirthId, healthMessengerDate;
         Button submit;
         int vSpinId, vobSpinId, flag, midwifeFlag = 0;
         String vSpin, vobSpin, temp;
@@ -72,9 +75,23 @@ public class BirthInfoForm extends ActionBarActivity {
             motherName = (EditText) findViewById(R.id.motherName);
             birthDate = (DatePicker) findViewById(R.id.birthDate);
 
+            healthMessengerDate = (TextView)findViewById(R.id.healthMessengerDate);
+
             curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
 
             translate = new Translation();
+
+            spinner1 = (TextView)findViewById(R.id.spinner1);
+            spinner2 = (TextView)findViewById(R.id.spinner2);
+            spinner3 = (TextView)findViewById(R.id.spinner3);
+            spinner4 = (TextView)findViewById(R.id.spinner4);
+
+            spinner1.setVisibility(View.GONE);
+            spinner2.setVisibility(View.GONE);
+            spinner3.setVisibility(View.GONE);
+            spinner4.setVisibility(View.GONE);
+
+
 
             villageBlockSpinner = (Spinner)findViewById(R.id.villageBlockSpinner);
             final ArrayAdapter villageBlockAdapter = ArrayAdapter.createFromResource(this,R.array.block_array,android.R.layout.simple_spinner_dropdown_item);
@@ -486,8 +503,13 @@ public class BirthInfoForm extends ActionBarActivity {
             birth.setHealthMessengerId(vhwId);
             birth.setGuideName(TR.Letter_M2E(supervisor));
             birth.setGuideId(supervisorId);
-            birth.setHealthMessengerDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
-            birth.setGuideTestDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
+         /*   birth.setHealthMessengerDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
+            birth.setGuideTestDate(String.valueOf(SystemClock.currentThreadTimeMillis()));*/
+
+            Date d = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            healthMessengerDate.setText(sdf.format(d));
+            birth.setHealthMessengerDate(healthMessengerDate.getText().toString());
 
             birth.setVillageId(String.valueOf(curVillage));
 

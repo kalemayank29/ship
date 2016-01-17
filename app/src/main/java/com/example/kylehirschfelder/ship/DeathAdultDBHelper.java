@@ -25,7 +25,7 @@ public class DeathAdultDBHelper extends SQLiteOpenHelper{
         public static final String VILLAGE_ID  = "village_id";
         public static final String BIRTH_DATE = "birth_date" ;//dp
         public static final String DEATH_DATE = "death_date" ;//dp
-
+        public static final String ID = "_id";
         public static final String AGE = "age" ;//dp
 
         public static final String VILLAGE_OF_DEATH = "village_of_death" ;//2 spinners
@@ -42,15 +42,11 @@ public class DeathAdultDBHelper extends SQLiteOpenHelper{
         public static final String GUIDE_ID = "guide_id" ;//et
         public static final String GUIDE_TEST_DATE = "guide_test_date" ;//dp
 
-        public static final String DATABASE_NAME = "SEARCH";
+        public static final String DATABASE_NAME = "SEARCH1";
         public static final String TABLE_NAME = "AdultDeathInfo";
 
         public String CREATE_QUERY = "CREATE TABLE "+ TABLE_NAME+
                 "("+
-
-              //  VILLAGE_OF_BIRTH+" TEXT,"+
-              //  VILLAGE_OF_BIRTH_ID+" TEXT,"+
-
                 NAME+" TEXT,"+
                 FAMILY_ID+" TEXT,"+
                 HOUSE_ID+" TEXT,"+
@@ -71,7 +67,9 @@ public class DeathAdultDBHelper extends SQLiteOpenHelper{
                 HEALTH_MESSENGER_DATE+" TEXT,"+
                 GUIDE_NAME+" TEXT,"+
                 GUIDE_ID+" TEXT,"+
-                GUIDE_TEST_DATE+")";
+                GUIDE_TEST_DATE+ " TEXT, " +
+                ID + " INTEGER PRIMARY KEY AUTOINCREMENT " +
+                ")";
 
         public DeathAdultDBHelper(Context context) {
             super(context, DATABASE_NAME, null, database_version);

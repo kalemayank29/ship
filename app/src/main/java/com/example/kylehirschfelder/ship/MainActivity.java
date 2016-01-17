@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity
         } catch (SQLException e) {
             e.printStackTrace();
         }*/
+
         Translation object = new Translation();
      /*  try {
             Member member = test.getRecent(1);
@@ -130,6 +131,9 @@ public class MainActivity extends AppCompatActivity
              ) {
             Log.println(Log.ASSERT,temp.getName(), String.valueOf(temp.getMemberId()));
         }*/
+
+       // Intent intent = new Intent(getApplicationContext(),BirthViewForm.class );
+        //startActivity(intent);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);

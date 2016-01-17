@@ -101,6 +101,11 @@ public class StillBirthDbHelper extends SQLiteOpenHelper {
         c = SQ.rawQuery("SELECT * FROM " + StillBirthDB.TableInfo.TABLE_NAME + " WHERE " + StillBirthDB.TableInfo.BIRTH_DEATH_DATE + " LIKE '" + birthDeathDate + "'", null);
         c.moveToFirst();
         int i = 0;
+
+        while(i < 23) {
+            Log.println(Log.ASSERT, "C", c.getString(i++));
+        }
+        i = 0;
         stillBirth.setMother(c.getString(i++));
         stillBirth.setFather(c.getString(i++));
         stillBirth.setGender(c.getString(i++));

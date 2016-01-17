@@ -1,9 +1,9 @@
 package com.example.kylehirschfelder.ship;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,20 +12,34 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.sql.SQLException;
 
-public class DeathChildForm extends AppCompatActivity {
+/**
+ * Created by poorwa on 16/1/16.
+ */
+public class DeathChildView extends AppCompatActivity {
     TextView memberId, villageName, villageId, familyId, houseId;
     MemberDataInterface memInterface;
     EditText name, age;
     Spinner villageStayBlockSpinner, villageStayNameSpinner,villageBirthBlockSpinner, villageBirthNameSpinner;
     Spinner villageDeathBlockSpinner, villageDeathNameSpinner;
+
     RadioGroup stillBirth;
+
+    boolean stillBirthFlag = false;
+
+    int stayVillagePosition = 0, birthVillagePosition = 0, deathVillagePosition = 0;
+
+    TextView villageStayBlockTV, villageStayNameTV, villageBirthBlockTV, villageBirthNameTV, villageDeathBlockTV,
+    villageDeathNameTV;
 
     ArrayAdapter villageStayNameAdapter;
     ArrayAdapter villageDeathNameAdapter;
@@ -47,33 +61,50 @@ public class DeathChildForm extends AppCompatActivity {
 
         Translation translation = new Translation();
         memId = Integer.parseInt(getIntent().getStringExtra("index"));
-
         //Log.println(Log.ASSERT,"memidintent", String.valueOf(memberId));
         MemberDataInterface dInterface = new MemberDataInterface(getApplicationContext());
         birthDate = (DatePicker) findViewById(R.id.BirthDate);
         deathDate = (DatePicker) findViewById(R.id.DeathDate);
 
         curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
+//        curVillage = 1;
+
+        DeathChildDataInterface childInterface = new DeathChildDataInterface(getApplicationContext());
+        child = childInterface.getInfo(memId);
 
         resident = Integer.parseInt(getIntent().getStringExtra("resident"));
         name = (EditText) findViewById(R.id.Name);
-        //name.setText(translation.Letter_E2M("nandan"));
+        name.setText(translate.Letter_E2M(child.getName()));
         age = (EditText) findViewById(R.id.Age);
+        age.setText(child.getAge());
+        //age.setVisibility(View.GONE);
         memberId = (TextView) findViewById(R.id.PersonId);
-       // memberId.setText("1");
+        memberId.setText(child.getMemberID());
+
+        stillBirth = (RadioGroup) findViewById(R.id.stillBirth);
+        ((RadioButton)stillBirth.getChildAt(Integer.parseInt(child.getStillBirth()))).setChecked(true);
         // villageName = (TextView) findViewById(R.id.VillageName);
         // villageId = (TextView) findViewById(R.id.VillageId);
-        //curVillage = 1;
         familyId = (TextView) findViewById(R.id.FamilyId);
+        familyId.setText(child.getFamilyID());
         houseId = (TextView) findViewById(R.id.HouseId);
+        houseId.setText(child.getHouseID());
+        villageBirthBlockTV = (TextView) findViewById(R.id.villageBirthBlockTV);
+        villageBirthNameTV = (TextView) findViewById(R.id.villageBirthNameTV);
+        villageStayBlockTV = (TextView) findViewById(R.id.villageStayBlockTV);
+        villageStayNameTV = (TextView) findViewById(R.id.villageStayNameTV);
+        villageDeathBlockTV = (TextView) findViewById(R.id.villageDeathBlockTV);
+        villageDeathNameTV = (TextView) findViewById(R.id.villageDeathNameTV);
         villageStayId = (TextView) findViewById(R.id.VillageStayId);
+        villageStayId.setText(child.getMotherVillageID());
         villageDeathId = (TextView) findViewById(R.id.VillageDeathId);
+        villageDeathId.setText(child.getVillageOfDeathID());
         villageBirthId = (TextView) findViewById(R.id.VillageBirthId);
-        stillBirth = (RadioGroup) findViewById(R.id.stillBirth);
-        
+        villageBirthId.setText(child.getVillageOfBirthID());
+
         if (resident == 1) {
             try {
-                Member member = dInterface.getMember(memId,curVillage,1);
+                Member member = dInterface.getMember(memId, curVillage, 1);
                 child.setName(translation.Letter_E2M(member.getName()));
                 child.setMemberID(String.valueOf(member.getMemberId()));
                 child.setFamilyID(String.valueOf(member.getFamilyId()));
@@ -89,9 +120,9 @@ public class DeathChildForm extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        else if(resident == 0){
+        if(resident == 0){
             try {
-                Member member = dInterface.getMember(memId,curVillage, 1);
+                Member member = dInterface.getMember(memId, curVillage, 1);
                 child.setMemberID(String.valueOf(-1));
                 child.setFamilyID(String.valueOf(member.getFamilyId()));
                 child.setHouseID(String.valueOf(member.getHouseId()));
@@ -104,48 +135,172 @@ public class DeathChildForm extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        
-        else {
-            child.setMemberID("-1");
-            child.setFamilyID(String.valueOf("-1"));
-            child.setHouseID(String.valueOf("-1"));
-
-            memberId.setText(child.getMemberID());
-            familyId.setText(child.getFamilyID());
-            houseId.setText(child.getHouseID());
-
-            memberId.setEnabled(false);
-            familyId.setEnabled(false);
-            houseId.setEnabled(false);
-            
-        }
 
 
         villageStayBlockSpinner = (Spinner) findViewById(R.id.villageStayBlockSpinner);
         final ArrayAdapter villageStayBlockAdapter = ArrayAdapter.createFromResource(this, R.array.block_array, android.R.layout.simple_spinner_dropdown_item);
         villageStayBlockSpinner.setAdapter(villageStayBlockAdapter);
+        villageStayBlockSpinner.setVisibility(View.GONE);
+        villageStayBlockTV.setVisibility(View.VISIBLE);
+        villageStayBlockTV.setText(vSpin = translation.Letter_E2M(child.getMotherVillage()));
+
+        switch (villageStayBlockAdapter.getPosition(translation.Letter_E2M(child.getMotherVillage()))) {
+            case 1:
+                tempArray1 = getResources().getStringArray(R.array.non_resident);
+                tempArray2 = getResources().getStringArray(R.array.non_resident_array);
+                break;
+            case 2:
+                tempArray1 = getResources().getStringArray(R.array.gadchiroli_block_array);
+                tempArray2 = getResources().getStringArray(R.array.gadchiroli_villageId_array);
+                break;
+            case 3:
+                tempArray1 = getResources().getStringArray(R.array.dhanori_block_array);
+                tempArray2 = getResources().getStringArray(R.array.dhanori_villageId_array);
+                break;
+            case 4:
+                tempArray1 = getResources().getStringArray(R.array.kaarvaafa_block_array);
+                tempArray2 = getResources().getStringArray(R.array.kaarvaafa_villageId_array);
+                break;
+            case 5:
+                tempArray1 = getResources().getStringArray(R.array.aarmori_block_array);
+                tempArray2 = getResources().getStringArray(R.array.aarmori_villageId_array);
+                break;
+            case 6:
+                tempArray1 = getResources().getStringArray(R.array.chamorshi_block_array);
+                tempArray2 = getResources().getStringArray(R.array.chamorshi_villageId_array);
+                break;
+            default:
+                tempArray1 = getResources().getStringArray(R.array.non_resident);
+                tempArray2 = getResources().getStringArray(R.array.non_resident_array);
+                break;
+
+        }
+
+
+        for(int i = 0; i < tempArray2.length; i++) {
+            if(child.getMotherVillageID().equals(tempArray2[i])) {
+                stayVillagePosition = i;
+                break;
+            }
+        }
 
         villageStayNameSpinner = (Spinner) findViewById(R.id.villageStayNameSpinner);
         villageStayNameAdapter = ArrayAdapter.createFromResource(this, R.array.dot, android.R.layout.simple_spinner_dropdown_item);
         villageStayNameSpinner.setAdapter(villageStayNameAdapter);
+        villageStayNameSpinner.setVisibility(View.GONE);
+        villageStayNameTV.setVisibility(View.VISIBLE);
+        villageStayNameTV.setText(tempArray1[stayVillagePosition]);
 
 
         villageDeathBlockSpinner = (Spinner) findViewById(R.id.villageDeathBlockSpinner);
         final ArrayAdapter villageDeathBlockAdapter = ArrayAdapter.createFromResource(this, R.array.block_array, android.R.layout.simple_spinner_dropdown_item);
         villageDeathBlockSpinner.setAdapter(villageDeathBlockAdapter);
+        villageDeathBlockSpinner.setVisibility(View.GONE);
+        villageDeathBlockTV.setVisibility(View.VISIBLE);
+        villageDeathBlockTV.setText(vodSpin = translation.Letter_E2M(child.getVillageOfDeath()));
+
+        switch (villageDeathBlockAdapter.getPosition(translation.Letter_E2M(child.getVillageOfDeath()))) {
+            case 1:
+                tempArray1 = getResources().getStringArray(R.array.non_resident);
+                tempArray2 = getResources().getStringArray(R.array.non_resident_array);
+                break;
+            case 2:
+                tempArray1 = getResources().getStringArray(R.array.gadchiroli_block_array);
+                tempArray2 = getResources().getStringArray(R.array.gadchiroli_villageId_array);
+                break;
+            case 3:
+                tempArray1 = getResources().getStringArray(R.array.dhanori_block_array);
+                tempArray2 = getResources().getStringArray(R.array.dhanori_villageId_array);
+                break;
+            case 4:
+                tempArray1 = getResources().getStringArray(R.array.kaarvaafa_block_array);
+                tempArray2 = getResources().getStringArray(R.array.kaarvaafa_villageId_array);
+                break;
+            case 5:
+                tempArray1 = getResources().getStringArray(R.array.aarmori_block_array);
+                tempArray2 = getResources().getStringArray(R.array.aarmori_villageId_array);
+                break;
+            case 6:
+                tempArray1 = getResources().getStringArray(R.array.chamorshi_block_array);
+                tempArray2 = getResources().getStringArray(R.array.chamorshi_villageId_array);
+                break;
+            default:
+                tempArray1 = getResources().getStringArray(R.array.non_resident);
+                tempArray2 = getResources().getStringArray(R.array.non_resident_array);
+                break;
+
+        }
+
+
+        for(int i = 0; i < tempArray2.length; i++) {
+            if(child.getVillageOfDeathID().equals(tempArray2[i])) {
+                deathVillagePosition = i;
+                break;
+            }
+        }
+
 
         villageDeathNameSpinner = (Spinner) findViewById(R.id.villageDeathNameSpinner);
         villageDeathNameAdapter = ArrayAdapter.createFromResource(this, R.array.dot, android.R.layout.simple_spinner_dropdown_item);
         villageDeathNameSpinner.setAdapter(villageDeathNameAdapter);
+        villageDeathNameSpinner.setVisibility(View.GONE);
+        villageDeathNameTV.setVisibility(View.VISIBLE);
+        villageDeathNameTV.setText(tempArray1[deathVillagePosition]);
 
         villageBirthBlockSpinner = (Spinner) findViewById(R.id.villageBirthBlockSpinner);
         final ArrayAdapter villageBirthBlockAdapter = ArrayAdapter.createFromResource(this, R.array.block_array, android.R.layout.simple_spinner_dropdown_item);
         villageBirthBlockSpinner.setAdapter(villageBirthBlockAdapter);
+        villageBirthBlockSpinner.setVisibility(View.GONE);
+        villageBirthBlockTV.setVisibility(View.VISIBLE);
+        villageBirthBlockTV.setText(vobSpin = translation.Letter_E2M(child.getMotherVillage()));
+
+        switch (villageBirthBlockAdapter.getPosition(translation.Letter_E2M(child.getVillageOfBirth()))) {
+            case 1:
+                tempArray1 = getResources().getStringArray(R.array.non_resident);
+                tempArray2 = getResources().getStringArray(R.array.non_resident_array);
+                break;
+            case 2:
+                tempArray1 = getResources().getStringArray(R.array.gadchiroli_block_array);
+                tempArray2 = getResources().getStringArray(R.array.gadchiroli_villageId_array);
+                break;
+            case 3:
+                tempArray1 = getResources().getStringArray(R.array.dhanori_block_array);
+                tempArray2 = getResources().getStringArray(R.array.dhanori_villageId_array);
+                break;
+            case 4:
+                tempArray1 = getResources().getStringArray(R.array.kaarvaafa_block_array);
+                tempArray2 = getResources().getStringArray(R.array.kaarvaafa_villageId_array);
+                break;
+            case 5:
+                tempArray1 = getResources().getStringArray(R.array.aarmori_block_array);
+                tempArray2 = getResources().getStringArray(R.array.aarmori_villageId_array);
+                break;
+            case 6:
+                tempArray1 = getResources().getStringArray(R.array.chamorshi_block_array);
+                tempArray2 = getResources().getStringArray(R.array.chamorshi_villageId_array);
+                break;
+            default:
+                tempArray1 = getResources().getStringArray(R.array.non_resident);
+                tempArray2 = getResources().getStringArray(R.array.non_resident_array);
+                break;
+
+        }
+
+
+        for(int i = 0; i < tempArray2.length; i++) {
+            if(child.getVillageOfBirthID().equals(tempArray2[i])) {
+                birthVillagePosition = i;
+                break;
+            }
+        }
+
 
         villageBirthNameSpinner = (Spinner) findViewById(R.id.villageBirthNameSpinner);
         villageBirthNameAdapter = ArrayAdapter.createFromResource(this, R.array.dot, android.R.layout.simple_spinner_dropdown_item);
         villageBirthNameSpinner.setAdapter(villageBirthNameAdapter);
-        
+        villageBirthNameSpinner.setVisibility(View.GONE);
+        villageBirthNameTV.setVisibility(View.VISIBLE);
+        villageBirthNameTV.setText(tempArray1[birthVillagePosition]);
 
         villageStayBlockSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -310,14 +465,14 @@ public class DeathChildForm extends AppCompatActivity {
             }
         });
 
-        
-                                        //****** VILLAGE BIRTH  //****** 
-                                        //******************************\\
-                                        //******************************\\
-                                        //******************************\\
-                                        //******************************\\
-                                        //******************************\\
-                                        //******************************\\
+
+        //****** VILLAGE BIRTH  //******
+        //******************************\\
+        //******************************\\
+        //******************************\\
+        //******************************\\
+        //******************************\\
+        //******************************\\
 
 
         villageBirthBlockSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -400,13 +555,37 @@ public class DeathChildForm extends AppCompatActivity {
 
             }
         });
-    
 
-      
+
+
 
     }
+
+    public void updateVillage(View view) {
+        if(view.getId() == R.id.villageStayBlockTV || view.getId() == R.id.villageStayNameTV) {
+            villageStayBlockTV.setVisibility(View.GONE);
+            villageStayNameTV.setVisibility(View.GONE);
+            villageStayBlockSpinner.setVisibility(View.VISIBLE);
+            villageStayNameSpinner.setVisibility(View.VISIBLE);
+        }
+        else if(view.getId() == R.id.villageDeathBlockTV || view.getId() == R.id.villageDeathNameTV) {
+            villageDeathBlockTV.setVisibility(View.GONE);
+            villageDeathNameTV.setVisibility(View.GONE);
+            villageDeathBlockSpinner.setVisibility(View.VISIBLE);
+            villageDeathNameSpinner.setVisibility(View.VISIBLE);
+        }
+
+        else if(view.getId() == R.id.villageBirthBlockTV || view.getId() == R.id.villageBirthNameTV) {
+            villageBirthBlockTV.setVisibility(View.GONE);
+            villageBirthNameTV.setVisibility(View.GONE);
+            villageBirthBlockSpinner.setVisibility(View.VISIBLE);
+            villageBirthNameSpinner.setVisibility(View.VISIBLE);
+        }
+    }
+
+
     public void save_click(View view) throws SQLException {
- /*       resident = Integer.parseInt(getIntent().getStringExtra("resident"));
+        resident = Integer.parseInt(getIntent().getStringExtra("resident"));
         if (resident == 1) {
             String nameI = getIntent().getStringExtra("name");
             child.setName(nameI);
@@ -414,38 +593,26 @@ public class DeathChildForm extends AppCompatActivity {
             name.setEnabled(false);
         } else {
             child.setName(translate.Letter_M2E(name.getText().toString()));
-        }*/
-
-        /*
-
-        private String motherVillage, motherVillageID, villageOfBirth, villageOfBirthID;
-    private String villageId;
-    private String name, memberID, familyID, houseID, birthDate, deathDate,
-            age,                                                                // Should we split into months days years and hours
-            stillBirth, villageOfDeath, villageOfDeathID,healthMessenger, healthMessengerId,
-            healthMessengerDate, guideName, guideId, guideTestDate;
-
-         */
-
+        }
 
         child.setMotherVillage(translate.Letter_M2E(vSpin));
         child.setMotherVillageID(villageStayId.getText().toString());
+//        child.setName(name.getText().toString());
 
         child.setVillageOfBirth(translate.Letter_M2E(vobSpin));
         child.setVillageOfBirthID(villageBirthId.getText().toString());
-
-        child.setVillageId(String.valueOf(curVillage));
-        child.setName(translate.Letter_M2E(name.getText().toString()));
-       // child.setMemberID("1");
         //child.setFamilyID("1");
         //child.setHouseID("1");
-        // child.setChildID("1");
+        //child.setVillageId("1");
+        child.setStillBirth(String.valueOf(stillBirth.indexOfChild(findViewById(stillBirth.getCheckedRadioButtonId()))));
         child.setBirthDate(birthDate.getDayOfMonth() + "-" + (birthDate.getMonth() + 1) + "-" + birthDate.getYear());
         child.setDeathDate(deathDate.getDayOfMonth() + "-" + (deathDate.getMonth() + 1) + "-" + deathDate.getYear());
-        if(child.getBirthDate().equals(child.getDeathDate()) && String.valueOf(stillBirth.indexOfChild(findViewById(stillBirth.getCheckedRadioButtonId()))).equals('0')){
-            child.setAge(age.getText().toString());
+
+        if (Integer.parseInt(child.getStillBirth()) == 0) {
+            //child.setAge(age.getText().toString());
+            stillBirthFlag = true;
+            Log.println(Log.ASSERT, "StillFlag update", String.valueOf(stillBirth.indexOfChild(findViewById(stillBirth.getCheckedRadioButtonId()))));
         }
-        else
             child.setAge(GetDate.getDate(birthDate.getYear(), birthDate.getMonth(), birthDate.getDayOfMonth(),
                     deathDate.getYear(), deathDate.getMonth(), deathDate.getDayOfMonth()));
 
@@ -454,18 +621,13 @@ public class DeathChildForm extends AppCompatActivity {
         child.setStillBirth(String.valueOf(stillBirth.indexOfChild(findViewById(stillBirth.getCheckedRadioButtonId()))));
 
         Log.println(Log.ASSERT, "AGE", child.getAge());
-        child.setStillBirth(String.valueOf(stillBirth.indexOfChild(findViewById(stillBirth.getCheckedRadioButtonId()))));
-        child.setVillageOfDeath(translate.Letter_M2E(vodSpin));
-        child.setVillageOfDeathID(villageDeathId.getText().toString());
 
         child.setHealthMessenger("XYZ");
         child.setHealthMessengerId("1");
         child.setGuideName("XYZ");
         child.setGuideId("1");
-
         child.setHealthMessengerDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
         child.setGuideTestDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
-        child.setVillageId(String.valueOf(curVillage));
         //  child.setVillageId(String.valueOf(curVillage));
 
         DeathChildDataInterface deathInterface = new DeathChildDataInterface(getApplicationContext());
@@ -475,23 +637,32 @@ public class DeathChildForm extends AppCompatActivity {
         //DB.insert   (birth);
         MemberDataInterface memInterface = new MemberDataInterface(getApplicationContext());
         // Translation translation = new Translation();
-
-
+        DeathChild deathChild = deathInterface.getRecent();
 
         //Log.println(Log.ASSERT,"member_id", String.valueOf(birth.getMemberId()));
-        deathInterface.insert(child);
+        deathInterface.update(child);
 
-        finish();
+        //if()
 
-        child = deathInterface.getRecent();
+        int month = GetDate.getMonths(child.getAge());
+        int years = GetDate.getYears(child.getAge());
+        int days = GetDate.getDays(child.getAge());
 
-         Intent intent = new Intent(this, DeathChildView.class);
-        intent.putExtra("name", child.getName());
-        intent.putExtra("index", String.valueOf(child.getId()));
-        intent.putExtra("resident", String.valueOf(resident));
-        Log.println(Log.ASSERT,"index",String.valueOf(child.getId()));
-        startActivity(intent);
-        finish();
+        if (years < 1 && (month > 0 && month < 6)) {
+            // COD1TO5
+        } else if (years == 0 && month == 0 && days == 0 && stillBirthFlag == true) {
+            //STILLBIRTH
+            Intent intent = new Intent(this, StillBirthForm.class);
+            intent.putExtra("index", String.valueOf(deathChild.getId()));
+            intent.putExtra("resident", String.valueOf(resident));
+            intent.putExtra("birth_death_date", deathChild.getBirthDate());
+            intent.putExtra("fam_id", String.valueOf(deathChild.getFamilyID()));
+            Log.println(Log.ASSERT, "index", String.valueOf(deathChild.getId()));
+            startActivity(intent);
+            finish();
+
+        }
+
 
         //  }
 

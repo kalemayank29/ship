@@ -626,5 +626,7 @@
     <string name="title_activity_cod5to15__main">Cod5to15_Main</string>
     <string name="title_activity_cod5to15__i">Cod5to15_I</string>
     <string name="title_activity_birth_supervisor">BirthSupervisor</string>
+    <string name="title_activity_birth_view_form">BirthViewForm</string>
+    <string name="title_activity_death_supervisor">DeathSupervisor</string>
 
 </resources>

@@ -38,7 +38,12 @@ public class DeathAdultDialog extends DialogFragment{
                                     startActivity(intent);
                                     break;
                                 case 2:
+                                    intent = new Intent(getActivity().getApplicationContext(), DeathAdultForm.class);
+                                    intent.putExtra("form","2");
+                                    intent.putExtra("resident","3");
+                                    startActivity(intent);
                                     break;
+
                             }
 
 

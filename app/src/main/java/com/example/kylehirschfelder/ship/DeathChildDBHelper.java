@@ -42,8 +42,8 @@ public class DeathChildDBHelper extends SQLiteOpenHelper {
     public static final String GUIDE_ID = "guide_id" ;
     public static final String GUIDE_TEST_DATE = "guide_test_date" ;
 
-    public static final String DATABASE_NAME = "SEARCH";
-    public static final String TABLE_NAME = "AdultDeathInfo";
+    public static final String DATABASE_NAME = "SEARCH5";
+    public static final String TABLE_NAME = "ChildDeathInfo";
 
     public String CREATE_QUERY = "CREATE TABLE "+ TABLE_NAME+
             "("+
@@ -55,11 +55,12 @@ public class DeathChildDBHelper extends SQLiteOpenHelper {
             VILLAGE_OF_BIRTH+" TEXT,"+
             VILLAGE_OF_BIRTH_ID+" TEXT,"+
 
+            VILLAGE_ID+ " TEXT," +
             NAME+" TEXT,"+
             FAMILY_ID+" TEXT,"+
             HOUSE_ID+" TEXT,"+
             MEMBER_ID+" TEXT," +
-            VILLAGE_ID+ " TEXT," +
+
             BIRTH_DATE+" TEXT,"+
             DEATH_DATE+" TEXT,"+
             AGE +" TEXT,"+

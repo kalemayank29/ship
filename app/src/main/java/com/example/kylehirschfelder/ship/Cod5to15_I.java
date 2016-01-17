@@ -741,9 +741,9 @@ flag = 1;*/
                 else
                     displayNextAlert();
 
-
-
-
+                CodFiveToFifteenDBHelper dbHelper = new CodFiveToFifteenDBHelper(getApplicationContext());
+                dbHelper.insert(CodFiveToFifteen.getInstance());
+                //CodFiveToFifteen.getInstance().destroy();
 
 
 

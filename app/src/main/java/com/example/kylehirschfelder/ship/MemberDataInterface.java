@@ -246,6 +246,8 @@ public class MemberDataInterface {
     public Member getMember(int id, int village_id, int cur) throws SQLException{
         this.openRead();
 
+        Log.println(Log.ASSERT,String.valueOf(id),String.valueOf(village_id));
+
         Member element = new Member();
         Cursor c = null;
         String selection = "_id=? AND village_id=?";     //unique member id

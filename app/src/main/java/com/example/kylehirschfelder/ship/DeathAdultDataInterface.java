@@ -11,7 +11,7 @@ import java.sql.SQLException;
 /**
  * Created by mayank on 12/24/15.
  */
-public class DeathAdultDataInterface {
+public class DeathAdultDataInterface  {
     private SQLiteDatabase database;
     private DeathAdultDBHelper dbHelper;
 
@@ -33,20 +33,22 @@ public class DeathAdultDataInterface {
     }
     /***************** END ***********************/
 
-    public void insert(DeathAdult death) {
+    public String insert(DeathAdult death) {
 
         SQLiteDatabase SQ = dbHelper.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
-       // cv.put(dbHelper.VILLAGE_OF_BIRTH, death.getVillageOfBirth());
+       // cv.put(dbHelper.VILLAG_OF_BIRTH, death.getVillageOfBirth());
         //cv.put(dbHelper.VILLAGE_OF_BIRTH_ID, death.getVillageOfBirthID());
+
+        Log.println(Log.ASSERT,"DBANME",death.getName());
 
 
         cv.put(dbHelper.NAME, death.getName());
         cv.put(dbHelper.FAMILY_ID, death.getFamilyID());
         cv.put(dbHelper.HOUSE_ID, death.getHouseID());
         cv.put(dbHelper.MEMBER_ID, death.getMemberID());
-        cv.put(dbHelper.VILLAGE_ID,death.getVillageId());
+        cv.put(dbHelper.VILLAGE_ID, death.getVillageId());
         cv.put(dbHelper.BIRTH_DATE, death.getBirthDate());
         cv.put(dbHelper.DEATH_DATE, death.getDeathDate());
         cv.put(dbHelper.AGE, death.getAge());
@@ -65,44 +67,132 @@ public class DeathAdultDataInterface {
         cv.put(dbHelper.GUIDE_TEST_DATE, death.getGuideTestDate());
 
         long z = SQ.insert(DeathAdultDBHelper.TABLE_NAME, null, cv);
-        Log.println(Log.ASSERT, "LOG", String.valueOf(z));
+
+        DeathAdult recent = getRecent();
+        String flag = "." + String.valueOf(recent.getId()) + "-0";
+        Log.println(Log.ASSERT,"flagDEATHADULT",flag);
+
+        SQ.close();
+
+        return flag;
+    }
+
+
+
+    public DeathAdult getInfo(int id) {
+        DeathAdult death = new DeathAdult();
+        Cursor c = null;
+        SQLiteDatabase SQ = dbHelper.getReadableDatabase();
+
+        c = SQ.rawQuery("SELECT * FROM " + dbHelper.TABLE_NAME + " WHERE _id = '" + id + "'", null);
+        c.moveToFirst();
+        int i = 0;
+      //c.moveToFirst();
+
+        death.setName(c.getString(i++));
+        death.setFamilyID(c.getString(i++));
+        death.setHouseID(c.getString(i++));
+        death.setMemberID(c.getString(i++));
+        death.setVillageId(c.getString(i++));
+        death.setBirthDate(c.getString(i++));
+        death.setDeathDate(c.getString(i++));
+        death.setAge(c.getString(i++));
+
+        death.setVillageOfDeath(c.getString(i++));
+        death.setVillageOfDeathID(c.getString(i++));
+
+        death.setVillageStay(c.getString(i++));
+        death.setVillageStayId(c.getString(i++));
+
+        death.setHealthMessenger(c.getString(i++));
+        death.setHealthMessengerId(c.getString(i++));
+        death.setHealthMessengerDate(c.getString(i++));
+        death.setGuideName(c.getString(i++));
+        death.setGuideId(c.getString(i++));
+        death.setGuideTestDate(c.getString(i++));
+
+        death.setId(Integer.parseInt(c.getString(i++)));
+
+        return death;
+
+    }
+
+    public DeathAdult getRecent(){
+
+        SQLiteDatabase SQ = dbHelper.getReadableDatabase();
+        Cursor c = null;
+
+
+        c = SQ.rawQuery("SELECT * FROM " + DeathAdultDBHelper.TABLE_NAME + " ORDER BY _id DESC LIMIT 1",null);
+
+        DeathAdult death = new DeathAdult();
+
+        if (c.moveToFirst()) {
+            int i = 0;
+            death.setName(c.getString(i++));
+            death.setFamilyID(c.getString(i++));
+            death.setHouseID(c.getString(i++));
+            death.setMemberID(c.getString(i++));
+            death.setVillageId(c.getString(i++));
+            death.setBirthDate(c.getString(i++));
+            death.setDeathDate(c.getString(i++));
+            death.setAge(c.getString(i++));
+
+            death.setVillageOfDeath(c.getString(i++));
+            death.setVillageOfDeathID(c.getString(i++));
+
+            death.setVillageStay(c.getString(i++));
+            death.setVillageStayId(c.getString(i++));
+
+            death.setHealthMessenger(c.getString(i++));
+            death.setHealthMessengerId(c.getString(i++));
+            death.setHealthMessengerDate(c.getString(i++));
+            death.setGuideName(c.getString(i++));
+            death.setGuideId(c.getString(i++));
+            death.setGuideTestDate(c.getString(i++));
+
+            death.setId(Integer.parseInt(c.getString(i++)));
+        }
+
+
+        return death;
+
+    }
+
+    public void update(DeathAdult death) {
+
+        SQLiteDatabase SQ = dbHelper.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+
+        String selection = "_id=?";
+        String[] args = {String.valueOf(death.getId())};
+
+        cv.put(dbHelper.ID,death.getId());
+        cv.put(dbHelper.NAME, death.getName());
+        cv.put(dbHelper.FAMILY_ID, death.getFamilyID());
+        cv.put(dbHelper.HOUSE_ID, death.getHouseID());
+        cv.put(dbHelper.MEMBER_ID, death.getMemberID());
+        cv.put(dbHelper.VILLAGE_ID, death.getVillageId());
+        cv.put(dbHelper.BIRTH_DATE, death.getBirthDate());
+        cv.put(dbHelper.DEATH_DATE, death.getDeathDate());
+        cv.put(dbHelper.AGE, death.getAge());
+
+        cv.put(dbHelper.VILLAGE_OF_DEATH, death.getVillageOfDeath());
+        cv.put(dbHelper.VILLAGE_OF_DEATH_ID, death.getVillageOfDeathID());
+
+        cv.put(dbHelper.VILLAGE_OF_STAY, death.getVillageStay());
+        cv.put(dbHelper.VILLAGE_OF_STAY_ID, death.getVillageStayId());
+
+        cv.put(dbHelper.HEALTH_MESSENGER, death.getHealthMessenger());
+        cv.put(dbHelper.HEALTH_MESSENGER_ID, death.getHealthMessengerId());
+        cv.put(dbHelper.HEALTH_MESSENGER_DATE, death.getHealthMessengerDate());
+        cv.put(dbHelper.GUIDE_NAME, death.getGuideName());
+        cv.put(dbHelper.GUIDE_ID, death.getGuideId());
+        cv.put(dbHelper.GUIDE_TEST_DATE, death.getGuideTestDate());
+
+        SQ.update(dbHelper.TABLE_NAME, cv, selection, args);
         SQ.close();
     }
 
-
-
-    public DeathAdult getInfo(int mem_id,int village_id){
-        DeathAdult death = new DeathAdult();
-        Cursor c;
-        SQLiteDatabase SQ = dbHelper.getReadableDatabase();
-        String selection = "member_id=? AND village_id=?";
-        String[] selectionArgs = new String[]{String.valueOf(mem_id),String.valueOf(village_id)};
-        c = SQ.query(DeathAdultDBHelper.TABLE_NAME, null,  selection, selectionArgs, null, null, null, null);
-        c.moveToFirst();
-        
-        death.setName(c.getString(0));
-        death.setFamilyID(c.getString(1));
-        death.setHouseID(c.getString(2));
-        death.setMemberID(c.getString(3));
-        death.setVillageId(c.getString(4));
-        death.setBirthDate(c.getString(5));
-        death.setDeathDate(c.getString(6));
-        death.setAge(c.getString(7));
-        death.setVillageStay(c.getString(8));
-        death.setVillageStayId(c.getString(9));
-        death.setVillageOfDeath(c.getString(10));
-        death.setVillageOfDeathID(c.getString(11));
-        death.setHealthMessenger(c.getString(12));
-        death.setHealthMessengerId(c.getString(13));
-        death.setHealthMessengerDate(c.getString(14));
-        death.setGuideName(c.getString(15));
-        death.setGuideId(c.getString(16));
-        death.setGuideTestDate(c.getString(17));
-        return death;
-    }
-
-    public void drop(){
-        SQLiteDatabase SQ = dbHelper.getWritableDatabase();
-        SQ.execSQL("DROP TABLE IF EXISTS " + dbHelper.TABLE_NAME);
-    }
 }

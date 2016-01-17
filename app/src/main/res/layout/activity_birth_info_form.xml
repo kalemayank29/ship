@@ -60,6 +60,17 @@
                     android:textSize="15dp"
                     android:text="मुलाच्या आईच्या गावाचा ब्लॉक"
                     />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="55dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner1"
+                    android:background="@drawable/spinner"
+                    android:textSize="20dp"
+                    />
                 <Spinner
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -79,8 +90,19 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/motherVillageNameText"
                     android:textSize="15dp"
-                    android:text="मुलाच्या आईचे नेहमी राहण्याचे गाव"
+                    android:text="मुलाच्या आईचे नेहमी राहण्याचे गाव"/>
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="55dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner2"
+                    android:background="@drawable/spinner"
+                    android:textSize="20dp"
                     />
+
                 <Spinner
                     android:layout_marginTop="65dp"
                     android:layout_width="150dp"
@@ -164,6 +186,18 @@
                             android:textSize="15dp"
                             android:textColor="#ffffdd"
                             android:text="जन्माचे गाव ब्लॉक"/>
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="55dp"
+                            android:textColor="#000000"
+                            android:textAlignment="center"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/spinner3"
+                            android:background="@drawable/spinner"
+                            android:textSize="20dp"
+                            />
                         <Spinner
                             android:layout_width="150dp"
                             android:layout_height="wrap_content"
@@ -173,6 +207,7 @@
                             android:spinnerMode="dropdown"
                             android:background="@drawable/spinner"
                             />
+
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -186,6 +221,18 @@
                             android:textSize="15dp"
                             android:textColor="#ffffdd"
                             android:text="जन्माचे गाव "/>
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="55dp"
+                            android:textColor="#000000"
+                            android:textAlignment="center"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/spinner4"
+                            android:textSize="20dp"
+                            android:background="@drawable/spinner"
+                            />
                         <Spinner
                             android:layout_width="150dp"
                             android:layout_height="wrap_content"
@@ -560,6 +607,15 @@
                             android:maxLines="1"
                             android:hint="ID"
                             android:textColorHint="#000000"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:textColor="#ffffdd"
+                            android:id="@+id/healthMessengerDate"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginLeft="100dp"
+                            android:visibility="invisible"/>
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -608,13 +664,24 @@
                             android:maxLines="1"
                             android:hint="ID"
                             android:textColorHint="#000000"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:textColor="#ffffdd"
+                            android:id="@+id/guideDate"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginLeft="100dp"
+                            android:visibility="invisible"/>
+
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-           <!-- "सुपरवायझर
-            जन्म माहिती
-            सुपरवायझर 'टॅब'  शी संपर्क साधा
-            सुपरवायझर 'टॅब' वर सर्व पाठवा "-->
+            <!-- "सुपरवायझर
+             जन्म माहिती
+             सुपरवायझर 'टॅब'  शी संपर्क साधा
+             सुपरवायझर 'टॅब' वर सर्व पाठवा "-->
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

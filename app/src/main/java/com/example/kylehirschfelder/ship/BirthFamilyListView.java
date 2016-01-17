@@ -63,6 +63,8 @@ public class BirthFamilyListView extends AppCompatActivity {
         resident =Integer.parseInt(getIntent().getStringExtra("resident"));
         form = Integer.parseInt(getIntent().getStringExtra("form"));        //1: Birth Mother  2: Death all Family
 
+        Log.println(Log.ASSERT, "LOG", "" + resident + " " + form);
+
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -143,6 +145,22 @@ public class BirthFamilyListView extends AppCompatActivity {
                     if(resident == 1){
                         Intent intent = new Intent(BirthFamilyListView.this,MemberFamilyFromHeadListView.class);
                         intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
+                        intent.putExtra("resident", "1");
+                        intent.putExtra("form","2");
+                        startActivity(intent);
+                    }
+                    if(resident == 0){
+                        Intent intent = new Intent(BirthFamilyListView.this,DeathAdultForm.class);
+                        intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getMemberId()));
+                        intent.putExtra("resident", "0");
+                        startActivity(intent);
+                    }
+                }
+                else if(form == 3){
+                    if(resident == 1){
+                        Intent intent = new Intent(BirthFamilyListView.this,MemberFamilyFromHeadListView.class);
+                        intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
+                        intent.putExtra("form","3");
                         intent.putExtra("resident", "1");
                         startActivity(intent);
                     }

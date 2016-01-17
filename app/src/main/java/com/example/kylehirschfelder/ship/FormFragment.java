@@ -31,7 +31,7 @@ import java.util.List;
 
 public class FormFragment extends Fragment {
 
-    Button censusButton, memberButton, birthButton, deathButton, familyButton,pnm;
+    Button censusButton, memberButton, birthButton, deathButton, familyButton,pnm, deathChild;
 
     View myView;
     @Nullable
@@ -46,12 +46,22 @@ public class FormFragment extends Fragment {
         familyButton = (Button) myView.findViewById(R.id.familyBtn);
         deathButton = (Button) myView.findViewById(R.id.deathBtn);
         pnm = (Button) myView.findViewById(R.id.pnm);
+        deathChild = (Button)myView.findViewById(R.id.deathChild);
 
         pnm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                   Intent intent = new Intent(getActivity().getApplicationContext(), CodFifteenForm.class);
                 startActivity(intent);
+            }
+        });
+
+        deathChild.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DeathChildDialog dialog = new DeathChildDialog();
+                FragmentManager manager = getActivity().getFragmentManager();
+                dialog.show(manager, "deathFrag");
             }
         });
 
@@ -70,6 +80,7 @@ public class FormFragment extends Fragment {
 
                 // ***** CODE THAT IS SUPPOSED TO BE WORKING IN THE FINAL VERSION ABOVE ***** \\
 /*
+
                 BirthInfoDBHelper dbHelper = new BirthInfoDBHelper(getActivity().getApplicationContext());
                 List<Birth> birthList = dbHelper.getAll();
                 for (Birth element: birthList

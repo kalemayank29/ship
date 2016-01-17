@@ -19,15 +19,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BirthSupervisor extends AppCompatActivity {
+public class DeathSupervisor extends AppCompatActivity {
+
     ListView lv;
-    BirthInfoDBHelper birthInfoDBHelper;
-    ArrayAdapter<Birth> birthAdapter;
-    List<Birth> birthList;
+    DeathAdultDataInterface deathAdultDataInterface;
+    ArrayAdapter<DeathAdult> deathAdapter;
+    List<DeathAdult> deathList;
     int longClickItemIndex, familyId;
     private static final int VIEW = 0;
     Activity activity;
@@ -35,37 +35,37 @@ public class BirthSupervisor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_birth_supervisor);
+        setContentView(R.layout.activity_death_supervisor);
 
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        String birthShared = preferences.getString("birth","default");
+        String deathShared = preferences.getString("deathA","default");
 
 
         lv = (ListView) findViewById(R.id.femMemListView);
-        birthInfoDBHelper = new BirthInfoDBHelper(getApplicationContext());
-        birthList = new ArrayList<Birth>();
+        deathAdultDataInterface = new DeathAdultDataInterface(getApplicationContext());
+        deathList = new ArrayList<DeathAdult>();
         Upload upload = new Upload("URL");
 
-       List<Integer> list = upload.idList(birthShared,0);
+        List<Integer> list = upload.idList(deathShared,0);
 
         for (int id: list
-             ) {
-            Birth result = birthInfoDBHelper.getInfo(id);
-            birthList.add(result);
+                ) {
+            DeathAdult result = deathAdultDataInterface.getInfo(id);
+            deathList.add(result);
         }
 
-       Log.println(Log.ASSERT,"update", upload.updateFlags(list, 0  ,birthShared ));
-       // birthList = birthInfoDBHelper.getAll();
+        //Log.println(Log.ASSERT, "update", upload.updateFlags(list, 0, deathShared));
+        // deathList = deathInfoDBHelper.getAll();
 
-        Log.println(Log.ASSERT,"Member Fam List size", String.valueOf(birthList.size()));
+        Log.println(Log.ASSERT,"Member Fam List size", String.valueOf(deathList.size()));
 
         activity = this;
 
         registerForContextMenu(lv);
         populateList();
 
-       lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -76,19 +76,19 @@ public class BirthSupervisor extends AppCompatActivity {
     }
 
     public void populateList() {
-        birthAdapter = new birthListAdapter(this.birthList, getApplicationContext());
-        lv.setAdapter( birthAdapter);
-        birthAdapter.notifyDataSetChanged();
+        deathAdapter = new deathListAdapter(this.deathList, getApplicationContext());
+        lv.setAdapter( deathAdapter);
+        deathAdapter.notifyDataSetChanged();
     }
 
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case VIEW:
-                Intent viewIntent = new Intent(getApplicationContext(), BirthViewForm.class);
-                viewIntent.putExtra("index", String.valueOf(birthList.get(longClickItemIndex).getChildID()));
-             //   viewIntent.putExtra("house", String.valueOf(memberFamList.get(longClickItemIndex).getHouseId()));
-              //  viewIntent.putExtra("resident", "1");
-               // viewIntent.putExtra("name", String.valueOf(memberFamList.get(longClickItemIndex).getName()));
+                Intent viewIntent = new Intent(getApplicationContext(), DeathAdultView.class);
+                viewIntent.putExtra("index", String.valueOf(deathList.get(longClickItemIndex).getId()));
+                //   viewIntent.putExtra("house", String.valueOf(memberFamList.get(longClickItemIndex).getHouseId()));
+                //  viewIntent.putExtra("resident", "1");
+                // viewIntent.putExtra("name", String.valueOf(memberFamList.get(longClickItemIndex).getName()));
                 startActivity(viewIntent);
                 break;
 
@@ -99,20 +99,16 @@ public class BirthSupervisor extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo info) {
         super.onCreateContextMenu(menu, view, info);
         menu.setHeaderTitle("OPTIONS");
-        menu.add(Menu.NONE, VIEW, menu.NONE, "Birth slip BHARA");
+        menu.add(Menu.NONE, VIEW, menu.NONE, "DeathAdult slip BHARA");
 
     }
 
 
 
-
-
-
-
-    private class birthListAdapter extends ArrayAdapter<Birth> {
+    private class deathListAdapter extends ArrayAdapter<DeathAdult> {
         Context context;
-        List<Birth> memberFamList;
-        public birthListAdapter(List<Birth> memberFamList, Context context) {
+        List<DeathAdult> memberFamList;
+        public deathListAdapter(List<DeathAdult> memberFamList, Context context) {
             super(context, R.layout.family_head_list_item, memberFamList);
             this.context = context;
             this.memberFamList = memberFamList;
@@ -126,15 +122,15 @@ public class BirthSupervisor extends AppCompatActivity {
                 view = inflater.inflate(R.layout.birth_item_select_mother, parent, false);
             }
 
-           Birth birth = memberFamList.get(position);
+            DeathAdult death = memberFamList.get(position);
 
 
             Translation object = new Translation();
             TextView name = (TextView) view.findViewById(R.id.textNameB);
-            name.setText(object.Letter_E2M(birth.getMotherName()));
+            name.setText(object.Letter_E2M(death.getName()));
 
             TextView age = (TextView) view.findViewById(R.id.ageB);
-            age.setText(String.valueOf(birth.getMemberId()));
+            age.setText(String.valueOf(death.getAge()));
 
        /* TextView gender = (TextView) view.findViewById(R.id.sexB);
         String memberSex = String.valueOf(current.getSex());
@@ -156,7 +152,7 @@ public class BirthSupervisor extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_birth_supervisor, menu);
+        getMenuInflater().inflate(R.menu.menu_death_supervisor, menu);
         return true;
     }
 

@@ -92,13 +92,17 @@ public class Cod5to15_Main extends AppCompatActivity {
         DeathAdultDataInterface deathAdult = new DeathAdultDataInterface(getApplicationContext());
         MemberDataInterface memberDataInterface = new MemberDataInterface(getApplicationContext());
         Member member = null, head = null;
-        DeathAdult death = deathAdult.getInfo(Integer.parseInt(mem_id), village_id);
+        DeathAdult death = deathAdult.getInfo(Integer.parseInt(mem_id));
 
+
+        Log.println(Log.ASSERT,"memberid",death.getMemberID());
+       // Log.println(Log.ASSERT,"villageid", String.valueOf(village_id));
 
         if(resident.equals("1")){
+
             try{
-                member = memberDataInterface.getMember(Integer.parseInt(mem_id), 1, village_id);
-                head = memberDataInterface.getMember(member.getFamilyId(), 1, village_id);
+                member = memberDataInterface.getMember(Integer.parseInt(death.getMemberID()), village_id, 1 );
+                head = memberDataInterface.getMember(member.getFamilyId(), village_id,1 );
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -183,25 +187,25 @@ public class Cod5to15_Main extends AppCompatActivity {
                 CodFiveToFifteen.getInstance().setDeathAddress(deathAddress.getText().toString());
                 CodFiveToFifteen.getInstance().setDeathReason(deathReason.getText().toString());
 
-                if(Integer.parseInt(CodFiveToFifteen.getInstance().getFamilyHeadName()) == -1)                        flag = 1;
-                if(Integer.parseInt(CodFiveToFifteen.getInstance().getFamilyHeadCode()) == -1)                        flag = 1;
-                if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathPersonName()) == -1)                        flag = 1;
-                if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathPersonCode()) == -1)                        flag = 1;
-                if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathMotherName()) == -1)                        flag = 1;
-                if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathMotherCode()) == -1)                        flag = 1;
-                if(Integer.parseInt(CodFiveToFifteen.getInstance().getAnswererName()) == -1)                        flag = 1;
-                if(Integer.parseInt(CodFiveToFifteen.getInstance().getAnswererCode()) == -1)                        flag = 1;
+//                if(Integer.parseInt(CodFiveToFifteen.getInstance().getFamilyHeadName()) == -1)                        flag = 1;
+             //   if(Integer.parseInt(CodFiveToFifteen.getInstance().getFamilyHeadCode()) == -1)                        flag = 1;
+  //              if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathPersonName()) == -1)                        flag = 1;
+          //      if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathPersonCode()) == -1)                        flag = 1;
+    //            if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathMotherName()) == -1)                        flag = 1;
+            //    if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathMotherCode()) == -1)                        flag = 1;
+                if(CodFiveToFifteen.getInstance().getAnswererName() == "-1")                        flag = 1;
+                if(CodFiveToFifteen.getInstance().getAnswererCode() == "-1")                        flag = 1;
                 if(Integer.parseInt(CodFiveToFifteen.getInstance().getAnswererRelation()) == -1)                        flag = 1;
                 if(Integer.parseInt(CodFiveToFifteen.getInstance().getAnswererVicinity()) == -1)                        flag = 1;
-                if(Integer.parseInt(CodFiveToFifteen.getInstance().getAnswererAge()) == -1)                        flag = 1;
+                if(CodFiveToFifteen.getInstance().getAnswererAge() == "-1")                        flag = 1;
                 if(Integer.parseInt(CodFiveToFifteen.getInstance().getAnswererGender()) == -1)                        flag = 1;
                 if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathAge()) == -1)                        flag = 1;
                 if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathGender()) == -1)                        flag = 1;
                 if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathFamilyHeadRelation()) == -1)                        flag = 1;
-                if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathAddress()) == -1)                        flag = 1;
-                if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathDate()) == -1)                        flag = 1;
+                if(CodFiveToFifteen.getInstance().getDeathAddress() == "-1")                        flag = 1;
+//                if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathDate()) == -1)                        flag = 1;
                 if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathPlace()) == -1)                        flag = 1;
-                if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathReason()) == -1)                        flag = 1;
+                if(CodFiveToFifteen.getInstance().getDeathReason() == "-1")                        flag = 1;
 
                 if(flag == 1)
                     displayAlert();

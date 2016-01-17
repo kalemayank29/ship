@@ -96,7 +96,7 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
             SQ.close();
 
             Birth recent = getRecent();
-           String flag = "." + String.valueOf(recent.getChildID()) + "-1";
+           String flag = "." + String.valueOf(recent.getChildID()) + "-0";
             Log.println(Log.ASSERT,"flag",flag);
 
             return flag;
@@ -182,6 +182,47 @@ public class BirthInfoDBHelper extends SQLiteOpenHelper {
 
         }
 
+
+    public void updateUser(Birth birth) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(TableInfo.MOTHER_VILLAGE, birth.getMotherVillage());
+        cv.put(TableInfo.MOTHER_VILLAGE_ID, birth.getMotherVillageID());
+        cv.put(TableInfo.MOTHER_NAME, birth.getMotherName());
+        cv.put(TableInfo.FAMILY_ID, birth.getFamilyID());
+        cv.put(TableInfo.HOUSE_ID, birth.getHouseID());
+        cv.put(TableInfo.MEMBER_ID, Integer.parseInt(birth.getMemberId()));
+        cv.put(TableInfo.BIRTH_DATE, birth.getBirthDate());
+        cv.put(TableInfo.VILLAGE_OF_BIRTH, birth.getVillageOfBirth());
+        cv.put(TableInfo.VILLAGE_OF_BIRTH_ID, birth.getVillageOfBirthID());
+        cv.put(TableInfo.VILLAGE_OF_BIRTH_PLACE, birth.getVillageOfBirthPlace());
+        cv.put(TableInfo.DELIVERY_NAME, birth.getDeliveryName());
+        cv.put(TableInfo.DELIVERY_METHOD, birth.getDeliveryMethod());
+        cv.put(TableInfo.CHILD_GENDER, birth.getChildGender());
+        cv.put(TableInfo.PREGNANCY_TIME, birth.getPregnancyTime());
+        cv.put(TableInfo.FAD_PRESENCE, birth.getFadPresence());
+        cv.put(TableInfo.HEALTH_MESSENGER, birth.getHealthMessenger());
+        cv.put(TableInfo.HEALTH_MESSENGER_ID, birth.getHealthMessengerId());
+        cv.put(TableInfo.HEALTH_MESSENGER_DATE, birth.getHealthMessengerDate());
+        cv.put(TableInfo.GUIDE_NAME, birth.getGuideName());
+        cv.put(TableInfo.GUIDE_ID, birth.getGuideId());
+        cv.put(TableInfo.GUIDE_TEST_DATE, birth.getGuideTestDate());
+        cv.put(TableInfo.VILLAGE_ID, birth.getVillageId());
+        //String selection = TableInfo.CHILD_ID + " WHERE ?";
+      //  String[] args = {birth.getChildID()};
+        //DB.update(TableInfo.TABLE_NAME, values, TableInfo.F_ID + " = " + g, null);
+
+
+          //  DB.update(BirthInfoDB.TableInfo.TABLE_NAME, cv, selection, args);
+        DB.update(BirthInfoDB.TableInfo.TABLE_NAME, cv, TableInfo.CHILD_ID + "=" + birth.getChildID(), null);
+        //DB.update(TableInfo.TABLE_NAME, values, TableInfo.F_ID + " = '" + g + "'", null);
+        //DB.update(TableInfo.TABLE_NAME, values, TableInfo.F_ID +" = ? " + g , new String[] {g});
+        DB.close();
+
+
+    }
+    
+    
 
     public void deleteAll(){
         SQLiteDatabase db = this.getWritableDatabase();

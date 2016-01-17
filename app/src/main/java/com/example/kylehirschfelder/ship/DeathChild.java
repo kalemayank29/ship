@@ -4,10 +4,21 @@ package com.example.kylehirschfelder.ship;
  * Created by mayank on 1/9/16.
  */
 public class DeathChild {
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String motherVillage, motherVillageID, villageOfBirth, villageOfBirthID;
     private String villageId;
     private String name, memberID, familyID, houseID, birthDate, deathDate,
-            age,                                                                // Should we split into months days years and hours
+            age,                                                                // Should we split into months days years.
+                                                                                // Yes. - Poorwa
             stillBirth, villageOfDeath, villageOfDeathID,healthMessenger, healthMessengerId,
             healthMessengerDate, guideName, guideId, guideTestDate;
 

@@ -237,6 +237,22 @@
             android:name=".BirthSupervisor"
             android:label="@string/title_activity_birth_supervisor" >
         </activity>
+        <activity
+            android:name=".BirthViewForm"
+            android:label="@string/title_activity_birth_view_form" >
+        </activity>
+        <activity
+            android:name=".DeathAdultView"
+            android:label="Death Adult View" >
+        </activity>
+        <activity
+            android:name=".DeathChildView"
+            android:label="Death Child View" >
+        </activity>
+        <activity
+            android:name=".DeathSupervisor"
+            android:label="@string/title_activity_death_supervisor" >
+        </activity>
     </application>
 
 </manifest>

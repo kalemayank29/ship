@@ -16,7 +16,7 @@ public class Translation {
         String ret_eng = "";
         for(int i = 0; i < len; i++) {
             char a_char = marathi.charAt(i);
-            Log.println(Log.ASSERT, "char", Character.toString(a_char));
+            //Log.println(Log.ASSERT, "char", Character.toString(a_char));
             switch(a_char) {
                 case ' ':
                     ret_eng = ret_eng + " ";

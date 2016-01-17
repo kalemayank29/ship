@@ -82,7 +82,7 @@ public class Upload {
                 int length = replace.length();
                 //  Log.println(Log.ASSERT,"replaceLenght",String.valueOf(length));
                 builder.replace(index,index+length,replace);
-                //  Log.println(Log.ASSERT,"newstring",builder.toString());
+                  Log.println(Log.ASSERT,"newstring",builder.toString());
 
 
             counter++;

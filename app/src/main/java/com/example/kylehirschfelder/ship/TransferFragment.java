@@ -32,7 +32,7 @@ import java.sql.SQLException;
 
 public class TransferFragment extends Fragment {
 
-    Button memberButton, birthButton;
+    Button memberButton, birthButton, deathButton;
     View myView;
     @Nullable
     @Override
@@ -48,7 +48,15 @@ public class TransferFragment extends Fragment {
 
         birthButton = (Button)myView.findViewById(R.id.birthBtn);
         memberButton = (Button) myView.findViewById(R.id.memberBtn);
+        deathButton = (Button) myView.findViewById(R.id.deathBtn);
 
+        deathButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), DeathSupervisor.class);
+                startActivity(intent);
+            }
+        });
         birthButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

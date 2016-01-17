@@ -31,6 +31,7 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
     ArrayAdapter<Member> memberAdapter;
     List<Member> memberFamList;
     int longClickItemIndex, familyId,curVillage;
+    String form;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
         Member member = new Member();
         curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
         String index = getIntent().getStringExtra("index");
+        form = getIntent().getStringExtra("form");
         familyId = Integer.parseInt(index);
         Log.println(Log.ASSERT,"LOG FAM ID",index);
         lv = (ListView) findViewById(R.id.memberFamListView);
@@ -103,11 +105,21 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case VIEW:
-                Intent viewIntent = new Intent(getApplicationContext(), DeathAdultForm.class);
-                viewIntent.putExtra("index", String.valueOf(memberFamList.get(longClickItemIndex).getMemberId()));
-                viewIntent.putExtra("name", String.valueOf(memberFamList.get(longClickItemIndex).getName()));
-                viewIntent.putExtra("resident", "1");
-                startActivity(viewIntent);
+                if(form.equals("2")){
+                    Intent viewIntent = new Intent(getApplicationContext(), DeathAdultForm.class);
+                    viewIntent.putExtra("index", String.valueOf(memberFamList.get(longClickItemIndex).getMemberId()));
+                    viewIntent.putExtra("name", String.valueOf(memberFamList.get(longClickItemIndex).getName()));
+                    viewIntent.putExtra("resident", "1");
+                    startActivity(viewIntent);
+                }
+                else if(form.equals("3")){
+                    Intent viewIntent = new Intent(getApplicationContext(), DeathChildForm.class);
+                    viewIntent.putExtra("index", String.valueOf(memberFamList.get(longClickItemIndex).getMemberId()));
+                    viewIntent.putExtra("name", String.valueOf(memberFamList.get(longClickItemIndex).getName()));
+                    viewIntent.putExtra("resident", "1");
+                    startActivity(viewIntent);
+                }
+
                 break;
 
         }

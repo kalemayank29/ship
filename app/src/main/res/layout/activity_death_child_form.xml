@@ -80,13 +80,26 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_marginLeft="25dp"
-                    android:layout_marginTop="55dp"
+                    android:layout_marginTop="45dp"
                     android:textColor="#ffffdd"
                     android:textAlignment="center"
                     android:layout_height="wrap_content"
                     android:id="@+id/VillageStayBlockText"
                     android:textSize="15dp"
-                    android:text="mothers nehmi गावाचा ब्लॉक"
+                    android:text="आईचे नेहमी राहण्याचे गाव ब्लॉक"
+                    />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="65dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="40dp"
+                    android:id="@+id/villageStayBlockTV"
+                    android:background="@drawable/spinner"
+                    android:textSize="20sp"
+                    android:visibility="gone"
+                    android:onClick="updateVillage"
                     />
                 <Spinner
                     android:layout_width="150dp"
@@ -108,6 +121,19 @@
                     android:id="@+id/VillageStayNameText"
                     android:textSize="15dp"
                     android:text="नेहमी राहण्याचे गाव"
+                    />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="65dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="40dp"
+                    android:id="@+id/villageStayNameTV"
+                    android:background="@drawable/spinner"
+                    android:textSize="20sp"
+                    android:visibility="gone"
+                    android:onClick="updateVillage"
                     />
                 <Spinner
                     android:layout_marginTop="65dp"
@@ -159,7 +185,20 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/VillageBirthBlockText"
                     android:textSize="15dp"
-                    android:text="birth गावाचा ब्लॉक"
+                    android:text="जन्माचे गावा ब्लॉक"
+                    />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="65dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="40dp"
+                    android:id="@+id/villageBirthBlockTV"
+                    android:background="@drawable/spinner"
+                    android:textSize="20sp"
+                    android:visibility="gone"
+                    android:onClick="updateVillage"
                     />
                 <Spinner
                     android:layout_width="150dp"
@@ -180,7 +219,20 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/VillageBirthNameText"
                     android:textSize="15dp"
-                    android:text="birth राहण्याचे गाव"
+                    android:text="जन्माचे राहण्याचे गाव"
+                    />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="65dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="40dp"
+                    android:id="@+id/villageBirthNameTV"
+                    android:background="@drawable/spinner"
+                    android:textSize="20sp"
+                    android:visibility="gone"
+                    android:onClick="updateVillage"
                     />
                 <Spinner
                     android:layout_marginTop="65dp"
@@ -354,6 +406,36 @@
                     android:text=""
                     android:background="#cccccc"
                     />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#ffffdd"
+                    android:text="उपजत मृत्यू झाले होते का ?"/>
+                <RadioGroup
+                    android:layout_marginLeft="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/stillBirth">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:text="हो   "
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="नाही "
+                        android:textSize="25sp"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"/>
+                </RadioGroup>
+
             </LinearLayout>
 
             <LinearLayout
@@ -372,8 +454,22 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/VillageDeathBlockText"
                     android:textSize="15dp"
-                    android:text="death गावाचा ब्लॉक"
+                    android:text="मृत्यूचे गाव ब्लॉक"
                     />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="65dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="40dp"
+                    android:id="@+id/villageDeathBlockTV"
+                    android:background="@drawable/spinner"
+                    android:textSize="20sp"
+                    android:visibility="gone"
+                    android:onClick="updateVillage"
+                    />
+
                 <Spinner
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -393,7 +489,20 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/VillageDeathNameText"
                     android:textSize="15dp"
-                    android:text="Death che राहण्याचे गाव"
+                    android:text="नेहमी राहण्याचे गाव"
+                    />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="65dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="40dp"
+                    android:id="@+id/villageDeathNameTV"
+                    android:background="@drawable/spinner"
+                    android:textSize="20sp"
+                    android:visibility="gone"
+                    android:onClick="updateVillage"
                     />
                 <Spinner
                     android:layout_marginTop="65dp"

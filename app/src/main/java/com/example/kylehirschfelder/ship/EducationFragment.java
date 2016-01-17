@@ -33,6 +33,7 @@ public class EducationFragment extends Fragment {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("member", "");
         editor.putString("birth", "");
+        editor.putString("deathA", "");
         editor.putString("vhw", "Mayank Kale");
         editor.putString("supervisor", "Ryan Singh");
         editor.putString("vhwId","56");

@@ -20,15 +20,20 @@ import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class DeathAdultForm extends AppCompatActivity {
+public class DeathAdultView extends AppCompatActivity {
 
-    TextView memberId, villageName, villageId, familyId, houseId;
+    TextView memberId, villageName, villageId, familyId, houseId, villageStayBlockTV, villageStayNameTV, villageDeathBlockTV, villageDeathNameTV;
+
+    int stayVillagePosition = 0, deathVillagePosition = 0;
+
     MemberDataInterface memInterface;
     EditText name, age;
     Spinner villageStayBlockSpinner, villageStayNameSpinner;
     Spinner villageDeathBlockSpinner, villageDeathNameSpinner;
-    
+
     ArrayAdapter villageStayNameAdapter;
     ArrayAdapter villageDeathNameAdapter;
 
@@ -36,7 +41,7 @@ public class DeathAdultForm extends AppCompatActivity {
     Translation translate = new Translation();
     String vSpin, vodSpin;
     DatePicker birthDate, deathDate;
-    
+
     TextView villageStayId,villageDeathId;
     String[] tempArray1,tempArray2;
     int vSpinId,vodSpinId,memId,resident,curVillage;
@@ -47,34 +52,50 @@ public class DeathAdultForm extends AppCompatActivity {
         setContentView(R.layout.activity_death_adult_form);
 
         Translation translation = new Translation();
+        resident = Integer.parseInt(getIntent().getStringExtra("resident"));
 
-        //adult.setMemberID(String.valueOf(memId));
+       // memId = 2;
+        memId = Integer.parseInt(getIntent().getStringExtra("index"));
+
+        if(resident == 3){
+            memId = Integer.parseInt(getIntent().getStringExtra("_id"));
+        }
+        DeathAdultDataInterface dbInterface = new DeathAdultDataInterface(getApplicationContext());
+        //Log.println(Log.ASSERT, "index", String.valueOf(memId));
+
+
+
+            adult = dbInterface.getInfo(memId);
+
 
         MemberDataInterface dInterface = new MemberDataInterface(getApplicationContext());
         birthDate = (DatePicker) findViewById(R.id.BirthDate);
+
         deathDate = (DatePicker) findViewById(R.id.DeathDate);
 
-        curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
-
-
-        resident = Integer.parseInt(getIntent().getStringExtra("resident"));
+//        curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
 
         name = (EditText) findViewById(R.id.Name);
+        name.setText(translation.Letter_E2M(adult.getName()));
+
         age = (EditText) findViewById(R.id.Age);
+        age.setText(adult.getAge());
         memberId = (TextView) findViewById(R.id.PersonId);
-
-
+        memberId.setText(adult.getMemberID());
+        // villageName = (TextView) findViewById(R.id.VillageName);
+        // villageId = (TextView) findViewById(R.id.VillageId);
         familyId = (TextView) findViewById(R.id.FamilyId);
+        familyId.setText(adult.getFamilyID());
         houseId = (TextView) findViewById(R.id.HouseId);
-
-
+        houseId.setText(adult.getHouseID());
         villageStayId = (TextView) findViewById(R.id.VillageStayId);
+        villageStayId.setText(adult.getVillageStayId());
         villageDeathId = (TextView) findViewById(R.id.VillageDeathId);
+        villageDeathId.setText(adult.getVillageOfDeathID());
 
-        if (resident == 1) {
+/*        if (resident == 1) {
             try {
-                memId = Integer.parseInt(getIntent().getStringExtra("index"));
-                Member member = dInterface.getMember(memId, curVillage,1);
+                Member member = dInterface.getMember(memId, 1);
                 adult.setName(translation.Letter_E2M(member.getName()));
                 adult.setMemberID(String.valueOf(member.getMemberId()));
                 adult.setFamilyID(String.valueOf(member.getFamilyId()));
@@ -90,61 +111,126 @@ public class DeathAdultForm extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        else if(resident == 0){
-            memId = Integer.parseInt(getIntent().getStringExtra("index"));
-            adult.setMemberID("-1");
-            Member member = null;
-            try {
-                member = dInterface.getMember(memId, curVillage,1);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            adult.setFamilyID(String.valueOf(member.getFamilyId()));
-            adult.setHouseID(String.valueOf(member.getHouseId()));
-
-            memberId.setText(adult.getMemberID());
-            familyId.setText(adult.getFamilyID());
-            houseId.setText(adult.getHouseID());
-
-        }
-        else{
-            memId = -1;
-            Log.println(Log.ASSERT, "A", String.valueOf(memId));
-
-            adult.setMemberID("-1");
-            adult.setFamilyID(String.valueOf("-1"));
-            adult.setHouseID(String.valueOf("-1"));
-
-            memberId.setText(adult.getMemberID());
-            familyId.setText(adult.getFamilyID());
-            houseId.setText(adult.getHouseID());
-
-            memberId.setEnabled(false);
-            familyId.setEnabled(false);
-            houseId.setEnabled(false);
-        }
-
-        memId = Integer.parseInt(adult.getMemberID());
-        Log.println(Log.ASSERT, "B", String.valueOf(memId));
+*/
 
 
+
+        
         villageStayBlockSpinner = (Spinner) findViewById(R.id.villageStayBlockSpinner);
+        villageStayBlockTV = (TextView) findViewById(R.id.villageStayBlockTV);
         final ArrayAdapter villageStayBlockAdapter = ArrayAdapter.createFromResource(this, R.array.block_array, android.R.layout.simple_spinner_dropdown_item);
         villageStayBlockSpinner.setAdapter(villageStayBlockAdapter);
+        villageStayBlockSpinner.setVisibility(View.GONE);
+        villageStayBlockTV.setVisibility(View.VISIBLE);
+        villageStayBlockTV.setText(vSpin = translation.Letter_E2M(adult.getVillageStay()));
+
+        switch (villageStayBlockAdapter.getPosition(translation.Letter_E2M(adult.getVillageStay()))) {
+            case 1:
+                tempArray1 = getResources().getStringArray(R.array.non_resident);
+                tempArray2 = getResources().getStringArray(R.array.non_resident_array);
+                break;
+            case 2:
+                tempArray1 = getResources().getStringArray(R.array.gadchiroli_block_array);
+                tempArray2 = getResources().getStringArray(R.array.gadchiroli_villageId_array);
+                break;
+            case 3:
+                tempArray1 = getResources().getStringArray(R.array.dhanori_block_array);
+                tempArray2 = getResources().getStringArray(R.array.dhanori_villageId_array);
+                break;
+            case 4:
+                tempArray1 = getResources().getStringArray(R.array.kaarvaafa_block_array);
+                tempArray2 = getResources().getStringArray(R.array.kaarvaafa_villageId_array);
+                break;
+            case 5:
+                tempArray1 = getResources().getStringArray(R.array.aarmori_block_array);
+                tempArray2 = getResources().getStringArray(R.array.aarmori_villageId_array);
+                break;
+            case 6:
+                tempArray1 = getResources().getStringArray(R.array.chamorshi_block_array);
+                tempArray2 = getResources().getStringArray(R.array.chamorshi_villageId_array);
+                break;
+            default:
+                tempArray1 = getResources().getStringArray(R.array.non_resident);
+                tempArray2 = getResources().getStringArray(R.array.non_resident_array);
+                break;
+
+        }
+
+
+        for(int i = 0; i < tempArray2.length; i++) {
+            if(adult.getVillageStayId().equals(tempArray2[i])) {
+                stayVillagePosition = i;
+                break;
+            }
+        }
+
+//        villageBlockSpinner.setVisibility(View.GONE);
+//        villageNameSpinner.setVisibility(View.GONE);
+
 
         villageStayNameSpinner = (Spinner) findViewById(R.id.villageStayNameSpinner);
+        villageStayNameTV = (TextView) findViewById(R.id.villageStayNameTV);
         villageStayNameAdapter = ArrayAdapter.createFromResource(this, R.array.dot, android.R.layout.simple_spinner_dropdown_item);
         villageStayNameSpinner.setAdapter(villageStayNameAdapter);
+        villageStayNameSpinner.setVisibility(View.GONE);
+        villageStayNameTV.setVisibility(View.VISIBLE);
+        villageStayNameTV.setText(tempArray1[stayVillagePosition]);
+
 
 
         villageDeathBlockSpinner = (Spinner) findViewById(R.id.villageDeathBlockSpinner);
+        villageDeathBlockTV = (TextView) findViewById(R.id.villageDeathBlockTV);
         final ArrayAdapter villageDeathBlockAdapter = ArrayAdapter.createFromResource(this, R.array.block_array, android.R.layout.simple_spinner_dropdown_item);
         villageDeathBlockSpinner.setAdapter(villageDeathBlockAdapter);
+        villageDeathBlockSpinner.setVisibility(View.GONE);
+        villageDeathBlockTV.setVisibility(View.VISIBLE);
+        villageDeathBlockTV.setText(vodSpin = translation.Letter_E2M(adult.getVillageOfDeath()));
+        switch (villageDeathBlockAdapter.getPosition(translation.Letter_E2M(adult.getVillageOfDeath()))) {
+            case 1:
+                tempArray1 = getResources().getStringArray(R.array.non_resident);
+                tempArray2 = getResources().getStringArray(R.array.non_resident_array);
+                break;
+            case 2:
+                tempArray1 = getResources().getStringArray(R.array.gadchiroli_block_array);
+                tempArray2 = getResources().getStringArray(R.array.gadchiroli_villageId_array);
+                break;
+            case 3:
+                tempArray1 = getResources().getStringArray(R.array.dhanori_block_array);
+                tempArray2 = getResources().getStringArray(R.array.dhanori_villageId_array);
+                break;
+            case 4:
+                tempArray1 = getResources().getStringArray(R.array.kaarvaafa_block_array);
+                tempArray2 = getResources().getStringArray(R.array.kaarvaafa_villageId_array);
+                break;
+            case 5:
+                tempArray1 = getResources().getStringArray(R.array.aarmori_block_array);
+                tempArray2 = getResources().getStringArray(R.array.aarmori_villageId_array);
+                break;
+            case 6:
+                tempArray1 = getResources().getStringArray(R.array.chamorshi_block_array);
+                tempArray2 = getResources().getStringArray(R.array.chamorshi_villageId_array);
+                break;
+
+        }
+
+
+        for(int i = 0; i < tempArray2.length; i++) {
+            if(adult.getVillageOfDeathID().equals(tempArray2[i])) {
+                deathVillagePosition = i;
+                break;
+            }
+        }
 
         villageDeathNameSpinner = (Spinner) findViewById(R.id.villageDeathNameSpinner);
+        villageDeathNameTV = (TextView) findViewById(R.id.villageDeathNameTV);
         villageDeathNameAdapter = ArrayAdapter.createFromResource(this, R.array.dot, android.R.layout.simple_spinner_dropdown_item);
         villageDeathNameSpinner.setAdapter(villageDeathNameAdapter);
+        villageDeathNameSpinner.setVisibility(View.GONE);
+        villageDeathNameTV.setVisibility(View.VISIBLE);
+        villageDeathNameTV.setText(tempArray1[deathVillagePosition]);
 
+        
+        
 
         villageStayBlockSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -308,6 +394,8 @@ public class DeathAdultForm extends AppCompatActivity {
 
             }
         });
+        
+        
 
 
 
@@ -329,87 +417,103 @@ public class DeathAdultForm extends AppCompatActivity {
 */
 
     }
+    
+    public void updateVillage(View view) {
+        if(view.getId() == R.id.villageStayBlockTV || view.getId() == R.id.villageStayNameTV) { 
+                villageStayBlockTV.setVisibility(View.GONE);
+                villageStayNameTV.setVisibility(View.GONE);
+                villageStayBlockSpinner.setVisibility(View.VISIBLE);
+                villageStayNameSpinner.setVisibility(View.VISIBLE);
+        }
+        else if(view.getId() == R.id.villageDeathBlockTV || view.getId() == R.id.villageDeathNameTV) {
+            villageDeathBlockTV.setVisibility(View.GONE);
+            villageDeathNameTV.setVisibility(View.GONE);
+            villageDeathBlockSpinner.setVisibility(View.VISIBLE);
+            villageDeathNameSpinner.setVisibility(View.VISIBLE);
+        }
+    }
+    
     public void save_click(View view) throws SQLException {
 //        resident = Integer.parseInt(getIntent().getStringExtra("resident"));
-      /*  if (resident == 1) {
+/*        if (resident == 1) {
             String nameI = getIntent().getStringExtra("name");
             adult.setName(nameI);
             name.setText(translate.Letter_E2M(adult.getName()));
             name.setEnabled(false);
         } else {
             adult.setName(translate.Letter_M2E(name.getText().toString()));
-        }*/
-
-        /*
-
-        private String villageStay, villageStayId, villageId;
-    private String name, memberID, familyID, houseID, birthDate, deathDate,
-                    age, villageOfDeath,
-                    villageOfDeathID,healthMessenger, healthMessengerId,
-                    healthMessengerDate, guideName, guideId, guideTestDate;
-
-         */
-
+        }
+*/
+        adult.setName(translate.Letter_M2E(name.getText().toString()));
 
         adult.setVillageStay(translate.Letter_M2E(vSpin));
         adult.setVillageStayId(villageStayId.getText().toString());
 
-        adult.setName(translate.Letter_M2E(name.getText().toString()));
-//        adult.setName(name.getText().toString());
+       // adult.setMemberID(String.valueOf(memId));
+        adult.setFamilyID(familyId.getText().toString());
+        adult.setHouseID(houseId.getText().toString());
+
 
         adult.setBirthDate(birthDate.getDayOfMonth() + "-" + (birthDate.getMonth() + 1) + "-" + birthDate.getYear());
-        Log.println(Log.ASSERT, "Date", adult.getBirthDate());
         adult.setDeathDate(deathDate.getDayOfMonth() + "-" + (deathDate.getMonth() + 1) + "-" + deathDate.getYear());
         adult.setAge(age.getText().toString());
         adult.setVillageOfDeath(translate.Letter_M2E(vodSpin));
-        adult.setVillageOfDeathID(villageDeathId.getText().toString());
 
-        ///****** CHANGE *****//
+        adult.setVillageOfDeathID(villageDeathId.getText().toString());
         adult.setHealthMessenger("XYZ");
         adult.setHealthMessengerId("1");
         adult.setGuideName("XYZ");
         adult.setGuideId("1");
-        ///*******CHANGE*******//
-
 
         adult.setHealthMessengerDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
         adult.setGuideTestDate(String.valueOf(SystemClock.currentThreadTimeMillis()));
 
         adult.setVillageId(String.valueOf(curVillage));
-
+        //  adult.setVillageId(String.valueOf(curVillage));
 
         DeathAdultDataInterface deathInterface = new DeathAdultDataInterface(getApplicationContext());
 
         //     if(flag == 0) {
-       // Toast.makeText(getBaseContext(), "Form Submitted", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "Form Submitted", Toast.LENGTH_LONG).show();
         //DB.insert   (birth);
-       // MemberDataInterface memInterface = new MemberDataInterface(getApplicationContext());
-       // Translation translation = new Translation();
+        MemberDataInterface memInterface = new MemberDataInterface(getApplicationContext());
+        // Translation translation = new Translation();
 
 
-
+        /*if (resident == 1) {
+            Member member = new Member(Integer.parseInt(birth.getFamilyID()), Integer.parseInt(birth.getHouseID()), 0, translation.Letter_M2E("CHILD"), 0, Integer.parseInt(birth.getChildGender()), -1, "-1",
+                    "0", "0", "0", "0", "0", "0", curVillage);
+            memInterface.createMember(member, 1);
+            member = memInterface.getRecent(1);
+            birth.setMemberId(String.valueOf(member.getMemberId()));
+        } else if (resident == 0) {
+            birth.setMemberId("-1");
+        }
+*/
         //Log.println(Log.ASSERT,"member_id", String.valueOf(birth.getMemberId()));
-        String deathFlag = deathInterface.insert(adult);
-        DeathAdult recent = deathInterface.getRecent();
+        deathInterface.update(adult);
+
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String deathShared = preferences.getString("deathA","default");
 
-        deathShared += deathFlag;
-        Log.println(Log.ASSERT,"flagA", deathShared);
+        List<Integer> ids = new ArrayList<Integer>();
+        ids.add(memId);
+        Upload upload = new Upload("URL");
+        String deathResult = upload.updateFlags(ids,1,deathShared);
+
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("deathA", deathShared);
+        editor.putString("deathA",deathResult );
         editor.commit();
 
-        Toast.makeText(getApplicationContext(),"Inserted",Toast.LENGTH_SHORT).show();
+        if(Integer.parseInt(adult.getAge())>=5 && Integer.parseInt(adult.getAge())<=15){
+            Intent intent = new Intent(getApplicationContext(), Cod5to15_Main.class);
+            intent.putExtra("id",String.valueOf(adult.getId()));
+            //Log.println(Log.ASSERT,"ID", String.valueOf(adult.getId()));
+            intent.putExtra("resident",String.valueOf(resident));
+            startActivity(intent);
+        }
 
-        Intent intent = new Intent(this, DeathAdultView.class);
-        intent.putExtra("mem_id", String.valueOf(memId));
-        intent.putExtra("resident", String.valueOf(resident));
-        intent.putExtra("index", adult.getMemberID());
-        intent.putExtra("_id", String.valueOf(recent.getId()));
-        Log.println(Log.ASSERT,"index",String.valueOf(adult.getMemberID()));
-        startActivity(intent);
         finish();
         //  }
 

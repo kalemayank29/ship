@@ -22,4 +22,14 @@
         android:textColor="#ffffff"
         android:background="@drawable/button_pressed"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Death Form"
+        android:layout_marginLeft="400dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/deathBtn"
+        android:textColor="#ffffff"
+        android:background="@drawable/button_pressed"/>
+
 </LinearLayout>
