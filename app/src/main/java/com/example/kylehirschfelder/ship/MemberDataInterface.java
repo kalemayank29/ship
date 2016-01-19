@@ -355,7 +355,7 @@ public class MemberDataInterface {
         List<Member> memberList = new ArrayList<Member>();
         SQLiteDatabase db = dbHelper.getWritableDatabase();         // Don't know why we need a writable db.
         Cursor cursor = null;
-        cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR + " WHERE name LIKE '" + name + " %'", null);
+        cursor = db.rawQuery("SELECT * FROM " + dbHelper.TABLE_MEMBERCUR + " WHERE name LIKE '" + name + "%'", null);
 
 
         //Log.println(Log.ASSERT, "CURSOR SIZE: ", String.valueOf(cursor.getCount()));

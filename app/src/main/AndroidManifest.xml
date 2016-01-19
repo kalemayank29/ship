@@ -98,7 +98,7 @@
         <activity
             android:name=".BirthFamilyListView"
             android:label="@string/title_activity_birth_family_list_view"
-            android:screenOrientation="portrait" >
+             >
         </activity>
         <activity
             android:name=".BirthInfoForm"
@@ -163,7 +163,7 @@
         </activity>
         <activity
             android:name=".SearchSEARCH"
-            android:label="@string/title_activity_pnmform_other" >
+            android:label="searchSEARCH" >
         </activity>
         <activity
             android:name=".VideoPlayer"
@@ -277,6 +277,7 @@
             android:name=".StrokeView"
             android:label="StrokeView" >
         </activity>
+
 
     </application>
 

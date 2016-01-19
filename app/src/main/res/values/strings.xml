@@ -593,7 +593,7 @@
     <string name="title_activity_transfer_portal">TransferPortal</string>
     <string name="title_activity_house_transfer_portal">HouseTransferPortal</string>
     <string name="title_activity_house_transfer_list">HouseTransferList</string>
-    <string name="title_activity_birth_family_list_view">BirthFamilyListView</string>
+    <string name="title_activity_birth_family_list_view">कुटुंब प्रमुख लिस्ट</string>
     <string name="title_activity_birth_select_mother">BirthSelectMother</string>
     <string name="title_activity_new_census_form">NewCensusForm</string>
     <string name="title_activity_patient_list">PatientList</string>

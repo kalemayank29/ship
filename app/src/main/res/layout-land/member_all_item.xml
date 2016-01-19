@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:layout_marginTop="5dp">
 
-    <TextView
+   <!-- <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -14,13 +14,13 @@
         android:textSize="20dp"
         android:textColor="#465362"
         android:layout_marginTop="3dp"
-        android:layout_marginBottom="3dp"/>
+        android:layout_marginBottom="3dp"/>-->
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="30dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Family id"
         android:id="@+id/familyId"
@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="145dp"
+        android:layout_marginLeft="10dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Name"
         android:id="@+id/textName"

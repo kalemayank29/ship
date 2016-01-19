@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity
       //  Member result = test.getLastMember(12);
       //  Log.println(Log.ASSERT,"lastmember", String.valueOf(result.getMemberId()));
 
+
        // test.getAllMembers(1);
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences( getApplicationContext());
@@ -132,8 +133,8 @@ public class MainActivity extends AppCompatActivity
             Log.println(Log.ASSERT,temp.getName(), String.valueOf(temp.getMemberId()));
         }*/
 
-//        Intent intent = new Intent(getApplicationContext(),PNMForm_ask.class );
-  //      startActivity(intent);
+       // Intent intent = new Intent(getApplicationContext(), SearchSEARCH.class);
+       // startActivity(intent);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);

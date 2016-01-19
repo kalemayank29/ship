@@ -20,7 +20,6 @@
         android:layout_marginTop="20dp"
         android:text="Search"
         android:id="@+id/searchButton"
-
         />
 
     </LinearLayout>

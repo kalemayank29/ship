@@ -342,8 +342,8 @@ public boolean onOptionsItemSelected(MenuItem item) {
 
             Member currentHead = memberList.get(position);
 
-            TextView id = (TextView) view.findViewById(R.id.textId);
-            id.setText(String.valueOf(currentHead.getMemberId()));
+            //TextView id = (TextView) view.findViewById(R.id.textId);
+            //id.setText(String.valueOf(currentHead.getMemberId()));
 
             Translation object = new Translation();
             TextView head = (TextView) view.findViewById(R.id.textHead);

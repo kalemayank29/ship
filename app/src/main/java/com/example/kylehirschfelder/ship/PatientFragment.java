@@ -150,8 +150,8 @@ public class PatientFragment extends Fragment  {
 
             Member currentHead = memberList.get(position);
 
-            TextView Hid = (TextView) view.findViewById(R.id.houseIdM);
-            Hid.setText(String.valueOf(currentHead.getHouseId()));
+           // TextView Hid = (TextView) view.findViewById(R.id.houseIdM);
+          //  Hid.setText(String.valueOf(currentHead.getHouseId()));
 
             TextView Fid = (TextView) view.findViewById(R.id.familyId);
             Fid.setText(String.valueOf(currentHead.getFamilyId()));

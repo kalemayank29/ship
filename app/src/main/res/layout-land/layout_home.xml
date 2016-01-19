@@ -93,13 +93,13 @@
                     android:text="2674"
                     android:layout_gravity="center_horizontal" />
 
-                <Button
+            <!--    <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:layout_marginLeft="200dp"
                     android:text="Change Village"
-                    android:id="@+id/changeVillage"/>
+                    android:id="@+id/changeVillage"/>-->
 
             </LinearLayout>
 

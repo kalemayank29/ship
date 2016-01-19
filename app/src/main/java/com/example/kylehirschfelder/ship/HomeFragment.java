@@ -21,8 +21,8 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.layout_home, container,false);
-        selectVillage = (Button) myView.findViewById(R.id.changeVillage);
-        selectVillage.setOnClickListener(new View.OnClickListener() {
+       // selectVillage = (Button) myView.findViewById(R.id.changeVillage);
+       /* selectVillage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //VillageSelectDialog dialog = new VillageSelectDialog();
@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
+*/
         return myView;
 
     }

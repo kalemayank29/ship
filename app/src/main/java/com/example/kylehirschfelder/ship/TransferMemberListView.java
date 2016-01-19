@@ -188,9 +188,8 @@ public class TransferMemberListView extends AppCompatActivity {
             TextView id = (TextView) view.findViewById(R.id.familyId);
             id.setText(String.valueOf(currentMember.getFamilyId()));
 
-            TextView Hid = (TextView) view.findViewById(R.id.houseIdM);
-           Hid.setText(String.valueOf(currentMember.getHouseId()));
-
+         //   TextView Hid = (TextView) view.findViewById(R.id.houseIdM);
+//
             Translation object = new Translation();
             TextView name = (TextView) view.findViewById(R.id.textName);
             name.setText(object.Letter_E2M(currentMember.getName()));
