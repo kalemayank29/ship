@@ -3,4 +3,125 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <!--<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Census Form"
+        android:id="@+id/censusBtn"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="125dp"/>-->
+
+    <!--<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Member Form"
+        android:id="@+id/memberBtn"
+        android:layout_gravity="center_horizontal" />-->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:gravity="center"
+        android:layout_marginTop="70dp">
+
+       <!-- <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Birth Form"
+            android:id="@+id/birthBtn"
+            android:layout_gravity="center_horizontal" />
+
+-->
+
+            <Button
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:id="@+id/familyBtn"
+                android:textSize="15sp"
+                android:drawableTop="@drawable/noun_118248_cc"
+                android:text="Census \nRegistration"
+                 />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/birthBtn"
+                android:drawableTop="@drawable/noun_49530_cc"
+                android:textSize="15sp"
+                android:paddingTop="8dp"
+                android:text="Birth \nInformation"
+                android:layout_marginLeft="15dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            >
+            <Button
+            android:layout_width="127dp"
+            android:layout_height="127dp"
+            android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:paddingTop="15dp"
+            android:text="PNM"
+            android:textSize="15sp"
+            android:drawableTop="@drawable/noun_273609_cc"
+            android:id="@+id/pnm"
+            android:layout_gravity="center_horizontal"/>
+            <Button
+                android:layout_width="127dp"
+                android:layout_height="127dp"
+                android:layout_marginTop="30dp"
+                android:paddingTop="18dp"
+                android:layout_marginLeft="15dp"
+                android:text="Death Form"
+                android:drawableTop="@drawable/noun_270414_cc"
+                android:id="@+id/deathBtn"
+                android:layout_gravity="center_horizontal"/>
+</LinearLayout>
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="30dp"
+            android:drawableTop="@drawable/noun_49531_cc"
+            android:text="Death Child Form"
+            android:id="@+id/deathChild"
+            android:layout_gravity="center_horizontal"/>
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            android:paddingTop="20dp"
+            android:text="Stroke Form"
+            android:id="@+id/stroke"
+            android:drawableTop="@drawable/rsz_noun_45453_cc"
+            android:layout_gravity="center_horizontal"/>
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            android:paddingTop="15dp"
+            android:drawableTop="@drawable/rsz_noun_100221_cc"
+            android:text=" Medicine Inventory"
+            android:id="@+id/medicineInventory"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+
 </LinearLayout>
