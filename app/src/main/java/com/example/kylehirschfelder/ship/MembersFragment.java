@@ -122,9 +122,9 @@ public class MembersFragment extends Fragment{
             case UPMEM:
                 Intent updateIntent = new Intent(getActivity(),MemberFormUpdate.class);
                 updateIntent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getMemberId()));
-                if(head.isSynced(memberList.get(longClickItemIndex).getMemberId(),1) == 1)
+            //    if(head.isSynced(memberList.get(longClickItemIndex).getMemberId(),1) == 1)
                     startActivity(updateIntent);
-                else
+              //  else
                     Toast.makeText(getActivity(),"आता संपादित करू शकत नाही",Toast.LENGTH_LONG).show();
                 break;
             case VIEWHOUSE:

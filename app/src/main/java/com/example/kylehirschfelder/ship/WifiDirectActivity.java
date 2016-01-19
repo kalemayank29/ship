@@ -341,11 +341,11 @@ public class WifiDirectActivity extends AppCompatActivity implements WifiP2pMana
         protected void onPostExecute(String result) {
             Intent intent = null;
             MemberDataInterface sync = new MemberDataInterface(context);
-            try {
+            /*try {
                 sync.setAllSync(0);
             } catch (SQLException e) {
                 e.printStackTrace();
-            }
+            }*/
             String activityFlag = mActivity.getIntent().getStringExtra("activityFlag");
             if(activityFlag.equals("1"))
             {

@@ -12,24 +12,44 @@
         android:id="@+id/memberBtn"
         android:textColor="#ffffff"
         android:background="@drawable/button_pressed"/>
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Birth Form"
-        android:layout_marginLeft="400dp"
-        android:layout_marginTop="50dp"
-        android:id="@+id/birthBtn"
-        android:textColor="#ffffff"
-        android:background="@drawable/button_pressed"/>
+        android:orientation="horizontal">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Death Form"
-        android:layout_marginLeft="400dp"
-        android:layout_marginTop="50dp"
-        android:id="@+id/deathBtn"
-        android:textColor="#ffffff"
-        android:background="@drawable/button_pressed"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="Birth Form"
+            android:layout_marginLeft="400dp"
+            android:layout_marginTop="50dp"
+            android:id="@+id/birthBtn"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_pressed"/>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="Push All"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="50dp"
+            android:id="@+id/push"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_pressed"/>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Death Form"
+            android:layout_marginLeft="400dp"
+            android:layout_marginTop="50dp"
+            android:id="@+id/deathBtn"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_pressed"/>
+
+
+
 
 </LinearLayout>

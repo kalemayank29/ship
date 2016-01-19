@@ -57,6 +57,8 @@ public class CensusForm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_census_form);
 
+
+
         flagCensus = getIntent().getStringExtra("flagCensus");
         flagFamily = getIntent().getStringExtra("flagFamily");
 

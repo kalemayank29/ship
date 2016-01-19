@@ -105,6 +105,7 @@ public class PNMForm_see extends AppCompatActivity {
                     intent.putExtra("KEY1", receive);
                     intent.putExtra("KEY2", send);
                     startActivity(intent);
+                    finish();
                 }
 
             }

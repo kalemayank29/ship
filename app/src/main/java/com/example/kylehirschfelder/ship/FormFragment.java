@@ -31,7 +31,7 @@ import java.util.List;
 
 public class FormFragment extends Fragment {
 
-    Button censusButton, memberButton, birthButton, deathButton, familyButton,pnm, deathChild;
+    Button censusButton, memberButton, birthButton, deathButton, familyButton,pnm, deathChild, stroke, medicineInventory;
 
     View myView;
     @Nullable
@@ -47,11 +47,33 @@ public class FormFragment extends Fragment {
         deathButton = (Button) myView.findViewById(R.id.deathBtn);
         pnm = (Button) myView.findViewById(R.id.pnm);
         deathChild = (Button)myView.findViewById(R.id.deathChild);
+        stroke = (Button) myView.findViewById(R.id.stroke);
+        medicineInventory = (Button)myView.findViewById(R.id.medicineInventory);
+
+        medicineInventory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity().getApplicationContext(), MedicineInventoryInterface.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         pnm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                  Intent intent = new Intent(getActivity().getApplicationContext(), CodFifteenForm.class);
+                  Intent intent = new Intent(getActivity().getApplicationContext(), PNMForm_ask.class);
+                startActivity(intent);
+            }
+        });
+
+        stroke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity().getApplicationContext(), BirthFamilyListView.class);
+                intent.putExtra("form","4");
+                intent.putExtra("resident", "-10");
                 startActivity(intent);
             }
         });

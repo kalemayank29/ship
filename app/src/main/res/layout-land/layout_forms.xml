@@ -79,10 +79,26 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="30dp"
             android:text="Death Child Form"
             android:id="@+id/deathChild"
             android:layout_gravity="center_horizontal"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Stroke Form"
+            android:id="@+id/stroke"
+            android:layout_gravity="center_horizontal"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text=" Medicine Inventory"
+            android:id="@+id/medicineInventory"
+            android:layout_gravity="center_horizontal"/>
+
     </LinearLayout>
     </LinearLayout>
 </LinearLayout>

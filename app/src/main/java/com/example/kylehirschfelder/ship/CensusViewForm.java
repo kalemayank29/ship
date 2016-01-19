@@ -42,6 +42,13 @@ import java.util.List;
 
 
 public class CensusViewForm extends AppCompatActivity {
+
+    public enum RadioCheck {
+        ELECTRICITY(0), HOUSE(1), TOILET(2), TOILET_USE(3), KITCHEN(4), WALL(5), ROOF(6), COOKING(7), WATER(8), THING(9), ANIMALS(10);
+        private final int id;
+        RadioCheck(int id) { this.id = id; }
+        public int getValue() { return id; }
+    }
     Census census = new Census();
     EditText houseIDText, casteText, oldHouseText, pBusinessText, aBus1Text,aBus2Text, aBus3Text;
     //  EditText pBusiness = new EditText, jameen_et = new EditText[4];
@@ -57,9 +64,12 @@ public class CensusViewForm extends AppCompatActivity {
             water[] = new CheckBox[7],
             thing[] = new CheckBox[15],
             animals[] = new CheckBox[8];
+
+
+
     Spinner religion_sp;
     Button submit;
-    String[] arraySpinner;
+    String[] arraySpinner, getStrings;
     Context context = this;
     int selector = 1;
     private int flag = 0;
@@ -73,7 +83,9 @@ public class CensusViewForm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_census_form);
 
-       // flagCensus = getIntent().getStringExtra("flagCensus");
+        getStrings = getIntent().getStringArrayExtra("radio_check");
+
+        // flagCensus = getIntent().getStringExtra("flagCensus");
        // flagFamily = getIntent().getStringExtra("flagFamily");
       // houseId =  getIntent().getStringExtra("index");
 
@@ -89,6 +101,7 @@ public class CensusViewForm extends AppCompatActivity {
         Log.println(Log.ASSERT, "log", Boolean.toString(casteText.isEnabled()));
 
 
+        getStrings = getIntent().getStringArrayExtra("radio_check");
 
 
 
@@ -164,14 +177,32 @@ public class CensusViewForm extends AppCompatActivity {
 
         submit = (Button)findViewById(R.id.save);
 
+        /*
+
+        Parse.parseString(2, getStrings[RadioCheck.ELECTRICITY.getValue()]);
+        Parse.parseString(2, getStrings[RadioCheck.HOUSE.getValue()]);
+        Parse.parseString(2, getStrings[RadioCheck.TOILET.getValue()]);
+        Parse.parseString(2, getStrings[RadioCheck.TOILET_USE.getValue()]);
+        Parse.parseString(2, getStrings[RadioCheck.KITCHEN.getValue()]);
+        wallString = Parse.parseString(5, getStrings[RadioCheck.WALL.getValue()]);
+        roofString = Parse.parseString(6, getStrings[RadioCheck.ROOF.getValue()]);
+        cookingString = Parse.parseString(5, getStrings[RadioCheck.COOKING.getValue()]);
+        waterString = Parse.parseString(7, getStrings[RadioCheck.WATER.getValue()]);
+        thingString = Parse.parseString(15, getStrings[RadioCheck.THING.getValue()]);
+        animalString = Parse.parseString(8, getStrings[RadioCheck.ANIMALS.getValue()]);
+
+        */
+
+
         int status = Integer.parseInt(getIntent().getStringExtra("index"));
         Log.println(Log.ASSERT,"Status",String.valueOf(status));
         CF_DatabaseOperations dop = new CF_DatabaseOperations(context);
         census = dop.getInfo(status,1);
         dop.getAll();
 
-        // houseIDText = (EditText) findViewById(R.id.houseText);
 
+
+        // houseIDText = (EditText) findViewById(R.id.houseText)
         // houseIDText.setHint(census.getHouseID());
         casteText.setHint(census.getCaste());
         //Log.println(Log.ASSERT,"caste",census.getCaste());

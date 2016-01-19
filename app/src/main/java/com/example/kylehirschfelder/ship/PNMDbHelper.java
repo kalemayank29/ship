@@ -17,22 +17,23 @@ public class PNMDbHelper extends SQLiteOpenHelper {
     public static final String TABLE_PNMCUR = "pnmcur";
 
     public static final String MEMBER_ID = "_id";
-    public static final String COUGH = "cough";
+    public static final String NAME = "_id";
+ //   public static final String COUGH = "cough";
     public static final String COUGH_DAYS = "cough_days";
-    public static final String GASP = "gasp";
+//    public static final String GASP = "gasp";
     public static final String GASP_DAYS = "gasp_days";
-    public static final String FEVER = "fever";
+//    public static final String FEVER = "fever";
     public static final String FEVER_DAYS = "fever_days";
-    public static final String FIT = "fit";
+ //   public static final String FIT = "fit";
     public static final String FIT_DAYS = "fit_days";
-    public static final String FAINT = "faint";
+//    public static final String FAINT = "faint";
     public static final String FAINT_DAYS = "faint_days";
     public static final String MILK = "milk";
     public static final String MILK_DAYS = "milk_days";
     public static final String MILK_HOURS = "milk_hours";
-    public static final String MEASLES = "measles";
+//    public static final String MEASLES = "measles";
     public static final String MEASLES_DAYS = "measles_days";
-    public static final String VOMIT = "vomit";
+//    public static final String VOMIT = "vomit";
     public static final String VOMIT_DAYS = "vomit_days";
     public static final String BIRTH_MONTHS = "birth_months";
     public static final String CONSC = "conscious";
@@ -51,22 +52,23 @@ public class PNMDbHelper extends SQLiteOpenHelper {
     private static final String PNM_CREATE =
             "CREATE TABLE" + TABLE_PNM + " ("+
                     MEMBER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    COUGH + " INTEGER, " +
+                    NAME + " TEXT, " +
+   //                 COUGH + " INTEGER, " +
                     COUGH_DAYS + " INTEGER, " +
-                    GASP + " INTEGER, " +
+   //                 GASP + " INTEGER, " +
                     GASP_DAYS + " INTEGER, " +
-                    FEVER + " INTEGER, " +
+   //                 FEVER + " INTEGER, " +
                     FEVER_DAYS + " INTEGER, " +
-                    FIT + " INTEGER, " +
+    //                FIT + " INTEGER, " +
                     FIT_DAYS + " INTEGER, " +
-                    FAINT + " INTEGER, " +
+    //                FAINT + " INTEGER, " +
                     FAINT_DAYS + " INTEGER, " +
                     MILK + " INTEGER, " +
                     MILK_DAYS + " INTEGER, " +
                     MILK_HOURS + " INTEGER, " +
-                    MEASLES + " INTEGER, " +
+     //               MEASLES + " INTEGER, " +
                     MEASLES_DAYS + " INTEGER, " +
-                    VOMIT + " INTEGER, " +
+      //              VOMIT + " INTEGER, " +
                     VOMIT_DAYS + " INTEGER, " +
                     BIRTH_MONTHS + " INTEGER, " +
                     CONSC + " INTEGER, " +
@@ -86,22 +88,23 @@ public class PNMDbHelper extends SQLiteOpenHelper {
     private static final String PNMCUR_CREATE =
             "CREATE TABLE" + TABLE_PNMCUR + " ("+
                     MEMBER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    COUGH + " INTEGER, " +
+                    NAME + " TEXT, " +
+        //            COUGH + " INTEGER, " +
                     COUGH_DAYS + " INTEGER, " +
-                    GASP + " INTEGER, " +
+        //            GASP + " INTEGER, " +
                     GASP_DAYS + " INTEGER, " +
-                    FEVER + " INTEGER, " +
+        //            FEVER + " INTEGER, " +
                     FEVER_DAYS + " INTEGER, " +
-                    FIT + " INTEGER, " +
+         //           FIT + " INTEGER, " +
                     FIT_DAYS + " INTEGER, " +
-                    FAINT + " INTEGER, " +
+          //          FAINT + " INTEGER, " +
                     FAINT_DAYS + " INTEGER, " +
                     MILK + " INTEGER, " +
                     MILK_DAYS + " INTEGER, " +
                     MILK_HOURS + " INTEGER, " +
-                    MEASLES + " INTEGER, " +
+         //           MEASLES + " INTEGER, " +
                     MEASLES_DAYS + " INTEGER, " +
-                    VOMIT + " INTEGER, " +
+         //           VOMIT + " INTEGER, " +
                     VOMIT_DAYS + " INTEGER, " +
                     BIRTH_MONTHS + " INTEGER, " +
                     CONSC + " INTEGER, " +

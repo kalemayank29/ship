@@ -55,11 +55,11 @@ public class DeathAdultView extends AppCompatActivity {
         resident = Integer.parseInt(getIntent().getStringExtra("resident"));
 
        // memId = 2;
-        memId = Integer.parseInt(getIntent().getStringExtra("index"));
+       // memId = Integer.parseInt(getIntent().getStringExtra("index"));
 
-        if(resident == 3){
+
             memId = Integer.parseInt(getIntent().getStringExtra("_id"));
-        }
+
         DeathAdultDataInterface dbInterface = new DeathAdultDataInterface(getApplicationContext());
         //Log.println(Log.ASSERT, "index", String.valueOf(memId));
 
@@ -510,7 +510,7 @@ public class DeathAdultView extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), Cod5to15_Main.class);
             intent.putExtra("id",String.valueOf(adult.getId()));
             //Log.println(Log.ASSERT,"ID", String.valueOf(adult.getId()));
-            intent.putExtra("resident",String.valueOf(resident));
+            intent.putExtra("resident","3");
             startActivity(intent);
         }
 

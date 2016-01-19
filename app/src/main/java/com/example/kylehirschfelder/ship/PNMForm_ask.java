@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 public class PNMForm_ask extends AppCompatActivity {
 
+    EditText name;
+
     RadioGroup gaspGroup;
     RadioButton gaspYes, gaspNo;
     EditText gaspDays;
@@ -42,7 +44,8 @@ public class PNMForm_ask extends AppCompatActivity {
     RadioGroup milkGroup;
     RadioButton milkYes, milkLess, milkNo;
     EditText milkDays, milkHours;
-    String milk = "0";
+    String milk = "-1";
+    String milkH, milkD;
 
     RadioGroup measlesGroup;
     RadioButton measlesYes, measlesNo;
@@ -64,6 +67,9 @@ public class PNMForm_ask extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pnmform_ask);
+
+        name = (EditText) findViewById(R.id.name);
+        name.setText("mayaMka");
 
         gaspGroup = (RadioGroup) findViewById(R.id.gaspGroup);
         gaspYes = (RadioButton) findViewById(R.id.gaspYes);
@@ -143,10 +149,11 @@ public class PNMForm_ask extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "क्रुपया सगळी माहिती भरावे", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    String[] send = {cough, gasp, fever, fit, faint, milk, measles, vomit, birth};
+                    String[] send = {name.getText().toString(), cough, gasp, fever, fit, faint, milk, measles, vomit, birth};
                     Intent intent = new Intent(getBaseContext(), PNMForm_see.class);
                     intent.putExtra("KEY", send);
                     startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -214,17 +221,17 @@ public class PNMForm_ask extends AppCompatActivity {
                 break;
             case R.id.milkYes:
                 if (checked) {
-                    milk = "100";
+                    milk = "0";
                 }
                 break;
             case R.id.milkLess:
                 if (checked) {
-                    milk = "010";
+                    milk = "1";
                 }
                 break;
             case R.id.milkNo:
                 if(checked) {
-                    milk = "001";
+                    milk = "3";
                 }
                 break;
             case R.id.measlesYes:

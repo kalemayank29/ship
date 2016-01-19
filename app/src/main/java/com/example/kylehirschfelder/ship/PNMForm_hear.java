@@ -67,6 +67,7 @@ public class PNMForm_hear extends AppCompatActivity {
                     intent.putExtra("KEY2", receive2);
                     intent.putExtra("KEY3", send);
                     startActivity(intent);
+                    finish();
                 }
 
             }

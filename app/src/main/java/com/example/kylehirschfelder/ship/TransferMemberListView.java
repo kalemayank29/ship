@@ -42,11 +42,11 @@ public class TransferMemberListView extends AppCompatActivity {
         pushAll = (Button) findViewById(R.id.pushAllBtn);
         lv = (ListView) findViewById(R.id.ListView);
         interfaceMember = new MemberDataInterface(getApplicationContext());
-        try {
+       /* try {
             memberList = interfaceMember.getUnsyncedHeads(1);            // Push only from Local
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
 
         populateList();
         registerForContextMenu(lv);
@@ -55,16 +55,16 @@ public class TransferMemberListView extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ArrayList<HashMap<String, String>> memberMap = new ArrayList<HashMap<String, String>>();
-
+/*
                 try {
-                    allList = interfaceMember.getUnsynced(1);
+                 //   allList = interfaceMember.getUnsynced(1);
                     HashMap<String,String> village = new HashMap<String, String>();
                     village.put("village","2");
                     memberMap = interfaceMember.toHashList(allList,village);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-
+*/
 
                 /*
                 for(int i = 0; i < memberList.size(); i++){

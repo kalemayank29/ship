@@ -41,7 +41,8 @@
                 android:layout_width="900dp"
                 android:layout_height="200dp"
                 android:background="#cccccc"
-                android:textSize="25sp"/>
+                android:textSize="25sp"
+                android:id="@+id/otherField"/>
 
 
             <!-- "सुपरवायझर
@@ -57,7 +58,7 @@
                 android:background="@drawable/save_button_pressed"
                 android:text="Save"
                 android:textColor="#ffffff"
-                android:id="@+id/saveHear"
+                android:id="@+id/saveOther"
                 android:onClick="save_click"/>
         </LinearLayout>
     </ScrollView>

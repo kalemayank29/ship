@@ -60,7 +60,7 @@ public class BirthFamilyListView extends AppCompatActivity {
         memberList = head.getAllFamilyHeads(1,curVillage);
         activity = this;
 
-        resident =Integer.parseInt(getIntent().getStringExtra("resident"));
+        resident = Integer.parseInt(getIntent().getStringExtra("resident"));
         form = Integer.parseInt(getIntent().getStringExtra("form"));        //1: Birth Mother  2: Death all Family
 
         Log.println(Log.ASSERT, "LOG", "" + resident + " " + form);
@@ -170,6 +170,13 @@ public class BirthFamilyListView extends AppCompatActivity {
                         intent.putExtra("resident", "0");
                         startActivity(intent);
                     }
+                }
+                else if(form == 4){
+                    Intent intent = new Intent(BirthFamilyListView.this,MemberFamilyFromHeadListView.class);
+                    intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
+                    intent.putExtra("form","4");
+                    intent.putExtra("resident", "1");
+                    startActivity(intent);
                 }
                 break;
         }

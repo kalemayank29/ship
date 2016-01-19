@@ -252,7 +252,32 @@
         <activity
             android:name=".DeathSupervisor"
             android:label="@string/title_activity_death_supervisor" >
+            </activity>
+        <activity
+            android:name=".MedicineInventoryInterface"
+            android:label="MedicineInventoryInterface" >
         </activity>
+        <activity
+            android:name=".MedicineInventoryAddMedicine"
+            android:label="MedicineInventoryAddMedicine" >
+        </activity>
+        <activity
+            android:name=".TransactionInterface"
+            android:label="TransactionInterface" >
+        </activity>
+        <activity
+            android:name=".PrescriptionInterface"
+            android:label="PrescriptionInterface" >
+        </activity>
+        <activity
+            android:name=".StrokeActivity"
+            android:label="StrokeActivity" >
+        </activity>
+        <activity
+            android:name=".StrokeView"
+            android:label="StrokeView" >
+        </activity>
+
     </application>
 
 </manifest>

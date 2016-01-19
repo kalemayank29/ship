@@ -119,7 +119,12 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
                     viewIntent.putExtra("resident", "1");
                     startActivity(viewIntent);
                 }
-
+                else if(form.equals("4")){
+                    Intent viewIntent = new Intent(getApplicationContext(), StrokeActivity.class);
+                    viewIntent.putExtra("index", String.valueOf(memberFamList.get(longClickItemIndex).getMemberId()));
+                    viewIntent.putExtra("name", String.valueOf(memberFamList.get(longClickItemIndex).getName()));
+                    startActivity(viewIntent);
+                }
                 break;
 
         }

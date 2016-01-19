@@ -56,6 +56,7 @@ public class GetDate {
     }
     public static int getDays(String date) {
         String array[] = date.split("-");
+        Log.println(Log.ASSERT, "", array[0] + "/" + array[1] + "/" + array[2]);
         return Integer.parseInt(array[2]);
     }
 

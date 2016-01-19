@@ -41,7 +41,7 @@ public class BirthInfoDB {
                         public static final String GUIDE_NAME = "guide_name" ;//et
                         public static final String GUIDE_ID = "guide_id" ;//et
                         public static final String GUIDE_TEST_DATE = "guide_test_date" ;//dp
-                        public static final String DATABASE_NAME = "SEARCH";
+                        public static final String DATABASE_NAME = "SEARCHF";
                         public static final String TABLE_NAME = "BirthInfo";
                 }
 

@@ -86,6 +86,7 @@ public class DeathSupervisor extends AppCompatActivity {
             case VIEW:
                 Intent viewIntent = new Intent(getApplicationContext(), DeathAdultView.class);
                 viewIntent.putExtra("index", String.valueOf(deathList.get(longClickItemIndex).getId()));
+                viewIntent.putExtra("resident", "1");
                 //   viewIntent.putExtra("house", String.valueOf(memberFamList.get(longClickItemIndex).getHouseId()));
                 //  viewIntent.putExtra("resident", "1");
                 // viewIntent.putExtra("name", String.valueOf(memberFamList.get(longClickItemIndex).getName()));
@@ -127,6 +128,7 @@ public class DeathSupervisor extends AppCompatActivity {
 
             Translation object = new Translation();
             TextView name = (TextView) view.findViewById(R.id.textNameB);
+          // Log.println(Log.ASSERT,"STING TRANSLATE",death.getName());
             name.setText(object.Letter_E2M(death.getName()));
 
             TextView age = (TextView) view.findViewById(R.id.ageB);

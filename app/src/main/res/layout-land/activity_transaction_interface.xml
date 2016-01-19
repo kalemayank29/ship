@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.kylehirschfelder.betamedicineinventory.TransactionInterface">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_marginTop="50dp"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:background="@drawable/spinner"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="प्रमाण  "
+            android:layout_marginTop="70dp"/>
+                 <LinearLayout
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:orientation="horizontal">
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:hint=""
+                        android:id="@+id/editQuantity" />
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_marginLeft="30dp"
+                         android:layout_height="wrap_content"
+                         android:textSize="20dp"
+                         android:text="कमी करायला प्रमाण च्या आधी ' - ' टाका "/>
+                     </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="व्यवहार तारीख "
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:id="@+id/transactionDate" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="कालावधी समाप्ती तारीख"
+            android:layout_marginTop="70dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <EditText
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:id="@+id/expiryDate"
+            android:hint="DD"/>
+            <EditText
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:hint="MM"
+                android:id="@+id/expiryMonth"/>
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:hint="YYYY"
+                android:id="@+id/expiryYear"/>
+        </LinearLayout>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="व्यवहार भरती"
+            android:layout_marginTop="50dp"
+            android:id="@+id/addTransaction"/>
+
+    </LinearLayout>
+        </ScrollView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ListView
+            android:layout_marginLeft="300dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/listView">
+
+        </ListView>
+    </LinearLayout>
+</LinearLayout>
+    </LinearLayout>
