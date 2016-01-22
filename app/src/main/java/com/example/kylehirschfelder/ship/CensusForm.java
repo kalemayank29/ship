@@ -438,6 +438,7 @@ public class CensusForm extends AppCompatActivity {
                 DB.insert(census, 0);
 
                 Log.println(Log.ASSERT, "LOG", census.getWall());
+                Log.println(Log.ASSERT, "LOGRELIGION", census.getReligion());
                 Log.println(Log.ASSERT, "LOG", census.getRoof());
                 Log.println(Log.ASSERT, "LOG", census.getElectricity());
                 Log.println(Log.ASSERT, "LOG", census.getHouseOwner());

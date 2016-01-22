@@ -297,7 +297,7 @@ public class BirthViewForm extends AppCompatActivity {
 
 */
 
-        deliveryName.setText(TR.Letter_E2M(birth.getDeliveryName()));
+//        deliveryName.setText(TR.Letter_E2M(birth.getDeliveryName()));
 //          deliveryMethod[Integer.parseInt(birth)]
         deliveryMethodSet(birth.getDeliveryMethod());
 

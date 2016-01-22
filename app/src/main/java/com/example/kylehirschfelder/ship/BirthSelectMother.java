@@ -108,6 +108,7 @@ int longClickItemIndex, familyId;
                     viewIntent.putExtra("house", String.valueOf(memberFamList.get(longClickItemIndex).getHouseId()));
                     viewIntent.putExtra("resident", "1");
                     viewIntent.putExtra("name", String.valueOf(memberFamList.get(longClickItemIndex).getName()));
+                    finish();
                     startActivity(viewIntent);
                     break;
 

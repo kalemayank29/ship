@@ -105,6 +105,9 @@
             android:label="Birth Info Form"
             android:screenOrientation="landscape" >
         </activity>
+
+        <!--<activity android:name=".FormFragment"/>-->
+
         <activity
             android:name=".BirthSelectMother"
             android:label="@string/title_activity_birth_select_mother" >

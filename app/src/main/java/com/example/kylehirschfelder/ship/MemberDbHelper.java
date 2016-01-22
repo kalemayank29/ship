@@ -42,9 +42,9 @@ public class MemberDbHelper extends SQLiteOpenHelper {
     private static final String MEMBER_CREATE =
             "CREATE TABLE " + TABLE_MEMBER + " (" +
                     MEMBER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    FAMILY_ID + " INTEGER NOT NULL, " +
-                    HOUSE_ID + " INTEGER NOT NULL, " +
-                    FAMILY_HEAD_BOOL + " INTEGER NOT NULL," +
+                    FAMILY_ID + " INTEGER , " +
+                    HOUSE_ID + " INTEGER , " +
+                    FAMILY_HEAD_BOOL + " INTEGER," +
                   //  VILLAGE_ID + " INTEGER NOT NULL," +
                     NAME + " TEXT," +
                     AGE + " INTEGER, " +

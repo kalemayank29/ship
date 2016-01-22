@@ -168,11 +168,13 @@ public class BirthFamilyListView extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(),BirthInfoForm.class);
                         intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
                         intent.putExtra("resident", "0");
+                        finish();
                         startActivity(intent);
                     }
                     else{
                         Intent intent = new Intent(BirthFamilyListView.this,BirthSelectMother.class);
                         intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
+                        finish();
                         startActivity(intent);
                     }
                 }
@@ -182,12 +184,14 @@ public class BirthFamilyListView extends AppCompatActivity {
                         intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
                         intent.putExtra("resident", "1");
                         intent.putExtra("form","2");
+                        finish();
                         startActivity(intent);
                     }
                     if(resident == 0){
                         Intent intent = new Intent(BirthFamilyListView.this,DeathAdultForm.class);
                         intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getMemberId()));
                         intent.putExtra("resident", "0");
+                        finish();
                         startActivity(intent);
                     }
                 }
@@ -197,12 +201,14 @@ public class BirthFamilyListView extends AppCompatActivity {
                         intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
                         intent.putExtra("form","3");
                         intent.putExtra("resident", "1");
+                        finish();
                         startActivity(intent);
                     }
                     if(resident == 0){
                         Intent intent = new Intent(BirthFamilyListView.this,DeathChildForm.class);
                         intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getMemberId()));
                         intent.putExtra("resident", "0");
+                        finish();
                         startActivity(intent);
                     }
                 }
@@ -211,7 +217,25 @@ public class BirthFamilyListView extends AppCompatActivity {
                     intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
                     intent.putExtra("form","4");
                     intent.putExtra("resident", "1");
+                    finish();
                     startActivity(intent);
+                }
+                else if(form == 5){
+                    if(resident == 1){
+                        Intent intent = new Intent(BirthFamilyListView.this,MemberFamilyFromHeadListView.class);
+                        intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
+                        intent.putExtra("form","5");
+                        intent.putExtra("resident", "1");
+                        finish();
+                        startActivity(intent);
+                    }
+                    if(resident == 0){
+                        Intent intent = new Intent(BirthFamilyListView.this,PNMForm_ask.class);
+                        intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getMemberId()));
+                        intent.putExtra("resident", "0");
+                        finish();
+                        startActivity(intent);
+                    }
                 }
                 break;
         }

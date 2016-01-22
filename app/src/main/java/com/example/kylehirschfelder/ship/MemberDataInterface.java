@@ -78,14 +78,15 @@ public class MemberDataInterface {
             }
             else{
                 Member head = getLastHead(element.getVillageId());
-                Log.println(Log.ASSERT,"memberdhead",String.valueOf(element.getMemberId()));
+                //Log.println(Log.ASSERT,"memberdhead",String.valueOf(element.getMemberId()));
                 element.setFamilyId(head.getMemberId());
+                element.setHouseId(head.getHouseId());
             }
 
         }
 
         ContentValues value = new ContentValues();
-        value.put(dbHelper.MEMBER_ID, element.getMemberId());
+        if(cur!=0) value.put(dbHelper.MEMBER_ID, element.getMemberId());
         value.put(dbHelper.FAMILY_ID, element.getFamilyId());
         value.put(dbHelper.HOUSE_ID, element.getHouseId());
         value.put(dbHelper.FAMILY_HEAD_BOOL, element.getFamilyHeadId());        // Is family Head?

@@ -61,7 +61,8 @@ public class TransferFragment extends Fragment {
 
                 Log.println(Log.ASSERT,"in","func");
                 deathAdultPush();
-                birthPush();
+                deathChildPush();
+                //birthPush();
             }
         });
 
@@ -285,7 +286,7 @@ public class TransferFragment extends Fragment {
         for (DeathAdult element : deathList
                 ) {
             HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost("http://192.168.1.33:8888/birth/death");
+            HttpPost httppost = new HttpPost("http://192.168.1.37:8888/deathAdult/add");
             try {
 
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(18);
@@ -343,4 +344,88 @@ public class TransferFragment extends Fragment {
             }
         }
     }
+
+    public void deathChildPush() {
+        DeathChildDataInterface dataInterface = new DeathChildDataInterface(getActivity().getApplicationContext());
+        List<DeathChild> deathList = dataInterface.getAll();
+        for (DeathChild element : deathList
+                ) {
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httppost = new HttpPost("http://192.168.1.37:8888/deathChild/add");
+            try {
+
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(18);
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+                nameValuePairs.add(new BasicNameValuePair("id", String.valueOf(element.getId())));
+                nameValuePairs.add(new BasicNameValuePair("village_id", String.valueOf(element.getVillageId())));
+                nameValuePairs.add(new BasicNameValuePair("mother_village", String.valueOf(element.getMotherVillage())));
+                nameValuePairs.add(new BasicNameValuePair("mother_village_id", String.valueOf(element.getMotherVillageID())));
+                nameValuePairs.add(new BasicNameValuePair("village_of_birth", String.valueOf(element.getVillageOfBirth())));
+                nameValuePairs.add(new BasicNameValuePair("village_of_birth_id", String.valueOf(element.getVillageOfBirthID())));
+                nameValuePairs.add(new BasicNameValuePair("name", String.valueOf(element.getName())));
+
+
+                nameValuePairs.add(new BasicNameValuePair("family_id", String.valueOf(element.getFamilyID())));
+                nameValuePairs.add(new BasicNameValuePair("house_id", String.valueOf(element.getHouseID())));
+                nameValuePairs.add(new BasicNameValuePair("member_id", String.valueOf(element.getMemberID())));
+                nameValuePairs.add(new BasicNameValuePair("birth_date", String.valueOf(element.getBirthDate())));
+                nameValuePairs.add(new BasicNameValuePair("death_date", String.valueOf(element.getDeathDate())));
+                nameValuePairs.add(new BasicNameValuePair("age", String.valueOf(element.getAge())));
+
+                nameValuePairs.add(new BasicNameValuePair("still_birth", String.valueOf(element.getStillBirth())));
+
+                nameValuePairs.add(new BasicNameValuePair("village_of_death", String.valueOf(element.getVillageOfDeath())));
+                nameValuePairs.add(new BasicNameValuePair("village_of_death_id", String.valueOf(element.getVillageOfDeathID())));
+                nameValuePairs.add(new BasicNameValuePair("health_messenger", String.valueOf(element.getHealthMessenger())));
+                nameValuePairs.add(new BasicNameValuePair("health_messenger_id", String.valueOf(element.getHealthMessengerId())));
+                nameValuePairs.add(new BasicNameValuePair("health_messenger_date", String.valueOf(element.getHealthMessengerDate())));
+                nameValuePairs.add(new BasicNameValuePair("guide_id", String.valueOf(element.getGuideId())));
+                nameValuePairs.add(new BasicNameValuePair("guide_name", String.valueOf(element.getGuideName())));
+                nameValuePairs.add(new BasicNameValuePair("guide_test_date", String.valueOf(element.getGuideTestDate())));
+
+                Log.println(Log.ASSERT, "member_id", String.valueOf(element.getId()));
+ /*
+
+
+
+
+
+
+
+
+
+ Log.println(Log.ASSERT, "village_id", String.valueOf(element.getVillageId()));
+                Log.println(Log.ASSERT, "house_id", String.valueOf(element.getHouseID()));
+                Log.println(Log.ASSERT, "family_id", String.valueOf(element.getFamilyID()));
+                Log.println(Log.ASSERT, "mother_name", String.valueOf(element.getMotherName()));
+                Log.println(Log.ASSERT, "dob", String.valueOf(element.getBirthDate()));
+                Log.println(Log.ASSERT, "mother_vill_name", String.valueOf(element.getMotherVillage()));
+                Log.println(Log.ASSERT, "mother_vill_id", String.valueOf(element.getMotherVillageID()));
+                Log.println(Log.ASSERT, "vill_of_birth", String.valueOf(element.getVillageOfBirth()));
+                Log.println(Log.ASSERT, "vill_of_birth_id", String.valueOf(element.getVillageOfBirthID()));
+                Log.println(Log.ASSERT, "vill_of_birth_place", String.valueOf(element.getVillageOfBirthPlace()));
+                Log.println(Log.ASSERT, "delivery_name", String.valueOf(element.getDeliveryName()));
+                Log.println(Log.ASSERT, "delivery_method", String.valueOf(element.getDeliveryMethod()));
+                Log.println(Log.ASSERT, "gender", String.valueOf(element.getChildGender()));
+                Log.println(Log.ASSERT, "preg_time", String.valueOf(element.getPregnancyTime()));
+                Log.println(Log.ASSERT, "fad", String.valueOf(element.getFadPresence()));
+                Log.println(Log.ASSERT, "messenger_name", String.valueOf(element.getHealthMessenger()));
+                Log.println(Log.ASSERT, "messenger_id", String.valueOf(element.getHealthMessengerId()));
+                Log.println(Log.ASSERT, "messenger_date", String.valueOf(element.getHealthMessengerDate()));
+                Log.println(Log.ASSERT, "guide_name", String.valueOf(element.getGuideName()));
+                Log.println(Log.ASSERT, "guide_id", String.valueOf(element.getGuideId()));
+                Log.println(Log.ASSERT, "guide_date", String.valueOf(element.getGuideTestDate()));
+*/
+                httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                httpclient.execute(httppost);
+
+            } catch (ClientProtocolException e) {
+                // TODO Auto-generated catch block
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+            }
+        }
+    }
+
 }

@@ -142,21 +142,23 @@ protected void onCreate(Bundle savedInstanceState) {
         public void onClick(View view) {
             if(!flagFamily.equals("0") && flagCensus.equals("1")){
 
-                Census tempHouse = censusOperations.getRecent(0);
-                censusOperations.insert(tempHouse, 1);
-                tempHouse = censusOperations.getRecent(1);
 
-                for (Member element : memberList
+                Census tempHouse = censusOperations.getRecent(0);
+                //Log.println(Log.ASSERT,"CENSUS RELIGION",tempHouse.getReligion());
+                censusOperations.insert(tempHouse, 1);
+                //tempHouse = censusOperations.getRecent(1);
+
+               /* for (Member element : memberList
                         ) {
                     element.setHouseId(Integer.parseInt(tempHouse.getHouseID()));
                     //    Log.println(Log.ASSERT, "MemberHouseid", String.valueOf(element.getHouseId()));
-                }
+                }*/
 
-                List<Member> head = memberInterface.getAllFamilyHeads(0,curVillage);
-                Member tempHead = head.get(0);
-                tempHead.setHouseId(Integer.parseInt(tempHouse.getHouseID()));
+                //List<Member> head = memberInterface.getAllFamilyHeads(0,curVillage);
+                //Member tempHead = head.get(0);
+                //tempHead.setHouseId(Integer.parseInt(tempHouse.getHouseID()));
 
-                try {
+                /*try {
                     //memberInterface.createVillMember(tempHead, 1);
                     headDataInterface.createMember(tempHead);
                     tempHead = headDataInterface.getRecent();
@@ -167,15 +169,24 @@ protected void onCreate(Bundle savedInstanceState) {
                             ) {
                         element.setFamilyId(tempHead.getMemberId());
 
-                    }
+                    }*/
 
                     for (int i = 0; i < memberList.size(); i++) {
 
                         memberList.get(i).setVillageId(curVillage);
-                        String flag = memberInterface.createMember(memberList.get(i), 1);
+
+                        String flag = null;
+
+                        try {
+                            flag = memberInterface.createMember(memberList.get(i), 1);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+
                         Log.println(Log.ASSERT,"member_id", String.valueOf(memberList.get(i).getMemberId()));
                         Log.println(Log.ASSERT,"family_id", String.valueOf(memberList.get(i).getFamilyId()));
                         Log.println(Log.ASSERT,"village id", String.valueOf(memberList.get(i).getVillageId()));
+                        Log.println(Log.ASSERT,"house id", String.valueOf(memberList.get(i).getHouseId()));
                        // Log.println(Log.ASSERT,"falg", flag);
 
                         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -203,9 +214,7 @@ protected void onCreate(Bundle savedInstanceState) {
                     memberInterface.deleteAllTables();
                     censusOperations.deleteAllCensus();
 
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+
                 finish();
                 Intent intent = new Intent(CensusFormPortal.this, MainActivity.class);
                 startActivity(intent);

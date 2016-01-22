@@ -23,7 +23,7 @@ public class CF_DatabaseOperations extends SQLiteOpenHelper {
 
     public String CREATE_QUERY = "CREATE TABLE "+
             CF_TableData.TableInfo.TABLE_NAME+"("+
-            TableInfo.HOUSE_ID+" INTEGER PRIMARY KEY AUTOINCREMENT," +
+            TableInfo.HOUSE_ID+" INTEGER PRIMARY KEY," +
             TableInfo.CASTE+" TEXT," +
             TableInfo.RELIGION+" TEXT,"+
             TableInfo.P_BUSINESS+" TEXT,"+
@@ -52,7 +52,7 @@ public class CF_DatabaseOperations extends SQLiteOpenHelper {
     public String CREATE_QUERY_S = "CREATE TABLE "+
 
             CF_TableData.TableInfo.TABLE_S_NAME+"("+
-            TableInfo.HOUSE_ID+" INTEGER PRIMARY KEY AUTOINCREMENT," +
+            TableInfo.HOUSE_ID+" INTEGER PRIMARY KEY," +
             TableInfo.CASTE+" TEXT," +
             TableInfo.RELIGION+" TEXT,"+
             TableInfo.P_BUSINESS+" TEXT,"+

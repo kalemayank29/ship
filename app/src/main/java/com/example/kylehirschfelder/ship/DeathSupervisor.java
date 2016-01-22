@@ -24,10 +24,10 @@ import java.util.List;
 
 public class DeathSupervisor extends AppCompatActivity {
 
-    ListView lv;
+    ListView lv,checked;
     DeathAdultDataInterface deathAdultDataInterface;
-    ArrayAdapter<DeathAdult> deathAdapter;
-    List<DeathAdult> deathList;
+    ArrayAdapter<DeathAdult> deathAdapter,deathCheckedAdapter;
+    List<DeathAdult> deathList,deathCheckedList;
     int longClickItemIndex, familyId;
     private static final int VIEW = 0;
     Activity activity;
@@ -43,8 +43,11 @@ public class DeathSupervisor extends AppCompatActivity {
 
 
         lv = (ListView) findViewById(R.id.femMemListView);
+        checked = (ListView) findViewById(R.id.pushList);
+
         deathAdultDataInterface = new DeathAdultDataInterface(getApplicationContext());
         deathList = new ArrayList<DeathAdult>();
+        deathCheckedList = new ArrayList<DeathAdult>();
         Upload upload = new Upload("URL");
 
         List<Integer> list = upload.idList(deathShared,0);
@@ -55,6 +58,14 @@ public class DeathSupervisor extends AppCompatActivity {
             deathList.add(result);
         }
 
+        List<Integer> cList = upload.idList(deathShared,1);
+
+        for (int id: cList
+                ) {
+            DeathAdult result = deathAdultDataInterface.getInfo(id);
+            deathCheckedList.add(result);
+        }
+
         //Log.println(Log.ASSERT, "update", upload.updateFlags(list, 0, deathShared));
         // deathList = deathInfoDBHelper.getAll();
 
@@ -62,17 +73,37 @@ public class DeathSupervisor extends AppCompatActivity {
 
         activity = this;
 
-        registerForContextMenu(lv);
-        populateList();
-
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 longClickItemIndex = i;
-                activity.openContextMenu(view);
+                Intent viewIntent = new Intent(getApplicationContext(), DeathAdultView.class);
+                viewIntent.putExtra("_id", String.valueOf(deathList.get(longClickItemIndex).getId()));
+                viewIntent.putExtra("resident", "1");
+                  startActivity(viewIntent);
+               // activity.openContextMenu(view);
             }
         });
+
+        checked.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                longClickItemIndex = i;
+                Intent viewIntent = new Intent(getApplicationContext(), DeathAdultView.class);
+                viewIntent.putExtra("_id", String.valueOf(deathCheckedList.get(longClickItemIndex).getId()));
+                viewIntent.putExtra("resident", "1");
+                startActivity(viewIntent);
+                // activity.openContextMenu(view);
+            }
+        });
+
+        registerForContextMenu(lv);
+        registerForContextMenu(checked);
+        populateList();
+        populateCheckedList();
+
     }
 
     public void populateList() {
@@ -81,11 +112,17 @@ public class DeathSupervisor extends AppCompatActivity {
         deathAdapter.notifyDataSetChanged();
     }
 
+    public void populateCheckedList() {
+        deathCheckedAdapter = new deathListAdapter(this.deathCheckedList, getApplicationContext());
+        checked.setAdapter( deathCheckedAdapter);
+        deathCheckedAdapter.notifyDataSetChanged();
+    }
+
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case VIEW:
                 Intent viewIntent = new Intent(getApplicationContext(), DeathAdultView.class);
-                viewIntent.putExtra("index", String.valueOf(deathList.get(longClickItemIndex).getId()));
+                viewIntent.putExtra("_id", String.valueOf(deathList.get(longClickItemIndex).getId()));
                 viewIntent.putExtra("resident", "1");
                 //   viewIntent.putExtra("house", String.valueOf(memberFamList.get(longClickItemIndex).getHouseId()));
                 //  viewIntent.putExtra("resident", "1");

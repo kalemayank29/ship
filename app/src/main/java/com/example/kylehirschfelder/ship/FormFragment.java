@@ -63,8 +63,9 @@ public class FormFragment extends Fragment {
         pnm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                  Intent intent = new Intent(getActivity().getApplicationContext(), PNMForm_ask.class);
-                startActivity(intent);
+                PNMDialog dialog = new PNMDialog();
+                FragmentManager manager = getActivity().getFragmentManager();
+                dialog.show(manager, "PNMFrag");
             }
         });
 

@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by mayank on 1/9/16.
@@ -187,6 +189,53 @@ public class DeathChildDataInterface {
 
 
         return death;
+
+    }
+
+    public List<DeathChild> getAll(){
+
+        List<DeathChild> deathList = new ArrayList<DeathChild>();
+        SQLiteDatabase SQ = dbHelper.getWritableDatabase();
+
+        Cursor c;
+        c = SQ.rawQuery("SELECT * FROM " + DeathChildDBHelper.TABLE_NAME , null);
+
+        if(c.moveToFirst()){
+            do{
+                DeathChild death = new DeathChild();
+                int i=0;
+
+                death.setId(Integer.parseInt(c.getString(i++)));
+                death.setMotherVillage(c.getString(i++));
+                death.setMotherVillageID(c.getString(i++));
+                death.setVillageOfBirth(c.getString(i++));
+                death.setVillageOfBirthID(c.getString(i++));
+                death.setVillageId(c.getString(i++));
+                death.setName(c.getString(i++));
+                death.setFamilyID(c.getString(i++));
+                death.setHouseID(c.getString(i++));
+                death.setMemberID(c.getString(i++));
+                death.setBirthDate(c.getString(i++));
+                death.setDeathDate(c.getString(i++));
+                death.setAge(c.getString(i++));
+                death.setStillBirth(c.getString(i++));
+                death.setVillageOfDeath(c.getString(i++));
+                death.setVillageOfDeathID(c.getString(i++));
+                death.setHealthMessenger(c.getString(i++));
+                death.setHealthMessengerId(c.getString(i++));
+                death.setHealthMessengerDate(c.getString(i++));
+                death.setGuideName(c.getString(i++));
+                death.setGuideId(c.getString(i++));
+                death.setGuideTestDate(c.getString(i++));
+
+                deathList.add(death);
+
+            }
+            while(c.moveToNext());
+        }
+
+
+        return deathList;
 
     }
 

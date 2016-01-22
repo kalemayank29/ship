@@ -577,7 +577,7 @@ public class BirthInfoForm extends ActionBarActivity {
 
             if(resident == 1){
                 Log.println(Log.ASSERT,"CHECK",birth.getFamilyID());
-                Member member = new Member(Integer.parseInt(birth.getFamilyID()),Integer.parseInt(birth.getHouseID()) ,0, translation.Letter_M2E("CHILD"), 0,Integer.parseInt(birth.getChildGender()), -1, "-1",
+                    Member member = new Member(Integer.parseInt(birth.getFamilyID()),Integer.parseInt(birth.getHouseID()) ,0, translation.Letter_M2E("CHILD"), 0,Integer.parseInt(birth.getChildGender()), -1, "-1",
                         "0","0", "0", "0", "0", "0",curVillage);
                 memInterface.child(member, 1);
                 member = memInterface.getRecent(1);

@@ -162,7 +162,7 @@ public class CF_ViewForm extends AppCompatActivity {
         int status = Integer.parseInt(getIntent().getStringExtra("index"));
         Log.println(Log.ASSERT,"Status",String.valueOf(status));
         CF_DatabaseOperations dop = new CF_DatabaseOperations(context);
-        census = dop.getInfo(status,1);
+        census = dop.getInfo(status,0);
         dop.getAll();
 
        // houseIDText = (EditText) findViewById(R.id.houseText);

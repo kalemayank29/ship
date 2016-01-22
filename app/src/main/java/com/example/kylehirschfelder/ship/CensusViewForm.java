@@ -196,17 +196,23 @@ public class CensusViewForm extends AppCompatActivity {
 
         int status = Integer.parseInt(getIntent().getStringExtra("index"));
         Log.println(Log.ASSERT,"Status",String.valueOf(status));
+
         CF_DatabaseOperations dop = new CF_DatabaseOperations(context);
+
         census = dop.getInfo(status,1);
+
         dop.getAll();
 
 
-
+//        Log.println(Log.ASSERT,"houseid",census.getHouseID());
         // houseIDText = (EditText) findViewById(R.id.houseText)
         // houseIDText.setHint(census.getHouseID());
         casteText.setHint(census.getCaste());
         //Log.println(Log.ASSERT,"caste",census.getCaste());
+
+        Log.println(Log.ASSERT,"rel",census.getReligion());
         religionString = set_religion_Hint(census.getReligion());
+
         pBusinessText.setHint(census.getpBusiness());
         aBus1Text.setHint(census.getaBusiness1());
         aBus2Text.setHint(census.getaBusiness2());
@@ -578,7 +584,7 @@ public class CensusViewForm extends AppCompatActivity {
           //  DB.updateUser(census, selector);
             Toast.makeText(getBaseContext(), "Form Resubmitted", Toast.LENGTH_LONG).show();
             finish();
-            Intent intent = new Intent(CensusViewForm.this, MainActivity.class);
+            Intent intent = new Intent(CensusViewForm.this, FormFragment.class);
             intent.putExtra("flagFamily",flagFamily);
             intent.putExtra("flagCensus",flagCensus);
             startActivity(intent);

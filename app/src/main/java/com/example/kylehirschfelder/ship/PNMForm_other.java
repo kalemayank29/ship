@@ -48,7 +48,7 @@ public class PNMForm_other extends AppCompatActivity {
         pnm.setFitDays(Integer.valueOf(receiveAsk[i++]));
         pnm.setFaintDays(Integer.valueOf(receiveAsk[i++]));
         Log.println(Log.ASSERT, "", receiveAsk[i]);
-        pnm.setMilk(Integer.valueOf(GetDate.getYears(receiveAsk[i])));
+        pnm.setMilk(Integer.valueOf(GetDate.getYears(receiveAsk[i])));              // LOOK INTO FIXING DATES. - AGE FOR DEATH SLIP.
         pnm.setMilkDays(Integer.valueOf(GetDate.getMonths(receiveAsk[i])));
         pnm.setMilkHours(Integer.valueOf(GetDate.getDays(receiveAsk[i++])));
         pnm.setMeaslesDays(Integer.valueOf(receiveAsk[i++]));
