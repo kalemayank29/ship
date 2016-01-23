@@ -169,7 +169,7 @@ public class DeathSupervisor extends AppCompatActivity {
             name.setText(object.Letter_E2M(death.getName()));
 
             TextView age = (TextView) view.findViewById(R.id.ageB);
-            age.setText(String.valueOf(death.getAge()));
+            age.setText(String.valueOf(GetDate.getYears(death.getAge())));
 
        /* TextView gender = (TextView) view.findViewById(R.id.sexB);
         String memberSex = String.valueOf(current.getSex());

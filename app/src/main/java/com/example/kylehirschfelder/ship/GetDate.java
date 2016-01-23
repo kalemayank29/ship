@@ -9,6 +9,9 @@ import java.util.Date;
  * Created by mayank on 1/17/16.
  */
 public class GetDate {
+
+    // THIS FUNCTION IS USED TO GET AGE, NOT DATE. Super misnomer.
+
     public static String getDate(int birthYear, int birthMonth, int birthDay, int deathYear, int deathMonth, int deathDay) {
         int ageYear = 0, ageMonth = 0, ageDate = 0;
         int flag = 30; // for number of days in a month
@@ -43,7 +46,7 @@ public class GetDate {
             ageMonth--;
         }
 
-        return ageYear + "-" + ageMonth + "-" + ageDate;
+        return ageDate + "-" + ageMonth + "-" + ageYear ;
     }
 
     public static int getMonths(String date) {
@@ -52,12 +55,12 @@ public class GetDate {
     }
     public static int getYears(String date) {
         String array[] = date.split("-");
-        return Integer.parseInt(array[0]);
+        return Integer.parseInt(array[2]);
     }
     public static int getDays(String date) {
         String array[] = date.split("-");
         Log.println(Log.ASSERT, "", array[0] + "/" + array[1] + "/" + array[2]);
-        return Integer.parseInt(array[2]);
+        return Integer.parseInt(array[0]);
     }
 
     public static String getDate() {

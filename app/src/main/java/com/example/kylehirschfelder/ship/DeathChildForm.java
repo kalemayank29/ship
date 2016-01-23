@@ -443,7 +443,7 @@ public class DeathChildForm extends AppCompatActivity {
         child.setBirthDate(birthDate.getDayOfMonth() + "-" + (birthDate.getMonth() + 1) + "-" + birthDate.getYear());
         child.setDeathDate(deathDate.getDayOfMonth() + "-" + (deathDate.getMonth() + 1) + "-" + deathDate.getYear());
         if(child.getBirthDate().equals(child.getDeathDate()) && String.valueOf(stillBirth.indexOfChild(findViewById(stillBirth.getCheckedRadioButtonId()))).equals('0')){
-            child.setAge(age.getText().toString());
+            child.setAge(age.getText().toString() + "-0-0");
         }
         else
             child.setAge(GetDate.getDate(birthDate.getYear(), birthDate.getMonth(), birthDate.getDayOfMonth(),

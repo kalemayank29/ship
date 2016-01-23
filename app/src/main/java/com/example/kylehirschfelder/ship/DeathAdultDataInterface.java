@@ -100,11 +100,10 @@ public class DeathAdultDataInterface  {
         death.setDeathDate(c.getString(i++));
         death.setAge(c.getString(i++));
 
-        death.setVillageOfDeath(c.getString(i++));
-        death.setVillageOfDeathID(c.getString(i++));
-
         death.setVillageStay(c.getString(i++));
         death.setVillageStayId(c.getString(i++));
+        death.setVillageOfDeath(c.getString(i++));
+        death.setVillageOfDeathID(c.getString(i++));
 
         death.setHealthMessenger(c.getString(i++));
         death.setHealthMessengerId(c.getString(i++));

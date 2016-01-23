@@ -74,14 +74,18 @@ public class DeathAdultView extends AppCompatActivity {
         year = GetDate.getYears(adult.getBirthDate());
         month = GetDate.getMonths(adult.getBirthDate());
         day = GetDate.getDays(adult.getBirthDate());
-        birthDate.updateDate(year, month, day);
+        birthDate.init(year, --month, day, null);
+
+        Log.println(Log.ASSERT, "getVillageOfStay", adult.getVillageStay());
+        Log.println(Log.ASSERT, "getVillageOfDeath", adult.getVillageOfDeath());
 
         deathDate = (DatePicker) findViewById(R.id.DeathDate);
         year = GetDate.getYears(adult.getDeathDate());
         month = GetDate.getMonths(adult.getDeathDate());
         day = GetDate.getDays(adult.getDeathDate());
-        deathDate.updateDate(year, month, day);
+        Log.println(Log.ASSERT, "DateWa", "" + year + "-" + month + "-" + day);
 
+        deathDate.init(year, --month, day, null);
 
 //        curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
 
@@ -125,14 +129,18 @@ public class DeathAdultView extends AppCompatActivity {
 
 
 
-        
+        String temp = adult.getVillageStay();
         villageStayBlockSpinner = (Spinner) findViewById(R.id.villageStayBlockSpinner);
         villageStayBlockTV = (TextView) findViewById(R.id.villageStayBlockTV);
         final ArrayAdapter villageStayBlockAdapter = ArrayAdapter.createFromResource(this, R.array.block_array, android.R.layout.simple_spinner_dropdown_item);
         villageStayBlockSpinner.setAdapter(villageStayBlockAdapter);
         villageStayBlockSpinner.setVisibility(View.GONE);
         villageStayBlockTV.setVisibility(View.VISIBLE);
-        villageStayBlockTV.setText(vSpin = translation.Letter_E2M(adult.getVillageStay()));
+        if(!temp.equalsIgnoreCase("non-resident")) {
+            temp = translation.Letter_E2M(temp);
+        }
+
+        villageStayBlockTV.setText(vSpin = temp);
 
         switch (villageStayBlockAdapter.getPosition(translation.Letter_E2M(adult.getVillageStay()))) {
             case 1:
@@ -194,7 +202,17 @@ public class DeathAdultView extends AppCompatActivity {
         villageDeathBlockSpinner.setAdapter(villageDeathBlockAdapter);
         villageDeathBlockSpinner.setVisibility(View.GONE);
         villageDeathBlockTV.setVisibility(View.VISIBLE);
-        villageDeathBlockTV.setText(vodSpin = translation.Letter_E2M(adult.getVillageOfDeath()));
+
+//        villageDeathBlockTV.setText(vodSpin = translation.Letter_E2M(adult.getVillageOfDeath()));
+
+        temp = adult.getVillageOfDeath();
+        if(!temp.equalsIgnoreCase("non-resident")) {
+            temp = translation.Letter_E2M(temp);
+        }
+        villageDeathBlockTV.setText(vodSpin = temp);
+
+        Log.println(Log.ASSERT, "VillageOfDeath", adult.getVillageOfDeath());
+
         switch (villageDeathBlockAdapter.getPosition(translation.Letter_E2M(adult.getVillageOfDeath()))) {
             case 1:
                 tempArray1 = getResources().getStringArray(R.array.non_resident);
@@ -516,7 +534,7 @@ public class DeathAdultView extends AppCompatActivity {
         editor.putString("deathA",deathResult );
         editor.commit();
 
-        if(Integer.parseInt(adult.getAge())>=5 && Integer.parseInt(adult.getAge())<=15){
+        if(GetDate.getYears(adult.getAge())>=5 && GetDate.getYears(adult.getAge())<=15){
             Intent intent = new Intent(getApplicationContext(), Cod5to15_Main.class);
             intent.putExtra("id",String.valueOf(adult.getId()));
             //Log.println(Log.ASSERT,"ID", String.valueOf(adult.getId()));

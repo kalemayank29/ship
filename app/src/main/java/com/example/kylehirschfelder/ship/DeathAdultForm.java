@@ -352,6 +352,9 @@ public class DeathAdultForm extends AppCompatActivity {
 
 
         adult.setVillageStay(translate.Letter_M2E(vSpin));
+
+        Log.println(Log.ASSERT, "setVillageStay", vSpin);
+
         adult.setVillageStayId(villageStayId.getText().toString());
 
         adult.setName(translate.Letter_M2E(name.getText().toString()));
@@ -359,9 +362,20 @@ public class DeathAdultForm extends AppCompatActivity {
 
         adult.setBirthDate(birthDate.getDayOfMonth() + "-" + (birthDate.getMonth() + 1) + "-" + birthDate.getYear());
         Log.println(Log.ASSERT, "Date", adult.getBirthDate());
+
         adult.setDeathDate(deathDate.getDayOfMonth() + "-" + (deathDate.getMonth() + 1) + "-" + deathDate.getYear());
-        adult.setAge(age.getText().toString());
+
+        if(age.getText().toString().isEmpty()) {
+            adult.setAge(GetDate.getDate(birthDate.getYear(), birthDate.getMonth(), birthDate.getDayOfMonth(),
+                    deathDate.getYear(), deathDate.getMonth(), deathDate.getDayOfMonth()));
+        }
+        else
+            adult.setAge(age.getText().toString() + "-0-0");
+
         adult.setVillageOfDeath(translate.Letter_M2E(vodSpin));
+
+        Log.println(Log.ASSERT, "setVillageDeath", vodSpin);
+
         adult.setVillageOfDeathID(villageDeathId.getText().toString());
 
         ///****** CHANGE *****//

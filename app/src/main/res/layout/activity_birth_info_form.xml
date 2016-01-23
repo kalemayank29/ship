@@ -26,8 +26,9 @@
                     android:textAlignment="center"
                     android:layout_height="wrap_content"
                     android:textSize="25sp"
-                    android:hint="आईचे नाव"
+                    android:text="आईचे नाव"
                     android:textColor="#ffffdd"
+
                     />
 
                 <EditText
