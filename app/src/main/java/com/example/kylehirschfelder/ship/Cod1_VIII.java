@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Cod1_VII extends AppCompatActivity {
+public class Cod1_VIII extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cod1__vii);
+        setContentView(R.layout.activity_cod1__viii);
     }
 
     @Override

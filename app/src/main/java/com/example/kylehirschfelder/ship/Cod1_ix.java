@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-public class Cod1_ix extends AppCompatActivity {
+public class Cod1_IX extends AppCompatActivity {
 
     EditText yesMilk, yesUnconsc, yesCry, yesFever, yesCold,yesSwell, yesLose, yesVomit, yesStomach, yesFit, yesStart,
                 yesBreath, yesSkin, yesBelly, crampDays, waterDays, deliveryDays;
