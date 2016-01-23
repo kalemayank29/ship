@@ -973,6 +973,19 @@
                 </RadioGroup>
             </LinearLayout>
 
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="100dp"
+                android:background="@drawable/save_button_pressed"
+                android:text="Next"
+                android:textColor="#ffffff"
+                android:id="@+id/next"
+                />
+
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

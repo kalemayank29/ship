@@ -143,7 +143,7 @@ public class BirthFamilyListView extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo info) {
         super.onCreateContextMenu(menu, view, info);
         menu.setHeaderTitle(".....");
-        menu.add(Menu.NONE, VIEWFAM, menu.NONE, "Select Family Head");
+        menu.add(Menu.NONE, VIEWFAM, menu.NONE, "कुटुंब प्रमुख माहिती");
     }
 
 
@@ -226,6 +226,9 @@ public class BirthFamilyListView extends AppCompatActivity {
                         intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getFamilyId()));
                         intent.putExtra("form","5");
                         intent.putExtra("resident", "1");
+
+
+
                         finish();
                         startActivity(intent);
                     }
@@ -233,6 +236,20 @@ public class BirthFamilyListView extends AppCompatActivity {
                         Intent intent = new Intent(BirthFamilyListView.this,PNMForm_ask.class);
                         intent.putExtra("index", String.valueOf(memberList.get(longClickItemIndex).getMemberId()));
                         intent.putExtra("resident", "0");
+                        // ** TRY **
+                        String[] info = new String[10];
+                        info[0] = memberList.get(longClickItemIndex).getName();
+                        info[1] = String.valueOf(memberList.get(longClickItemIndex).getSex());
+                        //info[2] = memberList.get(longClickItemIndex).getVillage();
+                        info[2] = "Wut";
+                        info[3] = String.valueOf(memberList.get(longClickItemIndex).getVillageId());
+                        //info[4] = memberList.get(longClickItemIndex).getVillageBlock();
+                        info[4] = "Is this field necessary?";
+                        info[5] = memberList.get(longClickItemIndex).getChildDate();
+                        info[6] = String.valueOf(memberList.get(longClickItemIndex).getAge());
+                        info[7] = String.valueOf(memberList.get(longClickItemIndex).getFamilyId());
+                        info[8] = String.valueOf(memberList.get(longClickItemIndex).getHouseId());
+                        intent.putExtra("info", info);
                         finish();
                         startActivity(intent);
                     }

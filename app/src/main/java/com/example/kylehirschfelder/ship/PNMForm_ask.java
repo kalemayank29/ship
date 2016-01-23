@@ -3,6 +3,7 @@ package com.example.kylehirschfelder.ship;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,11 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class PNMForm_ask extends AppCompatActivity {
 
-    EditText name;
 
     RadioGroup gaspGroup;
     RadioButton gaspYes, gaspNo;
@@ -60,6 +63,9 @@ public class PNMForm_ask extends AppCompatActivity {
     EditText birthMonths;
     String birth = "000";
 
+    TextView name, gender, villageName, villageId, villageBlock, birthDate, treatmentDate, age, familyId, houseId;
+    String[] info = new String[9];
+
     Button save;
 
 
@@ -68,8 +74,27 @@ public class PNMForm_ask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pnmform_ask);
 
-        name = (EditText) findViewById(R.id.name);
-        name.setText("mayaMka");
+        name = (TextView) findViewById(R.id.Name);
+        gender = (TextView) findViewById(R.id.gender);
+        villageName = (TextView) findViewById(R.id.villageName);
+        villageId = (TextView) findViewById(R.id.villageId);
+        villageBlock = (TextView) findViewById(R.id.villageBlock);
+        birthDate = (TextView) findViewById(R.id.birthDate);
+        treatmentDate = (TextView) findViewById(R.id.treatmentDate);
+        age = (TextView) findViewById(R.id.Age);
+        familyId = (TextView) findViewById(R.id.familyId);
+        houseId = (TextView) findViewById(R.id.houseId);
+
+        TextView[] fields = {name, gender, villageName, villageId, birthDate, age, familyId, houseId};
+        info = getIntent().getStringArrayExtra("info");
+
+        for(int i = 0; i < fields.length; i++) {
+            fields[i].setText(info[i]);
+        }
+
+
+        Translation tr = new Translation();
+        treatmentDate.setText(tr.Number_E2M(GetDate.getDate()));
 
         gaspGroup = (RadioGroup) findViewById(R.id.gaspGroup);
         gaspYes = (RadioButton) findViewById(R.id.gaspYes);
@@ -115,6 +140,8 @@ public class PNMForm_ask extends AppCompatActivity {
 
         birthMonths = (EditText) findViewById(R.id.birthMonths);
 
+
+
         save = (Button) findViewById(R.id.saveAsk);
 
         save.setOnClickListener(new View.OnClickListener() {
@@ -157,6 +184,8 @@ public class PNMForm_ask extends AppCompatActivity {
                 }
             }
         });
+
+
 
     }
 
@@ -279,5 +308,10 @@ public class PNMForm_ask extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

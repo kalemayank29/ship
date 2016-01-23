@@ -285,6 +285,10 @@ public class BirthViewForm extends AppCompatActivity {
         year = Integer.parseInt(date.substring(index, date.length()));
         Log.println(Log.ASSERT, "Year", String.valueOf(year));
         birthDate.updateDate(year, month, day);
+        year = GetDate.getYears(birth.getBirthDate());
+        month = GetDate.getMonths(birth.getBirthDate());
+        day = GetDate.getDays(birth.getBirthDate());
+
 
         motherName.setText(TR.Letter_E2M(birth.getMotherName()));
 //        Log.println(Log.ASSERT, "villageBirthPlace", birth.getVillageOfBirthPlace());

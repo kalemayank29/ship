@@ -129,6 +129,20 @@ public class MemberFamilyFromHeadListView extends AppCompatActivity {
                     Intent viewIntent = new Intent(getApplicationContext(), PNMForm_ask.class);
                     viewIntent.putExtra("index", String.valueOf(memberFamList.get(longClickItemIndex).getMemberId()));
                     viewIntent.putExtra("name", String.valueOf(memberFamList.get(longClickItemIndex).getName()));
+                    // ** TRY **
+                    String[] info = new String[10];
+                    info[0] = memberFamList.get(longClickItemIndex).getName();
+                    info[1] = String.valueOf(memberFamList.get(longClickItemIndex).getSex());
+                    //info[2] = memberFamList.get(longClickItemIndex).getVillage();
+                    info[2] = "Wut";
+                    info[3] = String.valueOf(memberFamList.get(longClickItemIndex).getVillageId());
+                    //info[4] = memberFamList.get(longClickItemIndex).getVillageBlock();
+                    info[4] = "Is this field necessary?";
+                    info[5] = memberFamList.get(longClickItemIndex).getChildDate();
+                    info[6] = String.valueOf(memberFamList.get(longClickItemIndex).getAge());
+                    info[7] = String.valueOf(memberFamList.get(longClickItemIndex).getFamilyId());
+                    info[8] = String.valueOf(memberFamList.get(longClickItemIndex).getHouseId());
+                    viewIntent.putExtra("info", info);
                     startActivity(viewIntent);
                 }
                 break;

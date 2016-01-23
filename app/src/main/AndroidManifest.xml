@@ -24,7 +24,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,88 +35,105 @@
         <activity
             android:name=".MemberForm"
             android:label="@string/title_activity_member_form"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden">
+
         </activity>
         <activity
             android:name=".ViewMemberProfile"
             android:label="@string/title_activity_view_member_profile"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".MemberFamilyFromHeadListView"
             android:label="Family"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".TransferMemberListView"
             android:label="@string/title_activity_transfer_member_list_view"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".WifiDirectActivity"
-            android:label="@string/title_activity_wifi_direct" >
+            android:label="@string/title_activity_wifi_direct"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".AddPrimaryFamily"
             android:label="@string/title_activity_add_primary_family"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".MemberAfterTransfer"
             android:label="Store Locally"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".CensusForm"
             android:label="@string/title_activity_census_form"
             android:screenOrientation="landscape"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden"
+            >
         </activity>
         <activity
             android:name=".MemberFormUpdate"
             android:label="@string/title_activity_member_form_update"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".CF_ViewForm"
             android:label="@string/title_activity_cf__view_form"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".CensusFormPortal"
             android:label="@string/title_activity_census_form_portal"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".TransferPortal"
-            android:label="@string/title_activity_transfer_portal" >
+            android:label="@string/title_activity_transfer_portal"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".HouseTransferList"
             android:label="@string/title_activity_house_transfer_list"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".BirthFamilyListView"
             android:label="@string/title_activity_birth_family_list_view"
-             >
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".BirthInfoForm"
             android:label="Birth Info Form"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden">
         </activity>
 
-        <!--<activity android:name=".FormFragment"/>-->
+        <!-- <activity android:name=".FormFragment"/> -->
 
         <activity
             android:name=".BirthSelectMother"
-            android:label="@string/title_activity_birth_select_mother" >
+            android:label="@string/title_activity_birth_select_mother"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".NewCensusForm"
             android:label="@string/title_activity_new_census_form"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".CensusViewForm"
@@ -126,162 +144,216 @@
         <activity
             android:name=".PatientList"
             android:label="@string/title_activity_patient_list"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".DeathAdultForm"
             android:label="@string/title_activity_death_adult_form"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".PNM_Info"
             android:label="@string/title_activity_pnm__info"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".PortalUnderFive"
-            android:label="@string/title_activity_portal_under_five" >
+            android:label="@string/title_activity_portal_under_five"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".PortalMother"
-            android:label="@string/title_activity_portal_mother" >
+            android:label="@string/title_activity_portal_mother"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".PNMForm_ask"
             android:label="@string/title_activity_pnmform_ask"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".PNMForm_see"
             android:label="@string/title_activity_pnmform_see"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".PNMForm_hear"
-            android:label="@string/title_activity_pnmform_hear" >
+            android:label="@string/title_activity_pnmform_hear"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".PNMForm_other"
-            android:label="@string/title_activity_pnmform_other" >
+            android:label="@string/title_activity_pnmform_other"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".SearchSEARCH"
-            android:label="searchSEARCH" >
+            android:label="searchSEARCH"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".VideoPlayer"
             android:label="@string/title_activity_video_player"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".DeathChildForm"
             android:label="@string/title_activity_death_child_form"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod1to5_Main"
-            android:label="@string/title_activity_cod1to5__main" >
+            android:label="@string/title_activity_cod1to5__main"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod1to5_I_II"
             android:label="@string/title_activity_cod1to5__i__ii"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod1to5_III"
             android:label="@string/title_activity_cod1to5__iii"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod1to5_IV"
             android:label="@string/title_activity_cod1to5__iv"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod1to5_V"
             android:label="@string/title_activity_cod1to5__v"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod1to5_VI"
             android:label="@string/title_activity_cod1to5__vi"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod1to5_VII"
             android:label="@string/title_activity_cod1to5__vii"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod1_I"
-            android:label="@string/title_activity_cod1__i" >
+            android:label="@string/title_activity_cod1__i"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".CodFifteenForm"
-            android:label="@string/title_activity_cod_fifteen_form" >
+            android:label="@string/title_activity_cod_fifteen_form"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod1_IV"
-            android:label="@string/title_activity_cod1__iv" >
+            android:label="@string/title_activity_cod1__iv"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".StillBirthForm"
-            android:label="@string/title_activity_still_birth_form" >
+            android:label="@string/title_activity_still_birth_form"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod5to15_Main"
-            android:label="@string/title_activity_cod5to15__main" >
+            android:label="@string/title_activity_cod5to15__main"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod5to15_I"
-            android:label="@string/title_activity_cod5to15__i" >
+            android:label="@string/title_activity_cod5to15__i"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".BirthSupervisor"
-            android:label="@string/title_activity_birth_supervisor" >
+            android:label="@string/title_activity_birth_supervisor"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".BirthViewForm"
-            android:label="@string/title_activity_birth_view_form" >
+            android:label="@string/title_activity_birth_view_form"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".DeathAdultView"
-            android:label="Death Adult View" >
+            android:label="Death Adult View"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".DeathChildView"
-            android:label="Death Child View" >
+            android:label="Death Child View"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".DeathSupervisor"
-            android:label="@string/title_activity_death_supervisor" >
-            </activity>
+            android:label="@string/title_activity_death_supervisor"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
         <activity
             android:name=".MedicineInventoryInterface"
-            android:label="MedicineInventoryInterface" >
+            android:label="MedicineInventoryInterface"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".MedicineInventoryAddMedicine"
-            android:label="MedicineInventoryAddMedicine" >
+            android:label="MedicineInventoryAddMedicine"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".TransactionInterface"
-            android:label="TransactionInterface" >
+            android:label="TransactionInterface"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".PrescriptionInterface"
-            android:label="PrescriptionInterface" >
+            android:label="PrescriptionInterface"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".StrokeActivity"
-            android:label="StrokeActivity" >
+            android:label="StrokeActivity"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".StrokeView"
-            android:label="StrokeView" >
+            android:label="StrokeView"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
-
-
+        <activity
+            android:name=".Cod1_VII"
+            android:label="@string/title_activity_cod1__vii"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name=".Cod1_IX"
+            android:label="@string/title_activity_cod1__ix"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name=".Cod1_ix"
+            android:label="@string/title_activity_cod1_ix"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name=".Cod1_X"
+            android:label="@string/title_activity_cod1__x"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
     </application>
 
 </manifest>

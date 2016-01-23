@@ -1,0 +1,179 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#011936"
+    android:weightSum="1">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="VIII. आंग थंड पढणे \n मारण्यापूर्वी मुलाचे आंग थंड पडलेले होते का?"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/death">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="हो"
+                        android:id="@+id/yesCold"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:textSize="20dp"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="noCold"
+                        android:id="@+id/noBlood"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:textSize="20dp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="म्र्युत्यू किती घंटे अगोदर आंग थंड पडलं ?"
+                    />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:hint="दिवस"
+                    android:id="@+id/hours"
+                    android:background="@drawable/spinner"
+                    android:inputType="number"
+                    android:imeOptions="actionDone"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:text="शरीराचे कोणते भाग थंड होते?"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp">
+                <RadioGroup
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/eyes">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="डोकं"
+                        android:id="@+id/yesEyes"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+
+                        android:textSize="20dp"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="छाती, पोट "
+                        android:id="@+id/noEyes"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+
+                        android:textSize="20dp"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="हात, पाय"
+                        android:id="@+id/dontKnowEyes"
+                        android:buttonTint="#ffffdd"
+                        android:textColor="#ffffdd"
+                        android:textSize="20dp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

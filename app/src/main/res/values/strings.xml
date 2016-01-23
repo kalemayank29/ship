@@ -64,7 +64,7 @@
         <item>M.A</item>
         <item>M.Sc</item>
         <item>M.Com</item>
-        <item>ईतर</item>
+        <item>इतर</item>
     </string-array>
 
     <string-array name="literacy_array">
@@ -628,5 +628,9 @@
     <string name="title_activity_birth_supervisor">BirthSupervisor</string>
     <string name="title_activity_birth_view_form">BirthViewForm</string>
     <string name="title_activity_death_supervisor">DeathSupervisor</string>
+    <string name="title_activity_cod1__vii">Cod1_VII</string>
+    <string name="title_activity_cod1__ix">Cod1_IX</string>
+    <string name="title_activity_cod1_ix">Cod1_ix</string>
+    <string name="title_activity_cod1__x">Cod1_X</string>
 
 </resources>

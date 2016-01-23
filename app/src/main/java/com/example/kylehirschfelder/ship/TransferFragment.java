@@ -286,7 +286,7 @@ public class TransferFragment extends Fragment {
         for (DeathAdult element : deathList
                 ) {
             HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost("http://192.168.1.37:8888/deathAdult/add");
+            HttpPost httppost = new HttpPost("http://192.168.1.10:80/deathAdult/add");
             try {
 
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(18);
@@ -351,7 +351,7 @@ public class TransferFragment extends Fragment {
         for (DeathChild element : deathList
                 ) {
             HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost("http://192.168.1.37:8888/deathChild/add");
+            HttpPost httppost = new HttpPost("http://192.168.1.10:80/deathChild/add");
             try {
 
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(18);

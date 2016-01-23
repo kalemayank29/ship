@@ -2058,7 +2058,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:layout_marginLeft="20dp"
-                        android:text="ईतर"
+                        android:text="इतर"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"
                         android:textSize="20dp"/>

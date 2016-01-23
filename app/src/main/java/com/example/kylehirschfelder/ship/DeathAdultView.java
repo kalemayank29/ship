@@ -70,8 +70,18 @@ public class DeathAdultView extends AppCompatActivity {
 
         MemberDataInterface dInterface = new MemberDataInterface(getApplicationContext());
         birthDate = (DatePicker) findViewById(R.id.BirthDate);
+        int year, month, day;
+        year = GetDate.getYears(adult.getBirthDate());
+        month = GetDate.getMonths(adult.getBirthDate());
+        day = GetDate.getDays(adult.getBirthDate());
+        birthDate.updateDate(year, month, day);
 
         deathDate = (DatePicker) findViewById(R.id.DeathDate);
+        year = GetDate.getYears(adult.getDeathDate());
+        month = GetDate.getMonths(adult.getDeathDate());
+        day = GetDate.getDays(adult.getDeathDate());
+        deathDate.updateDate(year, month, day);
+
 
 //        curVillage = ((CurrentVillage) this.getApplication()).getSomeVariable();
 

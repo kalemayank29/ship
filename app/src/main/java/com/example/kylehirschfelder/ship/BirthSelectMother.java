@@ -119,7 +119,7 @@ int longClickItemIndex, familyId;
         public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo info) {
             super.onCreateContextMenu(menu, view, info);
             menu.setHeaderTitle("OPTIONS");
-            menu.add(Menu.NONE, VIEW, menu.NONE, "Birth slip BHARA");
+            menu.add(Menu.NONE, VIEW, menu.NONE, "जन्म माहिती भरा");
 
         }
 

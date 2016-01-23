@@ -316,7 +316,7 @@ public class Member {
                 education = "M.Com";
                 break;
             case "19":
-                education = "ईतर";
+                education = "इतर";
                 break;
         }
     }

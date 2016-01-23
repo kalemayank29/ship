@@ -48,7 +48,7 @@ public class PNM_Info extends AppCompatActivity {
         String[] disease = new String[] { "अ) गंभीर न्युमोनिया",
                 "ब). जास्त दिवसांचा रोग",
                 "क). न्युमोनिया","ड). व्हीज", "इ). ताप (१०० डिग्री. फॅ किवा जास्त)",
-                "फ).डिहायड्रेशन", "त). सर्दी / साधा खोकला ", "थ). ईतर रोग लिहा :"};
+                "फ).डिहायड्रेशन", "त). सर्दी / साधा खोकला ", "थ). इतर रोग लिहा :"};
         ArrayList<String> planetList = new ArrayList<String>();
         planetList.addAll( Arrays.asList(disease) );
 

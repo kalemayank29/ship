@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center"
         android:layout_marginLeft="385dp">
 
@@ -16,25 +16,14 @@
             android:layout_height="wrap_content"
             android:text="विचारा"
             android:textColor="#ffffdd"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="50dp"
             android:textAlignment="center"
             android:textSize="45sp"
             android:layout_marginBottom="25dp"
             />
-        <EditText
-            android:layout_marginTop="5dp"
-            android:layout_width="150dp"
-            android:layout_marginLeft="40dp"
-            android:layout_height="30dp"
-            android:hint="Name"
-            android:id="@+id/name"
-            android:textSize="25sp"
-            android:enabled="false"
-            android:background="#cccccc"
-            android:text="#000000"
-            />
+
 
 
 
@@ -48,12 +37,281 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="मुलाचे नाव"
+                    android:textColor="#ffffdd"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginLeft="110dp"
+                    android:textAlignment="center"
+                    android:textSize="25sp"
+                    />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="65dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Name"
+                    android:textSize="25dp"
+                    android:text=""
+                    android:background="#cccccc"
+                    />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_marginTop="65dp"
+                    android:layout_marginLeft="135dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:text="लिंग"
+                    android:gravity="right"
+                    />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="65dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gender"
+                    android:textSize="25sp"
+                    android:text="67"
+                    android:background="#cccccc"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="मुलाचे गाव"
+                    android:textColor="#ffffdd"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="110dp"
+                    android:textAlignment="center"
+                    android:textSize="25sp"
+                    />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="35dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/villageName"
+                    android:textSize="25dp"
+                    android:text=""
+                    android:background="#cccccc"
+                    />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_marginLeft="95dp"
+                    android:textColor="#ffffdd"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:text="गावाचा  क्र."
+                    android:gravity="right"
+                    />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="35dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/villageId"
+                    android:textSize="25sp"
+                    android:text="67"
+                    android:background="#cccccc"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="तालुका "
+                    android:textColor="#ffffdd"
+                    android:layout_width="80dp"
+                    android:layout_marginLeft="125dp"
+                    android:gravity="right"
+                    android:textSize="25sp"
+                    />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="35dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/villageBlock"
+                    android:textSize="25dp"
+                    android:text=""
+                    android:background="#cccccc"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:text="जन्म तारीख "
+                    android:gravity="right"
+                    />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="35dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/birthDate"
+                    android:textSize="25sp"
+                    android:text="67"
+                    android:background="#cccccc"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="उपचाराची तारीख "
+                    android:textColor="#ffffdd"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:textAlignment="center"
+                    android:textSize="25sp"
+                    />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="35dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/treatmentDate"
+                    android:textSize="25dp"
+                    android:text=""
+                    android:background="#cccccc"
+                    />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_marginLeft="135dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:text="वय"
+                    android:gravity="right"
+                    />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="35dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Age"
+                    android:textSize="25sp"
+                    android:text="67"
+                    android:background="#cccccc"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="कुतुंब ओळख क्र."
+                    android:textColor="#ffffdd"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:textAlignment="center"
+                    android:textSize="25sp"
+                    />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="35dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/familyId"
+                    android:textSize="25dp"
+                    android:text=""
+                    android:background="#cccccc"
+                    />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_marginLeft="135dp"
+                    android:textColor="#ffffdd"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:text="घर क्र."
+                    android:gravity="right"
+                    />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_marginLeft="35dp"
+                    android:textColor="#000000"
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/houseId"
+                    android:textSize="25sp"
+                    android:text="67"
+                    android:background="#cccccc"
+                    />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="45dp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_marginLeft="120dp"

@@ -198,7 +198,7 @@ public class MemberForm extends AppCompatActivity {
                     case "M.Com":
                         education = "18";
                         break;
-                    case "ईतर":
+                    case "इतर":
                         education = "19";
                         break;
                 }

@@ -87,6 +87,7 @@ public class Cod1to5_III extends AppCompatActivity {
             }
 
         });
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
