@@ -17,7 +17,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginLeft="325dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="कुटुंब प्रमुख -"
+        android:text="Family Head -"
         android:id="@+id/familyHeadTextViewB"
         android:textColor="#011936"
         android:textSize="30dp"
@@ -140,7 +140,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginLeft="200dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="सगळे कुटुंब प्रमुख "
+        android:text="All Family Heads "
         android:textColor="#011936"
         android:textSize="20dp"
         android:textStyle="bold"/>

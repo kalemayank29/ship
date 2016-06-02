@@ -271,7 +271,7 @@ public class BirthViewForm extends AppCompatActivity {
         });
 
 
-        String date = birth.getBirthDate();
+       /* String date = birth.getBirthDate();
         int year, month, day;
         Log.println(Log.ASSERT, "Date", date);
         day = Integer.parseInt(date.substring(0, 2));
@@ -289,7 +289,7 @@ public class BirthViewForm extends AppCompatActivity {
         month = GetDate.getMonths(birth.getBirthDate());
         day = GetDate.getDays(birth.getBirthDate());
 
-
+*/
         motherName.setText(TR.Letter_E2M(birth.getMotherName()));
 //        Log.println(Log.ASSERT, "villageBirthPlace", birth.getVillageOfBirthPlace());
         villageOfBirthPlace[Integer.parseInt(birth.getVillageOfBirthPlace()) - 1].setChecked(true);

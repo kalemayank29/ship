@@ -53,9 +53,9 @@ public class FormFragment extends Fragment {
         medicineInventory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-           //     Intent intent = new Intent(getActivity().getApplicationContext(), MedicineInventoryInterface.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), MedicineInventoryInterface.class);
            //     startActivity(intent);
-                Intent intent = new Intent(getActivity().getApplicationContext(), Cod1_I.class);
+              //  Intent intent = new Intent(getActivity().getApplicationContext(), Cod1_I.class);
                 startActivity(intent);
             }
         });

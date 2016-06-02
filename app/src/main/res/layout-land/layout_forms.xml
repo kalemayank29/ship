@@ -42,7 +42,7 @@
             android:id="@+id/familyBtn"
             android:textSize="25sp"
             android:drawableTop="@drawable/noun_118248_cc"
-            android:text="जनगनणा \nनोंदणी"
+            android:text="Census Enrollment"
             />
 
         <Button
@@ -52,7 +52,7 @@
             android:drawableTop="@drawable/noun_49530_cc"
             android:textSize="25sp"
             android:paddingTop="18dp"
-            android:text="जन्म \nमाहिती"
+            android:text="Birth Information"
             android:layout_marginLeft="15dp" />
         <LinearLayout
             android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="30dp"
                 android:paddingTop="18dp"
-                android:text="पी. एन. एम "
+                android:text="PNM"
                 android:textSize="25sp"
                 android:drawableTop="@drawable/noun_273609_cc"
                 android:id="@+id/pnm"
@@ -79,7 +79,7 @@
                 android:paddingTop="18dp"
                 android:textSize="25sp"
                 android:layout_marginLeft="15dp"
-                android:text="मृत्युची \nनोंदणी "
+                android:text="Death Information"
                 android:drawableTop="@drawable/noun_270414_cc"
                 android:id="@+id/deathBtn"
                 android:layout_gravity="center_horizontal"/>
@@ -100,7 +100,7 @@
             android:paddingTop="17dp"
             android:textSize="25sp"
             android:drawableTop="@drawable/noun_49531_cc"
-            android:text="बाल मृत्युची नोंदणी "
+            android:text="Infant Death"
             android:id="@+id/deathChild"
             android:layout_gravity="center_horizontal"/>
         <Button
@@ -110,7 +110,7 @@
             android:layout_marginLeft="15dp"
             android:paddingTop="30dp"
             android:textSize="25sp"
-            android:text="स्ट्रोक "
+            android:text="Stroke "
             android:id="@+id/stroke"
             android:drawableTop="@drawable/rsz_noun_45453_cc"
             android:layout_gravity="center_horizontal"/>
@@ -123,7 +123,7 @@
             android:paddingTop="25dp"
             android:textSize="25sp"
             android:drawableTop="@drawable/rsz_noun_100221_cc"
-            android:text=" औषध "
+            android:text=" Medicine"
             android:id="@+id/medicineInventory"
             android:layout_gravity="center_horizontal"/>
 

@@ -26,7 +26,7 @@
                     android:textAlignment="center"
                     android:layout_height="wrap_content"
                     android:textSize="25sp"
-                    android:text="आईचे नाव"
+                    android:text="Mother Name"
                     android:textColor="#ffffdd"
 
                     />
@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/motherName"
                     android:textSize="25sp"
-                    android:hint="आईचे नाव भरा"
+                    android:hint="Mother name"
                     />
 
             </LinearLayout>
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/motherVillageBlockText"
                     android:textSize="15dp"
-                    android:text="मुलाच्या आईच्या गावाचा ब्लॉक"
+                    android:text="Mothers Village Block"
                     />
                 <TextView
                     android:layout_width="150dp"
@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/motherVillageNameText"
                     android:textSize="15dp"
-                    android:text="मुलाच्या आईचे नेहमी राहण्याचे गाव"/>
+                    android:text="Mother Village Name"/>
                 <TextView
                     android:layout_width="150dp"
                     android:layout_marginLeft="45dp"
@@ -125,7 +125,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/motherVillageIdText"
                     android:textSize="15dp"
-                    android:text="गाव क्रमांक"
+                    android:text="Village No"
                     />
                 <TextView
                     android:layout_width="150dp"
@@ -153,7 +153,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/birthdateText"
                     android:textSize="15dp"
-                    android:text="मुलाची जन्म तारीख"
+                    android:text="Birth Date"
                     />
                 <DatePicker
                     android:layout_width="wrap_content"
@@ -187,7 +187,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
                             android:textColor="#ffffdd"
-                            android:text="जन्माचे गाव ब्लॉक"/>
+                            android:text="Birth Village Block"/>
 
                         <TextView
                             android:layout_width="150dp"
@@ -222,7 +222,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
                             android:textColor="#ffffdd"
-                            android:text="जन्माचे गाव "/>
+                            android:text="Birth Village "/>
 
                         <TextView
                             android:layout_width="150dp"
@@ -257,7 +257,7 @@
                             android:textSize="15dp"
                             android:id="@+id/villageOfBirthId_tv"
                             android:textColor="#ffffdd"
-                            android:text="गाव क्रमांक"/>
+                            android:text="Village No."/>
                         <TextView
                             android:layout_width="150dp"
                             android:layout_marginLeft="30dp"
@@ -284,7 +284,7 @@
                         android:textSize="25dp"
                         android:layout_marginTop="15dp"
                         android:textColor="#ffffdd"
-                        android:text="बाळंतपण कुठे झाले "/>
+                        android:text="Birth Place"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -293,7 +293,7 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="घरी"
+                            android:text="House"
                             android:textColor="#ffffdd"
                             android:id="@+id/villageOfBirthPlace0"
                             android:buttonTint="#ffffdd"
@@ -302,7 +302,7 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="सर.दवा"
+                            android:text="Public Hospital"
                             android:textColor="#ffffdd"
                             android:id="@+id/villageOfBirthPlace1"
                             android:buttonTint="#ffffdd"
@@ -311,7 +311,7 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="नर्स कवा"
+                            android:text="Nurse"
                             android:textColor="#ffffdd"
                             android:id="@+id/villageOfBirthPlace2"
                             android:buttonTint="#ffffdd"
@@ -329,7 +329,7 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="प्रा.दवा"
+                            android:text="Private Hospital"
                             android:textColor="#ffffdd"
                             android:id="@+id/villageOfBirthPlace4"
                             android:buttonTint="#ffffdd"
@@ -338,7 +338,7 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="इतर"
+                            android:text="Other"
                             android:textColor="#ffffdd"
                             android:id="@+id/villageOfBirthPlace5"
                             android:buttonTint="#ffffdd"
@@ -361,7 +361,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/fhb1_tv"
                     android:textSize="25dp"
-                    android:text="गरोदरपणाचे किती महिने पूर्ण झाले ?"
+                    android:text="Gestation Period ?"
                     />
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -370,7 +370,7 @@
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="सात पेक्षा कमी"
+                        android:text="Less than 7"
                         android:id="@+id/less7"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"
@@ -379,7 +379,7 @@
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="७ म."
+                        android:text="7 Months"
                         android:id="@+id/m7"
                         android:tag="m7"
                         android:buttonTint="#ffffdd"
@@ -388,7 +388,7 @@
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="८ म."
+                        android:text="8 Months"
                         android:id="@+id/m8"
                         android:tag="m8"
                         android:buttonTint="#ffffdd"
@@ -397,7 +397,7 @@
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="८ म. २१दी"
+                        android:text="8 M 21 Days"
                         android:id="@+id/m8d21"
                         android:tag="m8d21"
                         android:buttonTint="#ffffdd"
@@ -406,7 +406,7 @@
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="९ म."
+                        android:text="9 Months"
                         android:id="@+id/m9"
                         android:tag="m9"
                         android:buttonTint="#ffffdd"
@@ -415,7 +415,7 @@
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="मा.ना"
+                        android:text="Dont Know"
                         android:id="@+id/doesNotKnow"
                         android:tag="doesNotKnow"
                         android:buttonTint="#ffffdd"
@@ -431,7 +431,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/deliveryMethodText"
                     android:textSize="25dp"
-                    android:text="बाळंतपण प्रकार "
+                    android:text="Type of Birth "
                     />
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -440,7 +440,7 @@
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="दाई "
+                        android:text="midWife "
                         android:id="@+id/midwife"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"
@@ -448,28 +448,28 @@
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="नर्स "
+                        android:text="Nurse"
                         android:id="@+id/nurse"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"/>
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="डॉक्टर"
+                        android:text="Doctor"
                         android:id="@+id/doctor"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"/>
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="नातेवाइक"
+                        android:text="Relatives"
                         android:id="@+id/relatives"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"/>
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="इतर"
+                        android:text="Other"
                         android:id="@+id/other"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"/>
@@ -478,7 +478,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:hint="बाळंतपण करणार्याचे नाव"
+                    android:hint="midWife Name"
                     android:textColorHint="#ffffdd"
                     android:textSize="15dp"
                     android:textColor="#ffffdd"
@@ -498,7 +498,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/gender"
                     android:textSize="25dp"
-                    android:text="लिंग"
+                    android:text="Gender"
                     />
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -511,7 +511,7 @@
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"
                         android:onClick="radioClick"
-                        android:text="मुलगा"
+                        android:text="Male"
                         android:tag="boy"/>
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -520,7 +520,7 @@
                         android:textColor="#ffffdd"
                         android:buttonTint="#ffffdd"
                         android:onClick="radioClick"
-                        android:text="मुलगी"
+                        android:text="Female"
                         android:tag="girl"/>
                 </LinearLayout>
                 <TextView
@@ -532,7 +532,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/femaleMessengerPresence"
                     android:textSize="25dp"
-                    android:text="स्त्री आरोग्यदूत बाळंत पणाच्या वेळी हजार होती का ?"
+                    android:text="Presence of Health Worker?"
                     />
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -546,7 +546,7 @@
                         android:textColor="#ffffdd"
                         android:onClick="radioClick"
                         android:tag="yes"
-                        android:text="हो "/>
+                        android:text="Yes "/>
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -555,7 +555,7 @@
                         android:buttonTint="#ffffdd"
                         android:onClick="radioClick"
                         android:tag="no"
-                        android:text="नाही"/>
+                        android:text="No"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -576,7 +576,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/healthMessengerText"
                         android:textSize="25dp"
-                        android:text="आरोग्यादूत "
+                        android:text="Health Worker "
                         />
 
 
@@ -595,7 +595,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/healthMessengerName"
                             android:textSize="15dp"
-                            android:hint="नाव"
+                            android:hint="Name"
                             android:textColorHint="#ffffdd"
                             />
                         <EditText
@@ -633,7 +633,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/guideText"
                         android:textSize="25dp"
-                        android:text="मार्गदर्शक "
+                        android:text="Supervisor "
                         />
 
 
@@ -652,7 +652,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/guideName"
                             android:textSize="15dp"
-                            android:hint="नाव"
+                            android:hint="Name"
                             android:textColorHint="#ffffdd"
                             />
                         <EditText

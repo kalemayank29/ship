@@ -484,7 +484,9 @@ public class DeathAdultView extends AppCompatActivity {
 
         adult.setBirthDate(birthDate.getDayOfMonth() + "-" + (birthDate.getMonth() + 1) + "-" + birthDate.getYear());
         adult.setDeathDate(deathDate.getDayOfMonth() + "-" + (deathDate.getMonth() + 1) + "-" + deathDate.getYear());
+
         adult.setAge(age.getText().toString());
+
         adult.setVillageOfDeath(translate.Letter_M2E(vodSpin));
 
         adult.setVillageOfDeathID(villageDeathId.getText().toString());
@@ -534,11 +536,12 @@ public class DeathAdultView extends AppCompatActivity {
         editor.putString("deathA",deathResult );
         editor.commit();
 
+        Log.println(Log.ASSERT,"age", String.valueOf(GetDate.getYears(adult.getAge())));
         if(GetDate.getYears(adult.getAge())>=5 && GetDate.getYears(adult.getAge())<=15){
             Intent intent = new Intent(getApplicationContext(), Cod5to15_Main.class);
             intent.putExtra("id",String.valueOf(adult.getId()));
             //Log.println(Log.ASSERT,"ID", String.valueOf(adult.getId()));
-            intent.putExtra("resident","3");
+            intent.putExtra("resident","1");
             startActivity(intent);
         }
 

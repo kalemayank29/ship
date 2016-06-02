@@ -44,9 +44,9 @@ public class TransferFragment extends Fragment {
         myView = inflater.inflate(R.layout.layout_transfer, container,false);
 
         Context context = getActivity().getApplicationContext();
-        LoginDialog loginDialog = new LoginDialog();
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
-        loginDialog.displayalert(alertDialog, context);
+       // LoginDialog loginDialog = new LoginDialog();
+        //AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        //loginDialog.displayalert(alertDialog, context);
 
 
 
@@ -62,7 +62,7 @@ public class TransferFragment extends Fragment {
                 Log.println(Log.ASSERT,"in","func");
                 deathAdultPush();
                 deathChildPush();
-                //birthPush();
+                birthPush();
             }
         });
 
@@ -95,13 +95,13 @@ public class TransferFragment extends Fragment {
 
                 JSONParser jsonParser = new JSONParser();
              try {
-                    JSONArray json = jsonParser.getJSONFromUrl("http://192.168.1.36:8888/member/all");
+                    JSONArray json = jsonParser.getJSONFromUrl("http://192.168.1.155/member/all");
                     Log.println(Log.ASSERT,"json size",json.toString());
                     MemberDataInterface memberInterface = new MemberDataInterface(getActivity().getApplicationContext());
                     FamilyHeadDataInterface headInterface = new FamilyHeadDataInterface(getActivity().getApplicationContext());
 
-                   // for (int i = 0; i < json.length(); i++) {
-                    for (int i = 0; i < 500; i++) {
+                    for (int i = 0; i < json.length(); i++) {
+                    //for (int i = 0; i < 500; i++) {
                         try {
                             JSONObject c = json.getJSONObject(i);
 

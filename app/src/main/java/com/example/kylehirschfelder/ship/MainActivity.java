@@ -133,8 +133,8 @@ public class MainActivity extends AppCompatActivity
             Log.println(Log.ASSERT,temp.getName(), String.valueOf(temp.getMemberId()));
         }*/
 
-       // Intent intent = new Intent(getApplicationContext(), SearchSEARCH.class);
-       // startActivity(intent);
+       // Intent intent = new Intent(getApplicationContext(), CodFifteenForm.class);
+        // startActivity(intent);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);

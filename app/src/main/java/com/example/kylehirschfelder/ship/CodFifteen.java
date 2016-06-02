@@ -57,6 +57,31 @@ public class CodFifteen {
     private String supervisorName;
     private String date;
 
+    public String getDeathSmokingDays() {
+        return deathSmokingDays;
+    }
+
+
+    public String getDeathAlcoholDays() {
+        return deathAlcoholDays;
+    }
+
+    public void setDeathAlcoholDays(String deathAlcoholDays) {
+        this.deathAlcoholDays = deathAlcoholDays;
+    }
+
+    private String deathAlcoholDays;
+    private String deathSmokingDays;
+    private String informantDetails;
+
+    public String getInformantDetails() {
+        return informantDetails;
+    }
+
+    public void setInformantDetails(String informantDetails) {
+        this.informantDetails = informantDetails;
+    }
+
     public CodFifteen() {
 
     }
@@ -475,5 +500,9 @@ public class CodFifteen {
 
     public void setInformantDiagnosis(String informantDiagnosis) {
         this.informantDiagnosis = informantDiagnosis;
+    }
+
+    public void setDeathSmokingDays(String deathSmokingDays) {
+        this.deathSmokingDays = deathSmokingDays;
     }
 }

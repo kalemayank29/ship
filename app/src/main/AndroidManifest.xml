@@ -254,7 +254,12 @@
         </activity>
         <activity
             android:name=".CodFifteenForm"
-            android:label="@string/title_activity_cod_fifteen_form"
+            android:label="CodFifteen"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name=".CodFifteenView"
+            android:label="CodFifteenView"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
@@ -264,27 +269,27 @@
         </activity>
         <activity
             android:name=".StillBirthForm"
-            android:label="@string/title_activity_still_birth_form"
+            android:label="Still Birth"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod5to15_Main"
-            android:label="@string/title_activity_cod5to15__main"
+            android:label="Cod5to15"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod5to15_I"
-            android:label="@string/title_activity_cod5to15__i"
+            android:label="Cod5to15_I"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".BirthSupervisor"
-            android:label="@string/title_activity_birth_supervisor"
+            android:label="BirthSupervisor"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".BirthViewForm"
-            android:label="@string/title_activity_birth_view_form"
+            android:label="BirthViewForm"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
@@ -299,7 +304,7 @@
         </activity>
         <activity
             android:name=".DeathSupervisor"
-            android:label="@string/title_activity_death_supervisor"
+            android:label="DeathSupervisor"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
@@ -334,22 +339,22 @@
         </activity>
         <activity
             android:name=".Cod1_VIII"
-            android:label="@string/title_activity_cod1__vii"
+            android:label="Cod1_VII"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod1_IX"
-            android:label="@string/title_activity_cod1__ix"
+            android:label="Cod1_IX"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod1_X"
-            android:label="@string/title_activity_cod1__x"
+            android:label="Cod1_X"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".Cod1_V"
-            android:label="@string/title_activity_cod1__v" >
+            android:label="Cod1_V" >
         </activity>
     </application>
 

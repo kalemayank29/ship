@@ -28,7 +28,7 @@ public class CodFiveToFifteenDB {
         public static final String ANSWERER_AGE = "answerer_age" ; // EditText
         public static final String ANSWERER_GENDER = "answerer_gender" ; // DatePicker
         public static final String DEATH_AGE = "death_age" ; // EditText////
-        public static final String DEATH_GENDER = "death_age" ; // EditText////
+        public static final String DEATH_GENDER = "death_gender" ; // EditText////
         public static final String DEATH_FAMILY_HEAD_RELATION = "death_family_head_relation" ; // RadioButton
         public static final String DEATH_ADDRESS = "death_address" ; // RadioButton
         public static final String DEATH_DATE = "death_date" ; // RadioButton

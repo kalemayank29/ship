@@ -199,7 +199,7 @@ public class Cod5to15_Main extends AppCompatActivity {
                 if(Integer.parseInt(CodFiveToFifteen.getInstance().getAnswererVicinity()) == -1)                        flag = 1;
                 if(CodFiveToFifteen.getInstance().getAnswererAge() == "-1")                        flag = 1;
                 if(Integer.parseInt(CodFiveToFifteen.getInstance().getAnswererGender()) == -1)                        flag = 1;
-                if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathAge()) == -1)                        flag = 1;
+               // if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathAge()) == -1)                        flag = 1;
                 if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathGender()) == -1)                        flag = 1;
                 if(Integer.parseInt(CodFiveToFifteen.getInstance().getDeathFamilyHeadRelation()) == -1)                        flag = 1;
                 if(CodFiveToFifteen.getInstance().getDeathAddress() == "-1")                        flag = 1;

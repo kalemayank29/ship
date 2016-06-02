@@ -37,11 +37,11 @@ public class PNMDialog extends DialogFragment {
                                 startActivity(intent);
                                 break;
                             case 2:
-                                intent = new Intent(getActivity().getApplicationContext(), PNMForm_ask.class);
+                               /* intent = new Intent(getActivity().getApplicationContext(), PNMForm_ask.class);
                                 intent.putExtra("form","5");
                                 intent.putExtra("resident","3");
                                 intent.putExtra("index", "-1");
-                                startActivity(intent);
+                                startActivity(intent);*/
                                 break;
 
                         }

@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/caste_tv"
                     android:textSize="25dp"
-                    android:text="जात"
+                    android:text="Caste"
                     />
                 <EditText
                     android:id="@+id/caste_et"
@@ -98,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/religion_tv"
                     android:textSize="25dp"
-                    android:text="धर्म"
+                    android:text="Religion"
                     />
                 <Spinner
                     android:layout_marginTop="65dp"
@@ -121,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/fhb_tv"
                 android:textSize="35dp"
-                android:text="कुटुंब प्रमुखाचा व्यवसाय"
+                android:text="Primary Business"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -136,7 +136,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/fhb1_tv"
                     android:textSize="25dp"
-                    android:text="अ)  मुख्य व्यवहार"
+                    android:text="A)  Primary"
                     />
                 <EditText
                     android:id="@+id/fhb1_et"
@@ -162,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/fhb2_tv"
                     android:textSize="25dp"
-                    android:text="ब)  जोड धंदे"
+                    android:text="B) Secondary"
                     />
                 <EditText
                     android:id="@+id/fhb2_et"
@@ -208,7 +208,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/sac_tv"
                 android:textSize="35dp"
-                android:text="शेती असल्यास किती"
+                android:text="Farm land"
                 />
 
 
@@ -226,7 +226,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/mdryland_tv"
                     android:textSize="25dp"
-                    android:text="अ)  कोरडवाहू"
+                    android:text="A)  Dry Land"
                     />
                 <EditText
                     android:layout_width="70dp"
@@ -246,7 +246,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="25dp"
                     android:layout_height="wrap_content"
-                    android:text="एकर"
+                    android:text="Acres"
                     android:textSize="25dp"
                     android:textColor="#ffffdd"
                     android:maxLines="1" />
@@ -263,7 +263,7 @@
                     android:layout_marginLeft="105dp"
                     android:layout_marginRight="25dp"
                     android:layout_height="wrap_content"
-                    android:text="ब)  ओलीत"
+                    android:text="B)  Wet Land"
                     android:textSize="25dp"
                     android:textColor="#ffffdd"
                     android:maxLines="1" />
@@ -284,7 +284,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="25dp"
                     android:layout_height="wrap_content"
-                    android:text="एकर"
+                    android:text="Acres"
                     android:textSize="25dp"
                     android:textColor="#ffffdd"
                     android:maxLines="1" />
@@ -299,7 +299,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/hr_tv"
                 android:textSize="40dp"
-                android:text="घरासंबंधी"/>
+                android:text="House"/>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -318,7 +318,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/walls_tv"
                         android:textSize="30dp"
-                        android:text="भिंती कशा -"/>
+                        android:text="Walls -"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -328,7 +328,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="सिमेंटच्या"
+                            android:text="Cement"
                             android:textColor="#ffffdd"
                             android:textSize="20dp"
                             android:id="@+id/cement"
@@ -338,7 +338,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="विटांच्या"
+                            android:text="Bricks"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/brick"
@@ -348,7 +348,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="मातीच्या"
+                            android:text="Mud"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/mud"
@@ -359,7 +359,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="कुडाच्या"
+                            android:text="Junk"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/kud"
@@ -369,7 +369,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="इतर"
+                            android:text="Other"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/otherwall"
@@ -393,7 +393,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/roof_tv"
                         android:textSize="30dp"
-                        android:text="छप्पर कसे आहेत -"/>
+                        android:text="Roof -"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -403,7 +403,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="सिमेंट स्लॅब"
+                            android:text="Cement"
                             android:textColor="#ffffdd"
                             android:textSize="20dp"
                             android:id="@+id/cementslab"
@@ -413,7 +413,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="मंगलोरी कवेलू"
+                            android:text="New Tiles"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/mangalore"
@@ -423,7 +423,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="साधे कवेलू"
+                            android:text="Tiles"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/normal"
@@ -434,7 +434,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="टीन किंवा एॅस्बेस्टोस शीट"
+                            android:text="Tin"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/tin"
@@ -444,7 +444,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="तट्टा/ ताट्ट्या/गवत/पाने"
+                            android:text="Leaves"
                             android:textSize="20dp"
                             android:textColor="#ffffee"
                             android:id="@+id/grass"
@@ -454,7 +454,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="इतर"
+                            android:text="Other"
                             android:textSize="20dp"
                             android:textColor="#ffffee"
                             android:id="@+id/otherroof"
@@ -478,7 +478,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/yesno_tv"
                         android:textSize="30dp"
-                        android:text="वीज आहे का?"/>
+                        android:text="Electricity"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -488,7 +488,7 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="हो "
+                            android:text="Yes"
                             android:textColor="#ffffdd"
                             android:textSize="20dp"
                             android:id="@+id/yes"
@@ -499,7 +499,7 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="नाही "
+                            android:text="No "
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/no"
@@ -518,7 +518,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/home_tv"
                         android:textSize="30dp"
-                        android:text="राहते घरी कोणाचे आहे?"/>
+                        android:text="Who owns the house?"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -528,7 +528,7 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="स्वतःचे"
+                            android:text="Self"
                             android:textColor="#ffffdd"
                             android:textSize="20dp"
                             android:id="@+id/owner"
@@ -539,7 +539,7 @@
                         <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="किरायाचे"
+                            android:text="Rented"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/renter"
@@ -575,7 +575,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/washroom_tv"
                             android:textSize="25dp"
-                            android:text="घरात संडास आहे का?"/>
+                            android:text="Does this house have a toilet?"/>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -585,7 +585,7 @@
                             <RadioButton
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="हो"
+                                android:text="Yes"
                                 android:textColor="#ffffdd"
                                 android:textSize="20dp"
                                 android:id="@+id/yes_w"
@@ -596,7 +596,7 @@
                             <RadioButton
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="नाही"
+                                android:text="No"
                                 android:textSize="20dp"
                                 android:textColor="#ffffdd"
                                 android:id="@+id/no_w"
@@ -621,7 +621,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/washroom2_tv"
                             android:textSize="25dp"
-                            android:text="'हो' असल्यास - नेहमी घरातील सर्व मंडळी वापरतात का?"/>
+                            android:text="If yes, does everyone use it?"/>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -631,7 +631,7 @@
                             <RadioButton
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="हो"
+                                android:text="Yes"
                                 android:textColor="#ffffdd"
                                 android:textSize="20dp"
                                 android:id="@+id/yes2_w"
@@ -642,7 +642,7 @@
                             <RadioButton
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="नाही"
+                                android:text="No"
                                 android:textSize="20dp"
                                 android:textColor="#ffffdd"
                                 android:id="@+id/no2_w"
@@ -678,7 +678,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/cooking_tv"
                             android:textSize="25dp"
-                            android:text="स्वयंपाक कशावर करतात?"/>
+                            android:text="How do you cook?"/>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -688,7 +688,7 @@
                             <CheckBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="लाईट शेगडी"
+                                android:text="Stove"
                                 android:textColor="#ffffdd"
                                 android:textSize="20dp"
                                 android:id="@+id/stove"
@@ -698,7 +698,7 @@
                             <CheckBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="गॅस"
+                                android:text="Gas"
                                 android:textSize="20dp"
                                 android:textColor="#ffffdd"
                                 android:id="@+id/gas"
@@ -708,7 +708,7 @@
                             <CheckBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="रॉकेल - कोळसा"
+                                android:text="Kerosene"
                                 android:textSize="20dp"
                                 android:textColor="#ffffdd"
                                 android:id="@+id/rockel"
@@ -719,7 +719,7 @@
                             <CheckBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="लाकूड - चूल"
+                                android:text="Wood Fire"
                                 android:textSize="20dp"
                                 android:textColor="#ffffdd"
                                 android:id="@+id/wood"
@@ -729,7 +729,7 @@
                             <CheckBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="अन्य"
+                                android:text="Other"
                                 android:textSize="20dp"
                                 android:textColor="#ffffdd"
                                 android:id="@+id/othercook"
@@ -753,14 +753,14 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/cookingroom_tv"
                             android:textSize="25dp"
-                            android:text="स्वयंपाकासाठी वेगळी रूम आहे का? "/>
+                            android:text="Seperate room for kitchen? "/>
 
                         <RadioButton
                             android:layout_marginLeft="65dp"
                             android:layout_marginTop="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="हो "
+                            android:text="Yes"
                             android:textColor="#ffffdd"
                             android:textSize="20dp"
                             android:id="@+id/yes_r"
@@ -773,7 +773,7 @@
                             android:layout_marginLeft="65dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="नाही "
+                            android:text="No"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/no_r"
@@ -808,7 +808,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/water_tv"
                         android:textSize="25dp"
-                        android:text="पिण्याचं  पाणी कुठून आणता?"/>
+                        android:text="Source of drinking water?"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -818,7 +818,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="विहीर"
+                            android:text="Well"
                             android:textColor="#ffffdd"
                             android:textSize="20dp"
                             android:id="@+id/well"
@@ -828,7 +828,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="हंड्पंप"
+                            android:text="Handpump"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/hpump"
@@ -837,7 +837,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="नळ"
+                            android:text="Tap"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/tap"
@@ -848,7 +848,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="तलाव"
+                            android:text="Lake"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/lake"
@@ -858,7 +858,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="नदी"
+                            android:text="River"
                             android:textSize="20dp"
                             android:textColor="#ffffee"
                             android:id="@+id/river"
@@ -868,7 +868,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="नाला"
+                            android:text="Canal"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/naala"
@@ -878,7 +878,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="इतर"
+                            android:text="Other"
                             android:textSize="20dp"
                             android:textColor="#ffffee"
                             android:id="@+id/otherwise"
@@ -911,7 +911,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/kaayahe_tv"
                                 android:textSize="25dp"
-                                android:text="घरात या पैकी काय आहे?"/>
+                                android:text="Animals owned?"/>
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -921,7 +921,7 @@
                                 <CheckBox
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="गाय"
+                                    android:text="Cow"
                                     android:textColor="#ffffdd"
                                     android:textSize="20dp"
                                     android:id="@+id/cow"
@@ -931,7 +931,7 @@
                                 <CheckBox
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="बैल"
+                                    android:text="Ox"
                                     android:textSize="20dp"
                                     android:textColor="#ffffdd"
                                     android:id="@+id/bull"
@@ -941,7 +941,7 @@
                                 <CheckBox
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="म्हैस"
+                                    android:text="Bull"
                                     android:textSize="20dp"
                                     android:textColor="#ffffdd"
                                     android:id="@+id/mhais"
@@ -951,7 +951,7 @@
                                 <CheckBox
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="बकरी-मेंढ्या"
+                                    android:text="Goat/Lamb"
                                     android:textSize="20dp"
                                     android:textColor="#ffffdd"
                                     android:id="@+id/bakri"
@@ -961,7 +961,7 @@
                                 <CheckBox
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="कबुतर, कोंबडी, बदक "
+                                    android:text="Chicken/Duck"
                                     android:textSize="20dp"
                                     android:textColor="#ffffee"
                                     android:id="@+id/kkb"
@@ -971,7 +971,7 @@
                                 <CheckBox
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="घोडा"
+                                    android:text="Horse"
                                     android:textSize="20dp"
                                     android:textColor="#ffffdd"
                                     android:id="@+id/horse"
@@ -981,7 +981,7 @@
                                 <CheckBox
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="डुक्कर "
+                                    android:text="Pig "
                                     android:textSize="20dp"
                                     android:textColor="#ffffee"
                                     android:id="@+id/pig"
@@ -991,7 +991,7 @@
                                 <CheckBox
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="या पैकी काही नाही "
+                                    android:text="None of these "
                                     android:textSize="20dp"
                                     android:textColor="#ffffee"
                                     android:id="@+id/nota3"
@@ -1018,7 +1018,7 @@
                     android:id="@+id/vastu_tv"
                     android:textSize="35dp"
                     android:layout_marginBottom="30dp"
-                    android:text="घरात खालील कोणत्या वस्तू आहेत ?"/>
+                    android:text="Objects in the house"/>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height = "wrap_content"
@@ -1032,7 +1032,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="चार चाकी गाडी "
+                            android:text="Four-wheeler"
                             android:textColor="#ffffdd"
                             android:textSize="20dp"
                             android:id="@+id/fourwheel"
@@ -1042,7 +1042,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="दोन चाकी स्वयं चालीत वाहन "
+                            android:text="Motorcycle"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/twowheel"
@@ -1052,7 +1052,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="टेलिव्हीजन कलर"
+                            android:text="Color TV"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/tvcolor"
@@ -1063,7 +1063,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="टेलिव्हिजन ब्लॅक एँड व्हाइट"
+                            android:text="B and W TV"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/tvbw"
@@ -1073,7 +1073,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="सायकल "
+                            android:text="Cycle"
                             android:textSize="20dp"
                             android:textColor="#ffffee"
                             android:id="@+id/cycle"
@@ -1083,7 +1083,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="भिंतीवरील घड्याळ"
+                            android:text="Wall Clock"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/wallclock"
@@ -1093,7 +1093,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="हातावरील घड्याळ"
+                            android:text="Watch"
                             android:textSize="20dp"
                             android:textColor="#ffffee"
                             android:id="@+id/wristwatch"
@@ -1103,7 +1103,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="रेडिओ टेप रेकॉर्डर  "
+                            android:text="Radio "
                             android:textSize="20dp"
                             android:textColor="#ffffee"
                             android:id="@+id/radiotape"
@@ -1119,7 +1119,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="न्यूजपेपर "
+                            android:text="Newspaper"
                             android:textColor="#ffffdd"
                             android:textSize="20dp"
                             android:id="@+id/newspaper"
@@ -1129,7 +1129,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="फोन "
+                            android:text="Phone"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/phone"
@@ -1139,7 +1139,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="मोबाईल"
+                            android:text="Mobile"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/mobile"
@@ -1150,7 +1150,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="फ्रीज"
+                            android:text="Fridge"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/freeze"
@@ -1160,7 +1160,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="फॅन - कूलर"
+                            android:text="Fan"
                             android:textSize="20dp"
                             android:textColor="#ffffee"
                             android:id="@+id/fancooler"
@@ -1170,7 +1170,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="बैलबंडी"
+                            android:text="Bull-cart"
                             android:textSize="20dp"
                             android:textColor="#ffffdd"
                             android:id="@+id/bailbandi"
@@ -1180,7 +1180,7 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=" यापैकी काही नाही "
+                            android:text="None of these"
                             android:textSize="20dp"
                             android:textColor="#ffffee"
                             android:id="@+id/nota2"
@@ -1246,7 +1246,6 @@
                     android:layout_marginTop="70dp"
                     android:layout_marginLeft="850dp"
                     android:text="Save"
-                    android:background="@drawable/save_button_pressed"
                     android:textColor="#000000"
                     android:textSize="35dp"
                     android:id="@+id/save"

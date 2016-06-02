@@ -485,7 +485,23 @@ public class BirthInfoForm extends ActionBarActivity {
        //     birth.setFamilyID("1");
          //   birth.setHouseID("1");
            // birth.setChildID("1");
-            birth.setBirthDate(birthDate.getDayOfMonth() + "-" + (birthDate.getMonth() + 1) + "-" + birthDate.getYear());
+            String editDay,editMonth;
+            if(birthDate.getDayOfMonth()<10){
+                editDay = "0"+ birthDate.getDayOfMonth();
+            }
+            else
+                editDay = ""+birthDate.getDayOfMonth();
+
+            if(birthDate.getMonth()<10){
+                editMonth = "0"+ (birthDate.getMonth()+1);
+            }
+            else
+                editMonth = ""+ (birthDate.getMonth() + 1);
+
+
+
+            birth.setBirthDate(editDay + "-" + editMonth  + "-" + birthDate.getYear());
+            Log.println(Log.ASSERT,"birthdate",birth.getBirthDate());
             birth.setVillageOfBirth(TR.Letter_M2E(vobSpin));
             birth.setVillageOfBirthID(villageOfBirthId.getText().toString());
             if(midwifeFlag == 1)

@@ -282,7 +282,7 @@
                             android:text=""
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -293,7 +293,7 @@
                             android:text="भाऊ / बहिण"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -304,7 +304,7 @@
                             android:text=""
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
                         <RadioButton
                             android:layout_width="wrap_content"
@@ -314,7 +314,7 @@
                             android:text="आई / वडील"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -325,7 +325,7 @@
                             android:text=""
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -336,7 +336,7 @@
                             android:text=""
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
                     </RadioGroup>
                 </LinearLayout>
@@ -356,7 +356,7 @@
                             android:text=""
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -367,7 +367,7 @@
                             android:text=""
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -378,7 +378,7 @@
                             android:text="आजोबा / आजी"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
                         <RadioButton
                             android:layout_width="wrap_content"
@@ -387,7 +387,7 @@
                             android:layout_marginLeft="20dp"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -398,7 +398,7 @@
                             android:text="शेजारी / संबंध नाही"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -409,7 +409,7 @@
                             android:text="माहित नाही"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
                     </RadioGroup>
                 </LinearLayout>
@@ -449,7 +449,7 @@
                         android:text="होय"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"
-                        android:onClick="radioClick"
+                        
                         android:textSize="20dp"/>
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -459,7 +459,7 @@
                         android:text="नाही"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"
-                        android:onClick="radioClick"
+                        
                         android:textSize="20dp"/>
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -469,7 +469,7 @@
                         android:text="माहित नाही"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"
-                        android:onClick="radioClick"
+                        
                         android:textSize="20dp"/>
                 </RadioGroup>
             </LinearLayout>
@@ -532,7 +532,7 @@
                         android:id="@+id/Male"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"
-                        android:onClick="radioClick"
+                        
                         android:textSize="20dp"/>
 
                     <RadioButton
@@ -544,7 +544,7 @@
                         android:id="@+id/Female"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"
-                        android:onClick="radioClick"
+                        
                         android:textSize="20dp"/>
                 </RadioGroup>
             </LinearLayout>
@@ -621,7 +621,7 @@
                         android:id="@+id/ansMale"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"
-                        android:onClick="radioClick"
+                        
                         android:textSize="20dp"/>
 
                     <RadioButton
@@ -633,7 +633,7 @@
                         android:id="@+id/ansFemale"
                         android:buttonTint="#ffffdd"
                         android:textColor="#ffffdd"
-                        android:onClick="radioClick"
+                        
                         android:textSize="20dp"/>
                 </RadioGroup>
 
@@ -672,7 +672,7 @@
                             android:text=""
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -683,7 +683,7 @@
                             android:text="भाऊ / बहिण"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -694,7 +694,7 @@
                             android:text="मुलगा / मुलगी"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
                         <RadioButton
                             android:layout_width="wrap_content"
@@ -704,7 +704,7 @@
                             android:text=""
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -715,7 +715,7 @@
                             android:text="नातू / नातीन "
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -726,7 +726,7 @@
                             android:text=""
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
                     </RadioGroup>
                 </LinearLayout>
@@ -747,7 +747,7 @@
                             android:id="@+id/deathRelation7"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -759,7 +759,7 @@
                             android:id="@+id/deathRelation8"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -771,7 +771,7 @@
                             android:id="@+id/deathRelation9"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
                         <RadioButton
                             android:layout_width="wrap_content"
@@ -782,7 +782,7 @@
                             android:id="@+id/deathRelation10"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -794,7 +794,7 @@
                             android:id="@+id/deathRelation11"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -806,7 +806,7 @@
                             android:id="@+id/deathRelation12"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
                     </RadioGroup>
                 </LinearLayout>
@@ -891,7 +891,7 @@
                             android:id="@+id/home"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -903,7 +903,7 @@
                             android:id="@+id/healthOrganization"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
                     </RadioGroup>
                 </LinearLayout>
@@ -924,7 +924,7 @@
                             android:id="@+id/otherPlace"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
 
                         <RadioButton
@@ -936,7 +936,7 @@
                             android:id="@+id/dontKnow"
                             android:buttonTint="#ffffdd"
                             android:textColor="#ffffdd"
-                            android:onClick="radioClick"
+                            
                             android:textSize="20dp"/>
                     </RadioGroup>
                 </LinearLayout>

@@ -55,12 +55,12 @@ public class GetDate {
     }
     public static int getYears(String date) {
         String array[] = date.split("-");
-        return Integer.parseInt(array[2]);
+        return Integer.parseInt(array[0]);
     }
     public static int getDays(String date) {
         String array[] = date.split("-");
         Log.println(Log.ASSERT, "", array[0] + "/" + array[1] + "/" + array[2]);
-        return Integer.parseInt(array[0]);
+        return Integer.parseInt(array[2]);
     }
 
     public static String getDate() {
